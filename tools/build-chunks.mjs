@@ -24,7 +24,7 @@ function queryStoresPaged(dbName, stores) {
     const cursor = lastKey.replace(/'/g, "''");
     const rows = runWranglerJson(
       dbName,
-      `SELECT * FROM stores WHERE placeKey > '${cursor}' AND lower(status) NOT IN ('removed','deleted') ORDER BY placeKey LIMIT ${QUERY_PAGE};`
+      `SELECT placeKey, name, lat, lng, googleMapsUrl, categoryIds, payments, iconId, notes, cashAccepted, cardNetworks, status, reportSource, reportedAt, schemaVersion, reporterHash, source_slug FROM stores WHERE placeKey > '${cursor}' AND lower(status) NOT IN ('removed','deleted') ORDER BY placeKey LIMIT ${QUERY_PAGE};`
     );
     if (!rows.length) break;
     for (const row of rows) {

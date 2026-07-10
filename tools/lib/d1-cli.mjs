@@ -34,6 +34,7 @@ function runWrangler(args) {
     encoding: 'utf8',
     shell: true,
     windowsHide: true,
+    maxBuffer: 64 * 1024 * 1024,
     env: process.env
   });
   if (res.status !== 0) {
@@ -86,6 +87,7 @@ export function runWranglerD1Query(dbName, sql, remote = true) {
     encoding: 'utf8',
     shell: true,
     windowsHide: true,
+    maxBuffer: 64 * 1024 * 1024,
     env: process.env
   });
   const rows = parseWranglerD1Results(res.stdout) ?? parseWranglerD1Results(res.stderr);
