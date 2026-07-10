@@ -1,0 +1,64 @@
+name: Publish static bundle
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+  repository_dispatch:
+    types: [static-publish]
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: tools
+
+      - name: Write wrangler config from secrets
+        run: node scripts/gen-wrangler-config.mjs
+        env:
+          D1_META_NAME: ${{ secrets.D1_META_NAME }}
+          D1_META_ID: ${{ secrets.D1_META_ID }}
+          D1_STORES_0_NAME: ${{ secrets.D1_STORES_0_NAME }}
+          D1_STORES_0_ID: ${{ secrets.D1_STORES_0_ID }}
+          D1_STORES_1_NAME: ${{ secrets.D1_STORES_1_NAME }}
+          D1_STORES_1_ID: ${{ secrets.D1_STORES_1_ID }}
+          D1_STORES_2_NAME: ${{ secrets.D1_STORES_2_NAME }}
+          D1_STORES_2_ID: ${{ secrets.D1_STORES_2_ID }}
+
+      - name: Prepare output directory
+        run: |
+          mkdir -p site/dist
+          cp site/_headers site/dist/
+
+      - name: Build encrypted chunks from D1
+        run: node build-chunks.mjs
+        working-directory: tools
+        env:
+          CHUNK_XOR_SEED: ${{ secrets.CHUNK_XOR_SEED }}
+          CHUNK_PATH_OBFUSCATE: '1'
+          EXPORT_QUERY_PAGE: '800'
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_META_DB: ${{ secrets.D1_META_NAME }}
+          D1_STORES_PREFIX: ${{ secrets.D1_STORES_PREFIX }}
+          WRANGLER_CWD: ${{ github.workspace }}/wrangler
+          OUTPUT_DIR: ${{ github.workspace }}/site/dist
+
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler pages deploy site/dist --project-name=${{ secrets.PAGES_PROJECT_NAME }} --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

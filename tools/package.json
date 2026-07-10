@@ -1,0 +1,11 @@
+{
+  "name": "edge-static-sync-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build-chunks.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^3.99.0"
+  }
+}
