@@ -1,0 +1,12 @@
+name = "edge-static-sync-cli"
+compatibility_date = "2024-09-23"
+
+[[d1_databases]]
+binding = "META"
+database_name = "paymentmaptw-meta"
+database_id = "c3b59c89-4011-4a4f-b0f4-6a4fb68291cd"
+
+[[d1_databases]]
+binding = "STORES_0"
+database_name = "paymentmaptw-stores-0"
+database_id = "7d9edf3d-1313-4b40-b8c5-48f47a7cb2fd"

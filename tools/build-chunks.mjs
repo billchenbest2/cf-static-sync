@@ -17,11 +17,14 @@ function runWranglerJson(dbName, sql) {
 }
 
 function queryStoresPaged(dbName, stores) {
-  let offset = 0;
+  // Keyset pagination on the placeKey primary key. Avoids OFFSET, which forces
+  // SQLite to re-scan all skipped rows every page (O(n^2) rows_read on D1).
+  let lastKey = '';
   while (true) {
+    const cursor = lastKey.replace(/'/g, "''");
     const rows = runWranglerJson(
       dbName,
-      `SELECT * FROM stores WHERE lower(status) NOT IN ('removed','deleted') ORDER BY placeKey LIMIT ${QUERY_PAGE} OFFSET ${offset};`
+      `SELECT * FROM stores WHERE placeKey > '${cursor}' AND lower(status) NOT IN ('removed','deleted') ORDER BY placeKey LIMIT ${QUERY_PAGE};`
     );
     if (!rows.length) break;
     for (const row of rows) {
@@ -29,9 +32,9 @@ function queryStoresPaged(dbName, stores) {
       if (!shouldExportStore(s)) continue;
       stores.push({ ...s, source_slug: row.source_slug || 'ugc' });
     }
+    lastKey = rows[rows.length - 1].placeKey;
     process.stdout.write(`  ${dbName}: ${stores.length} loaded\r`);
     if (rows.length < QUERY_PAGE) break;
-    offset += QUERY_PAGE;
   }
 }
 
