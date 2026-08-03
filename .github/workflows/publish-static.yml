@@ -57,6 +57,16 @@ jobs:
           WRANGLER_CWD: ${{ github.workspace }}/wrangler
           OUTPUT_DIR: ${{ github.workspace }}/site/dist
 
+      - name: Build gas community prices from D1
+        run: node build-gas-community-prices.mjs
+        working-directory: tools
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_META_DB: ${{ secrets.D1_META_NAME }}
+          WRANGLER_CWD: ${{ github.workspace }}/wrangler
+          OUTPUT_DIR: ${{ github.workspace }}/site/dist
+
       - name: Deploy to Cloudflare Pages
         run: npx wrangler pages deploy site/dist --project-name=${{ secrets.PAGES_PROJECT_NAME }} --branch=main
         env:
