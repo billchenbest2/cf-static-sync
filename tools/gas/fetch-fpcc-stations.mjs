@@ -10,6 +10,7 @@ import { resolveBrandId } from './brands.mjs';
 import { normalizeAddressKey } from './geocode-address.mjs';
 import { parseFpccServices, parseFpccHours } from './services.mjs';
 import { mergeExternalStations } from './station-merge.mjs';
+import { closeFpccBrowser, fetchHtmlWithPlaywright } from './fetch-fpcc-playwright.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const RAW_DIR = path.join(__dirname, '../../data/gas/raw');
@@ -52,6 +53,11 @@ function readFpccCache(city) {
   const html = fs.readFileSync(cachePath, 'utf8');
   if (isFpccBlockedHtml(html)) return null;
   return html;
+}
+
+async function fetchFpccCityHtmlPlaywright(city) {
+  const url = `${BASE}/${encodeURIComponent(city)}/0/0/0`;
+  return fetchHtmlWithPlaywright(url);
 }
 
 async function fetchFpccCityHtml(city) {
@@ -145,56 +151,76 @@ export async function fetchAllFpccStations() {
   const all = [];
   fs.mkdirSync(RAW_DIR, { recursive: true });
   let liveOk = 0;
+  let playwrightOk = 0;
   let cacheOk = 0;
   let failed = 0;
+  const usePlaywright = process.env.FPCC_SKIP_PLAYWRIGHT !== '1';
 
-  for (const city of FPCC_CITIES) {
-    const cachePath = fpccCachePath(city);
-    let html = '';
-    let via = 'live';
+  try {
+    for (const city of FPCC_CITIES) {
+      const cachePath = fpccCachePath(city);
+      let html = '';
+      let via = 'live';
 
-    try {
-      html = await fetchFpccCityHtml(city);
-      if (isFpccBlockedHtml(html)) {
+      try {
+        html = await fetchFpccCityHtml(city);
+        if (isFpccBlockedHtml(html)) {
+          html = '';
+        } else {
+          fs.writeFileSync(cachePath, html, 'utf8');
+          liveOk++;
+        }
+      } catch (e) {
+        console.warn(`FPCC ${city}: plain fetch failed (${e.message})`);
+        html = '';
+      }
+
+      if (!html && usePlaywright) {
+        try {
+          const pwHtml = await fetchFpccCityHtmlPlaywright(city);
+          if (!isFpccBlockedHtml(pwHtml)) {
+            html = pwHtml;
+            via = 'playwright';
+            fs.writeFileSync(cachePath, html, 'utf8');
+            playwrightOk++;
+          } else {
+            console.warn(`FPCC ${city}: playwright blocked`);
+          }
+        } catch (e) {
+          console.warn(`FPCC ${city}: playwright failed (${e.message})`);
+        }
+      }
+
+      if (!html) {
         const cached = readFpccCache(city);
         if (cached) {
           html = cached;
           via = 'cache';
           cacheOk++;
         } else {
-          console.warn(`FPCC ${city}: live blocked, no valid cache`);
+          console.warn(`FPCC ${city}: no live/playwright/cache source`);
           failed++;
           await sleep(350);
           continue;
         }
-      } else {
-        fs.writeFileSync(cachePath, html, 'utf8');
-        liveOk++;
       }
-    } catch (e) {
-      const cached = readFpccCache(city);
-      if (cached) {
-        html = cached;
-        via = 'cache';
-        cacheOk++;
-        console.warn(`FPCC ${city}: fetch failed (${e.message}), using cache`);
-      } else {
-        console.warn(`FPCC ${city}: fetch failed (${e.message}), no cache`);
-        failed++;
-        await sleep(350);
-        continue;
-      }
-    }
 
-    const rows = parseFpccCityPage(html);
-    console.log('FPCC', city, rows.length, via === 'cache' ? '(cache)' : '');
-    all.push(...rows);
-    await sleep(350);
+      const rows = parseFpccCityPage(html);
+      const tag =
+        via === 'cache' ? '(cache)' : via === 'playwright' ? '(playwright)' : '';
+      console.log('FPCC', city, rows.length, tag);
+      all.push(...rows);
+      await sleep(via === 'playwright' ? 600 : 350);
+    }
+  } finally {
+    await closeFpccBrowser();
   }
 
-  console.log(`FPCC summary: live=${liveOk} cache=${cacheOk} failed=${failed} total=${all.length}`);
+  console.log(
+    `FPCC summary: live=${liveOk} playwright=${playwrightOk} cache=${cacheOk} failed=${failed} total=${all.length}`
+  );
   if (all.length === 0) {
-    throw new Error('FPCC ingest produced 0 stations (live blocked and no cache)');
+    throw new Error('FPCC ingest produced 0 stations (live/playwright blocked and no cache)');
   }
   return all;
 }

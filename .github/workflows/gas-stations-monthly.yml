@@ -34,11 +34,15 @@ jobs:
           mkdir -p paymentmaptw-app/data/gas/raw
           cp -f fpcc-cache/fpcc-*.html paymentmaptw-app/data/gas/raw/
           cp -f tools/gas/fetch-fpcc-stations.mjs paymentmaptw-app/tools/gas/fetch-fpcc-stations.mjs
+          cp -f tools/gas/fetch-fpcc-playwright.mjs paymentmaptw-app/tools/gas/fetch-fpcc-playwright.mjs
           cp -f tools/gas/fetch-stations.mjs paymentmaptw-app/tools/gas/fetch-stations.mjs
 
-      - name: Install ingest dependencies (xlsx)
-        run: npm ci
+      - name: Install ingest dependencies (xlsx + Playwright)
         working-directory: paymentmaptw-app/tools
+        run: |
+          npm ci
+          npm install playwright --no-save
+          npx playwright install chromium --with-deps
 
       - name: Fetch CPC + FPCC + Smile stations
         run: node tools/gas/fetch-stations.mjs
