@@ -13,6 +13,9 @@ jobs:
   ingest-stations:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout cf-static-sync (FPCC cache + fetch patches)
+        uses: actions/checkout@v4
+
       - name: Checkout PaymentMapTW app repo (private)
         uses: actions/checkout@v4
         with:
@@ -26,6 +29,13 @@ jobs:
           cache: npm
           cache-dependency-path: paymentmaptw-app/tools/package-lock.json
 
+      - name: Seed FPCC HTML cache and apply fetch patches
+        run: |
+          mkdir -p paymentmaptw-app/data/gas/raw
+          cp -f fpcc-cache/fpcc-*.html paymentmaptw-app/data/gas/raw/
+          cp -f tools/gas/fetch-fpcc-stations.mjs paymentmaptw-app/tools/gas/fetch-fpcc-stations.mjs
+          cp -f tools/gas/fetch-stations.mjs paymentmaptw-app/tools/gas/fetch-stations.mjs
+
       - name: Install ingest dependencies (xlsx)
         run: npm ci
         working-directory: paymentmaptw-app/tools
@@ -33,6 +43,17 @@ jobs:
       - name: Fetch CPC + FPCC + Smile stations
         run: node tools/gas/fetch-stations.mjs
         working-directory: paymentmaptw-app
+
+      - name: Verify station count (prevent FPCC regression)
+        working-directory: paymentmaptw-app
+        run: |
+          COUNT=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/gas/stations.json','utf8'));process.stdout.write(String(d.count))")
+          FPCC=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/gas/stations.json','utf8'));process.stdout.write(String(d.stations.filter(s=>s.source==='fpcc_official').length))")
+          echo "stations=$COUNT fpcc=$FPCC"
+          if [ "$COUNT" -lt 2500 ] || [ "$FPCC" -lt 400 ]; then
+            echo "::error::Station ingest regression: count=$COUNT fpcc=$FPCC"
+            exit 1
+          fi
 
       - name: Commit station data to app repo
         id: commit

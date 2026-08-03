@@ -51,6 +51,8 @@ Optional extra shards: `D1_STORES_1_NAME`, `D1_STORES_1_ID`, … up to `D1_STORE
 - `data/gas/raw/fpcc-*.html`
 - `data/gas/raw/smile-stations.xlsx`
 
+FPCC HTML snapshots are also kept in this repo under `fpcc-cache/` as a fallback when FPCC blocks GitHub Actions datacenter IPs. The workflow seeds that cache before ingest and applies patched fetch scripts from `tools/gas/`.
+
 **Weekly** (`gas-prices-weekly.yml`) commits:
 
 - `data/gas/official-prices.json`
