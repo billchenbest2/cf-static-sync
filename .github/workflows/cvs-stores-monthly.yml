@@ -1,0 +1,88 @@
+name: CVS stores ingest (monthly)
+
+on:
+  schedule:
+    # 2nd of month 03:00 UTC (~11:00 Taipei), after gas ingest
+    - cron: '0 3 2 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ingest-cvs-stores:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout cf-static-sync (fetch patches)
+        uses: actions/checkout@v4
+
+      - name: Checkout PaymentMapTW app repo (private)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.PAYMENTMAPTW_APP_REPO }}
+          token: ${{ secrets.PAYMENTMAPTW_APP_TOKEN }}
+          path: paymentmaptw-app
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Apply fetch patches
+        run: |
+          mkdir -p paymentmaptw-app/tools/cvs
+          cp -f tools/cvs/*.mjs paymentmaptw-app/tools/cvs/
+
+      - name: Fetch 7-11 + FamilyMart + Hi-Life stores
+        working-directory: paymentmaptw-app
+        env:
+          CVS_HILIFE_SKIP_WEBAPI: '1'
+        run: |
+          node tools/cvs/fetch-stores.mjs || \
+          (CVS_711_CACHE_ONLY=1 CVS_FAMILY_CACHE_ONLY=1 CVS_HILIFE_CACHE_ONLY=1 node tools/cvs/fetch-stores.mjs)
+
+      - name: Verify store count
+        working-directory: paymentmaptw-app
+        run: |
+          COUNT=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/stores.json','utf8'));process.stdout.write(String(d.count))")
+          N711=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/stores.json','utf8'));process.stdout.write(String(d.brandCounts['711']||0))")
+          NFAM=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/stores.json','utf8'));process.stdout.write(String(d.brandCounts.family||0))")
+          NHIL=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/stores.json','utf8'));process.stdout.write(String(d.brandCounts.hilife||0))")
+          echo "stores=$COUNT 711=$N711 family=$NFAM hilife=$NHIL"
+          if [ "$COUNT" -lt 13000 ] || [ "$N711" -lt 7000 ] || [ "$NFAM" -lt 4000 ] || [ "$NHIL" -lt 1800 ]; then
+            echo "::error::CVS ingest regression: count=$COUNT 711=$N711 family=$NFAM hilife=$NHIL"
+            exit 1
+          fi
+
+      - name: Commit CVS data to app repo
+        id: commit
+        working-directory: paymentmaptw-app
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -f data/cvs/raw/hilife-osm.json data/cvs/raw/hilife-apk-scan.json data/cvs/raw/hilife-api-data.jwt 2>/dev/null || true
+          git rm -rf data/cvs/raw/apk 2>/dev/null || true
+          git add data/cvs/stores.json data/cvs/raw/*.json || true
+          if git diff --staged --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No CVS changes"
+          else
+            git commit -m "chore(cvs): monthly store ingest (711 + FamilyMart + Hi-Life app API)"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Install wrangler (frontend deploy)
+        if: steps.commit.outputs.changed == 'true'
+        working-directory: paymentmaptw-app/worker
+        run: npm ci
+
+      - name: Deploy frontend to Cloudflare Pages
+        if: steps.commit.outputs.changed == 'true'
+        working-directory: paymentmaptw-app
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PAGES_PROJECT_NAME: ${{ secrets.PAYMENTMAPTW_FRONTEND_PROJECT }}
+        run: |
+          export PAGES_PROJECT_NAME="${PAGES_PROJECT_NAME:-paymentmaptw}"
+          node tools/gas/deploy-frontend-pages.mjs

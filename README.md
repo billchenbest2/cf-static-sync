@@ -18,6 +18,7 @@ Small utility repo: export rows from Cloudflare D1, pack them into encrypted JSO
 | **Publish static bundle** | `repository_dispatch` (`static-publish`), manual |
 | **Gas stations ingest (monthly)** | 1st of month 03:00 UTC, manual |
 | **Gas official prices (weekly)** | Taiwan Mon 00:00 / 00:05 / 00:30 (UTC Sun 16:00 / 16:05 / 16:30), manual |
+| **CVS stores ingest (monthly)** | 2nd of month 03:00 UTC, manual |
 
 Manual runs: Actions → pick workflow → **Run workflow**
 
@@ -57,6 +58,10 @@ FPCC HTML snapshots are also kept in this repo under `fpcc-cache/` as a fallback
 
 - `data/gas/official-prices.json`
 - `data/gas/costco-prices.json`
+
+**Monthly** (`cvs-stores-monthly.yml`) fetches 7-ELEVEN, FamilyMart, and Hi-Life (app API `GET store.aspx?district=`), commits `data/cvs/stores.json`, removes legacy Hi-Life OSM/APK raw files, then deploys the PaymentMapTW frontend to Cloudflare Pages (`paymentmaptw` by default).
+
+Optional: `PAYMENTMAPTW_FRONTEND_PROJECT` — frontend Pages project name (defaults to `paymentmaptw`).
 
 If the app repo uses Cloudflare Pages Git integration, a push triggers frontend redeploy automatically.
 
