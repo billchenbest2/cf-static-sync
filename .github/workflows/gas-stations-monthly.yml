@@ -13,7 +13,7 @@ jobs:
   ingest-stations:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout cf-static-sync (FPCC cache + fetch patches)
+      - name: Checkout cf-static-sync (fetch patches)
         uses: actions/checkout@v4
 
       - name: Checkout PaymentMapTW app repo (private)
@@ -29,24 +29,20 @@ jobs:
           cache: npm
           cache-dependency-path: paymentmaptw-app/tools/package-lock.json
 
-      - name: Seed FPCC HTML cache and apply fetch patches
+      - name: Apply fetch patches
         run: |
-          mkdir -p paymentmaptw-app/data/gas/raw
-          cp -f fpcc-cache/fpcc-*.html paymentmaptw-app/data/gas/raw/
           cp -f tools/gas/fetch-fpcc-stations.mjs paymentmaptw-app/tools/gas/fetch-fpcc-stations.mjs
-          cp -f tools/gas/fetch-fpcc-playwright.mjs paymentmaptw-app/tools/gas/fetch-fpcc-playwright.mjs
           cp -f tools/gas/fetch-stations.mjs paymentmaptw-app/tools/gas/fetch-stations.mjs
 
       - name: Install ingest dependencies (xlsx)
         working-directory: paymentmaptw-app/tools
         run: npm ci
 
-      - name: Fetch CPC + FPCC + Smile stations
+      - name: Fetch CPC + Smile; FPCC from repo snapshots only
         working-directory: paymentmaptw-app
         env:
-          # Datacenter IP: plain fetch blocked; Playwright times out (~60s/city).
-          # fpcc-cache seeded above is the reliable CI source.
-          FPCC_SKIP_PLAYWRIGHT: '1'
+          # FPCC live fetch blocked on GitHub Actions IP. Use committed fpcc-*.html only.
+          FPCC_CACHE_ONLY: '1'
         run: node tools/gas/fetch-stations.mjs
 
       - name: Verify station count (prevent FPCC regression)
@@ -69,13 +65,12 @@ jobs:
           git add \
             data/gas/stations.json \
             data/gas/raw/cpc-stations.xml \
-            data/gas/raw/fpcc-*.html \
             data/gas/raw/smile-stations.xlsx || true
           if git diff --staged --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No station changes"
           else
-            git commit -m "chore(gas): monthly station ingest (CPC + FPCC Formosa network)"
+            git commit -m "chore(gas): monthly station ingest (CPC + Smile; FPCC from snapshots)"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi

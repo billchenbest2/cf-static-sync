@@ -186,7 +186,12 @@ export async function fetchAllFpccStations() {
   let playwrightOk = 0;
   let cacheOk = 0;
   let failed = 0;
-  const usePlaywright = process.env.FPCC_SKIP_PLAYWRIGHT !== '1';
+  const cacheOnly = process.env.FPCC_CACHE_ONLY === '1';
+  const usePlaywright = !cacheOnly && process.env.FPCC_SKIP_PLAYWRIGHT !== '1';
+
+  if (cacheOnly) {
+    console.log('FPCC cache-only mode (no live fetch)');
+  }
 
   try {
     for (const city of FPCC_CITIES) {
@@ -194,46 +199,59 @@ export async function fetchAllFpccStations() {
       let html = '';
       let via = 'live';
 
-      try {
-        html = await fetchFpccCityHtml(city);
-        if (isFpccBlockedHtml(html)) {
-          html = '';
-        } else {
-          fs.writeFileSync(cachePath, html, 'utf8');
-          liveOk++;
-        }
-      } catch (e) {
-        console.warn(`FPCC ${city}: plain fetch failed (${e.message})`);
-        html = '';
-      }
-
-      if (!html && usePlaywright) {
-        try {
-          const pwHtml = await fetchFpccCityHtmlPlaywright(city);
-          if (!isFpccBlockedHtml(pwHtml)) {
-            html = pwHtml;
-            via = 'playwright';
-            fs.writeFileSync(cachePath, html, 'utf8');
-            playwrightOk++;
-          } else {
-            console.warn(`FPCC ${city}: playwright blocked`);
-          }
-        } catch (e) {
-          console.warn(`FPCC ${city}: playwright failed (${e.message})`);
-        }
-      }
-
-      if (!html) {
+      if (cacheOnly) {
         const cached = readFpccCache(city);
         if (cached) {
           html = cached;
           via = 'cache';
           cacheOk++;
         } else {
-          console.warn(`FPCC ${city}: no live/playwright/cache source`);
+          console.warn(`FPCC ${city}: missing cache file`);
           failed++;
-          await sleep(350);
           continue;
+        }
+      } else {
+        try {
+          html = await fetchFpccCityHtml(city);
+          if (isFpccBlockedHtml(html)) {
+            html = '';
+          } else {
+            fs.writeFileSync(cachePath, html, 'utf8');
+            liveOk++;
+          }
+        } catch (e) {
+          console.warn(`FPCC ${city}: plain fetch failed (${e.message})`);
+          html = '';
+        }
+
+        if (!html && usePlaywright) {
+          try {
+            const pwHtml = await fetchFpccCityHtmlPlaywright(city);
+            if (!isFpccBlockedHtml(pwHtml)) {
+              html = pwHtml;
+              via = 'playwright';
+              fs.writeFileSync(cachePath, html, 'utf8');
+              playwrightOk++;
+            } else {
+              console.warn(`FPCC ${city}: playwright blocked`);
+            }
+          } catch (e) {
+            console.warn(`FPCC ${city}: playwright failed (${e.message})`);
+          }
+        }
+
+        if (!html) {
+          const cached = readFpccCache(city);
+          if (cached) {
+            html = cached;
+            via = 'cache';
+            cacheOk++;
+          } else {
+            console.warn(`FPCC ${city}: no live/playwright/cache source`);
+            failed++;
+            await sleep(350);
+            continue;
+          }
         }
       }
 
@@ -242,10 +260,10 @@ export async function fetchAllFpccStations() {
         via === 'cache' ? '(cache)' : via === 'playwright' ? '(playwright)' : '';
       console.log('FPCC', city, rows.length, tag);
       all.push(...rows);
-      await sleep(via === 'playwright' ? 600 : 350);
+      if (!cacheOnly) await sleep(via === 'playwright' ? 600 : 350);
     }
   } finally {
-    await closeFpccBrowser();
+    if (!cacheOnly) await closeFpccBrowser();
   }
 
   console.log(
