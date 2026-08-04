@@ -37,16 +37,17 @@ jobs:
           cp -f tools/gas/fetch-fpcc-playwright.mjs paymentmaptw-app/tools/gas/fetch-fpcc-playwright.mjs
           cp -f tools/gas/fetch-stations.mjs paymentmaptw-app/tools/gas/fetch-stations.mjs
 
-      - name: Install ingest dependencies (xlsx + Playwright)
+      - name: Install ingest dependencies (xlsx)
         working-directory: paymentmaptw-app/tools
-        run: |
-          npm ci
-          npm install playwright --no-save
-          npx playwright install chromium --with-deps
+        run: npm ci
 
       - name: Fetch CPC + FPCC + Smile stations
-        run: node tools/gas/fetch-stations.mjs
         working-directory: paymentmaptw-app
+        env:
+          # Datacenter IP: plain fetch blocked; Playwright times out (~60s/city).
+          # fpcc-cache seeded above is the reliable CI source.
+          FPCC_SKIP_PLAYWRIGHT: '1'
+        run: node tools/gas/fetch-stations.mjs
 
       - name: Verify station count (prevent FPCC regression)
         working-directory: paymentmaptw-app
