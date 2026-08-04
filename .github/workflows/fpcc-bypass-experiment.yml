@@ -1,0 +1,51 @@
+name: FPCC bypass experiment
+
+on:
+  workflow_dispatch:
+    inputs:
+      city:
+        description: 'Test city (default 臺南市)'
+        required: false
+        default: '臺南市'
+
+permissions:
+  contents: read
+
+jobs:
+  fpcc-bypass:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout cf-static-sync (patches)
+        uses: actions/checkout@v4
+
+      - name: Checkout PaymentMapTW app repo (private)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.PAYMENTMAPTW_APP_REPO }}
+          token: ${{ secrets.PAYMENTMAPTW_APP_TOKEN }}
+          path: paymentmaptw-app
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: paymentmaptw-app/tools/package-lock.json
+
+      - name: Apply bypass test script patch
+        run: |
+          cp -f tools/gas/test-fpcc-bypass.mjs paymentmaptw-app/tools/gas/test-fpcc-bypass.mjs 2>/dev/null || true
+          cp -f tools/gas/fetch-fpcc-playwright.mjs paymentmaptw-app/tools/gas/fetch-fpcc-playwright.mjs 2>/dev/null || true
+
+      - name: Install Playwright
+        working-directory: paymentmaptw-app/tools
+        run: |
+          npm ci
+          npm install playwright --no-save
+          npx playwright install chromium firefox webkit --with-deps
+
+      - name: Run FPCC bypass strategies
+        working-directory: paymentmaptw-app
+        env:
+          TEST_CITY: ${{ github.event.inputs.city }}
+        run: node tools/gas/test-fpcc-bypass.mjs "$TEST_CITY"
+        continue-on-error: true

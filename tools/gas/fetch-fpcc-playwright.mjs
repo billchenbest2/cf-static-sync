@@ -4,6 +4,7 @@
  */
 const BROWSER_UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
+const FPCC_HOME = 'https://www.fpcc.com.tw/tw';
 
 let browserPromise = null;
 
@@ -12,7 +13,11 @@ async function getBrowser() {
     const { chromium } = await import('playwright');
     browserPromise = chromium.launch({
       headless: true,
-      args: ['--disable-blink-features=AutomationControlled', '--no-sandbox', '--disable-dev-shm-usage']
+      args: [
+        '--disable-blink-features=AutomationControlled',
+        '--no-sandbox',
+        '--disable-dev-shm-usage'
+      ]
     });
   }
   return browserPromise;
@@ -43,17 +48,21 @@ export async function fetchHtmlWithPlaywright(url) {
   });
   await context.addInitScript(() => {
     Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+    Object.defineProperty(navigator, 'languages', { get: () => ['zh-TW', 'zh', 'en-US', 'en'] });
+    window.chrome = { runtime: {} };
   });
   const page = await context.newPage();
   try {
-    await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
+    // Warm session on homepage first; datacenter IPs often fail on cold deep links.
+    await page.goto(FPCC_HOME, { waitUntil: 'domcontentloaded', timeout: 30000 }).catch(() => {});
+    await page.waitForTimeout(800);
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
     const title = await page.title();
     if (/安全驗證|Security Verification/i.test(title)) {
-      // Give challenge scripts a moment; still often blocked on automated browsers.
-      await page.waitForTimeout(3000);
+      await page.waitForTimeout(5000);
     } else {
       await page
-        .waitForSelector('.li-item[data-id], .li-item', { timeout: 12000 })
+        .waitForSelector('.li-item[data-id], .li-item', { timeout: 15000 })
         .catch(() => {});
       await page.waitForTimeout(500);
     }

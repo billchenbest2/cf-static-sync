@@ -15,6 +15,8 @@ import { closeFpccBrowser, fetchHtmlWithPlaywright } from './fetch-fpcc-playwrig
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const RAW_DIR = path.join(__dirname, '../../data/gas/raw');
 const BASE = 'https://www.fpcc.com.tw/tw/events/stations';
+const CHROME_UA =
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 const USER_AGENT = 'PaymentMapTW-gas-station-bot/1.0';
 
 export const FPCC_CITIES = [
@@ -62,15 +64,45 @@ async function fetchFpccCityHtmlPlaywright(city) {
 
 async function fetchFpccCityHtml(city) {
   const url = `${BASE}/${encodeURIComponent(city)}/0/0/0`;
-  const res = await fetch(url, {
-    headers: {
-      'User-Agent': USER_AGENT,
-      Accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
-      'Accept-Language': 'zh-TW,zh;q=0.9'
+  const attempts = [
+    {
+      label: 'chrome-referer',
+      headers: {
+        'User-Agent': CHROME_UA,
+        Accept:
+          'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8',
+        'Accept-Language': 'zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+        Referer: 'https://www.fpcc.com.tw/tw/events/stations',
+        'Sec-Fetch-Dest': 'document',
+        'Sec-Fetch-Mode': 'navigate',
+        'Sec-Fetch-Site': 'same-origin',
+        'Sec-Fetch-User': '?1',
+        'Upgrade-Insecure-Requests': '1'
+      }
+    },
+    {
+      label: 'bot-ua',
+      headers: {
+        'User-Agent': USER_AGENT,
+        Accept: 'text/html,application/xhtml+xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'zh-TW,zh;q=0.9'
+      }
     }
-  });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.text();
+  ];
+
+  let lastError = null;
+  for (const attempt of attempts) {
+    try {
+      const res = await fetch(url, { headers: attempt.headers, redirect: 'follow' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const html = await res.text();
+      if (!isFpccBlockedHtml(html)) return html;
+      lastError = new Error(`${attempt.label} blocked`);
+    } catch (e) {
+      lastError = e;
+    }
+  }
+  throw lastError || new Error('fetch blocked');
 }
 
 function fpccStationId(lat, lng, address) {
