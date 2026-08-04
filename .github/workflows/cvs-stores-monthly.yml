@@ -22,6 +22,7 @@ jobs:
           repository: ${{ secrets.PAYMENTMAPTW_APP_REPO }}
           token: ${{ secrets.PAYMENTMAPTW_APP_TOKEN }}
           path: paymentmaptw-app
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -69,6 +70,21 @@ jobs:
             echo "No CVS changes"
           else
             git commit -m "chore(cvs): monthly store ingest (711 + FamilyMart + Hi-Life + OK Mart)"
-            git push
+            BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+            pushed=false
+            for attempt in 1 2 3; do
+              git pull --rebase origin "$BRANCH"
+              if git push origin "$BRANCH"; then
+                pushed=true
+                break
+              fi
+              echo "Push attempt $attempt failed; retrying after fetch..."
+              git fetch origin "$BRANCH"
+              sleep $((attempt * 5))
+            done
+            if [ "$pushed" != true ]; then
+              echo "::error::Failed to push CVS ingest after 3 attempts"
+              exit 1
+            fi
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
