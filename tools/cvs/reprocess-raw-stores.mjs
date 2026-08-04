@@ -1,15 +1,15 @@
 #!/usr/bin/env node
-/** Re-parse data/cvs/raw/*.json with latest service maps -> data/cvs/stores.json */
+/** Re-parse data/cvs/raw/*.json with latest service maps -> split brand JSON + manifest */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse711ServicesFromTitle, parseFamilyServices } from './services.mjs';
-import { mergeCvsStores, countByBrand } from './store-merge.mjs';
+import { mergeCvsStores, writeSplitCvsData } from './store-merge.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
 const RAW = path.join(ROOT, 'data/cvs/raw');
-const OUT = path.join(ROOT, 'data/cvs/stores.json');
+const OUT_DIR = path.join(ROOT, 'data/cvs');
 
 function loadJson(name) {
   const fp = path.join(RAW, name);
@@ -55,15 +55,7 @@ const svcCount = {};
 for (const s of stores) {
   for (const id of s.services || []) svcCount[id] = (svcCount[id] || 0) + 1;
 }
-const envelope = {
-  schemaVersion: 1,
-  generatedAt: new Date().toISOString(),
-  count: stores.length,
-  brandCounts: countByBrand(stores),
-  stores
-};
-fs.mkdirSync(path.dirname(OUT), { recursive: true });
-fs.writeFileSync(OUT, JSON.stringify(envelope, null, 2), 'utf8');
-console.log(`Reprocessed ${stores.length} stores -> ${OUT}`);
-console.log('brandCounts:', envelope.brandCounts);
+const manifest = writeSplitCvsData(stores, OUT_DIR);
+console.log(`Reprocessed ${stores.length} stores (split by brand) -> ${OUT_DIR}`);
+console.log('brandCounts:', manifest.brandCounts);
 console.log('top services:', Object.entries(svcCount).sort((a, b) => b[1] - a[1]).slice(0, 20));

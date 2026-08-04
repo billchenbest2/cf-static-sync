@@ -32,24 +32,25 @@ jobs:
           mkdir -p paymentmaptw-app/tools/cvs
           cp -f tools/cvs/*.mjs paymentmaptw-app/tools/cvs/
 
-      - name: Fetch 7-11 + FamilyMart + Hi-Life stores
+      - name: Fetch 7-11 + FamilyMart + Hi-Life + OK Mart stores
         working-directory: paymentmaptw-app
         env:
           CVS_HILIFE_SKIP_WEBAPI: '1'
         run: |
           node tools/cvs/fetch-stores.mjs || \
-          (CVS_711_CACHE_ONLY=1 CVS_FAMILY_CACHE_ONLY=1 CVS_HILIFE_CACHE_ONLY=1 node tools/cvs/fetch-stores.mjs)
+          (CVS_711_CACHE_ONLY=1 CVS_FAMILY_CACHE_ONLY=1 CVS_HILIFE_CACHE_ONLY=1 CVS_OK_CACHE_ONLY=1 node tools/cvs/fetch-stores.mjs)
 
       - name: Verify store count
         working-directory: paymentmaptw-app
         run: |
-          COUNT=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/stores.json','utf8'));process.stdout.write(String(d.count))")
-          N711=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/stores.json','utf8'));process.stdout.write(String(d.brandCounts['711']||0))")
-          NFAM=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/stores.json','utf8'));process.stdout.write(String(d.brandCounts.family||0))")
-          NHIL=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/stores.json','utf8'));process.stdout.write(String(d.brandCounts.hilife||0))")
-          echo "stores=$COUNT 711=$N711 family=$NFAM hilife=$NHIL"
-          if [ "$COUNT" -lt 13000 ] || [ "$N711" -lt 7000 ] || [ "$NFAM" -lt 4000 ] || [ "$NHIL" -lt 1800 ]; then
-            echo "::error::CVS ingest regression: count=$COUNT 711=$N711 family=$NFAM hilife=$NHIL"
+          COUNT=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/manifest.json','utf8'));process.stdout.write(String(d.count))")
+          N711=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/manifest.json','utf8'));process.stdout.write(String(d.brandCounts['711']||0))")
+          NFAM=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/manifest.json','utf8'));process.stdout.write(String(d.brandCounts.family||0))")
+          NHIL=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/manifest.json','utf8'));process.stdout.write(String(d.brandCounts.hilife||0))")
+          NOK=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/cvs/manifest.json','utf8'));process.stdout.write(String(d.brandCounts.ok||0))")
+          echo "stores=$COUNT 711=$N711 family=$NFAM hilife=$NHIL ok=$NOK"
+          if [ "$COUNT" -lt 13000 ] || [ "$N711" -lt 7000 ] || [ "$NFAM" -lt 4000 ] || [ "$NHIL" -lt 1800 ] || [ "$NOK" -lt 250 ]; then
+            echo "::error::CVS ingest regression: count=$COUNT 711=$N711 family=$NFAM hilife=$NHIL ok=$NOK"
             exit 1
           fi
 
@@ -61,28 +62,13 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git rm -f data/cvs/raw/hilife-osm.json data/cvs/raw/hilife-apk-scan.json data/cvs/raw/hilife-api-data.jwt 2>/dev/null || true
           git rm -rf data/cvs/raw/apk 2>/dev/null || true
-          git add data/cvs/stores.json data/cvs/raw/*.json || true
+          git add data/cvs/manifest.json data/cvs/stores-*.json data/cvs/raw/*.json || true
+          git rm -f data/cvs/stores.json 2>/dev/null || true
           if git diff --staged --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "No CVS changes"
           else
-            git commit -m "chore(cvs): monthly store ingest (711 + FamilyMart + Hi-Life app API)"
+            git commit -m "chore(cvs): monthly store ingest (711 + FamilyMart + Hi-Life + OK Mart)"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
-
-      - name: Install wrangler (frontend deploy)
-        if: steps.commit.outputs.changed == 'true'
-        working-directory: paymentmaptw-app/worker
-        run: npm ci
-
-      - name: Deploy frontend to Cloudflare Pages
-        if: steps.commit.outputs.changed == 'true'
-        working-directory: paymentmaptw-app
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          PAGES_PROJECT_NAME: ${{ secrets.PAYMENTMAPTW_FRONTEND_PROJECT }}
-        run: |
-          export PAGES_PROJECT_NAME="${PAGES_PROJECT_NAME:-paymentmaptw}"
-          node tools/gas/deploy-frontend-pages.mjs

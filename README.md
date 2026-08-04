@@ -59,11 +59,7 @@ FPCC HTML snapshots are also kept in this repo under `fpcc-cache/` as a fallback
 - `data/gas/official-prices.json`
 - `data/gas/costco-prices.json`
 
-**Monthly** (`cvs-stores-monthly.yml`) fetches 7-ELEVEN, FamilyMart, and Hi-Life (app API `GET store.aspx?district=`), commits `data/cvs/stores.json`, removes legacy Hi-Life OSM/APK raw files, then deploys the PaymentMapTW frontend to Cloudflare Pages (`paymentmaptw` by default).
-
-Optional: `PAYMENTMAPTW_FRONTEND_PROJECT` — frontend Pages project name (defaults to `paymentmaptw`).
-
-If the app repo uses Cloudflare Pages Git integration, a push triggers frontend redeploy automatically.
+**Monthly** (`cvs-stores-monthly.yml`) fetches 7-ELEVEN, FamilyMart, Hi-Life, and OK Mart, commits `data/cvs/manifest.json` + `stores-*.json`, and removes legacy Hi-Life OSM/APK raw files. Frontend redeploy is handled by Cloudflare Pages Git integration when the app repo receives the push.
 
 **PAT setup (one-time):** GitHub → Settings → Developer settings → Fine-grained token → Repository access: PaymentMapTW app repo only → Permissions: Contents **Read and write**. Add both secrets under **cf-static-sync** repo → Settings → Secrets.
 

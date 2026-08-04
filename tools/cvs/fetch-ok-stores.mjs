@@ -1,52 +1,66 @@
 #!/usr/bin/env node
-/** Fetch OK Mart stores from okmart.com.tw store locator. */
+/** Fetch OK Mart stores from ecservice.okmart.com.tw ECMapInquiry API. */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { mergeServiceIds } from './services.mjs';
+import { fetchAllOkEcRows } from './okmart-ec-api.mjs';
+import { parseOkServices } from './services.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
 const RAW_DIR = path.join(ROOT, 'data/cvs/raw');
-const API = 'https://www.okmart.com.tw/convenient_shop_search/ShopSearch/ShopSearchList';
-const HEADERS = {
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-  Referer: 'https://www.okmart.com.tw/convenient_shop_search'
-};
 
-function sleep(ms) {
-  return new Promise((r) => setTimeout(r, ms));
+function formatOkHours(bgn, end) {
+  const b = String(bgn || '').trim();
+  const e = String(end || '').trim();
+  if (!b || !e) return '';
+  const fmt = (t) => (t.length >= 4 ? `${t.slice(0, 2)}:${t.slice(2, 4)}` : t);
+  return `${fmt(e)}~${fmt(b)}`;
 }
 
-function parseServices(text) {
-  const ids = [];
-  if (/廁所|洗手間/.test(text)) ids.push('toilet');
-  if (/ATM/i.test(text)) ids.push('atm');
-  if (/24/.test(text)) ids.push('open_24h');
-  if (/WiFi|Wi-Fi/i.test(text)) ids.push('wifi');
-  if (/咖啡/.test(text)) ids.push('coffee');
-  return mergeServiceIds(ids);
+function decodeNotOperate(code) {
+  const n = parseInt(String(code || ''), 10);
+  if (!Number.isFinite(n) || n <= 0) return '';
+  const days = [];
+  const map = [
+    [1, '週一'],
+    [2, '週二'],
+    [4, '週三'],
+    [8, '週四'],
+    [16, '週五'],
+    [32, '週六'],
+    [64, '週日']
+  ];
+  for (const [bit, label] of map) {
+    if (n & bit) days.push(label);
+  }
+  return days.length ? `休${days.join('、')}` : '';
 }
 
 function normalize(row) {
-  const code = String(row.StoreID || row.storeId || row.id || '').trim();
-  const lat = parseFloat(row.Latitude || row.lat || row.Y);
-  const lng = parseFloat(row.Longitude || row.lng || row.X);
+  const code = String(row.STNO || row.stno || '').trim();
+  const lat = parseFloat(row.POS_WEIDU || row.pos_weidu);
+  const lng = parseFloat(row.POS_JING || row.pos_jing);
   if (!code || !Number.isFinite(lat) || !Number.isFinite(lng)) return null;
-  const nameRaw = String(row.StoreName || row.name || '').trim();
-  const svcText = String(row.Service || row.service || '');
+
+  const nameRaw = String(row.STNM || row.stnm || '').trim();
+  const hours = formatOkHours(row.BGN_TIME, row.END_TIME);
+  const closedNote = decodeNotOperate(row.NOT_OPERATE);
+  const hoursText = [hours, closedNote].filter(Boolean).join('；');
+
   return {
     storeId: `ok_${code}`,
-    name: /^OK/.test(nameRaw) ? nameRaw : `OK${nameRaw}`,
+    name: /^OK/i.test(nameRaw) ? nameRaw : `OK${nameRaw}`,
     brandId: 'ok',
     lat,
     lng,
-    address: String(row.Address || row.address || '').trim(),
-    phone: String(row.Tel || row.phone || '').trim(),
-    city: String(row.City || row.city || '').trim(),
-    town: String(row.Area || row.area || '').trim(),
-    services: parseServices(svcText),
-    source: 'ok_official',
+    address: String(row.STADR || row.stadr || '').trim(),
+    phone: String(row.STTEL || row.sttel || '').trim(),
+    city: String(row.STCITY || row.stcity || '').trim(),
+    town: String(row.STCNTRY || row.stcntry || '').trim(),
+    hours: hoursText,
+    services: parseOkServices(row),
+    source: 'ok_ecservice',
     sourceUpdatedAt: new Date().toISOString().slice(0, 10),
     status: 'open',
     sourceStoreCode: code
@@ -54,7 +68,7 @@ function normalize(row) {
 }
 
 export async function fetchAllOkStores(options = {}) {
-  const delayMs = options.delayMs ?? 300;
+  const delayMs = options.delayMs ?? 180;
   const cacheOnly = process.env.CVS_OK_CACHE_ONLY === '1';
   fs.mkdirSync(RAW_DIR, { recursive: true });
   const snap = path.join(RAW_DIR, 'ok-stores.json');
@@ -63,28 +77,27 @@ export async function fetchAllOkStores(options = {}) {
     const data = JSON.parse(fs.readFileSync(snap, 'utf8'));
     return Array.isArray(data) ? data : data.stores || [];
   }
+
+  const cityFilter = process.env.CVS_OK_CITY
+    ? process.env.CVS_OK_CITY.split(',').map((s) => s.trim()).filter(Boolean)
+    : null;
+
+  const byStno = await fetchAllOkEcRows({ delayMs, cityFilter });
   const all = [];
-  for (let page = 1; page <= 50; page++) {
-    process.stdout.write(`OK page ${page}...\r`);
-    try {
-      const url = `${API}?page=${page}&rows=200`;
-      const res = await fetch(url, { headers: HEADERS });
-      if (!res.ok) break;
-      const json = await res.json();
-      const rows = json.rows || json.data || json.Data || [];
-      if (!rows.length) break;
-      for (const row of rows) {
-        const s = normalize(row);
-        if (s) all.push(s);
-      }
-      if (rows.length < 200) break;
-    } catch (e) {
-      console.warn(`OK page ${page} failed:`, e.message);
-      break;
-    }
-    await sleep(delayMs);
+  for (const row of byStno.values()) {
+    const s = normalize(row);
+    if (s) all.push(s);
   }
-  process.stdout.write('\n');
+  all.sort((a, b) => a.storeId.localeCompare(b.storeId));
   fs.writeFileSync(snap, JSON.stringify(all, null, 2), 'utf8');
   return all;
+}
+
+if (import.meta.url === `file://${process.argv[1]?.replace(/\\/g, '/')}`) {
+  fetchAllOkStores()
+    .then((rows) => console.log(`OK stores: ${rows.length}`))
+    .catch((e) => {
+      console.error(e);
+      process.exit(1);
+    });
 }

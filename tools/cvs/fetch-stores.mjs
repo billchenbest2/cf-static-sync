@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Fetch 7-11 + FamilyMart + Hi-Life stores, merge, write data/cvs/stores.json
+ * Fetch 7-11 + FamilyMart + Hi-Life + OK Mart stores, merge, write split brand JSON + manifest
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -10,17 +10,17 @@ import { fetchAllFamilyStores } from './fetch-family-stores.mjs';
 import { fetchAllHiLifeStores } from './fetch-hilife-stores.mjs';
 import { fetchAllOkStores } from './fetch-ok-stores.mjs';
 import { fetchAllSimpleStores } from './fetch-simple-stores.mjs';
-import { mergeCvsStores, countByBrand } from './store-merge.mjs';
+import { mergeCvsStores, writeSplitCvsData } from './store-merge.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
-const OUT = path.join(ROOT, 'data/cvs/stores.json');
+const OUT_DIR = path.join(ROOT, 'data/cvs');
 
 async function main() {
   const include711 = process.env.CVS_SKIP_711 !== '1';
   const includeFamily = process.env.CVS_SKIP_FAMILY !== '1';
   const includeHiLife = process.env.CVS_SKIP_HILIFE !== '1';
-  const includeOk = process.env.CVS_INCLUDE_OK === '1';
+  const includeOk = process.env.CVS_SKIP_OK !== '1';
   const includeSimple = process.env.CVS_INCLUDE_SIMPLE === '1';
   const lists = [];
   if (include711) lists.push(await fetchAll711Stores());
@@ -29,17 +29,9 @@ async function main() {
   if (includeOk) lists.push(await fetchAllOkStores());
   if (includeSimple) lists.push(await fetchAllSimpleStores());
   const stores = mergeCvsStores(lists);
-  const envelope = {
-    schemaVersion: 1,
-    generatedAt: new Date().toISOString(),
-    count: stores.length,
-    brandCounts: countByBrand(stores),
-    stores
-  };
-  fs.mkdirSync(path.dirname(OUT), { recursive: true });
-  fs.writeFileSync(OUT, JSON.stringify(envelope, null, 2), 'utf8');
-  console.log(`Wrote ${stores.length} stores -> ${OUT}`);
-  console.log('brandCounts:', envelope.brandCounts);
+  const manifest = writeSplitCvsData(stores, OUT_DIR);
+  console.log(`Wrote ${stores.length} stores (split by brand) -> ${OUT_DIR}`);
+  console.log('brandCounts:', manifest.brandCounts);
 }
 
 main().catch((e) => {

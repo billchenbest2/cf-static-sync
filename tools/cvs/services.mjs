@@ -22,23 +22,23 @@ export const CVS_SERVICE_LABELS = {
   dessert: '甜點',
   tea: '現萃茶',
   slurpee: '思樂冰',
-  ice_cream: '霜淇淋（有販售）',
-  ice_cream_single: '霜淇淋（單口味）',
-  ice_cream_double: '霜淇淋（雙口味）',
-  ice_cream_special: '霜淇淋（特殊造型／胖胖冰）',
-  ice_cream_drink: '喝的霜淇淋',
-  ice_cream_snow: '雪淋霜霜淇淋',
-  ice_cream_coldstone: '酷聖石霜淇淋',
-  health: '健康站',
-  muji: 'MUJI',
-  starbucks: 'Starbucks',
+  ice_cream: '霜淇淋',
+  ice_cream_single: '單口味霜淇淋',
+  ice_cream_double: '雙口味霜淇淋',
+  ice_cream_special: '圓滾滾',
+  ice_cream_drink: '霜淇淋飲',
+  ice_cream_snow: '雪淋霜',
+  ice_cream_coldstone: '酷聖石',
+  health: '健康量測站',
+  muji: '無印良品',
+  starbucks: '星巴克',
   pet: '寵物專區',
   books: '博客來',
-  recycle: '回收機',
+  recycle: '智慧回收機',
   rest_area: '休憩區',
-  power_rental: '行動電源租賃',
-  smart_coffee: '智能咖啡',
-  fami_super: 'FamiSuper',
+  power_rental: '行動電源租借',
+  smart_coffee: '精品咖啡',
+  fami_super: '生鮮超市',
   costco: '好市多專架',
   gogoro: 'Gogoro 換電'
 };
@@ -315,6 +315,36 @@ export function parseHiLifeServices(row) {
     if (/休息/i.test(text)) ids.push('rest_area');
   }
   if (/24\s*\/\s*7|24小時|24 小時/.test(String(row?.opening_hours || ''))) ids.push('open_24h');
+  return mergeServiceIds(ids);
+}
+
+/** OK mart ecservice row -> service ids. */
+export function parseOkServices(row) {
+  const ids = [];
+  const text = [
+    row?.EX_DESC,
+    row?.STNM,
+    row?.PICKBYSELF,
+    row?.NORMAL,
+    row?.FRIDGE,
+    row?.FREEZE
+  ]
+    .map((v) => String(v || ''))
+    .join(' ');
+  if (/廁所|洗手間/.test(text)) ids.push('toilet');
+  if (/ATM/i.test(text)) ids.push('atm');
+  if (/WiFi|Wi-Fi/i.test(text)) ids.push('wifi');
+  if (/咖啡|OK\s*CAFE|CAFE/i.test(text)) ids.push('coffee');
+  if (/霜淇淋|冰淇淋|哈燒|熱點|現煮餐|鮮食/.test(text)) ids.push('hot_food');
+  if (/思樂冰|冰沙/.test(text)) ids.push('slurpee');
+  if (/寄取|網購|宅配|PICKBYSELF/i.test(text)) ids.push('delivery');
+
+  const bgn = String(row?.BGN_TIME || '').trim();
+  const end = String(row?.END_TIME || '').trim();
+  if (bgn === '2359' && end === '0000') ids.push('open_24h');
+  if (bgn === '0000' && end === '0000') ids.push('open_24h');
+  if (/24\s*小時|24H/i.test(text)) ids.push('open_24h');
+
   return mergeServiceIds(ids);
 }
 
