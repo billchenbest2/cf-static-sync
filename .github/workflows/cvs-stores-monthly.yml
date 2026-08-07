@@ -26,7 +26,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Apply fetch patches
         run: |
@@ -70,6 +70,9 @@ jobs:
             echo "No CVS changes"
           else
             git commit -m "chore(cvs): monthly store ingest (711 + FamilyMart + Hi-Life + OK Mart)"
+            # Drop CI-only edits (copied fetch patches, untracked raw artifacts) before rebase.
+            git reset --hard HEAD
+            git clean -fd
             BRANCH="$(git rev-parse --abbrev-ref HEAD)"
             pushed=false
             for attempt in 1 2 3; do
@@ -88,3 +91,15 @@ jobs:
             fi
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Deploy PaymentMapTW frontend to Cloudflare Pages
+        if: steps.commit.outputs.changed == 'true'
+        working-directory: paymentmaptw-app
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PAGES_PROJECT_NAME: ${{ secrets.PAYMENTMAPTW_FRONTEND_PAGES_PROJECT }}
+        run: |
+          export PAGES_PROJECT_NAME="${PAGES_PROJECT_NAME:-paymentmaptw}"
+          npm ci --prefix worker
+          node tools/gas/deploy-frontend-pages.mjs

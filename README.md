@@ -44,6 +44,7 @@ Optional extra shards: `D1_STORES_1_NAME`, `D1_STORES_1_ID`, … up to `D1_STORE
 |--------|---------|
 | `PAYMENTMAPTW_APP_REPO` | Private app repo slug, e.g. `your-org/PaymentMapTW-main` |
 | `PAYMENTMAPTW_APP_TOKEN` | PAT or GitHub App token with **write** access to that repo |
+| `PAYMENTMAPTW_FRONTEND_PAGES_PROJECT` | Optional. Frontend Pages project name (default: `paymentmaptw`) |
 
 **Monthly** (`gas-stations-monthly.yml`) commits:
 
@@ -59,7 +60,7 @@ FPCC HTML snapshots are also kept in this repo under `fpcc-cache/` as a fallback
 - `data/gas/official-prices.json`
 - `data/gas/costco-prices.json`
 
-**Monthly** (`cvs-stores-monthly.yml`) fetches 7-ELEVEN, FamilyMart, Hi-Life, and OK Mart, commits `data/cvs/manifest.json` + `stores-*.json`, and removes legacy Hi-Life OSM/APK raw files. Frontend redeploy is handled by Cloudflare Pages Git integration when the app repo receives the push.
+**Monthly** (`cvs-stores-monthly.yml`) fetches 7-ELEVEN, FamilyMart, Hi-Life, and OK Mart, commits `data/cvs/manifest.json` + `stores-*.json`, removes legacy Hi-Life OSM/APK raw files, then deploys the frontend via `wrangler pages deploy` (direct upload to `paymentmaptw` Pages project).
 
 **PAT setup (one-time):** GitHub → Settings → Developer settings → Fine-grained token → Repository access: PaymentMapTW app repo only → Permissions: Contents **Read and write**. Add both secrets under **cf-static-sync** repo → Settings → Secrets.
 

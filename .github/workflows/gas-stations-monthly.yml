@@ -72,6 +72,8 @@ jobs:
             echo "No station changes"
           else
             git commit -m "chore(gas): monthly station ingest (CPC + Smile; FPCC from snapshots)"
+            git reset --hard HEAD
+            git clean -fd
             BRANCH="$(git rev-parse --abbrev-ref HEAD)"
             pushed=false
             for attempt in 1 2 3; do
