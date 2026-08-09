@@ -7,11 +7,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { getMetaDbName, runWranglerD1Query } from './lib/d1-cli.mjs';
+import { isReportWeekStale } from './lib/gas-week-stale.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT_DIR = process.env.OUTPUT_DIR || path.resolve(__dirname, '../site/dist');
 const OUT = path.join(OUTPUT_DIR, 'gas/community-prices.json');
-const STALE_MS = 72 * 60 * 60 * 1000;
 const MAX_REPORTS_PER_STATION = 10;
 
 const SQL =
@@ -46,14 +46,13 @@ function normalizeReport(row) {
     ? row.promotions
     : safeParse(row.promotions, []);
   const reportedAt = String(row.reportedAt || '');
-  const ts = Date.parse(reportedAt);
   return {
     reportId: String(row.reportId || ''),
     reportedAt,
     prices: pricesFromRow(row),
     promotions,
     note: String(row.note || ''),
-    stale: Number.isFinite(ts) ? Date.now() - ts > STALE_MS : true
+    stale: isReportWeekStale(reportedAt)
   };
 }
 

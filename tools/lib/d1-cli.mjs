@@ -9,7 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const WRANGLER_CWD = process.env.WRANGLER_CWD || path.resolve(__dirname, '../wrangler');
 
 export function getMetaDbName() {
-  return process.env.D1_META_DB || 'app-meta';
+  return process.env.D1_META_DB || process.env.D1_META_NAME || 'paymentmaptw-meta';
 }
 
 export function getStoresDbName(shardId) {

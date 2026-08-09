@@ -1,7 +1,7 @@
 name: Publish static bundle
 
 on:
-  # Static publish is triggered by the Worker (debounced 30 min after D1 store
+  # Static publish is triggered by the Worker (debounced 15 min after D1 store
   # changes) via repository_dispatch. Manual runs only here as fallback.
   workflow_dispatch:
   repository_dispatch:
@@ -66,6 +66,22 @@ jobs:
           D1_META_DB: ${{ secrets.D1_META_NAME }}
           WRANGLER_CWD: ${{ github.workspace }}/wrangler
           OUTPUT_DIR: ${{ github.workspace }}/site/dist
+
+      - name: Build gas admin promotions from D1
+        run: node build-gas-admin-promotions.mjs
+        working-directory: tools
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          D1_META_DB: ${{ secrets.D1_META_NAME }}
+          WRANGLER_CWD: ${{ github.workspace }}/wrangler
+          OUTPUT_DIR: ${{ github.workspace }}/site/dist
+
+      - name: Verify gas static JSON outputs
+        run: |
+          test -f site/dist/gas/community-prices.json
+          test -f site/dist/gas/admin-promotions.json
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('site/dist/gas/admin-promotions.json','utf8'));if(!Array.isArray(p.promotions)) throw new Error('invalid admin-promotions schema');console.log('admin-promotions',p.promotions.length);"
 
       - name: Deploy to Cloudflare Pages
         run: npx wrangler pages deploy site/dist --project-name=${{ secrets.PAGES_PROJECT_NAME }} --branch=main
