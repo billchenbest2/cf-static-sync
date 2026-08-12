@@ -39,12 +39,48 @@ function ensureToiletTab(html) {
   );
 }
 
-function ensureToiletFilter(html) {
-  if (html.includes('id="toilet-filter-block"')) return html;
-  return html.replace(
-    /(<div class="cvs-filter-block" id="cvs-filter-block"[\s\S]*?<\/div>\n)/,
-    '$1' + TOILET_FILTER
-  );
+const GAS_FILTER =
+  '      <div class="gas-filter-block" id="gas-filter-block" hidden>\n' +
+  '      <div class="chip-row-label">品牌</div>\n' +
+  '      <div class="chip-scroll" id="chips-gas-brands" role="toolbar" aria-label="加油站品牌篩選"></div>\n' +
+  '      <div class="chip-row-label">經營型態</div>\n' +
+  '      <div class="chip-scroll" id="chips-gas-franchise" role="toolbar" aria-label="直營加盟篩選"></div>\n' +
+  '      <div class="chip-row-label">比價油品</div>\n' +
+  '      <div class="chip-scroll" id="chips-gas-product" role="toolbar" aria-label="油品篩選"></div>\n' +
+  '      </div>\n';
+
+const CVS_FILTER =
+  '      <div class="cvs-filter-block" id="cvs-filter-block" hidden>\n' +
+  '      <div class="chip-row-label">品牌</div>\n' +
+  '      <div class="chip-scroll" id="chips-cvs-brands" role="toolbar" aria-label="超商品牌篩選"></div>\n' +
+  '      <div class="chip-row-label">服務項目</div>\n' +
+  '      <div class="chip-scroll" id="chips-cvs-services" role="toolbar" aria-label="超商服務篩選"></div>\n' +
+  '      </div>\n';
+
+const PAY_FILTER =
+  '      <div class="pay-filter-block" id="pay-filter-block">\n' +
+  '      <div class="chip-row-label">店家類型</div>\n' +
+  '      <div class="chip-scroll" id="chips-categories" role="toolbar" aria-label="店家類型篩選"></div>\n' +
+  '      <div class="chip-row-label">支付工具</div>\n' +
+  '      <div class="chip-scroll" id="chips-payments" role="toolbar" aria-label="支付工具篩選"></div>\n' +
+  '      </div>\n';
+
+function ensureToiletFilter(html, options) {
+  const toiletHidden = !(options && options.toiletVisible);
+  const toiletBlock = toiletHidden
+    ? TOILET_FILTER
+    : TOILET_FILTER.replace(' id="toilet-filter-block" hidden', ' id="toilet-filter-block"');
+  const start = html.indexOf('<div class="filter-scroll-area" id="filter-scroll-area">');
+  const end = html.indexOf('<div class="sheet-backdrop"', start);
+  if (start < 0 || end < 0) return html;
+  const rebuilt =
+    '      <div class="filter-scroll-area" id="filter-scroll-area">\n' +
+    GAS_FILTER +
+    CVS_FILTER +
+    toiletBlock +
+    PAY_FILTER +
+    '      </div>\n    </div>\n  </div>\n\n  ';
+  return html.slice(0, start) + rebuilt + html.slice(end);
 }
 
 function ensureToiletScript(html) {
@@ -118,7 +154,7 @@ function buildToiletIndexFromCvs() {
     'class="mode-tab active" role="tab" data-mode="toilet"'
   );
 
-  html = ensureToiletFilter(html);
+  html = ensureToiletFilter(html, { toiletVisible: true });
   html = html.replace(
     /id="cvs-filter-block"(?![^>]*hidden)/,
     'id="cvs-filter-block" hidden'
