@@ -19,6 +19,7 @@ Small utility repo: export rows from Cloudflare D1, pack them into encrypted JSO
 | **Gas stations ingest (monthly)** | 1st of month 03:00 UTC, manual |
 | **Gas official prices (weekly)** | Taiwan Mon 00:00 / 00:05 / 00:30 (UTC Sun 16:00 / 16:05 / 16:30), manual |
 | **CVS stores ingest (monthly)** | 2nd of month 03:00 UTC, manual |
+| **Toilet sites ingest (monthly)** | 3rd of month 03:00 UTC, manual |
 
 Manual runs: Actions → pick workflow → **Run workflow**
 
@@ -45,6 +46,7 @@ Optional extra shards: `D1_STORES_1_NAME`, `D1_STORES_1_ID`, … up to `D1_STORE
 | `PAYMENTMAPTW_APP_REPO` | Private app repo slug, e.g. `your-org/PaymentMapTW-main` |
 | `PAYMENTMAPTW_APP_TOKEN` | PAT or GitHub App token with **write** access to that repo |
 | `PAYMENTMAPTW_FRONTEND_PAGES_PROJECT` | Optional. Frontend Pages project name (default: `paymentmaptw`) |
+| `MOENV_API_KEY` | Optional. Environment Ministry open-data API key for toilet ingest (falls back to data.gov.tw published resource key) |
 
 **Monthly** (`gas-stations-monthly.yml`) commits:
 
@@ -61,6 +63,8 @@ FPCC HTML snapshots are also kept in this repo under `fpcc-cache/` as a fallback
 - `data/gas/costco-prices.json`
 
 **Monthly** (`cvs-stores-monthly.yml`) fetches 7-ELEVEN, FamilyMart, Hi-Life, and OK Mart, commits `data/cvs/manifest.json` + `stores-*.json`, removes legacy Hi-Life OSM/APK raw files, then deploys the frontend via `wrangler pages deploy` (direct upload to `paymentmaptw` Pages project).
+
+**Monthly** (`toilets-monthly.yml`) fetches MOENV `FAC_P_07` (全國公廁建檔資料), merges same-address units into sites, commits `data/toilet/manifest.json` + `sites-*.json`, then deploys frontend. Optional secret `MOENV_API_KEY` (falls back to data.gov.tw published resource key).
 
 **PAT setup (one-time):** GitHub → Settings → Developer settings → Fine-grained token → Repository access: PaymentMapTW app repo only → Permissions: Contents **Read and write**. Add both secrets under **cf-static-sync** repo → Settings → Secrets.
 

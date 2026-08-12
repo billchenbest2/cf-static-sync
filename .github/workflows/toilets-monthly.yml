@@ -1,0 +1,98 @@
+name: Toilet sites ingest (monthly)
+
+on:
+  schedule:
+    # 3rd of month 03:00 UTC (~11:00 Taipei), after gas (1st) and cvs (2nd)
+    - cron: '0 3 3 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ingest-toilet-sites:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout cf-static-sync (fetch patches)
+        uses: actions/checkout@v4
+
+      - name: Checkout PaymentMapTW app repo (private)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.PAYMENTMAPTW_APP_REPO }}
+          token: ${{ secrets.PAYMENTMAPTW_APP_TOKEN }}
+          path: paymentmaptw-app
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Apply toilet fetch patches
+        run: |
+          mkdir -p paymentmaptw-app/tools/toilet
+          cp -f tools/toilet/*.mjs paymentmaptw-app/tools/toilet/
+
+      - name: Fetch MOENV FAC_P_07 toilets
+        working-directory: paymentmaptw-app
+        env:
+          MOENV_API_KEY: ${{ secrets.MOENV_API_KEY }}
+        run: |
+          node tools/toilet/fetch-toilets.mjs || \
+          (TOILET_CACHE_ONLY=1 node tools/toilet/fetch-toilets.mjs)
+
+      - name: Verify toilet site count
+        working-directory: paymentmaptw-app
+        run: |
+          COUNT=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/toilet/manifest.json','utf8'));process.stdout.write(String(d.count))")
+          COUNTIES=$(node -e "const fs=require('fs');const d=JSON.parse(fs.readFileSync('data/toilet/manifest.json','utf8'));process.stdout.write(String(Object.keys(d.counties||{}).length))")
+          echo "sites=$COUNT counties=$COUNTIES"
+          if [ "$COUNT" -lt 20000 ] || [ "$COUNTIES" -lt 20 ]; then
+            echo "::error::Toilet ingest regression: sites=$COUNT counties=$COUNTIES"
+            exit 1
+          fi
+
+      - name: Commit toilet data to app repo
+        id: commit
+        working-directory: paymentmaptw-app
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/toilet/manifest.json data/toilet/sites-*.json data/toilet/raw/*.json data/toilet/filtered-report.json || true
+          if git diff --staged --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No toilet changes"
+          else
+            git commit -m "chore(toilet): monthly MOENV FAC_P_07 ingest"
+            git reset --hard HEAD
+            git clean -fd
+            BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+            pushed=false
+            for attempt in 1 2 3; do
+              git pull --rebase origin "$BRANCH"
+              if git push origin "$BRANCH"; then
+                pushed=true
+                break
+              fi
+              echo "Push attempt $attempt failed; retrying after fetch..."
+              git fetch origin "$BRANCH"
+              sleep $((attempt * 5))
+            done
+            if [ "$pushed" != true ]; then
+              echo "::error::Failed to push toilet ingest after 3 attempts"
+              exit 1
+            fi
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy PaymentMapTW frontend to Cloudflare Pages
+        if: steps.commit.outputs.changed == 'true'
+        working-directory: paymentmaptw-app
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PAGES_PROJECT_NAME: ${{ secrets.PAYMENTMAPTW_FRONTEND_PAGES_PROJECT }}
+        run: |
+          export PAGES_PROJECT_NAME="${PAGES_PROJECT_NAME:-paymentmaptw}"
+          npm ci --prefix worker
+          node tools/gas/deploy-frontend-pages.mjs
