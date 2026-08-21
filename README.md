@@ -82,3 +82,9 @@ CHUNK_XOR_SEED=... D1_META_DB=... D1_STORES_PREFIX=... \
 ## License
 
 MIT
+
+## Pay activities → CardSwitch
+
+Monthly crawl/OCR/AI; commits `data/pay/` on CardSwitch.
+
+See `tools/pay-pipeline/README.md`. Secrets: `GEMINI_API_KEY`, `CARDSWITCH_REPO`, `PAYMENTMAPTW_APP_TOKEN`.

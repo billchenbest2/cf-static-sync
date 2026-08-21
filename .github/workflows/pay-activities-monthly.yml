@@ -1,0 +1,166 @@
+name: Pay activities pipeline (monthly → CardSwitch)
+
+# Crawl + OCR + AI for mobile-pay promos, then commit CardSwitch data/pay/
+# Taipei windows (gated): 1st 00:30, 1st 12:30, 2nd 00:30
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: "Platform filter (empty = all). e.g. linepay"
+        required: false
+        default: ""
+      skip_fetch:
+        description: "Skip crawl"
+        type: boolean
+        default: false
+      skip_ai:
+        description: "Skip AI"
+        type: boolean
+        default: false
+      ai_force_all:
+        description: "Re-AI every active row"
+        type: boolean
+        default: false
+  schedule:
+    - cron: "30 16 28-31 * *"
+    - cron: "30 4 1 * *"
+    - cron: "30 16 1 * *"
+
+concurrency:
+  group: pay-activities-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Checkout cf-static-sync
+        uses: actions/checkout@v4
+
+      - name: Schedule gate (Asia/Taipei)
+        id: gate
+        continue-on-error: true
+        run: node tools/pay-pipeline/should-run.mjs
+
+      - name: Skip outside window
+        if: steps.gate.outcome == 'failure' && github.event_name == 'schedule'
+        run: |
+          echo "Outside monthly Taipei windows — exiting successfully."
+          exit 0
+
+      - name: Require CardSwitch secrets
+        if: steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch'
+        run: |
+          if [ -z "${{ secrets.CARDSWITCH_REPO }}" ]; then
+            echo "Missing secret CARDSWITCH_REPO (e.g. your-org/CardSwitch)"
+            exit 1
+          fi
+          if [ -z "${{ secrets.PAYMENTMAPTW_APP_TOKEN }}" ]; then
+            echo "Missing secret PAYMENTMAPTW_APP_TOKEN (needs write access to CardSwitch too)"
+            exit 1
+          fi
+          if [ -z "${{ secrets.GEMINI_API_KEY }}" ]; then
+            echo "Missing secret GEMINI_API_KEY"
+            exit 1
+          fi
+
+      - name: Checkout CardSwitch
+        if: steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch'
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.CARDSWITCH_REPO }}
+          token: ${{ secrets.PAYMENTMAPTW_APP_TOKEN }}
+          path: cardswitch
+          fetch-depth: 0
+
+      - name: Setup Node
+        if: steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: tools/pay-activities/package-lock.json
+
+      - name: Install pay-activities deps
+        if: steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch'
+        working-directory: tools/pay-activities
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+      - name: Write Gemini .env
+        if: steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          printf 'GEMINI_API_KEY=%s\nGEMINI_MODEL=gemini-3.1-flash-lite\n' "$GEMINI_API_KEY" > tools/pay-activities/.env
+
+      - name: Run pay pipeline
+        if: steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch'
+        env:
+          PAY_DATA_DIR: ${{ github.workspace }}/cardswitch/data/pay
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          EXTRA=()
+          if [ -n "${{ inputs.platform }}" ]; then
+            EXTRA+=(--platform "${{ inputs.platform }}")
+          fi
+          if [ "${{ inputs.skip_fetch }}" = "true" ]; then
+            EXTRA+=(--skip-fetch)
+          fi
+          if [ "${{ inputs.skip_ai }}" = "true" ]; then
+            EXTRA+=(--skip-ai)
+          fi
+          if [ "${{ inputs.ai_force_all }}" = "true" ]; then
+            EXTRA+=(--ai-force-all)
+          fi
+          node tools/pay-pipeline/run.mjs "${EXTRA[@]}"
+
+      - name: Commit data/pay to CardSwitch
+        if: steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch'
+        working-directory: cardswitch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -r --cached data/pay/ocr-cache 2>/dev/null || true
+          git rm --cached data/pay/ai-quota.json 2>/dev/null || true
+          git add data/pay
+          git reset HEAD -- data/pay/ocr-cache data/pay/ai-quota.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No data/pay changes"
+            exit 0
+          fi
+          git commit -m "chore: monthly pay activities pipeline update"
+          git reset --hard HEAD
+          git clean -fd
+          BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+          for attempt in 1 2 3; do
+            git pull --rebase origin "$BRANCH" || true
+            if git push origin "$BRANCH"; then
+              echo "Pushed CardSwitch data/pay"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::Failed to push CardSwitch"
+          exit 1
+
+      - name: Notify Telegram on failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            exit 0
+          fi
+          MSG="Pay activities pipeline failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          curl -sS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d "{\"chat_id\":\"${TELEGRAM_CHAT_ID}\",\"text\":\"${MSG}\"}" >/dev/null

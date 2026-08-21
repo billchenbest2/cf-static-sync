@@ -1,0 +1,20 @@
+{
+  "name": "cf-pay-activities",
+  "private": true,
+  "type": "module",
+  "description": "Vendored pay crawlers/AI for cf-static-sync; writes CardSwitch data/pay via PAY_DATA_DIR",
+  "scripts": {
+    "fetch:all": "node scripts/fetch-all.mjs",
+    "fetch:linepay": "node scripts/fetch-linepay.mjs",
+    "ocr": "node scripts/ocr-dates.mjs",
+    "ai:backfill": "node scripts/ai-backfill.mjs",
+    "ai:escalate": "node scripts/ai-escalate.mjs",
+    "vendor:update": "node vendor-from-pxplus.mjs"
+  },
+  "dependencies": {
+    "cheerio": "^1.2.0",
+    "dotenv": "^17.4.2",
+    "sharp": "^0.34.3",
+    "tesseract.js": "^6.0.1"
+  }
+}
