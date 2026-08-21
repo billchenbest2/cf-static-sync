@@ -56,6 +56,49 @@ function normDateToken(s) {
     .slice(0, 10);
 }
 
+/** Strip leading official quota-full brackets from list titles (iPASS / similar). */
+export function stripQuotaTitleNoise(title) {
+  let s = String(title || '').trim();
+  // [ ...額滿 ], 【...額滿】, （...額滿）
+  const re =
+    /^[\[\u3010(\uFF08][^\n\]\u3011)\uFF09]{0,100}?\u984d\u6eff[^\n\]\u3011)\uFF09]{0,60}[\]\u3011)\uFF09]\s*/;
+  for (let i = 0; i < 3; i++) {
+    const next = s.replace(re, '').trim();
+    if (next === s) break;
+    s = next;
+  }
+  return s;
+}
+
+export function titlesMatchForCache(a, b) {
+  const x = String(a || '').trim();
+  const y = String(b || '').trim();
+  if (!x || !y) return true;
+  if (x === y) return true;
+  return stripQuotaTitleNoise(x) === stripQuotaTitleNoise(y);
+}
+
+/**
+ * Keep cached detail body, but refresh list-facing fields (title / period / quota).
+ */
+export function mergeListFacingFields(prev, { title, listMeta, listPeriod, quotaFull } = {}) {
+  const out = {
+    ...prev,
+    period: listPeriod || prev.period,
+    _fromCache: true,
+    _cacheReason: 'unchanged',
+  };
+  if (title) out.title = title;
+  if (quotaFull !== undefined) out.quotaFull = quotaFull;
+  if (listMeta) {
+    out.raw = {
+      ...(prev.raw || {}),
+      list: listMeta,
+    };
+  }
+  return out;
+}
+
 function hasDetailBody(prev) {
   if (String(prev?.raw?.text || '').trim().length > 20) return true;
   if (String(prev?.searchText || '').trim().length > 40) return true;
@@ -131,8 +174,8 @@ export function useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod = null)
   const prevTitle = String(prev.title || prevList.name || '');
   const sameTitle =
     !nextTitle ||
-    prevTitle === nextTitle ||
-    String(prevList.name || '') === String(meta.name || '');
+    titlesMatchForCache(prevTitle, nextTitle) ||
+    titlesMatchForCache(prevList.name || '', meta.name || '');
 
   const nextStart = String(meta.startDate || '');
   const nextEnd = String(meta.endDate || '');
@@ -142,8 +185,8 @@ export function useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod = null)
     !nextStart || !prevStart || normDateToken(prevStart) === normDateToken(nextStart);
   const sameEnd = !nextEnd || !prevEnd || normDateToken(prevEnd) === normDateToken(nextEnd);
 
-  const nextUrl = String(meta.externalUrl || '');
-  const prevUrl = String(prevList.externalUrl || prev.url || '');
+  const nextUrl = String(meta.externalUrl || '').replace(/\/$/, '');
+  const prevUrl = String(prevList.externalUrl || prev.url || '').replace(/\/$/, '');
   const sameUrl = !nextUrl || !prevUrl || prevUrl === nextUrl;
 
   const prevUpdate = prevList.updateDate || '';

@@ -20,6 +20,7 @@ import {
   loadActivityIndex,
   useCachedIfEnded,
   useCachedIfUnchanged,
+  mergeListFacingFields,
   finalizeAndSave,
   logCacheSummary,
 } from './activity-cache.mjs';
@@ -418,7 +419,17 @@ async function main() {
     };
     const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod);
     if (unchangedHit.skip) {
-      activities.push(unchangedHit.cached);
+      // List title may only gain/lose a quota-full prefix — refresh title/quota,
+      // keep cached detail body + AI fields (no re-fetch).
+      const quotaFull = parseQuotaFull(item.title);
+      activities.push(
+        mergeListFacingFields(unchangedHit.cached, {
+          title: item.title,
+          listMeta,
+          listPeriod,
+          quotaFull,
+        })
+      );
       skippedFetch++;
       skippedUnchanged++;
       process.stdout.write(`\r  ${i + 1}/${listItems.length}: [unchanged] ${item.title.slice(0, 28)}   `);
