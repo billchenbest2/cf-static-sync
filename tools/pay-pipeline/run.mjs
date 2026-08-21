@@ -35,14 +35,16 @@ const FETCH_MAP = {
 
 function resolvePayDataDir() {
   if (process.env.PAY_DATA_DIR) return path.resolve(process.env.PAY_DATA_DIR);
+  // Prefer in-repo cache (seeded / committed under data/pay) to speed CI re-runs.
   const candidates = [
+    path.join(SYNC_ROOT, 'data', 'pay'),
     path.join(SYNC_ROOT, 'cardswitch', 'data', 'pay'),
     path.join(SYNC_ROOT, '..', '..', 'CardSwitch-main', 'data', 'pay'),
   ];
   for (const p of candidates) {
     if (fs.existsSync(p)) return p;
   }
-  return path.join(SYNC_ROOT, 'cardswitch', 'data', 'pay');
+  return path.join(SYNC_ROOT, 'data', 'pay');
 }
 
 function run(cmd, cmdArgs, cwd, envExtra = {}) {
