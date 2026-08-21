@@ -15,7 +15,10 @@ import { canonicalizeMerchants } from './brand-aliases.mjs';
 import { upsertPlatform } from './platform-catalog.mjs';
 import {
   loadEndedCache,
+  loadActivityIndex,
   useCachedIfEnded,
+  useCachedIfUnchanged,
+  refreshPeriodStatus,
   finalizeAndSave,
   logCacheSummary,
 } from './activity-cache.mjs';
@@ -359,9 +362,10 @@ async function fetchJson(url, opts = {}) {
   }
 }
 
-async function fetchAdvertiseActivities(endedCache) {
+async function fetchAdvertiseActivities(endedCache, prevIndex) {
   const items = [];
   let skippedFetch = 0;
+  let skippedUnchanged = 0;
   let missStreak = 0;
   const MAX_ID = 200;
   const MAX_MISS = 5;
@@ -373,6 +377,22 @@ async function fetchAdvertiseActivities(endedCache) {
       items.push({ ...cachedHit.cached, _fromCache: true });
       skippedFetch++;
       process.stdout.write(`\r  activity_content_page: ${items.length} (id=${id} cached)   `);
+      continue;
+    }
+
+    const prev = prevIndex.get(actId);
+    const softPeriod = refreshPeriodStatus(prev?.period);
+    const unchangedHit = useCachedIfUnchanged(
+      prevIndex,
+      actId,
+      { softReuse: true },
+      softPeriod
+    );
+    if (unchangedHit.skip) {
+      items.push(unchangedHit.cached);
+      skippedFetch++;
+      skippedUnchanged++;
+      process.stdout.write(`\r  activity_content_page: ${items.length} (id=${id} unchanged)   `);
       continue;
     }
 
@@ -436,13 +456,25 @@ async function fetchAdvertiseActivities(endedCache) {
       tags: [],
       searchText,
       fetchedAt: new Date().toISOString(),
-      raw: d,
+      raw: {
+        ...d,
+        list: {
+          title: stripHtml(d.title),
+          name: stripHtml(d.title),
+          startDate: d.activity_start_time || '',
+          endDate: d.activity_end_time || '',
+          externalUrl: `${MARKETING_BASE}/activity_content_page?EventId=${id}`,
+          updateDate: d.update_date || d.updateDate || '',
+          softReuse: true,
+        },
+      },
     });
 
     process.stdout.write(`\r  activity_content_page: ${items.length} (id=${id})   `);
     await sleep(60);
   }
   console.log('');
+  if (skippedUnchanged) console.log(`  advertise unchanged reused: ${skippedUnchanged}`);
   return { items, skippedFetch };
 }
 
@@ -498,7 +530,7 @@ async function enrichFixedRoute(route) {
   };
 }
 
-async function fetchFixedRoutes(endedCache) {
+async function fetchFixedRoutes(endedCache, prevIndex) {
   console.log('  fetching app bundle for fixed routes...');
   const res = await fetch(APP_JS_URL, { signal: AbortSignal.timeout(20000) });
   const js = await res.text();
@@ -508,6 +540,7 @@ async function fetchFixedRoutes(endedCache) {
 
   const items = [];
   let skippedFetch = 0;
+  let skippedUnchanged = 0;
   for (const route of routes) {
     const actId = `fixed-${route.slug}`;
     const cachedHit = useCachedIfEnded(endedCache, actId);
@@ -515,6 +548,29 @@ async function fetchFixedRoutes(endedCache) {
       items.push({ ...cachedHit.cached, _fromCache: true });
       skippedFetch++;
       process.stdout.write(`\r  fixed routes: ${items.length}/${routes.length} (${route.slug} cached)   `);
+      continue;
+    }
+
+    const listMeta = {
+      title: route.title || route.ogDescription || route.slug,
+      name: route.name || route.slug,
+      startDate: '',
+      endDate: '',
+      externalUrl: route.url,
+      updateDate: '',
+    };
+    const prev = prevIndex.get(actId);
+    const unchangedHit = useCachedIfUnchanged(
+      prevIndex,
+      actId,
+      listMeta,
+      refreshPeriodStatus(prev?.period)
+    );
+    if (unchangedHit.skip) {
+      items.push(unchangedHit.cached);
+      skippedFetch++;
+      skippedUnchanged++;
+      process.stdout.write(`\r  fixed routes: ${items.length}/${routes.length} (${route.slug} unchanged)   `);
       continue;
     }
 
@@ -529,6 +585,15 @@ async function fetchFixedRoutes(endedCache) {
     ]
       .join(' ')
       .toLowerCase();
+
+    const listForRaw = {
+      title: route.title || route.ogDescription || route.slug,
+      name: route.name || route.slug,
+      startDate: '',
+      endDate: '',
+      externalUrl: route.url,
+      updateDate: enriched.updateDate || '',
+    };
 
     items.push({
       id: `fixed-${route.slug}`,
@@ -557,12 +622,15 @@ async function fetchFixedRoutes(endedCache) {
       jsonAccessible: enriched.jsonAccessible,
       searchText,
       fetchedAt: new Date().toISOString(),
-      raw: enriched.raw || null,
+      raw: enriched.raw
+        ? { ...enriched.raw, list: listForRaw }
+        : { list: listForRaw },
     });
     process.stdout.write(`\r  fixed routes: ${items.length}/${routes.length} (${route.slug})   `);
     await sleep(100);
   }
   console.log('');
+  if (skippedUnchanged) console.log(`  fixed unchanged reused: ${skippedUnchanged}`);
   return { items, skippedFetch };
 }
 
@@ -602,13 +670,14 @@ async function main() {
 
   const outPath = path.join(DATA_DIR, 'activities.json');
   const endedCache = loadEndedCache(outPath);
-  console.log(`  ended cache: ${endedCache.size} (will skip re-fetch)\n`);
+  const prevIndex = loadActivityIndex(outPath);
+  console.log(`  prev activities: ${prevIndex.size}, ended cache: ${endedCache.size}\n`);
 
   console.log('[1/2] activity_content_page (px-advertise API)...');
-  const advertiseResult = await fetchAdvertiseActivities(endedCache);
+  const advertiseResult = await fetchAdvertiseActivities(endedCache, prevIndex);
 
   console.log('[2/2] fixed route pages...');
-  const fixedResult = await fetchFixedRoutes(endedCache);
+  const fixedResult = await fetchFixedRoutes(endedCache, prevIndex);
 
   const activities = [...advertiseResult.items, ...fixedResult.items];
   const skippedFetch = advertiseResult.skippedFetch + fixedResult.skippedFetch;

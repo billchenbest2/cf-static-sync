@@ -14,7 +14,9 @@ import { parseQuotaFull } from '../viewer/quota-full.js';
 import { upsertPlatform } from './platform-catalog.mjs';
 import {
   loadEndedCache,
+  loadActivityIndex,
   useCachedIfEnded,
+  useCachedIfUnchanged,
   finalizeAndSave,
   logCacheSummary,
 } from './activity-cache.mjs';
@@ -851,22 +853,46 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('[2/2] Fetching campaign pages...');
+  console.log('[2/2] Fetching campaign pages (skip unchanged)...');
   const endedCache = loadEndedCache(OUT_PATH);
-  console.log(`  ended cache: ${endedCache.size} (will skip re-fetch)\n`);
+  const prevIndex = loadActivityIndex(OUT_PATH);
+  console.log(`  prev activities: ${prevIndex.size}, ended cache: ${endedCache.size}\n`);
 
   const activities = [];
   let skippedFetch = 0;
+  let skippedUnchanged = 0;
   for (let i = 0; i < listItems.length; i++) {
     const item = listItems[i];
     const slug = item.parsed?.slug || `ext-${i}`;
     const kind = item.parsed?.kind || 'external';
     const id = `jko-${kind}-${slug}`;
-    const cachedHit = useCachedIfEnded(endedCache, id);
+    const fromShowEarly = parseShowTime(item.showTime);
+    const fromHeadEarly = parseHeadRange(item.head);
+    const listStart = fromShowEarly.start || fromHeadEarly.start || null;
+    const listEnd = fromShowEarly.end || fromHeadEarly.end || null;
+    const listPeriod = buildPeriod(listStart, listEnd);
+    const cachedHit = useCachedIfEnded(endedCache, id, listPeriod);
     if (cachedHit.skip) {
       activities.push({ ...cachedHit.cached, _fromCache: true });
       skippedFetch++;
       process.stdout.write(`\r  ${i + 1}/${listItems.length}: [cached] ${item.listTitle.slice(0, 32)}   `);
+      continue;
+    }
+
+    const listMeta = {
+      title: item.listTitle,
+      name: item.listTitle,
+      startDate: listStart || '',
+      endDate: listEnd || '',
+      externalUrl: item.parsed?.url || item.parsed?.fetchUrl || '',
+      updateDate: '',
+    };
+    const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod);
+    if (unchangedHit.skip) {
+      activities.push(unchangedHit.cached);
+      skippedFetch++;
+      skippedUnchanged++;
+      process.stdout.write(`\r  ${i + 1}/${listItems.length}: [unchanged] ${item.listTitle.slice(0, 28)}   `);
       continue;
     }
 
@@ -952,10 +978,12 @@ async function main() {
         text: body.slice(0, 12000),
         listTitle: item.listTitle,
         hubPath,
+        list: listMeta,
       },
     });
   }
   console.log('');
+  if (skippedUnchanged) console.log(`  unchanged active/upcoming reused: ${skippedUnchanged}`);
 
   const { payload, stats } = finalizeAndSave(OUT_PATH, {
     meta: {

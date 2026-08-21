@@ -15,7 +15,9 @@ import { normalizeBankName } from '../viewer/banks.js';
 import { upsertPlatform } from './platform-catalog.mjs';
 import {
   loadEndedCache,
+  loadActivityIndex,
   useCachedIfEnded,
+  useCachedIfUnchanged,
   finalizeAndSave,
   logCacheSummary,
 } from './activity-cache.mjs';
@@ -395,12 +397,14 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('[2/2] Fetching detail pages...');
+  console.log('[2/2] Fetching detail pages (skip unchanged)...');
   const endedCache = loadEndedCache(OUT_PATH);
-  console.log(`  ended cache: ${endedCache.size} (will skip re-fetch)\n`);
+  const prevIndex = loadActivityIndex(OUT_PATH);
+  console.log(`  prev activities: ${prevIndex.size}, ended cache: ${endedCache.size}\n`);
 
   const activities = [];
   let skippedFetch = 0;
+  let skippedUnchanged = 0;
   for (let i = 0; i < listItems.length; i++) {
     const item = listItems[i];
     const id = `easy-${item.id}`;
@@ -410,6 +414,23 @@ async function main() {
       activities.push({ ...cachedHit.cached, _fromCache: true });
       skippedFetch++;
       process.stdout.write(`\r  ${i + 1}/${listItems.length}: [cached] ${item.title.slice(0, 32)}   `);
+      continue;
+    }
+
+    const listMeta = {
+      title: item.title,
+      name: item.title,
+      startDate: item.startRaw || '',
+      endDate: item.endRaw || '',
+      externalUrl: item.url,
+      updateDate: '',
+    };
+    const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod);
+    if (unchangedHit.skip) {
+      activities.push(unchangedHit.cached);
+      skippedFetch++;
+      skippedUnchanged++;
+      process.stdout.write(`\r  ${i + 1}/${listItems.length}: [unchanged] ${item.title.slice(0, 28)}   `);
       continue;
     }
 
@@ -443,10 +464,13 @@ async function main() {
       quotaFull,
       official: true,
       fetchedAt: new Date().toISOString(),
-      raw: detail ? { text: detail.rawText } : null,
+      raw: detail
+        ? { text: detail.rawText, list: listMeta }
+        : { list: listMeta },
     });
   }
   console.log('');
+  if (skippedUnchanged) console.log(`  unchanged active/upcoming reused: ${skippedUnchanged}`);
 
   const { payload, stats } = finalizeAndSave(OUT_PATH, {
     meta: {

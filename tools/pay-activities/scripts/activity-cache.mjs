@@ -48,35 +48,136 @@ export function useCachedIfEnded(cache, id, listPeriod = null) {
   return { skip: true, cached };
 }
 
+function normDateToken(s) {
+  return String(s || '')
+    .replace(/[/.]/g, '-')
+    .replace(/T.*$/, '')
+    .trim()
+    .slice(0, 10);
+}
+
+function hasDetailBody(prev) {
+  if (String(prev?.raw?.text || '').trim().length > 20) return true;
+  if (String(prev?.searchText || '').trim().length > 40) return true;
+  if (prev?.raw && typeof prev.raw === 'object') {
+    try {
+      const n = JSON.stringify(prev.raw).length;
+      return n > 80;
+    } catch {
+      return false;
+    }
+  }
+  return false;
+}
+
+/** Recompute active/upcoming/ended from stored period dates. */
+export function refreshPeriodStatus(period) {
+  if (!period) return null;
+  const start = period.start || null;
+  const end = period.end || null;
+  if (!start && !end) {
+    return { ...period, status: period.status || 'unknown' };
+  }
+  const now = new Date();
+  let status = period.status || 'unknown';
+  try {
+    if (start && end) {
+      const s = new Date(String(start).replace(/\//g, '-'));
+      const eRaw = String(end).replace(/\//g, '-');
+      const e = new Date(eRaw.includes('T') ? eRaw : `${eRaw}T23:59:59`);
+      if (!Number.isNaN(+s) && now < s) status = 'upcoming';
+      else if (!Number.isNaN(+e) && now > e) status = 'ended';
+      else if (!Number.isNaN(+s) && !Number.isNaN(+e)) status = 'active';
+    } else if (end) {
+      const eRaw = String(end).replace(/\//g, '-');
+      const e = new Date(eRaw.includes('T') ? eRaw : `${eRaw}T23:59:59`);
+      if (!Number.isNaN(+e)) status = now > e ? 'ended' : 'active';
+    }
+  } catch {
+    /* keep prior status */
+  }
+  return { ...period, start, end, status };
+}
+
 /**
  * Reuse a previously crawled activity when list metadata is unchanged
  * (same title/dates/url/updateDate) and we already have detail text.
+ *
+ * listMeta.softReuse: when the platform has no list fingerprint (e.g. PX
+ * advertise id probe), skip re-fetch if prior body exists and period is
+ * still active/upcoming (or just marked ended by calendar).
  */
 export function useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod = null) {
   const prev = prevIndex.get(id);
   if (!prev) return { skip: false, cached: null };
 
   if (listPeriod?.status === 'ended') {
-    return useCachedIfEnded(new Map([[id, prev]]), id, listPeriod);
+    return {
+      skip: true,
+      cached: {
+        ...prev,
+        period: listPeriod,
+        _fromCache: true,
+        _cacheReason: 'ended-list',
+      },
+    };
   }
+
+  if (!hasDetailBody(prev)) return { skip: false, cached: null };
 
   const prevList = prev.raw?.list || {};
   const meta = listMeta || {};
+  const nextTitle = String(meta.title || meta.name || '');
+  const prevTitle = String(prev.title || prevList.name || '');
   const sameTitle =
-    String(prev.title || '') === String(meta.title || meta.name || prev.title || '') ||
+    !nextTitle ||
+    prevTitle === nextTitle ||
     String(prevList.name || '') === String(meta.name || '');
-  const sameStart = String(prevList.startDate || '') === String(meta.startDate || '');
-  const sameEnd = String(prevList.endDate || '') === String(meta.endDate || '');
-  const sameUrl = String(prevList.externalUrl || '') === String(meta.externalUrl || '');
+
+  const nextStart = String(meta.startDate || '');
+  const nextEnd = String(meta.endDate || '');
+  const prevStart = String(prevList.startDate || prev.period?.start || '');
+  const prevEnd = String(prevList.endDate || prev.period?.end || '');
+  const sameStart =
+    !nextStart || !prevStart || normDateToken(prevStart) === normDateToken(nextStart);
+  const sameEnd = !nextEnd || !prevEnd || normDateToken(prevEnd) === normDateToken(nextEnd);
+
+  const nextUrl = String(meta.externalUrl || '');
+  const prevUrl = String(prevList.externalUrl || prev.url || '');
+  const sameUrl = !nextUrl || !prevUrl || prevUrl === nextUrl;
+
   const prevUpdate = prevList.updateDate || '';
   const nextUpdate = meta.updateDate || '';
   const sameUpdate = !nextUpdate || !prevUpdate || prevUpdate === nextUpdate;
-  const hasBody = String(prev.raw?.text || '').trim().length > 20;
 
-  if (sameTitle && sameStart && sameEnd && sameUrl && sameUpdate && hasBody) {
+  const metaSignals = [nextTitle, nextStart, nextEnd, nextUrl, nextUpdate].filter(Boolean).length;
+
+  if (metaSignals === 0) {
+    if (!meta.softReuse) return { skip: false, cached: null };
+    const refreshed = listPeriod || refreshPeriodStatus(prev.period);
+    if (!refreshed) return { skip: false, cached: null };
+    if (
+      refreshed.status === 'active' ||
+      refreshed.status === 'upcoming' ||
+      refreshed.status === 'ended'
+    ) {
+      return {
+        skip: true,
+        cached: {
+          ...prev,
+          period: refreshed,
+          _fromCache: true,
+          _cacheReason: refreshed.status === 'ended' ? 'ended-soft' : 'unchanged-soft',
+        },
+      };
+    }
+    return { skip: false, cached: null };
+  }
+
+  if (sameTitle && sameStart && sameEnd && sameUrl && sameUpdate) {
     const cached = {
       ...prev,
-      period: listPeriod || prev.period,
+      period: listPeriod || refreshPeriodStatus(prev.period) || prev.period,
       _fromCache: true,
       _cacheReason: 'unchanged',
     };

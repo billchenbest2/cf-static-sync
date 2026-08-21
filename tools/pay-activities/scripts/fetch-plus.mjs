@@ -12,7 +12,9 @@ import { normalizeBankName } from '../viewer/banks.js';
 import { upsertPlatform } from './platform-catalog.mjs';
 import {
   loadEndedCache,
+  loadActivityIndex,
   useCachedIfEnded,
+  useCachedIfUnchanged,
   finalizeAndSave,
   logCacheSummary,
 } from './activity-cache.mjs';
@@ -427,6 +429,14 @@ function buildActivity(entry, pageMap) {
       homepageDate: isPage ? null : listDate,
       pageName: isPage ? entry.pageName : detailPage?.name || null,
       sourceKind: isPage ? 'standalone_page' : 'homepage_card',
+      list: {
+        title: cardTitle,
+        name: cardTitle,
+        startDate: period?.start || '',
+        endDate: period?.end || '',
+        externalUrl: url,
+        updateDate: '',
+      },
     },
   };
 }
@@ -589,13 +599,15 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('[2/3] Building activities...');
+  console.log('[2/3] Building activities (skip unchanged)...');
   const endedCache = loadEndedCache(OUT_PATH);
-  console.log(`  ended cache: ${endedCache.size} (will skip re-fetch)\n`);
+  const prevIndex = loadActivityIndex(OUT_PATH);
+  console.log(`  prev activities: ${prevIndex.size}, ended cache: ${endedCache.size}\n`);
 
   const activities = [];
   const seen = new Set();
   let skippedFetch = 0;
+  let skippedUnchanged = 0;
 
   for (const entry of [...homeCards, ...standalonePages]) {
     const dedupeKey =
@@ -614,10 +626,28 @@ async function main() {
       continue;
     }
 
+    const url = activityUrl(entry, pageMap);
+    const listMeta = {
+      title: entry.title,
+      name: entry.title,
+      startDate: listPeriod?.start || '',
+      endDate: listPeriod?.end || '',
+      externalUrl: url,
+      updateDate: '',
+    };
+    const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod);
+    if (unchangedHit.skip) {
+      activities.push(unchangedHit.cached);
+      skippedFetch++;
+      skippedUnchanged++;
+      continue;
+    }
+
     activities.push(buildActivity(entry, pageMap));
   }
 
   console.log('[3/3] Saving...');
+  if (skippedUnchanged) console.log(`  unchanged reused: ${skippedUnchanged}`);
 
   const { payload, stats } = finalizeAndSave(OUT_PATH, {
     meta: {
