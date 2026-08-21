@@ -18,7 +18,9 @@ import { normalizeBankName } from '../viewer/banks.js';
 import { upsertPlatform } from './platform-catalog.mjs';
 import {
   loadEndedCache,
+  loadActivityIndex,
   useCachedIfEnded,
+  useCachedIfUnchanged,
   finalizeAndSave,
   logCacheSummary,
 } from './activity-cache.mjs';
@@ -377,18 +379,19 @@ async function fetchAllTags() {
 async function fetchAllListItems() {
   const byKey = await fetchPagedList('list');
 
+  // Only Money tag (551): finds landpress hubs / exclusive rows without re-paging every tag
+  const MONEY_TAG_ID = 551;
   const tags = await fetchAllTags();
-  console.log(`  tags: ${tags.length}`);
-  for (const tag of tags) {
-    if (tag?.id == null) continue;
-    const label = `tag:${tag.id}`;
-    const tagged = await fetchPagedList(label, { tagIds: String(tag.id) });
+  const moneyTag = tags.find((t) => Number(t.id) === MONEY_TAG_ID);
+  console.log(`  tags available: ${tags.length}; using Money tag ${MONEY_TAG_ID}: ${moneyTag ? 'yes' : 'no'}`);
+  if (moneyTag) {
+    const label = `tag:${moneyTag.id}`;
+    const tagged = await fetchPagedList(label, { tagIds: String(moneyTag.id) });
     let added = 0;
     for (const item of tagged.values()) {
       if (mergeListItem(byKey, item, label)) added++;
     }
     if (added) console.log(`  ${label} merged +${added} new (unique ${byKey.size})`);
-    await sleep(150);
   }
 
   return [...byKey.values()];
@@ -541,6 +544,7 @@ function buildActivityRecord(item, detail) {
         ogDesc: item.ogDesc,
         startDate: item.startDate,
         endDate: item.endDate,
+        updateDate: item.updateDate || detail?.updateDate || null,
         tags: item.tags,
         externalUrl: item.externalUrl || null,
         visibility: item.visibility || detail?.visibility || null,
@@ -554,7 +558,7 @@ async function main() {
   console.log('LINE Pay activity fetch\n');
   fs.mkdirSync(DATA_DIR, { recursive: true });
 
-  console.log('[1/4] Fetching event list (all pages + tags)...');
+  console.log('[1/4] Fetching event list (all pages + Money tag)...');
   const listItems = await fetchAllListItems();
   console.log(`  Total list: ${listItems.length}\n`);
   if (!listItems.length) {
@@ -567,12 +571,14 @@ async function main() {
   const nestedAdded = await discoverLandpressNested(listItems, scrapedLandpress);
   console.log(`  nested added: ${nestedAdded.length} (list now ${listItems.length})\n`);
 
-  console.log('[3/4] Fetching details for active / upcoming...');
+  console.log('[3/4] Fetching details for active / upcoming (skip unchanged)...');
   const endedCache = loadEndedCache(OUT_PATH);
-  console.log(`  ended cache: ${endedCache.size} (will skip re-fetch)\n`);
+  const prevIndex = loadActivityIndex(OUT_PATH);
+  console.log(`  prev activities: ${prevIndex.size}, ended cache: ${endedCache.size}\n`);
 
   const activities = [];
   let skippedFetch = 0;
+  let skippedUnchanged = 0;
   for (let i = 0; i < listItems.length; i++) {
     const item = listItems[i];
     const id = `linepay-${item.key}`;
@@ -581,6 +587,22 @@ async function main() {
     if (cachedHit.skip) {
       activities.push({ ...cachedHit.cached, _fromCache: true });
       skippedFetch++;
+      continue;
+    }
+
+    const listMeta = {
+      title: item.title || item.name,
+      name: item.name,
+      startDate: item.startDate,
+      endDate: item.endDate,
+      updateDate: item.updateDate,
+      externalUrl: item.externalUrl || null,
+    };
+    const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, period);
+    if (unchangedHit.skip) {
+      activities.push(unchangedHit.cached);
+      skippedFetch++;
+      skippedUnchanged++;
       continue;
     }
 
@@ -638,6 +660,7 @@ async function main() {
     activities.push(buildActivityRecord(item, detail));
   }
   console.log('');
+  if (skippedUnchanged) console.log(`  unchanged active/upcoming reused: ${skippedUnchanged}`);
 
   console.log('[4/4] Saving...');
   const { payload, stats } = finalizeAndSave(OUT_PATH, {
