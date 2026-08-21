@@ -18,7 +18,7 @@
       "keptEndedNotInList": 0,
       "total": 134
     },
-    "lastOcrAt": "2026-08-20T01:38:12.197Z",
+    "lastOcrAt": "2026-08-21T13:27:02.252Z",
     "ocrUpdated": 1
   },
   "activities": [
@@ -21669,7 +21669,7 @@
         "title_pct_match"
       ],
       "ocrMeta": {
-        "processedAt": "2026-08-20T01:38:12.197Z",
+        "processedAt": "2026-08-21T13:27:02.252Z",
         "attempts": [
           {
             "url": "https://prod-s3.pxpayplus.com/MKT_Event/Event_Img/5millionplus_member/kv.json",
@@ -21683,59 +21683,23 @@
           },
           {
             "url": "https://prod-s3.pxpayplus.com/MKT_Event/Event_Img/5millionplus_member/KV.png",
-            "ok": true,
-            "textPreview": "全 支 褒 goy 2024/07/01— 13,5, 全 騰 買 塊 多 店 外 后 穩 多 更 多 金 嘛 店 外 一 蝦 同 鹿 舞 上記 x450: 0 、 EVay AA 號 二 IN 各 和 巡 -] 和 月 埠 全 & as ",
-            "text": "全 支 褒 goy 2024/07/01— 13,5, 全 騰 買 塊 多 店 外 后 穩 多 更 多 金 嘛 店 外 一 蝦 同 鹿 舞 上記 x450: 0 、 EVay AA 號 二 IN 各 和 巡 -] 和 月 埠 全 & as 衝 / 生",
-            "inferred": {
-              "start": "2024/07/01",
-              "end": "",
-              "source": "text",
-              "confidence": "partial"
-            },
-            "fromJson": null,
-            "ocrVariant": ""
+            "ok": false,
+            "error": "download failed"
           },
           {
             "url": "https://prod-s3.pxpayplus.com/MKT_Event/Event_Img/5millionplus_member/kv.png",
-            "ok": true,
-            "textPreview": "全 支 褒 goy 2024/07/01— 13,5, 全 騰 買 塊 多 店 外 后 穩 多 更 多 金 嘛 店 外 一 蝦 同 鹿 舞 上記 x450: 0 、 EVay AA 號 二 IN 各 和 巡 -] 和 月 埠 全 & as ",
-            "text": "全 支 褒 goy 2024/07/01— 13,5, 全 騰 買 塊 多 店 外 后 穩 多 更 多 金 嘛 店 外 一 蝦 同 鹿 舞 上記 x450: 0 、 EVay AA 號 二 IN 各 和 巡 -] 和 月 埠 全 & as 衝 / 生",
-            "inferred": {
-              "start": "2024/07/01",
-              "end": "",
-              "source": "text",
-              "confidence": "partial"
-            },
-            "fromJson": null,
-            "ocrVariant": ""
+            "ok": false,
+            "error": "download failed"
           },
           {
             "url": "https://prod-s3.pxpayplus.com/MKT_Event/Event_Img/5millionplus_member/KV.webp",
-            "ok": true,
-            "textPreview": "全 支 褒 goy 2024/07/01— 13,5, 全 騰 買 塊 多 店 外 后 穩 多 更 多 金 嘛 店 外 一 蝦 同 鹿 舞 上記 x450: 0 、 EVay AA 號 二 IN 各 和 巡 -] 和 月 埠 全 & as ",
-            "text": "全 支 褒 goy 2024/07/01— 13,5, 全 騰 買 塊 多 店 外 后 穩 多 更 多 金 嘛 店 外 一 蝦 同 鹿 舞 上記 x450: 0 、 EVay AA 號 二 IN 各 和 巡 -] 和 月 埠 全 & as 衝 / 生",
-            "inferred": {
-              "start": "2024/07/01",
-              "end": "",
-              "source": "text",
-              "confidence": "partial"
-            },
-            "fromJson": null,
-            "ocrVariant": ""
+            "ok": false,
+            "error": "download failed"
           },
           {
             "url": "https://prod-s3.pxpayplus.com/MKT_Event/Event_Img/5millionplus_member/kv.webp",
-            "ok": true,
-            "textPreview": "全 支 褒 goy 2024/07/01— 13,5, 全 騰 買 塊 多 店 外 后 穩 多 更 多 金 嘛 店 外 一 蝦 同 鹿 舞 上記 x450: 0 、 EVay AA 號 二 IN 各 和 巡 -] 和 月 埠 全 & as ",
-            "text": "全 支 褒 goy 2024/07/01— 13,5, 全 騰 買 塊 多 店 外 后 穩 多 更 多 金 嘛 店 外 一 蝦 同 鹿 舞 上記 x450: 0 、 EVay AA 號 二 IN 各 和 巡 -] 和 月 埠 全 & as 衝 / 生",
-            "inferred": {
-              "start": "2024/07/01",
-              "end": "",
-              "source": "text",
-              "confidence": "partial"
-            },
-            "fromJson": null,
-            "ocrVariant": ""
+            "ok": false,
+            "error": "download failed"
           },
           {
             "url": "https://prod-s3.pxpayplus.com/MKT_Event/Event_Img/5millionplus_member/00-kv.png",
@@ -21749,7 +21713,7 @@
               "confidence": "partial"
             },
             "fromJson": null,
-            "ocrVariant": ""
+            "ocrVariant": "full-rot8"
           },
           {
             "url": "https://prod-s3.pxpayplus.com/MKT_Event/Event_Img/5millionplus_member/00-KV.png",
