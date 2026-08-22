@@ -1,14 +1,15 @@
 {
   "meta": {
     "source": "https://www.icashpay.com.tw/advertMessage/index/page/1",
-    "fetchedAt": "2026-08-19T13:15:17.903Z",
-    "count": 34,
+    "fetchedAt": "2026-08-22T03:55:10.977Z",
+    "count": 35,
     "cache": {
       "cachedEndedTotal": 1,
-      "skippedFetch": 1,
-      "freshlyFetched": 33,
+      "skippedFetch": 33,
+      "freshlyFetched": 2,
       "keptEndedNotInList": 0,
-      "total": 34
+      "keptProtectedActive": 0,
+      "total": 35
     }
   },
   "activities": [
@@ -88,53 +89,46 @@
       ]
     },
     {
-      "id": "icash-2450",
+      "id": "icash-2449",
       "platform": "icash",
       "source": "icashpay",
-      "slug": "2450",
-      "url": "https://www.icashpay.com.tw/advertMessage/view/id/2450",
-      "title": "icash Pay博客來購物最好Pay 單筆滿額贈",
+      "slug": "2449",
+      "url": "https://www.icashpay.com.tw/advertMessage/view/id/2449",
+      "title": "500甜市集Xicash Pay綁定uniopen 聯名卡大回饋",
       "period": {
-        "start": "2026/08/17",
-        "end": "2026/08/19",
-        "status": "active"
+        "start": null,
+        "end": null,
+        "status": "unknown"
       },
-      "merchants": [
-        "博客來"
-      ],
+      "merchants": [],
       "rewards": [
         {
-          "label": "uniopen聯名卡踩點任務",
-          "detail": "綁定uniopen聯名卡最高回饋7%",
-          "pct": 7,
-          "role": "card"
-        },
-        {
-          "label": "uniopen聯名卡博客來APP滿額",
-          "detail": "每週六、日博客來APP滿額最高6%",
-          "pct": 6,
-          "role": "card"
-        },
-        {
-          "label": "uniopen聯名卡博客來APP登記加碼",
-          "detail": "單筆滿3,000元並完成登記回饋3% OPENPOINT",
-          "pct": 3,
-          "role": "card"
+          "label": "優惠",
+          "detail": "500甜市集Xicash Pay綁定uniopen 聯名卡大回饋",
+          "role": "base"
         }
       ],
       "scopeHints": [],
-      "searchText": "icash pay博客來購物最好pay 單筆滿額贈  博客來 主活動 活動期間(以實際完成結帳流程之時間為準)於「博客來app」購買全站商品(部分除外)並使用 uniopen 聯名卡，單筆訂單實際消費金額滿 3,000 元且為成功交易者，並於博客來app開放登記期間內完成登記活動，將回饋 3% openpoint 點數至博客來會員帳號已完成連結 uniopen 會員帳號",
+      "searchText": "500甜市集xicash pay綁定uniopen 聯名卡大回饋  優惠 500甜市集xicash pay綁定uniopen 聯名卡大回饋",
       "quotaFull": null,
       "official": true,
-      "fetchedAt": "2026-08-19T13:15:08.064Z",
+      "fetchedAt": "2026-08-22T03:55:10.538Z",
       "raw": {
-        "text": "icash Pay博客來購物最好Pay 單筆滿額贈 活動期間：2026/8/17-8/19 活動方式： 活動期間不限新舊戶，於博客來以icash Pay支付消費單筆消費滿2,500元，即可享100點OPENPOINT點數回饋，單筆可累贈，每戶活動期間回饋上限300點。活動期間總回饋上限15萬點。 【新戶首購最好PAY】活動詳請請見活動網頁。 活動期間首次註冊icash Pay之新用戶，首次交易於博客來以icash Pay支付消費不限金額(1元以上)，即贈50點OPENPOINT及博客來50元E-Coupon各一次，每戶點數及E-Coupon限回饋乙次，活動期間總回饋上限1萬點及200份。 【uniopen聯名卡最高回饋7%】 綁定icash Pay適用uniopen聯名卡踩點任務最高回饋7%。活動詳請請見活動網頁。 【uniopen聯名卡每週六、日博客來APP滿額最高6%】活動詳請請見活動網頁。 活動期間(以實際完成結帳流程之時間為準)於「博客來APP」購買全站商品(部分除外)並使用 uniopen 聯名卡，單筆訂單實際消費金額滿 3,000 元且為成功交易者，並於博客來APP開放登記期間內完成登記活動，將回饋 3% OPENPOINT 點數至博客來會員帳號已完成連結 uniopen 會員帳號。可多筆滿額訂單回饋，每月每會員帳號點數回饋上限 200 點，每月活動限量登記 300 名，額滿為止 注意事項： 如活動期間內已達活動總回饋上限，將依icash Pay交易之時間順序為準判定符合資格，不另行公告或通知，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈點，請視情況評估參與。 icash Pay註冊流程請參考：https://pse.is/6345vx 立即下載icash Pay 本活動之消費認定將分別依博客來線上購物支付實際交易金額、發票為主，回饋之加碼OPENPOINT計算至小數點後第二位(依小數點後第三位四捨五入計)。交易金額僅限一般商品交易，不含OPENPOINT點數折抵金額等，且須為單筆全額使用icash Pay 支付。如交易經取消、退貨及退款，將不予贈點，若於活動贈點發送後退貨(包含部分退貨)，將會回扣以該筆交易計算之全額活動點數。 商店端進行交易退貨之流程(例如進行交易/退貨之順序、作業時間)可能影響本活動點數之計算判斷，如因此而影響所獲得之點數，不另外進行點數回補。 使用icash Pay參與本活動應使用具備Android作業系統6.0以上或iOS作業系統13.0以上的手機，並請將OPENPOINTAPP或icash Pay APP之應用程式及手機內建瀏覽器更新至最新版本。icash Pay用戶於獲得本活動回饋前及回饋當下仍應具有uniopen會員資格及icash Pay使用者資格，入點時應符合本活動資格等相關規範。其他聯名卡加碼需依各聯名卡活動頁公告為準。 本次活動點數最晚將於活動結束次次月底前贈送。 詳細活動辦法以主辦單位(愛金卡)網站公告為準。主辦單位保留本活動所有事宜之最終解釋之權利，並可隨時變更、取消、終止或暫停本活動及替換其他獎項；活動如遇有任何因電腦系統、網路、電話等故障或傳輸異常、或有不可抗力事由，主辦單位得暫時停止相關服務，參與者同意取消當次消費支付指示。如因而致參加者之資料有延遲、遺失、錯誤或無法辨識等情況，主辦單位不負任何法律責任，參加者亦不得因此異議。其他未盡事宜，悉依主辦單位相關規定辦理。 參加本活動即表示同意接受本活動注意事項；若有違反者，主辦單位有權取消參加者之參加資格並追回獲得之點數，如對本活動有任何疑義，可撥打愛金卡公司客服專線0800-233-888 (手機請撥02-2657-6388)。 OPENPOINT由統一超商發行，紅利點數相關規則(例如使用效期/範圍/方式)、累兌紀錄或問題，請至OPENPOINT App查詢或電洽OPENPOINT客服中心0800-711-177(手機請撥02-2627-1650)或請mail 至service@mail.openpoint.com.tw 並留下您的icash Pay用戶手機號碼、icash Pay 帳號、問題等以供查詢回覆。"
+        "text": "",
+        "list": {
+          "title": "",
+          "name": "",
+          "startDate": "",
+          "endDate": "",
+          "externalUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2449",
+          "updateDate": ""
+        }
       },
-      "aiVerifiedAt": "2026-08-19T14:20:22.899Z",
       "aiRiskScore": 0,
-      "aiRiskReasons": [
-        "explicit_pct_present"
-      ]
+      "aiRiskReasons": [],
+      "aiModel": "gemini-3.1-flash-lite",
+      "aiNeedsReview": false,
+      "aiVerifiedAt": "2026-08-22T03:57:21.405Z"
     },
     {
       "id": "icash-2284",
@@ -536,6 +530,59 @@
         "too_many_other",
         "explicit_pct_present"
       ]
+    },
+    {
+      "id": "icash-2444",
+      "platform": "icash",
+      "source": "icashpay",
+      "slug": "2444",
+      "url": "https://www.icashpay.com.tw/advertMessage/view/id/2444",
+      "title": "至阿爾法餐飲集團指定品牌門市使用OPENPOINT點數折抵享50%回饋",
+      "period": {
+        "start": null,
+        "end": null,
+        "status": "unknown"
+      },
+      "merchants": [
+        "https:",
+        "www.icashpay.com.tw",
+        "advertMessage",
+        "view",
+        "id",
+        "2367 麵屋一燈",
+        "卡進行O"
+      ],
+      "rewards": [
+        {
+          "label": "阿爾法餐飲集團指定品牌門市點數折抵回饋",
+          "detail": "使用OPENPOINT點數折抵付款，享折抵金額50%點數回饋",
+          "pct": 50,
+          "role": "base"
+        }
+      ],
+      "scopeHints": [],
+      "searchText": "至阿爾法餐飲集團指定品牌門市使用openpoint點數折抵享50%回饋  https: www.icashpay.com.tw advertmessage view id 2367 麵屋一燈 卡進行o icash pay 基本回饋 至阿爾法餐飲集團指定品牌門市使用openpoint點數折抵享50%回饋",
+      "quotaFull": null,
+      "official": true,
+      "fetchedAt": "2026-08-22T03:55:10.974Z",
+      "raw": {
+        "text": "至阿爾法餐飲集團指定品牌門市使用OPENPOINT點數折抵享50%回饋 活動期間：自2026/8/20 起至2026/9/30 活動說明： 活動期間於阿爾法餐飲集團指定品牌門市，使用OPENPOINT點數折抵付款，每折抵1點OPENPOINT，享折抵金額50%點數回饋，每戶最高回饋上限40點，活動回饋總上限20萬點。(ex:支付80元，使用OPENPOINT點數折抵40元，將獲得40*50%=20點回饋) 活動適用通路：https://www.icashpay.com.tw/advertMessage/view/id/2367 麵屋一燈、賴山嶼 高雄夢時代店： 活動期間限已升級為uniopen認證會員之夢時代APP會員並於消費時出示夢時代會員條碼/卡進行OPENPOINT點數折抵，方符合本活動回饋資格；另夢時代購物中心於9/11(五)推出之夢時代會員好給利1點抵2元活動，夢時代兩店櫃當日改以所折抵之點數計算回饋點數。恕不接受OPENPOINT APP、OPEN 錢包、icash Pay或其他會員條碼。 麵屋一燈 統一時代百貨台北店： 活動僅適用於百貨會員且已認證為uniopen會員者參加，消費時請出示統一時代百貨台北店/DREAM PLAZA 的APP會員條碼刷讀交易，並使用OPENPOINT點數折抵1點抵1元付款，方符合點數加贈資格。恕不接受OPENPOINT APP、OPEN 錢包、icash Pay APP內之點數折抵支付及其會員條碼。 如活動期間內已達活動總回饋上限，將依icash Pay交易之時間順序為準判定符合資格，不另行公告或通知，活動參與者不得以未獲知本活動回饋額滿訊息為理由要求補贈點，請視情況評估參與。 本活動回饋點數將於活動結束後次月底前匯入uniopen會員帳戶中，回饋資格及入點時間認定依icash Pay資訊系統紀錄認定為準，系統將以符合活動資格者之消費優先順序匯入該uniopen會員帳戶。 本活動之點數折抵認定將以實際至阿爾法餐飲集團指定品牌門市通路進行實際折抵OPENPOINT點數之金額為主，回饋之OPENPOINT計算至小數點後第二位(依小數點後第三位四捨五入計)。如交易經取消、退貨及退款，將不予贈點，若於活動贈點發送後退貨(包含部分退貨)，將會回扣以該筆交易計算之全額活動點數。 商店端進行交易退貨之流程(例如進行交易/退貨之順序、作業時間)可能影響本活動點數之計算判斷，如因此而影響所獲得之點數，不另外進行點數回補。 於獲得本活動回饋前及回饋當下仍應具有uniopen會員資格及入點時應符合本活動資格等相關規範。 詳細活動辦法以主辦單位(愛金卡)網站公告為準。主辦單位保留本活動所有事宜之最終解釋之權利，並可隨時變更、取消、終止或暫停本活動及替換其他獎項；活動如遇有任何因電腦系統、網路、電話等故障或傳輸異常、或有不可抗力事由，主辦單位得暫時停止相關服務，參與者同意取消當次消費支付指示。如因而致參加者之資料有延遲、遺失、錯誤或無法辨識等情況，主辦單位不負任何法律責任，參加者亦不得因此異議。其他未盡事宜，悉依主辦單位相關規定辦理。 參加本活動即表示同意接受本活動注意事項；若有違反者，主辦單位有權取消參加者之參加資格並追回獲得之點數，如對本活動有任何疑義，可撥打愛金卡公司客服專線0800-233-888 (手機請撥02-2657-6388)。 OPENPOINT由統一超商發行，紅利點數規則(例如使用效期/範圍/方式)、累兌紀錄或相關問題，請至OPENPOINT App查詢或電洽OPENPOINT客服中心0800-711-177(手機請撥02-2627-1650)或請mail至 service@mail.openpoint.com.tw 並留下您的icash Pay用戶手機號碼、icash Pay帳號、問題等以供查詢回覆。",
+        "list": {
+          "title": "",
+          "name": "",
+          "startDate": "",
+          "endDate": "",
+          "externalUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2444",
+          "updateDate": ""
+        }
+      },
+      "aiRiskScore": 0,
+      "aiRiskReasons": [
+        "title_pct_match"
+      ],
+      "aiModel": "gemini-3.1-flash-lite",
+      "aiNeedsReview": false,
+      "aiVerifiedAt": "2026-08-22T03:57:26.953Z"
     },
     {
       "id": "icash-2436",

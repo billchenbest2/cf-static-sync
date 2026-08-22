@@ -1,5 +1,5 @@
 {
-  "processedAt": "2026-08-21T13:27:02.265Z",
+  "processedAt": "2026-08-22T03:57:20.602Z",
   "results": [
     {
       "act": {
@@ -150,7 +150,7 @@
           "title_pct_match"
         ],
         "ocrMeta": {
-          "processedAt": "2026-08-21T13:27:02.252Z",
+          "processedAt": "2026-08-22T03:57:20.590Z",
           "attempts": [
             {
               "url": "https://prod-s3.pxpayplus.com/MKT_Event/Event_Img/5millionplus_member/kv.json",
@@ -450,8 +450,17 @@
         "scopeHints": [],
         "jsonAccessible": false,
         "searchText": "全聯生活圈 用全支付消費領券享回饋！  px_neighborhood",
-        "fetchedAt": "2026-08-19T13:15:44.449Z",
-        "raw": null,
+        "fetchedAt": "2026-08-22T03:54:55.128Z",
+        "raw": {
+          "list": {
+            "title": "全聯生活圈 用全支付消費領券享回饋！",
+            "name": "PxNeighborhood",
+            "startDate": "",
+            "endDate": "",
+            "externalUrl": "https://marketing.pxpayplus.com/pxplus_marketing_page/px_neighborhood",
+            "updateDate": ""
+          }
+        },
         "aiVerifiedAt": "2026-08-19T14:48:54.915Z",
         "aiRiskScore": 0,
         "aiRiskReasons": []
