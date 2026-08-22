@@ -107,6 +107,8 @@ function buildPeriod(startRaw, endRaw) {
 function isJunkMerchant(name) {
   const n = String(name || '').trim();
   if (!n || n.length < 2) return true;
+  if (/^(https?:|www\.|advertMessage|view|id|\d+)$/i.test(n)) return true;
+  if (/icashpay\.com|\/advertMessage\//i.test(n)) return true;
   if (/^(repost[-_].*|logo\d*|pic|icon|share|facebook|twitter|instagram|youtube|line)$/i.test(n)) return true;
   if (/圖示|社群|分享|活動內容|注意事項|查詢指定店家/.test(n)) return true;
   if (/^(icash Pay|icash|OPENPOINT|指定店家|TWQR)$/i.test(n)) return true;
@@ -124,6 +126,16 @@ function parseDateRange(text) {
     return {
       startRaw: `${m[1]}/${m[2]}/${m[3]}`,
       endRaw: `${m[4]}/${m[5]}/${m[6]}`,
+    };
+  }
+  // e.g. 自2026/8/20 起至2026/9/30
+  const qi = s.match(
+    /(?:自)?(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})\s*(?:起)?\s*(?:至|到)\s*(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})/
+  );
+  if (qi) {
+    return {
+      startRaw: `${qi[1]}/${qi[2]}/${qi[3]}`,
+      endRaw: `${qi[4]}/${qi[5]}/${qi[6]}`,
     };
   }
   const short = s.match(/(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})\s*-\s*(\d{1,2})[-/.](\d{1,2})/);
@@ -264,9 +276,10 @@ function extractMerchants(title, fullText) {
     if (blob.includes(brand)) push(brand);
   }
 
-  const storeMatch = blob.match(/(?:指定店家|精選通路|適用通路|指定通路)[：:]\s*([^。\n]{2,120})/);
+  const storeMatch = blob.match(/(?:指定店家|精選通路|適用通路|指定通路)[：:]\s*([^。\n]{2,160})/);
   if (storeMatch) {
-    storeMatch[1].split(/[、,，/／]/).forEach((s) => {
+    const rest = storeMatch[1].replace(/https?:\/\/\S+/gi, ' ').trim();
+    rest.split(/[、,，/／]/).forEach((s) => {
       const name = s.trim().replace(/[（(].*$/, '').trim();
       push(name);
     });

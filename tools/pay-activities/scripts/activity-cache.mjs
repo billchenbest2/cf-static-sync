@@ -80,13 +80,36 @@ export function titlesMatchForCache(a, b) {
   return stripQuotaTitleNoise(x) === stripQuotaTitleNoise(y);
 }
 
+/** True when period carries at least one calendar date. */
+export function periodHasDates(period) {
+  return !!(period && (period.start || period.end));
+}
+
+/**
+ * Prefer list period only when it has dates. Empty list periods
+ * ({ start:null, end:null, status:'unknown' }) are truthy objects and must
+ * NOT wipe previously known dates (JKO weekday hubs often omit showTime).
+ */
+export function coalescePeriod(listPeriod, prevPeriod) {
+  if (periodHasDates(listPeriod)) return listPeriod;
+  if (listPeriod?.status === 'ended' && periodHasDates(prevPeriod)) {
+    const refreshed = refreshPeriodStatus(prevPeriod) || prevPeriod;
+    return { ...refreshed, status: 'ended' };
+  }
+  const refreshed = refreshPeriodStatus(prevPeriod);
+  if (periodHasDates(refreshed) || (refreshed && refreshed.status && refreshed.status !== 'unknown')) {
+    return refreshed;
+  }
+  return prevPeriod || listPeriod || null;
+}
+
 /**
  * Keep cached detail body, but refresh list-facing fields (title / period / quota).
  */
 export function mergeListFacingFields(prev, { title, listMeta, listPeriod, quotaFull } = {}) {
   const out = {
     ...prev,
-    period: listPeriod || prev.period,
+    period: coalescePeriod(listPeriod, prev.period),
     _fromCache: true,
     _cacheReason: 'unchanged',
   };
@@ -161,7 +184,7 @@ export function useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod = null)
       skip: true,
       cached: {
         ...prev,
-        period: listPeriod,
+        period: coalescePeriod(listPeriod, prev.period),
         _fromCache: true,
         _cacheReason: 'ended-list',
       },
@@ -199,7 +222,7 @@ export function useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod = null)
 
   if (metaSignals === 0) {
     if (!meta.softReuse) return { skip: false, cached: null };
-    const refreshed = listPeriod || refreshPeriodStatus(prev.period);
+    const refreshed = coalescePeriod(listPeriod, prev.period);
     if (!refreshed) return { skip: false, cached: null };
     if (
       refreshed.status === 'active' ||
@@ -222,7 +245,7 @@ export function useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod = null)
   if (sameTitle && sameStart && sameEnd && sameUrl && sameUpdate) {
     const cached = {
       ...prev,
-      period: listPeriod || refreshPeriodStatus(prev.period) || prev.period,
+      period: coalescePeriod(listPeriod, prev.period),
       _fromCache: true,
       _cacheReason: 'unchanged',
     };

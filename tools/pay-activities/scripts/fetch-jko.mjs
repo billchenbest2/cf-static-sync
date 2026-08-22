@@ -345,11 +345,15 @@ function parseHeadRange(head) {
 function parseBodyRange(body) {
   const s = String(body || '');
   const chunks = s.split(/(?=活動時間|活動期間|累積消費金額時間)/);
-  const focus = chunks
-    .filter((c) => /^(活動時間|活動期間|累積消費金額時間)/.test(c.trim()))
-    .join('\n')
-    .slice(0, 500);
-  return parseTextRange(focus);
+  for (const c of chunks) {
+    const t = c.trim();
+    if (!/^(活動時間|活動期間|累積消費金額時間)/.test(t)) continue;
+    // Only look at a short window after the label to avoid RSC/CSS noise.
+    const window = t.slice(0, 120);
+    const hit = parseTextRange(window);
+    if (hit.start && hit.end) return hit;
+  }
+  return { start: null, end: null };
 }
 
 function parseTextRange(text) {
@@ -390,6 +394,25 @@ function buildPeriod(start, end) {
     status = now > e ? 'ended' : 'active';
   }
   return { start: start || null, end: end || null, status };
+}
+
+/** Fill missing dates from title / subtitle / body text. */
+function enrichPeriodFromTexts(period, texts = []) {
+  if (period?.start && period?.end) return period;
+  const parts = texts.filter(Boolean).map(String);
+  // Prefer short fields (title/subtitle) over long body — body often has
+  // extra year-long ranges that are not the campaign window.
+  for (const part of parts) {
+    if (part.length > 500) continue;
+    const hit = parseTextRange(part);
+    if (hit.start && hit.end) return buildPeriod(hit.start, hit.end);
+  }
+  const blob = parts.join('\n');
+  const fromFocus = parseBodyRange(blob);
+  if (fromFocus.start && fromFocus.end) {
+    return buildPeriod(period?.start || fromFocus.start, period?.end || fromFocus.end);
+  }
+  return period || buildPeriod(null, null);
 }
 
 function collectPageText(data) {
@@ -868,8 +891,16 @@ async function main() {
     const id = `jko-${kind}-${slug}`;
     const fromShowEarly = parseShowTime(item.showTime);
     const fromHeadEarly = parseHeadRange(item.head);
-    const listStart = fromShowEarly.start || fromHeadEarly.start || null;
-    const listEnd = fromShowEarly.end || fromHeadEarly.end || null;
+    const fromListTitleEarly = parseTextRange(item.listTitle);
+    const fromSubEarly = parseTextRange(item.subtitle);
+    const listStart =
+      fromShowEarly.start ||
+      fromHeadEarly.start ||
+      fromListTitleEarly.start ||
+      fromSubEarly.start ||
+      null;
+    const listEnd =
+      fromShowEarly.end || fromHeadEarly.end || fromListTitleEarly.end || fromSubEarly.end || null;
     const listPeriod = buildPeriod(listStart, listEnd);
     const cachedHit = useCachedIfEnded(endedCache, id, listPeriod);
     if (cachedHit.skip) {
@@ -889,7 +920,23 @@ async function main() {
     };
     const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod);
     if (unchangedHit.skip) {
-      activities.push(unchangedHit.cached);
+      const cached = unchangedHit.cached;
+      const repaired =
+        cached?.period?.start || cached?.period?.end
+          ? cached
+          : {
+              ...cached,
+              period: enrichPeriodFromTexts(cached?.period, [
+                cached?.title,
+                cached?.raw?.subtitle,
+                cached?.raw?.listTitle,
+                cached?.raw?.text,
+                item.subtitle,
+                item.listTitle,
+                item.head,
+              ]),
+            };
+      activities.push(repaired);
       skippedFetch++;
       skippedUnchanged++;
       process.stdout.write(`\r  ${i + 1}/${listItems.length}: [unchanged] ${item.listTitle.slice(0, 28)}   `);
@@ -919,7 +966,8 @@ async function main() {
     const fromTitle = parseTextRange(title);
     const fromDesc = parseTextRange(desc);
     const fromBody = parseBodyRange(body);
-    const start = fromShow.start || fromHead.start || fromTitle.start || fromDesc.start || fromBody.start;
+    const start =
+      fromShow.start || fromHead.start || fromTitle.start || fromDesc.start || fromBody.start;
     const end = fromShow.end || fromHead.end || fromTitle.end || fromDesc.end || fromBody.end;
     const period = buildPeriod(start, end);
 

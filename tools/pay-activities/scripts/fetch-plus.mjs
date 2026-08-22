@@ -17,6 +17,7 @@ import {
   useCachedIfUnchanged,
   finalizeAndSave,
   logCacheSummary,
+  preserveAiFields,
 } from './activity-cache.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -350,13 +351,9 @@ function activityUrl(entry, pageMap) {
 }
 
 function plusEntryId(entry) {
-  const isPage = entry.kind === 'page';
-  const cardTitle = entry.title;
-  const slug = isPage
-    ? entry.pageId
-    : entry.pageId
-      ? `${entry.pageId}-${slugify(cardTitle)}`
-      : slugify(cardTitle) || entry.parent || entry.pageName;
+  // Prefer stable pageId so list-card title churn does not mint a new activity id.
+  if (entry.pageId) return `plus-${entry.pageId}`;
+  const slug = slugify(entry.title) || entry.parent || entry.pageName;
   return `plus-${String(slug).replace(/^title-/, '')}`;
 }
 
@@ -397,11 +394,9 @@ function buildActivity(entry, pageMap) {
   if (/指定店家|電商通路/.test(fullText)) scopeHints.push('指定通路');
 
   const url = activityUrl(entry, pageMap);
-  const slug = isPage
+  const slug = entry.pageId
     ? entry.pageId
-    : entry.pageId
-      ? `${entry.pageId}-${slugify(cardTitle)}`
-      : slugify(cardTitle) || entry.parent || entry.pageName;
+    : slugify(cardTitle) || entry.parent || entry.pageName;
   const id = `plus-${String(slug).replace(/^title-/, '')}`;
   const searchText = [pageTitle, cardTitle, ...merchants, ...rewards.map((r) => `${r.label} ${r.detail}`)]
     .join(' ')
@@ -610,18 +605,27 @@ async function main() {
   let skippedUnchanged = 0;
 
   for (const entry of [...homeCards, ...standalonePages]) {
-    const dedupeKey =
-      entry.kind === 'page'
-        ? `page:${entry.pageId}`
-        : `${entry.title}::${entry.date}::${entry.pageId || entry.link || entry.parent}`;
+    const dedupeKey = entry.pageId
+      ? `page:${entry.pageId}`
+      : `${entry.title}::${entry.date}::${entry.link || entry.parent || entry.pageName}`;
     if (seen.has(dedupeKey)) continue;
     seen.add(dedupeKey);
 
     const id = plusEntryId(entry);
+    let prevLookupId = id;
+    if (!prevIndex.has(id) && entry.pageId) {
+      const prefix = `plus-${entry.pageId}`;
+      for (const pid of prevIndex.keys()) {
+        if (pid === prefix || pid.startsWith(`${prefix}-`)) {
+          prevLookupId = pid;
+          break;
+        }
+      }
+    }
     const listPeriod = plusListPeriod(entry);
-    const cachedHit = useCachedIfEnded(endedCache, id, listPeriod);
+    const cachedHit = useCachedIfEnded(endedCache, prevLookupId, listPeriod);
     if (cachedHit.skip) {
-      activities.push({ ...cachedHit.cached, _fromCache: true });
+      activities.push({ ...cachedHit.cached, id, _fromCache: true });
       skippedFetch++;
       continue;
     }
@@ -635,15 +639,20 @@ async function main() {
       externalUrl: url,
       updateDate: '',
     };
-    const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod);
+    const unchangedHit = useCachedIfUnchanged(prevIndex, prevLookupId, listMeta, listPeriod);
     if (unchangedHit.skip) {
-      activities.push(unchangedHit.cached);
+      activities.push({ ...unchangedHit.cached, id });
       skippedFetch++;
       skippedUnchanged++;
       continue;
     }
 
-    activities.push(buildActivity(entry, pageMap));
+    const act = buildActivity(entry, pageMap);
+    if (prevLookupId !== id && prevIndex.has(prevLookupId)) {
+      activities.push(preserveAiFields({ ...act, id }, prevIndex.get(prevLookupId)));
+    } else {
+      activities.push(act);
+    }
   }
 
   console.log('[3/3] Saving...');

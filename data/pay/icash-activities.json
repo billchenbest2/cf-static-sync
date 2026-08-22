@@ -189,9 +189,9 @@
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2435",
       "title": "icash Pay新戶登錄贈酷聖石冰淇淋兌換券",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/08/01",
+        "end": "2026/10/31",
+        "status": "active"
       },
       "merchants": [],
       "rewards": [
@@ -221,9 +221,9 @@
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2372",
       "title": "暑假遊韓最速PAY TWQR最高回饋52%",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/08/31",
+        "status": "active"
       },
       "merchants": [],
       "rewards": [
@@ -343,9 +343,9 @@
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2371",
       "title": "icash Pay超強支付 綁uniopen聯名卡滿額最高回饋11%",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/08/31",
+        "status": "active"
       },
       "merchants": [],
       "rewards": [
@@ -406,9 +406,9 @@
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2370",
       "title": "2026下半年uniopen 聯名卡x ICP疊加攻略",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/08/31",
+        "status": "active"
       },
       "merchants": [
         "萬家福",
@@ -1268,9 +1268,9 @@
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2189",
       "title": "遊韓首選 icash Pay最高回饋25%",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/04/01",
+        "end": "2026/08/31",
+        "status": "active"
       },
       "merchants": [],
       "rewards": [
@@ -1480,9 +1480,9 @@
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2323",
       "title": "週二獨享日! foodomo滿額最高回饋16%",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/12/31",
+        "status": "active"
       },
       "merchants": [],
       "rewards": [
@@ -1527,9 +1527,9 @@
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2303",
       "title": "聖德科斯專屬回饋日，週三週六滿500最高回饋16% OPENPOINT",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/12/31",
+        "status": "active"
       },
       "merchants": [],
       "rewards": [
@@ -1574,9 +1574,9 @@
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2321",
       "title": "21Plus/21風味館每週五六日單筆滿150元回饋5%",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/12/31",
+        "status": "active"
       },
       "merchants": [],
       "rewards": [
@@ -1848,9 +1848,9 @@
       "url": "https://www.icashpay.com.tw/advertMessage/view/id/2387",
       "title": "i預購& i划算支付最好Pay 最高回饋15%",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/09/30",
+        "status": "active"
       },
       "merchants": [
         "7-ELEVEN"
