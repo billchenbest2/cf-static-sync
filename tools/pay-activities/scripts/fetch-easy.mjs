@@ -427,7 +427,21 @@ async function main() {
     };
     const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod);
     if (unchangedHit.skip) {
-      activities.push(unchangedHit.cached);
+      // Refresh list-facing title/dates/url without dropping AI fields.
+      const cached = {
+        ...unchangedHit.cached,
+        title: item.title || unchangedHit.cached.title,
+        period: listPeriod?.start ? listPeriod : unchangedHit.cached.period,
+        quotaFull:
+          parseQuotaFull(item.title) || unchangedHit.cached.quotaFull || null,
+        raw: {
+          ...(unchangedHit.cached.raw || {}),
+          list: listMeta,
+        },
+        _fromCache: true,
+        _cacheReason: 'unchanged',
+      };
+      activities.push(cached);
       skippedFetch++;
       skippedUnchanged++;
       process.stdout.write(`\r  ${i + 1}/${listItems.length}: [unchanged] ${item.title.slice(0, 28)}   `);

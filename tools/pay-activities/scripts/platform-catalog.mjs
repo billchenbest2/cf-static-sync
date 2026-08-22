@@ -147,6 +147,7 @@ export function upsertPlatform(idOrSpec) {
   }
 
   const catalog = readCatalog();
+  const before = JSON.stringify(catalog.platforms);
   const idx = catalog.platforms.findIndex((p) => p.id === spec.id);
   const row = { ...spec };
   if (idx >= 0) catalog.platforms[idx] = { ...catalog.platforms[idx], ...row };
@@ -158,6 +159,13 @@ export function upsertPlatform(idOrSpec) {
     const bi = order.indexOf(b.id);
     return (ai < 0 ? 99 : ai) - (bi < 0 ? 99 : bi);
   });
+
+  // Avoid rewriting platforms.json on every crawl when nothing changed
+  // (updatedAt alone would break gold compares).
+  if (JSON.stringify(catalog.platforms) === before) {
+    return catalog;
+  }
+
   catalog.updatedAt = new Date().toISOString();
 
   fs.mkdirSync(path.dirname(CATALOG_PATH), { recursive: true });

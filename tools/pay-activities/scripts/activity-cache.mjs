@@ -49,11 +49,13 @@ export function useCachedIfEnded(cache, id, listPeriod = null) {
 }
 
 function normDateToken(s) {
-  return String(s || '')
+  const m = String(s || '')
     .replace(/[/.]/g, '-')
     .replace(/T.*$/, '')
     .trim()
-    .slice(0, 10);
+    .match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+  if (!m) return '';
+  return `${m[1]}-${m[2].padStart(2, '0')}-${m[3].padStart(2, '0')}`;
 }
 
 /** Strip leading official quota-full brackets from list titles (iPASS / similar). */
@@ -233,17 +235,25 @@ export function contentFingerprint(act) {
   const title = String(act?.title || '');
   const start = act?.period?.start || '';
   const end = act?.period?.end || '';
-  const text = String(act?.raw?.text || '')
+  const text = bodyFingerprint(act);
+  const url = String(act?.url || '');
+  return `${title}\n${start}\n${end}\n${url}\n${text}`;
+}
+
+/** Body-only fingerprint (ignore title/date drift from list cards). */
+export function bodyFingerprint(act) {
+  return String(act?.raw?.text || '')
     .replace(/\s+/g, ' ')
     .trim()
     .slice(0, 8000);
-  const url = String(act?.url || '');
-  return `${title}\n${start}\n${end}\n${url}\n${text}`;
 }
 
 /**
  * Keep AI / manual fields when the crawled content has not changed.
  * If content changed, drop aiVerifiedAt so the next AI pass re-runs.
+ *
+ * Important: AI may intentionally set rewards=[] (no %). Restore that too —
+ * do not keep heuristic extracts over a verified empty list.
  */
 export function preserveAiFields(fresh, prev) {
   if (!fresh) return fresh;
@@ -252,14 +262,20 @@ export function preserveAiFields(fresh, prev) {
   const out = { ...fresh };
   if (prev.manualFixedAt) {
     out.manualFixedAt = prev.manualFixedAt;
-    if (Array.isArray(prev.rewards) && prev.rewards.length) out.rewards = prev.rewards;
+    if (Array.isArray(prev.rewards)) out.rewards = prev.rewards;
   }
 
-  if (contentFingerprint(fresh) === contentFingerprint(prev) && prev.aiVerifiedAt) {
+  if (!prev.aiVerifiedAt) return out;
+
+  const sameFull = contentFingerprint(fresh) === contentFingerprint(prev);
+  const prevBody = bodyFingerprint(prev);
+  const sameBody = prevBody.length > 20 && prevBody === bodyFingerprint(fresh);
+
+  if (sameFull || sameBody) {
     for (const key of AI_FIELDS) {
       if (prev[key] != null) out[key] = prev[key];
     }
-    if (Array.isArray(prev.rewards) && prev.rewards.length) out.rewards = prev.rewards;
+    if (Array.isArray(prev.rewards)) out.rewards = prev.rewards;
   }
 
   return out;
