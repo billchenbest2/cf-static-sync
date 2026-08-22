@@ -1,12 +1,12 @@
 {
   "meta": {
     "source": "https://web-tw-pay.line.me/cms/event",
-    "fetchedAt": "2026-08-22T03:56:10.936Z",
+    "fetchedAt": "2026-08-22T06:46:03.032Z",
     "count": 3017,
     "cache": {
-      "cachedEndedTotal": 2940,
-      "skippedFetch": 3011,
-      "freshlyFetched": 6,
+      "cachedEndedTotal": 2941,
+      "skippedFetch": 3017,
+      "freshlyFetched": 0,
       "keptEndedNotInList": 0,
       "keptProtectedActive": 0,
       "total": 3017

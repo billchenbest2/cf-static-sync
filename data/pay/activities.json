@@ -9,17 +9,17 @@
       "advertiseApi": "https://service.pxpayplus.com/px-advertise/web/activity/detail",
       "marketingBase": "https://marketing.pxpayplus.com/pxplus_marketing_page"
     },
-    "fetchedAt": "2026-08-22T03:54:55.248Z",
+    "fetchedAt": "2026-08-22T06:45:05.735Z",
     "count": 134,
     "cache": {
       "cachedEndedTotal": 80,
-      "skippedFetch": 133,
-      "freshlyFetched": 1,
+      "skippedFetch": 134,
+      "freshlyFetched": 0,
       "keptEndedNotInList": 0,
       "keptProtectedActive": 0,
       "total": 134
     },
-    "lastOcrAt": "2026-08-22T03:57:20.590Z",
+    "lastOcrAt": "2026-08-22T06:47:18.981Z",
     "ocrUpdated": 1
   },
   "activities": [
@@ -21670,7 +21670,7 @@
         "title_pct_match"
       ],
       "ocrMeta": {
-        "processedAt": "2026-08-22T03:57:20.590Z",
+        "processedAt": "2026-08-22T06:47:18.981Z",
         "attempts": [
           {
             "url": "https://prod-s3.pxpayplus.com/MKT_Event/Event_Img/5millionplus_member/kv.json",

@@ -1,12 +1,12 @@
 {
   "meta": {
     "source": "https://www.icashpay.com.tw/advertMessage/index/page/1",
-    "fetchedAt": "2026-08-22T03:55:10.977Z",
+    "fetchedAt": "2026-08-22T06:45:16.666Z",
     "count": 35,
     "cache": {
       "cachedEndedTotal": 1,
-      "skippedFetch": 33,
-      "freshlyFetched": 2,
+      "skippedFetch": 35,
+      "freshlyFetched": 0,
       "keptEndedNotInList": 0,
       "keptProtectedActive": 0,
       "total": 35

@@ -1,5 +1,5 @@
 {
-  "processedAt": "2026-08-22T03:57:20.602Z",
+  "processedAt": "2026-08-22T06:47:18.995Z",
   "results": [
     {
       "act": {
@@ -150,7 +150,7 @@
           "title_pct_match"
         ],
         "ocrMeta": {
-          "processedAt": "2026-08-22T03:57:20.590Z",
+          "processedAt": "2026-08-22T06:47:18.981Z",
           "attempts": [
             {
               "url": "https://prod-s3.pxpayplus.com/MKT_Event/Event_Img/5millionplus_member/kv.json",

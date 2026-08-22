@@ -1,12 +1,12 @@
 {
   "meta": {
     "source": "https://easywallet.easycard.com.tw/benefit/?page=1",
-    "fetchedAt": "2026-08-22T03:55:04.007Z",
+    "fetchedAt": "2026-08-22T06:45:11.243Z",
     "count": 73,
     "cache": {
       "cachedEndedTotal": 1,
-      "skippedFetch": 70,
-      "freshlyFetched": 3,
+      "skippedFetch": 73,
+      "freshlyFetched": 0,
       "keptEndedNotInList": 0,
       "keptProtectedActive": 0,
       "total": 73
@@ -447,7 +447,7 @@
       "url": "https://easywallet.easycard.com.tw/benefit/content.php?id=1776236712",
       "title": "元大悠遊聯名卡自動加值享 10% 刷卡金!!再加碼抽好禮",
       "period": {
-        "start": "2026/06/01",
+        "start": "2026/04/08",
         "end": "2026/08/31",
         "status": "active"
       },
@@ -963,7 +963,7 @@
       "title": "元大銀行帳戶連結悠遊付暨悠遊聯名卡活動專區",
       "period": {
         "start": "2026/04/08",
-        "end": "2026/08/31",
+        "end": "2026/09/30",
         "status": "active"
       },
       "merchants": [
@@ -1005,8 +1005,8 @@
       "url": "https://easywallet.easycard.com.tw/benefit/content.php?id=1769158790",
       "title": "銀行帳戶連結悠遊付 享最高15%回饋",
       "period": {
-        "start": "2026/04/01",
-        "end": "2026/09/30",
+        "start": "2026/01/01",
+        "end": "2026/12/31",
         "status": "active"
       },
       "merchants": [

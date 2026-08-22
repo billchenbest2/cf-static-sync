@@ -1,12 +1,12 @@
 {
   "meta": {
     "source": "https://www.i-pass.com.tw/Preferential?type=0",
-    "fetchedAt": "2026-08-22T03:55:20.188Z",
+    "fetchedAt": "2026-08-22T06:45:20.866Z",
     "count": 49,
     "cache": {
       "cachedEndedTotal": 0,
-      "skippedFetch": 44,
-      "freshlyFetched": 5,
+      "skippedFetch": 49,
+      "freshlyFetched": 0,
       "keptEndedNotInList": 0,
       "keptProtectedActive": 0,
       "total": 49
@@ -200,7 +200,7 @@
       "url": "https://www.i-pass.com.tw/Preferential/Detail/GI2TSNQHW7ZKA64RZbVj",
       "title": "【iPASS MONEY】連結銀行帳戶／信用卡享優惠！",
       "period": {
-        "start": "2026/07/01",
+        "start": "2021/11/18",
         "end": "2026/12/31",
         "status": "active"
       },
@@ -234,29 +234,7 @@
       ],
       "scopeHints": [],
       "searchText": "【ipass money】連結銀行帳戶／信用卡享優惠！ 【ipass money】連結銀行帳戶／信用卡享優惠！ 聯邦銀行 台新銀行 樂天銀行 王道銀行 玉山銀行 line bank ipass money 基本回饋 【ipass money】連結銀行帳戶／信用卡享優惠！ 聯邦銀行 玉山銀行 line bank 聯邦銀行 台新銀行 樂天銀行 王道銀行 玉山銀行 line bank",
-      "quotaFull": {
-        "full": true,
-        "currentMonthFull": true,
-        "month": 8,
-        "at": "2026/08/03 16:30",
-        "portion": null,
-        "label": "本月已額滿（8月）",
-        "note": "8 月份回饋上限已於 2026/8/3 16:30 額滿；8 月份回饋上限已於 2026/8/10 額滿",
-        "notices": [
-          {
-            "portion": null,
-            "month": 8,
-            "at": "2026/08/03 16:30",
-            "note": "8 月份回饋上限已於 2026/8/3 16:30 額滿"
-          },
-          {
-            "portion": null,
-            "month": 8,
-            "at": "2026/08/10",
-            "note": "8 月份回饋上限已於 2026/8/10 額滿"
-          }
-        ]
-      },
+      "quotaFull": null,
       "fetchedAt": "2026-08-22T03:55:16.233Z",
       "raw": {
         "text": "<iframe src=\"/noScript.html\" title=\"noscript\" height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe> 首頁>優惠活動 ::: 【iPASS MONEY】連結銀行帳戶／信用卡享優惠！ 2021/11/18 <div style=\"display:inline-block;\"> 您的瀏覽器不支援JavaScript功能，若網頁功能無法正常使用時，請開啟瀏覽器JavaScript狀態。 </div> [ 8 月份回饋上限已於 2026/8/3 16:30 額滿 ]綁定聯邦信用卡單筆消費滿 200 元，最高享 10% 回饋！ 活動日期：2026.7.1-2026.12.31 優惠活動詳情 指定連結開立 New New Bank 數位存款帳戶，完成指定任務最高享 150 元 活動日期：2026.1.1 - 2026.12.31 專屬用戶傳送門（需用手機開啟，選擇新增銀行帳戶>聯邦銀行>點選「我要開戶」） 優惠活動詳情 指定連結開立 Richart 數位存款帳戶，完成指定任務享 250 元回饋 活動日期：2026.1.1 - 2026.12.31 優惠活動詳情 樂天網銀新戶，用 iPASS MONEY 付款任 3 筆享 800 點回饋！ 活動日期：2026.6.1 - 2026.8.31 優惠活動詳情 [ 8 月份回饋上限已於 2026/8/10 額滿 ]指定連結開立王道帳戶，並符合條件享 600 元回饋 活動日期：2026.3.1-2026.12.30 優惠活動詳情 首次連結玉山銀行數位帳戶，完成任務享 50 元回饋 活動日期：2026.7.1 - 2026.9.30 優惠活動詳情 綁定玉山 Unicard 消費，最高享 4.5% 回饋 活動日期：2025.7.1 - 2026.9.30 優惠活動詳情 綁定 LINE Bank 快點卡消費，符合條件最高享 4% 回饋 活動日期：2026.3.30 - 2026.9.27 優惠活動詳情 回到一覽表 本網站使用 Cookie 來提供最佳體驗，並與第三方合作夥伴共享部分資訊。 同意 了解更多",
@@ -728,7 +706,7 @@
       "url": "https://www.i-pass.com.tw/Preferential/Detail/GMZTQOAKB6IZQ64S2dWx",
       "title": "【王道銀行】王道愛減碳 完成任務最高享一卡通綠點 1,700 點與新台幣 500 元現金回饋！",
       "period": {
-        "start": "2026/08/01",
+        "start": "2026/07/31",
         "end": "2026/09/30",
         "status": "active"
       },
@@ -933,7 +911,7 @@
       "url": "https://www.i-pass.com.tw/Preferential/Detail/GMZTQMYLKDINQ645DEa9",
       "title": "【誠品生活】用 iPASS MONEY APP / 一卡通記名卡付款樂享 10% 回饋！",
       "period": {
-        "start": "2026/07/17",
+        "start": "2026/07/16",
         "end": "2026/09/17",
         "status": "active"
       },
@@ -2373,7 +2351,7 @@
       "url": "https://www.i-pass.com.tw/Preferential/Detail/GMZTMNQWERQDL64mh9Ji",
       "title": "【2026 交通優惠】一卡通搭交通，優惠一路通！",
       "period": {
-        "start": "2026/01/01",
+        "start": "2026/06/25",
         "end": "2026/12/31",
         "status": "active"
       },

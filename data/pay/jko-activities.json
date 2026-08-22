@@ -2,7 +2,7 @@
   "meta": {
     "source": "https://mkt.jkopay.com/zh-TW/campaign/newevent",
     "hubPath": "newevent2026-8",
-    "fetchedAt": "2026-08-22T03:55:20.672Z",
+    "fetchedAt": "2026-08-22T06:45:21.369Z",
     "count": 37,
     "cache": {
       "cachedEndedTotal": 5,
@@ -1061,9 +1061,9 @@
       "url": "https://mkt.jkopay.com/zh-TW/campaign/kfcpizzahot",
       "title": "肯德基",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/09/30",
+        "status": "active"
       },
       "merchants": [
         "肯德基",
@@ -1349,9 +1349,9 @@
       "url": "https://mkt.jkopay.com/zh-TW/campaign/jkodrink",
       "title": "2026/7/1-9/30 週一飲料主題日，喝飲料/咖啡享 7 折",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/09/30",
+        "status": "active"
       },
       "merchants": [
         "適用飲料/咖啡通路一次看",
@@ -1490,9 +1490,9 @@
       "url": "https://mkt.jkopay.com/zh-TW/campaign/jkotravel",
       "title": "2026/7/1 - 9/30 週二旅遊日，最高享 13.5% 回饋",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/09/30",
+        "status": "active"
       },
       "merchants": [],
       "rewards": [
@@ -1738,9 +1738,9 @@
       "url": "https://mkt.jkopay.com/zh-TW/campaign/jkolunch",
       "title": "2026/7/1-9/30 週三午餐主題日，吃午餐最高享 23.5%",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/09/30",
+        "status": "active"
       },
       "merchants": [
         "尊爵會員獨享券",
@@ -1946,9 +1946,9 @@
       "url": "https://mkt.jkopay.com/zh-TW/campaign/jkoecommerce",
       "title": "週四電商日，指定電商最高享 13%",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/09/30",
+        "status": "active"
       },
       "merchants": [
         "淘寶",
@@ -2357,9 +2357,9 @@
       "url": "https://mkt.jkopay.com/zh-TW/campaign/jkobeauty2026",
       "title": "2026/7/1 - 9/30 週五美妍日，最高享17.5%回饋！",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/09/30",
+        "status": "active"
       },
       "merchants": [
         "momo",
@@ -2549,9 +2549,9 @@
       "url": "https://mkt.jkopay.com/zh-TW/campaign/jkomall2026",
       "title": "2026/7/1 - 9/30 週六百貨日，最高享現折 12.5% 優惠",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/09/30",
+        "status": "active"
       },
       "merchants": [
         "全台百貨任你選",
@@ -2699,9 +2699,9 @@
       "url": "https://mkt.jkopay.com/zh-TW/campaign/jkoshopping2026",
       "title": "2026/6/1 - 9/30 週日採買日，最高享 13.5% 優惠",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/06/01",
+        "end": "2026/09/30",
+        "status": "active"
       },
       "merchants": [
         "全聯",
@@ -2946,9 +2946,9 @@
       "url": "https://mkt.jkopay.com/zh-TW/campaign/jkomemberday",
       "title": "街口 5 號會員日",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/08/01",
+        "end": "2026/12/31",
+        "status": "active"
       },
       "merchants": [
         "7-ELEVEN",
@@ -3197,9 +3197,9 @@
       "url": "https://mkt.jkopay.com/zh-TW/campaign/welcomegift",
       "title": "註冊$50新戶禮",
       "period": {
-        "start": null,
-        "end": null,
-        "status": "unknown"
+        "start": "2026/07/01",
+        "end": "2026/12/31",
+        "status": "active"
       },
       "merchants": [
         "7-ELEVEN",
