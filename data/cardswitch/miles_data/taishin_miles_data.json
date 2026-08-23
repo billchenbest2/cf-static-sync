@@ -1,0 +1,38 @@
+[
+  {
+    "airline": "長榮航空",
+    "plan": "環球/亞洲無限卡",
+    "cost_points": 2000,
+    "redeemed_miles": 4000
+  },
+  {
+    "airline": "長榮航空",
+    "plan": "其他卡",
+    "cost_points": 11,
+    "redeemed_miles": 13
+  },
+  {
+    "airline": "中華航空",
+    "plan": "環球/亞洲無限卡",
+    "cost_points": 2000,
+    "redeemed_miles": 4000
+  },
+  {
+    "airline": "中華航空",
+    "plan": "其他卡(舊制)",
+    "cost_points": 13,
+    "redeemed_miles": 12
+  },
+  {
+    "airline": "中華航空",
+    "plan": "其他卡(新制)",
+    "cost_points": 11,
+    "redeemed_miles": 14
+  },
+  {
+    "airline": "國泰航空",
+    "plan": "一般兌換",
+    "cost_points": 10,
+    "redeemed_miles": 18
+  }
+]

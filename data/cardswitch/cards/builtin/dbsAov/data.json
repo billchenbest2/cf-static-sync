@@ -1,0 +1,704 @@
+{
+  "card_name": "星展傳說對決聯名卡",
+  "updated_at": "2026-08-23",
+  "sourceUrl": "https://www.dbs.com.tw/personal-zh/cards/dbs-aov/index.html",
+  "activity_period": "2026/07/01～2026/12/31",
+  "base_pct_upgraded": 1,
+  "base_pct_basic": {
+    "domestic": 0.2,
+    "overseas": 1
+  },
+  "items": [
+    {
+      "name": "一般消費",
+      "keywords": [
+        "一般消費",
+        "其他一般消費"
+      ],
+      "type": "general",
+      "note": "國內/國外一般消費 1% 無上限（需存戶升級）",
+      "total_pct": 1,
+      "bonus_pct": 0
+    },
+    {
+      "name": "三創生活園區",
+      "category": "娛樂無限",
+      "keywords": [
+        "三創生活園區"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus",
+      "cap": 500,
+      "period": "month",
+      "description": "生活玩家加碼 9%，每人每月上限 500 點（正附卡合併）"
+    },
+    {
+      "name": "巴哈姆特",
+      "category": "娛樂無限",
+      "keywords": [
+        "巴哈姆特",
+        "BAHAMUT"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "年代售票",
+      "category": "娛樂無限",
+      "keywords": [
+        "年代售票",
+        "ERACOM"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "拓元售票",
+      "category": "娛樂無限",
+      "keywords": [
+        "拓元售票",
+        "TIXCRAFT",
+        "拓元"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "東海模型",
+      "category": "娛樂無限",
+      "keywords": [
+        "東海模型"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "肯德基",
+      "category": "生活補給",
+      "keywords": [
+        "肯德基",
+        "KFC"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "拿坡里",
+      "category": "生活補給",
+      "keywords": [
+        "拿坡里",
+        "NAPOLI"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "淘寶",
+      "category": "生活補給",
+      "keywords": [
+        "淘寶",
+        "TAOBAO",
+        "Taobao"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "野獸國",
+      "category": "娛樂無限",
+      "keywords": [
+        "野獸國",
+        "BEASTKINGDOM"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "麥當勞",
+      "category": "生活補給",
+      "keywords": [
+        "麥當勞",
+        "McDonald",
+        "MCDONALD"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "愛奇藝",
+      "category": "影音充電",
+      "keywords": [
+        "愛奇藝",
+        "IQIYI",
+        "iQIYI"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "鼎美玩具",
+      "category": "娛樂無限",
+      "keywords": [
+        "鼎美玩具",
+        "鼎美股份有限公司"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "寬宏售票",
+      "category": "娛樂無限",
+      "keywords": [
+        "寬宏售票"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "摩斯漢堡",
+      "category": "生活補給",
+      "keywords": [
+        "摩斯漢堡",
+        "MOS",
+        "安心食品"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "蝦皮",
+      "category": "生活補給",
+      "keywords": [
+        "蝦皮",
+        "SHOPEE",
+        "Shopee"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Animate",
+      "category": "娛樂無限",
+      "keywords": [
+        "Animate",
+        "ANIMATE",
+        "安利美特"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "App Store",
+      "category": "娛樂無限",
+      "keywords": [
+        "App Store",
+        "APPLE.COM"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Catchplay",
+      "category": "影音充電",
+      "keywords": [
+        "Catchplay",
+        "CATCHPLAY"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Disney+",
+      "category": "影音充電",
+      "keywords": [
+        "Disney+",
+        "DISNEY PLUS",
+        "DISNEYPLUS"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "foodpanda",
+      "category": "生活補給",
+      "keywords": [
+        "foodpanda",
+        "Foodpanda",
+        "ＦＰ－",
+        "FP-"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Garena",
+      "category": "娛樂無限",
+      "keywords": [
+        "Garena",
+        "競舞娛樂"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "GASH",
+      "category": "娛樂無限",
+      "keywords": [
+        "GASH",
+        "樂點股有限公司"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Google Play",
+      "category": "娛樂無限",
+      "keywords": [
+        "Google Play",
+        "Google"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "KHTOY",
+      "category": "娛樂無限",
+      "keywords": [
+        "KHTOY"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "KKBOX",
+      "category": "影音充電",
+      "keywords": [
+        "KKBOX"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "KKTIX",
+      "category": "娛樂無限",
+      "keywords": [
+        "KKTIX"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "KKTV",
+      "category": "影音充電",
+      "keywords": [
+        "KKTV"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "LiTV",
+      "category": "影音充電",
+      "keywords": [
+        "LiTV"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Logitech",
+      "category": "娛樂無限",
+      "keywords": [
+        "Logitech"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "MyCard",
+      "category": "娛樂無限",
+      "keywords": [
+        "MyCard",
+        "智冠科技"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Netflix",
+      "category": "影音充電",
+      "keywords": [
+        "Netflix",
+        "NETFLIX"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Nintendo",
+      "category": "娛樂無限",
+      "keywords": [
+        "Nintendo"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "NOVA",
+      "category": "娛樂無限",
+      "keywords": [
+        "NOVA"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Pizzahut",
+      "category": "生活補給",
+      "keywords": [
+        "Pizzahut",
+        "必勝客",
+        "PIZZAHUT",
+        "PIZZA HUT"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Play Station",
+      "category": "娛樂無限",
+      "keywords": [
+        "Play Station",
+        "PlayStation",
+        "PLAYSTATION"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "POPMART",
+      "category": "娛樂無限",
+      "keywords": [
+        "POPMART"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Spotify",
+      "category": "影音充電",
+      "keywords": [
+        "Spotify",
+        "SPOTIFY"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Steam",
+      "category": "娛樂無限",
+      "keywords": [
+        "Steam"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "TiktokNEW",
+      "category": "影音充電",
+      "keywords": [
+        "TiktokNEW"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "TOYSNAP",
+      "category": "娛樂無限",
+      "keywords": [
+        "TOYSNAP"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Twitch",
+      "category": "影音充電",
+      "keywords": [
+        "Twitch",
+        "TWITCH"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Uber Eats",
+      "category": "生活補給",
+      "keywords": [
+        "Uber Eats",
+        "UberEats",
+        "優食",
+        "UBER EATS"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "Youtube Premium",
+      "category": "影音充電",
+      "keywords": [
+        "Youtube Premium",
+        "YOUTUBE",
+        "GOOGLE YOUTUBE"
+      ],
+      "type": "lifestyle",
+      "note": "生活玩家精選通路最高 10%（1% 無上限 + 9% 加碼月限 500 點）",
+      "total_pct": 10,
+      "bonus_pct": 9,
+      "cap_key": "lifestyle_bonus"
+    },
+    {
+      "name": "日本實體消費",
+      "region": "japan",
+      "keywords": [
+        "日本",
+        "Japan",
+        "國外實體：日本",
+        "日本實體消費"
+      ],
+      "type": "overseas_region",
+      "note": "日韓泰新美歐實體商店 5%（1% 無上限 + 4% 加碼月限 500 點）",
+      "total_pct": 5,
+      "bonus_pct": 4,
+      "cap_key": "overseas_bonus",
+      "cap": 500,
+      "period": "month",
+      "description": "海外指定地區加碼 4%，每人每月上限 500 點（正附卡合併）"
+    },
+    {
+      "name": "韓國實體消費",
+      "region": "korea",
+      "keywords": [
+        "韓國",
+        "Korea",
+        "國外實體：韓國",
+        "韓國實體消費"
+      ],
+      "type": "overseas_region",
+      "note": "日韓泰新美歐實體商店 5%（1% 無上限 + 4% 加碼月限 500 點）",
+      "total_pct": 5,
+      "bonus_pct": 4,
+      "cap_key": "overseas_bonus"
+    },
+    {
+      "name": "泰國實體消費",
+      "region": "thailand",
+      "keywords": [
+        "泰國",
+        "Thailand",
+        "國外實體：泰國",
+        "泰國實體消費"
+      ],
+      "type": "overseas_region",
+      "note": "日韓泰新美歐實體商店 5%（1% 無上限 + 4% 加碼月限 500 點）",
+      "total_pct": 5,
+      "bonus_pct": 4,
+      "cap_key": "overseas_bonus"
+    },
+    {
+      "name": "新加坡實體消費",
+      "region": "singapore",
+      "keywords": [
+        "新加坡",
+        "Singapore",
+        "國外實體：新加坡",
+        "新加坡實體消費"
+      ],
+      "type": "overseas_region",
+      "note": "日韓泰新美歐實體商店 5%（1% 無上限 + 4% 加碼月限 500 點）",
+      "total_pct": 5,
+      "bonus_pct": 4,
+      "cap_key": "overseas_bonus"
+    },
+    {
+      "name": "美洲實體消費",
+      "region": "americas",
+      "keywords": [
+        "美洲",
+        "America",
+        "美國",
+        "USA",
+        "加拿大",
+        "Canada",
+        "墨西哥",
+        "Mexico",
+        "美洲實體消費"
+      ],
+      "type": "overseas_region",
+      "note": "日韓泰新美歐實體商店 5%（1% 無上限 + 4% 加碼月限 500 點）",
+      "total_pct": 5,
+      "bonus_pct": 4,
+      "cap_key": "overseas_bonus"
+    },
+    {
+      "name": "歐洲實體消費",
+      "region": "europe",
+      "keywords": [
+        "歐洲",
+        "Europe",
+        "歐洲實體消費",
+        "英國",
+        "法國",
+        "德國",
+        "義大利",
+        "西班牙"
+      ],
+      "type": "overseas_region",
+      "note": "日韓泰新美歐實體商店 5%（1% 無上限 + 4% 加碼月限 500 點）",
+      "total_pct": 5,
+      "bonus_pct": 4,
+      "cap_key": "overseas_bonus"
+    }
+  ],
+  "caps": {
+    "lifestyle_bonus": {
+      "cap": 500,
+      "period": "month",
+      "description": "生活玩家加碼 9%，每人每月上限 500 點"
+    },
+    "overseas_bonus": {
+      "cap": 500,
+      "period": "month",
+      "description": "海外指定地區加碼 4%，每人每月上限 500 點"
+    }
+  },
+  "milesProgramId": "dbs_points",
+  "milesCategoryId": "cash",
+  "pointUnitLabel": "現金積點"
+}

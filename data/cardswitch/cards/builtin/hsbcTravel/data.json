@@ -1,0 +1,108 @@
+{
+  "earnType": "points",
+  "pointUnitLabel": "旅遊積分",
+  "milesSource": "program",
+  "milesProgramId": "hsbc_travel",
+  "milesCategoryId": "travel",
+  "displayName": "滙豐旅人卡",
+  "updatedAt": "2026-08-23T03:56:20.086Z",
+  "milesToCashRatios": [
+    {
+      "miles": 5000,
+      "cash": 1500,
+      "label": "5,000旅遊積分=$1,500",
+      "sourceUrl": "https://www.hsbc.com.tw/credit-cards/products/travel/visa-infinite/"
+    },
+    {
+      "miles": 3000,
+      "cash": 800,
+      "label": "3,000旅遊積分=$800",
+      "sourceUrl": "https://www.hsbc.com.tw/credit-cards/products/travel/visa-infinite/"
+    },
+    {
+      "miles": 1000,
+      "cash": 200,
+      "label": "1,000旅遊積分=$200",
+      "sourceUrl": "https://www.hsbc.com.tw/credit-cards/products/travel/visa-infinite/"
+    }
+  ],
+  "overseasKeywords": [
+    "海外",
+    "國外",
+    "overseas",
+    "abroad",
+    "日本",
+    "美國",
+    "韓國",
+    "泰國",
+    "新加坡",
+    "香港",
+    "歐洲"
+  ],
+  "tiers": [
+    {
+      "id": "infinite",
+      "name": "無限卡",
+      "sourceUrl": "https://www.hsbc.com.tw/credit-cards/products/travel/visa-infinite/",
+      "options": [
+        {
+          "id": "overseas",
+          "name": "海外消費（含網路交易）",
+          "amount": 10,
+          "reward": 1,
+          "stores": [
+            "海外",
+            "國外",
+            "交易地點非台灣"
+          ]
+        },
+        {
+          "id": "domestic",
+          "name": "國內消費",
+          "amount": 18,
+          "reward": 1,
+          "stores": []
+        }
+      ]
+    },
+    {
+      "id": "signature",
+      "name": "御璽卡",
+      "sourceUrl": "https://www.hsbc.com.tw/credit-cards/products/travelone-signature/",
+      "options": [
+        {
+          "id": "overseas",
+          "name": "海外消費（含網路交易）",
+          "amount": 15,
+          "reward": 1,
+          "stores": [
+            "海外",
+            "國外",
+            "交易地點非台灣"
+          ]
+        },
+        {
+          "id": "domestic",
+          "name": "國內消費",
+          "amount": 18,
+          "reward": 1,
+          "stores": []
+        }
+      ]
+    },
+    {
+      "id": "light",
+      "name": "輕旅卡",
+      "sourceUrl": "https://www.hsbc.com.tw/credit-cards/products/travelone/",
+      "options": [
+        {
+          "id": "all",
+          "name": "國內外消費",
+          "amount": 20,
+          "reward": 1,
+          "stores": []
+        }
+      ]
+    }
+  ]
+}

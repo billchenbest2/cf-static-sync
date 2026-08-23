@@ -1,0 +1,23 @@
+{
+  "root": {
+    ":type": "cub-cubelisttitle",
+    "anchorKey": "shopdine",
+    "mainTitle": "<h3>樂饗購</h3>適用期間：2026/1/1~2026/12/31",
+    ":items": {
+      "cat0": {
+        "categoryName": "百貨5%",
+        "contentTrees": [
+          {
+            "contentTrees": {
+              "item0": { "itemText": "活動期間：2026/6/1~2026/12/31" },
+              "item1": { "itemText": "每週四外出用餐單筆滿NT$2,000可獲加碼優惠券5%小樹點(信用卡)" },
+              "item2": { "itemText": "前往活動網頁查看詳情" },
+              "item3": { "itemText": "適用期間：2026/1/1~2026/12/31" },
+              "item4": { "itemText": "新光三越" }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,886 @@
+{
+  "merchants": [
+    {
+      "name": "王品集團",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "享鴨",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "夏慕尼",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "王品",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "西堤",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "石二鍋",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "陶板屋",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "青花驕",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "饗賓餐旅",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "饗饗",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "開飯",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "瓦城",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "鼎泰豐",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "富王大飯店文公館",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "教父牛排",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "山海樓",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "鹽之華",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "牡丹Tempura",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "吉兆割烹壽司",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "明壽司",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "logy",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "INITA",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "海底撈",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "金大鋤壽喜燒",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "築間幸福鍋物",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "壽司郎",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "藏壽司",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "爭鮮",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "金色三麥",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "貴族世家",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "莫凡彼",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "春大直",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "貳樓",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "涓豆腐",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "HOOTERS",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "勝田日式豬排",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "麥當勞",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "星巴克",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "必勝客",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "達美樂",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "IKEA",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "台北101",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "三井OUTLET",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風南山",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風南京",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風信義",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風松高",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風廣場",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風三總",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風北車",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "遠東SOGO百貨",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "漢神巨蛋",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "華泰名品城",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "新光三越",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "SKM Park Outlet",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "ATT 4 FUN",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "美麗華百樂園",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "南紡購物中心",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "統一時代百貨",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "iFG遠雄廣場",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "京站時尚廣場",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "CITYLINK",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "夢時代購物中心",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "LaLaport台中",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "大葉高島屋百貨",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "中友百貨",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "遠企購物中心",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "麗寶OUTLET",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "比漾廣場",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "大江國際購物中心",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "遠東巨城",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "遠東百貨",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "GLOBAL MALL",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "漢神名店百貨",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "義大世界購物廣場",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "台茂購物中心",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "酷澎",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "PChome 24h購物",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "eBay",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "蝦皮購物",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "Amazon",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "FriDay購物",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "GOMAJI",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "台北101",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "三井OUTLET",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風南山",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風南京",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風信義",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風松高",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風廣場",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風三總",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "微風北車",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "遠東SOGO百貨",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "漢神巨蛋",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "華泰名品城",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "新光三越",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "SKM Park Outlet",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "ATT 4 FUN",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "美麗華百樂園",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "南紡購物中心",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "統一時代百貨",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "iFG遠雄廣場",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "京站時尚廣場",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "CITYLINK",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "夢時代購物中心",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "LaLaport台中",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "大葉高島屋百貨",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "中友百貨",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "遠企購物中心",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "麗寶OUTLET",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "比漾廣場",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "大江國際購物中心",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "遠東巨城",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "遠東百貨",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "GLOBAL MALL",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "漢神名店百貨",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "義大世界購物廣場",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "台茂購物中心",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "寶雅",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "無印良品",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "BELLAVITA",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "宏匯廣場",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "義享時尚廣場",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "NOKE忠泰樂生活",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "大魯閣湳雅廣場",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "明曜百貨",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "新光影城",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "威秀影城",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "國賓影城",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "秀泰影城",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "環球影城",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "迪士尼樂園",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "吉卜力公園",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "樂天世界",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "LEGOLAND",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "SAFARI WORLD",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "兒童新樂園",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "X Park",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "小人國",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "六福村",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "遠雄海洋公園",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "麗寶樂園",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "劍湖山世界",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "九族文化村",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "尚順育樂世界",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "義大遊樂世界",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "巧虎夢想樂園",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "國立海洋生物博物館",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "奇美博物館",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "小叮噹科學主題樂園",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "野柳海洋世界",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "星夢森林劇場",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "飛牛牧場",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "自行車文化館",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "桃園市立美術館",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "烏來台車",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "日月潭纜車",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "和平島公園",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "太平山遊樂區",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "阿里山國家森林遊樂區",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "大雪山森林遊樂區",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "墾丁國家森林遊樂區",
+      "category": "娛樂",
+      "note": "官方通路"
+    },
+    {
+      "name": "內洞國家森林遊樂區",
+      "category": "娛樂",
+      "note": "官方通路"
+    }
+  ],
+  "overseas_countries": [
+    {
+      "name": "日本精選餐飲通路",
+      "note": "官方通路"
+    },
+    {
+      "name": "新加坡精選餐飲通路",
+      "note": "官方通路"
+    },
+    {
+      "name": "馬來西亞精選餐飲通路",
+      "note": "官方通路"
+    },
+    {
+      "name": "越南精選餐飲通路",
+      "note": "官方通路"
+    },
+    {
+      "name": "菲律賓精選餐飲通路",
+      "note": "官方通路"
+    },
+    {
+      "name": "印度精選餐飲通路",
+      "note": "官方通路"
+    },
+    {
+      "name": "斯里蘭卡精選餐飲通路",
+      "note": "官方通路"
+    }
+  ],
+  "rewards": {
+    "domestic": {
+      "base": {
+        "rate": 0.88,
+        "rounding": "round",
+        "limit": null
+      },
+      "merchant_bonus": {
+        "rate": 3,
+        "rounding": "round",
+        "limit": 888
+      },
+      "autopay_bonus": {
+        "rate": 1,
+        "rounding": "round",
+        "limit": 200
+      }
+    },
+    "overseas": {
+      "base": {
+        "rate": 0.88,
+        "rounding": "round",
+        "limit": null
+      },
+      "country_bonus": {
+        "rate": 1,
+        "rounding": "round",
+        "limit": 200
+      },
+      "autopay_bonus": {
+        "rate": 1,
+        "rounding": "round",
+        "limit": 200
+      }
+    }
+  },
+  "lastUpdated": "2026-08-23T03:56:19.422Z"
+}

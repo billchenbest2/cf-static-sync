@@ -1,0 +1,909 @@
+{
+  ":items": {
+    "root": {
+      ":items": {
+        "responsivegrid": {
+          ":items": {
+            "cub_main": {
+              "columnCount": 12,
+              "columnClassNames": {
+                "cub_textb_1689191647": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_1630898223": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_1632867128": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_88080_1079992471": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_1009779774": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_breadcrumb": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_88080_1052926208": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_88080_1115101351": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_511280720": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_88080_48901270": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_1224807118": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1798203575": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_724962890": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_88080_1189083551": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1316780548": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_750488702": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_88080_140374806": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_notice": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_copy_": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_88080_1759202042": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_1444262482": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_1845546974": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_1018107662": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_285940472": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_88080_1017673497": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_campaignkvbanner": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_1228234190": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_880802732": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_88080_1116208638": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_texta": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_902799590": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_1109573608": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_1883047478": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1689191647_1588313232": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_88080": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_copy_88080_209265608": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_table_2080687805": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_852647863": "aem-GridColumn aem-GridColumn--default--12",
+                "cub_textb_1979759410": "aem-GridColumn aem-GridColumn--default--12"
+              },
+              "gridClassNames": "aem-Grid aem-Grid--12 aem-Grid--default--12",
+              ":items": {
+                "cub_campaignkvbanner": {
+                  "title": "小樹點(信用卡)點數轉換航空里程/飯店積分",
+                  "content": "換越多，省越多",
+                  "bgColor": "#D5E6F9",
+                  "pagePath": "/content/cub-aem-cs/zh-tw/cathaybk/personal/event/overview/credit-card/bonus/point-exchange/airmiles.html",
+                  "btnContent": {
+                    "sub": {
+                      "link": null,
+                      "text": null,
+                      "seoTitle": ""
+                    },
+                    "main": {
+                      "link": "https://myrewards-app.com.tw/",
+                      "text": "下載國泰優惠App ",
+                      "seoTitle": ""
+                    },
+                    "promotion": {
+                      "link": null,
+                      "text": null,
+                      "seoTitle": ""
+                    }
+                  },
+                  "pageProperties": {
+                    "jcr:primaryType": "cq:PageContent",
+                    "jcr:mixinTypes": [
+                      "cq:ReplicationStatus2",
+                      "mix:lockable",
+                      "mix:versionable"
+                    ],
+                    "startDate": 1767196800000,
+                    "campaignFilter": [
+                      "cub-tags:camapigns/credit-card/card"
+                    ],
+                    "jcr:title": "小樹點(信用卡)兌換航空里程/飯店積分｜國泰世華商業銀行",
+                    "cq:isDelivered": true,
+                    "endDate": 1798646400000,
+                    "jcr:versionHistory": "f293d8fd-623c-4f38-9ebf-ae40f3566b1f",
+                    "offTime": 1798732740000,
+                    "pwaOrientation": "any",
+                    "cq:template": "/conf/cub-aem-cs/settings/wcm/templates/cub-campaign-content-page",
+                    "campaignContent": "小樹點(信用卡)酬賓計畫，兌換里程/飯店積分享受旅遊樂趣",
+                    "jcr:predecessors": [
+                      "1f2729ba-84c1-45fc-9658-3c3b3d81ac50"
+                    ],
+                    "jcr:created": 1717145331331,
+                    "pwaDisplay": "standalone",
+                    "cq:lastModified": 1777356617757,
+                    "theme": "cathybk",
+                    "jcr:description": "國泰小樹點(信用卡)能用於兌換航空里程與住宿積分，包含長榮、亞洲萬里通、華航哩程兌換，立即了解信用卡點數換機票與信用卡點數換住宿比率。透過 App 輕鬆完成信用卡里程數兌換，買機票、住宿免付錢！",
+                    "pwaCachestrategy": "staleWhileRevalidate",
+                    "jcr:baseVersion": "1f2729ba-84c1-45fc-9658-3c3b3d81ac50",
+                    "jcr:isCheckedOut": true,
+                    "pageTitle": "點數轉換航空里程/飯店積分",
+                    "cq:tags": [
+                      "cub-tags:camapigns/credit-card/card"
+                    ],
+                    "jcr:uuid": "36359882-a01f-4556-acde-be5a192cb088",
+                    "campaignImage": "/content/dam/cub-aem-cs/Image/Personal/overview/credit-card/bonus/點數兌換里程_官網KV1050x630.png",
+                    "campaignTitle": "點數轉換航空里程/飯店積分好優惠",
+                    "sling:resourceType": "cub-aem-cs/components/structures/cub-campaignpage/v1/cub-campaignpage",
+                    "initiatorId": "97656",
+                    "communicationid": "00097202601095",
+                    "hideInSiteMap": "false"
+                  },
+                  "btnNumber": 1,
+                  ":type": "cub-aem-cs/components/cub-content/cub-campaignkvbanner/v1/cub-campaignkvbanner"
+                },
+                "cub_breadcrumb": {
+                  "id": "cub-breadcrumb-416ba67415",
+                  "items": [
+                    {
+                      "id": "cub-breadcrumb-416ba67415-item-ce01d27791",
+                      "link": {
+                        "valid": true,
+                        "url": "/content/cub-aem-cs/zh-tw/cathaybk.html"
+                      },
+                      "active": false,
+                      "current": false,
+                      "title": "國泰世華銀行",
+                      "dataLayer": {
+                        "cub-breadcrumb-416ba67415-item-ce01d27791": {
+                          "@type": "cub-aem-cs/components/cub-content/cub-breadcrumb/v1/cub-breadcrumb/item",
+                          "repo:modifyDate": "2025-03-04T05:47:23Z",
+                          "dc:title": "國泰世華銀行",
+                          "xdm:linkURL": "/content/cub-aem-cs/zh-tw/cathaybk.html"
+                        }
+                      },
+                      ":type": "cub-aem-cs/components/structures/cub-page/v1/cub-page"
+                    },
+                    {
+                      "id": "cub-breadcrumb-416ba67415-item-760db86157",
+                      "link": {
+                        "valid": true,
+                        "url": "/content/cub-aem-cs/zh-tw/cathaybk/personal/event/overview.html"
+                      },
+                      "active": false,
+                      "current": false,
+                      "title": "活動專區",
+                      "dataLayer": {
+                        "cub-breadcrumb-416ba67415-item-760db86157": {
+                          "@type": "cub-aem-cs/components/cub-content/cub-breadcrumb/v1/cub-breadcrumb/item",
+                          "repo:modifyDate": "2024-06-18T02:50:12Z",
+                          "dc:title": "活動專區",
+                          "xdm:linkURL": "/content/cub-aem-cs/zh-tw/cathaybk/personal/event/overview.html"
+                        }
+                      },
+                      ":type": "cub-aem-cs/components/structures/cub-campaignoverview/v1/cub-campaignoverview"
+                    },
+                    {
+                      "id": "cub-breadcrumb-416ba67415-item-81c7b8a822",
+                      "link": {
+                        "valid": true,
+                        "url": "/content/cub-aem-cs/zh-tw/cathaybk/personal/event/overview/credit-card.html"
+                      },
+                      "active": false,
+                      "current": false,
+                      "title": "信用卡",
+                      "dataLayer": {
+                        "cub-breadcrumb-416ba67415-item-81c7b8a822": {
+                          "@type": "cub-aem-cs/components/cub-content/cub-breadcrumb/v1/cub-breadcrumb/item",
+                          "repo:modifyDate": "2024-05-31T04:15:46Z",
+                          "dc:title": "信用卡",
+                          "xdm:linkURL": "/content/cub-aem-cs/zh-tw/cathaybk/personal/event/overview/credit-card.html"
+                        }
+                      },
+                      ":type": "cub-aem-cs/components/structures/cub-campaignlist/v1/cub-campaignlist"
+                    },
+                    {
+                      "id": "cub-breadcrumb-416ba67415-item-3ba2fdf26c",
+                      "link": {
+                        "valid": true,
+                        "url": "/content/cub-aem-cs/zh-tw/cathaybk/personal/event/overview/credit-card/bonus.html"
+                      },
+                      "active": false,
+                      "current": false,
+                      "title": "小樹點(信用卡)",
+                      "dataLayer": {
+                        "cub-breadcrumb-416ba67415-item-3ba2fdf26c": {
+                          "@type": "cub-aem-cs/components/cub-content/cub-breadcrumb/v1/cub-breadcrumb/item",
+                          "repo:modifyDate": "2024-05-31T08:48:51Z",
+                          "dc:title": "小樹點(信用卡)",
+                          "xdm:linkURL": "/content/cub-aem-cs/zh-tw/cathaybk/personal/event/overview/credit-card/bonus.html"
+                        }
+                      },
+                      ":type": "cub-aem-cs/components/structures/cub-campaigntypepage/v1/cub-campaigntypepage"
+                    },
+                    {
+                      "id": "cub-breadcrumb-416ba67415-item-2501cddb64",
+                      "link": {
+                        "valid": true,
+                        "url": "/content/cub-aem-cs/zh-tw/cathaybk/personal/event/overview/credit-card/bonus/point-exchange/airmiles.html"
+                      },
+                      "active": true,
+                      "current": true,
+                      "title": "點數轉換航空里程/飯店積分",
+                      "dataLayer": {
+                        "cub-breadcrumb-416ba67415-item-2501cddb64": {
+                          "@type": "cub-aem-cs/components/cub-content/cub-breadcrumb/v1/cub-breadcrumb/item",
+                          "repo:modifyDate": "2024-05-31T08:48:51Z",
+                          "dc:title": "點數轉換航空里程/飯店積分",
+                          "xdm:linkURL": "/content/cub-aem-cs/zh-tw/cathaybk/personal/event/overview/credit-card/bonus/point-exchange/airmiles.html"
+                        }
+                      },
+                      ":type": "cub-aem-cs/components/structures/cub-campaignpage/v1/cub-campaignpage"
+                    }
+                  ],
+                  "dataLayer": {
+                    "cub-breadcrumb-416ba67415": {
+                      "@type": "cub-aem-cs/components/cub-content/cub-breadcrumb/v1/cub-breadcrumb"
+                    }
+                  },
+                  ":type": "cub-aem-cs/components/cub-content/cub-breadcrumb/v1/cub-breadcrumb"
+                },
+                "cub_texta": {
+                  "title": "活動期間",
+                  "text": "2026/01/01 ~ 2026/12/31",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-texta/v1/cub-texta"
+                },
+                "cub_textb": {
+                  "title": "活動內容",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">點數酬賓，帶您翱遊世界</p>\r\n<p>卡友享小樹點(信用卡)點數兌換航空里程、飯店積分，買機票、住宿免付錢，旅行就是這麼簡單!</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_textb_852647863": {
+                  "title": "兌換方式",
+                  "text": "<p>請至<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://myrewards.app.link/2jDFZvcBGwb\">國泰優惠CUBE Rewards App</a>申請小樹點(信用卡)轉換里程。立即下載國泰優惠CUBE Rewards App，一站申請完成、隨時查看進度最便利＞<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://myrewards-app.com.tw/\">連結請點我</a></p>\r\n<p style=\"color: rgb(136,136,136);\">※有國泰優惠CUBE Rewards App用戶請更新至v.13.6.0版本，即可使用兌換航空里程新功能。</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_textb_1689191647": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">長榮航空</p>\r\n<p><span style=\"color: rgb(255,0,0);\">長榮航空哩程轉入時間縮短為即時入哩，如遇連線異常等系統問題，哩程轉入時間請以本行及長榮航空實際作業時間為準。</span></p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table": {
+                  "topSpace": "topspace32",
+                  "numberContent": 2,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "世界卡"
+                        },
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "其他卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "300點換1,000哩"
+                        },
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "360點換1,000哩 "
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_902799590": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">中華航空</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy": {
+                  "topSpace": "topspace32",
+                  "numberContent": 2,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "世界卡"
+                        },
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "其他卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "720點換1,000哩"
+                        },
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "840點換1,000哩 "
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_1588313232": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">亞洲萬里通</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_1228234190": {
+                  "topSpace": "topspace32",
+                  "numberContent": 2,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "世界卡"
+                        },
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "其他卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "300點換1,000里數"
+                        },
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "360點換1,000里數 "
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_285940472": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">阿聯酋航空Skywards</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_880802732": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "550點換1,000哩（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.emirates.com/account/tw/chinese/light-registration/\"target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_1009779774": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">聯航前程萬里飛行計劃</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_88080": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "510點換1,000哩（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.united.com/zh-hant/tw/account/join-now/about-me?int_source=loy&int_medium=uacom&int_campaign=kaligotc&partner_name=join_now_cta&asset_type=mphome_link&launch_date=2017-07-01\"target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_1632867128": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">法航荷航藍天飛行</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_88080_1052926208": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "340點換1,000哩（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://wwws.airfrance.com.tw/\"target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_1109573608": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">加航Aeroplan</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_88080_1759202042": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "510點換1,000積分（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.aircanada.com/aeroplan/member/enrolment?lang=en-CA\"target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_1883047478": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">阿提哈德貴賓計劃</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_88080_1116208638": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "420點換1,000哩（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.etihadguest.com/en/join/\"target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_1224807118": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">亞航獎勵</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_88080_209265608": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "250點換1,000積分（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.airasia.com/en/gb\"target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_1444262482": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">英國航空 Club</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_88080_1189083551": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "450點換1,000 Avios積分（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.britishairways.com/travel/register-now/public/zh_tw\"target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_1845546974": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">卡達航空貴賓俱樂部</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_88080_1017673497": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "480點換1,000 Avios積分（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.qatarairways.com/en/Privilege-Club/join-now.html?portalUpgrade=false\"target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_511280720": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">JAL哩程儲蓄專案</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_88080_140374806": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "480點換1,000哩（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.jal.co.jp/twl/zhtw/jmb/\" target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_724962890": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">萬豪旅享家</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_88080_1115101351": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "340點換1,000積分（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://joinmarriottbonvoy.com/transfer/s/EN-GB/ch/CHAS05\" target=\"_blank \" \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_750488702": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">ALL - 雅高心悅界忠誠度計劃</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_88080_1079992471": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "600點換1,000積分（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://all.accor.com/enroll-loyalty/index.zh.shtml#/verify-email\" target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1689191647_1630898223": {
+                  "title": " ",
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">洲際優悅會</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_88080_48901270": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "250點換1,000積分（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.ihg.com/rewardsclub/gb/en/login/sign-in?fwdest=%2Frewardsclub%2Fgb%2Fen%2Fenrollment%2Fjoin\" target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1798203575": {
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">泰國國際航空</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_copy_copy_": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "450點換1,000 ROP哩程（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.thaiairways.com/en_TH/rop/index.page\" target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1316780548": {
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">新加坡航空KrisFlyer</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_1018107662": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "620點換1,000哩程（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.singaporeair.com/en_UK/ppsclub-krisflyer/registration-form/\" target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_textb_1979759410": {
+                  "text": "<p class=\"text-xl mb-2.5 break-all font-cathay-medium\">香格里拉會</p>\r\n",
+                  "btmSpace": "btmspace12",
+                  ":type": "cub-aem-cs/components/cub-content/cub-textb/v1/cub-textb"
+                },
+                "cub_table_2080687805": {
+                  "topSpace": "topspace32",
+                  "numberContent": 1,
+                  "tableType": "horizontal",
+                  "tables": [
+                    {
+                      "header": "卡別",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "全卡別"
+                        }
+                      ]
+                    },
+                    {
+                      "header": "兌換比率",
+                      "content": [
+                        {
+                          "jcr:primaryType": "nt:unstructured",
+                          "content": "550點換250香格里拉會積分（還不是會員<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.shangri-la.com/corporate/shangrilacircle/joingc/P-ASCENDA/\" target=\"_blank \">點此註冊</a>）"
+                        }
+                      ]
+                    }
+                  ],
+                  ":type": "cub-aem-cs/components/cub-content/cub-table/v1/cub-table"
+                },
+                "cub_notice": {
+                  "title": "注意事項",
+                  "text": "<ol class=\"ps-[29px] list-decimal my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">兌換期間：2026/1/1~2026/12/31。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">本活動「其他卡別」定義：亞洲萬里通世界卡、無限卡、鈦金商務卡、御璽卡、鈦金卡/晶緻卡、白金卡、金卡、普卡、CUBE簽帳金融卡。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">里數/飯店積分轉換需以千為單位，本小樹點(信用卡)一經轉換無法更改或取消兌換。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">本活動僅限正卡持卡人使用本行小樹點(信用卡)點數兌換，且點數轉換時間約需3~14個工作天(JAL哩程儲蓄專案兌換約需7-21個工作天)，請提早進行點數轉換，以免耽誤您的旅行計畫。<span style=\"color: rgb(255,0,0);\">長榮航空哩程轉入時間縮短為即時入哩，如遇連線異常等系統問題，哩程轉入時間請以本行及長榮航空實際作業時間為準。</span></li>\r\n<li class=\"mb-2.5 ps-[5px]\">轉換說明<br>\r\n<b class=\"text-cathay-green\">【長榮哩程】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">其他卡別：每次兌換至少需小樹點(信用卡) 360點 (含)可兌換1,000哩，轉換的點數需以 360 點為單位。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">世界卡：每次兌換至少需小樹點(信用卡) 300點 (含)可兌換1,000哩，轉換的點數需以 300 點為單位，<span style=\"color: rgb(255,0,0);\">亞洲萬里通世界卡不適用</span>。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">詳情請洽：長榮航空公司(02)2501-1999或<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.evaair.com/\">長榮航空網站</a>查詢。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">申請轉換時請務必正確填寫持卡人本人之長榮航空會員編號及會員姓名，且必須和小樹點(信用卡)點數轉換哩程的帳戶相同且為有效帳戶，不得要求匯入其他帳戶，如未正確完整填寫及匯入哩程時帳戶無效，視同放棄。</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【華夏哩程】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">其他卡別：每次兌換至少需小樹點(信用卡) 840 點(含)可兌換1,000哩，轉換的點數需以 840 點為單位。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">世界卡：每次兌換至少需小樹點(信用卡) 720 點(含)可兌換1,000哩，轉換的點數需以 720 點為單位，<span style=\"color: rgb(255,0,0);\">亞洲萬里通世界卡不適用</span>。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">詳情請洽：中華航空華夏會員服務專線412-9000(手機先撥02)或<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.china-airlines.com/\">中華航空網站</a>查詢</li>\r\n<li class=\"mb-2.5 ps-[5px]\">申請轉換時請務必正確填寫持卡人本人之中華航空會員編號及會員姓名，且必須和小樹點(信用卡)點數轉換哩程的帳戶相同且為有效帳戶，不得要求匯入其他帳戶，如未正確完整填寫及匯入哩程時帳戶無效，視同放棄。</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【亞洲萬里通】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">其他卡別：每次兌換至少需小樹點(信用卡) 360 點(含)可兌換1,000里數，轉換的點數需以 360 點為單位。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">世界卡：每次兌換至少需小樹點(信用卡) 300 點(含)可兌換1,000里數，轉換的點數需以 300 點為單位，<span style=\"color: rgb(255,0,0);\">亞洲萬里通世界卡不適用</span>。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">酬賓兌換內容及標準概以「亞洲萬里通」最新公告為主，須受「亞洲萬里通」條款及細則約束。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">詳情請洽：亞洲萬里通服務專線(台灣地區)00801-85-2747或至<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.asiamiles.com/\">亞洲萬里通網站</a>查詢。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">申請轉換時請務必正確填寫留存於本行之「亞洲萬里通」會員編號及會員姓名，且必須和小樹點(信用卡)點數轉換里數的帳戶相同且為有效帳戶，不得要求匯入其他帳戶，如未正確完整填寫及匯入里數時帳戶無效，視同放棄。</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【阿聯酋航空 Skywards/Emirates Skywards】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 550 點(含)可兌換 1,000 哩，轉換的點數需以 550 點為單位。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入阿聯酋航空 Skywards會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.emirates.com/account/tw/chinese/light-registration/\">阿聯酋航空官網</a>。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.emirates.com/account/tw/chinese/light-registration/\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">阿聯酋航空保留隨時終止或變更「阿聯酋航空 Skywards」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【聯航前程萬里飛行計劃/United MileagePlus】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 510 點(含)可兌換 1,000 哩，轉換的點數需以 510 點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入聯航前程萬里飛行計劃會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.united.com/zh-hant/tw/account/join-now/about-me?int_source=loy&int_medium=uacom&int_campaign=kaligotc&partner_name=join_now_cta&asset_type=mphome_link&launch_date=2017-07-01\">聯合航空官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.united.com/zh-hant/tw/account/join-now/about-me?int_source=loy&int_medium=uacom&int_campaign=kaligotc&partner_name=join_now_cta&asset_type=mphome_link&launch_date=2017-07-01\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">美聯航空保留隨時終止或變更「聯航前程萬里飛行計劃」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【法航荷航藍天飛行】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 340 點(含)可兌換 1,000 哩，轉換的點數需以 340 點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入法航荷航藍天飛行會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://wwws.airfrance.com.tw/\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://wwws.airfrance.com.tw/\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">法航與荷航保留隨時終止或變更「法航荷航藍天飛行」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【加航Aeroplan/Aeroplan】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 510 點(含)可兌換 1,000 積分，轉換的點數需以 510 點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入加航Aeroplan會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.aircanada.com/aeroplan/member/enrolment?lang=en-CA\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.aircanada.com/aeroplan/member/enrolment?lang=en-CA\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">加拿大航空保留隨時終止或變更「加航Aeroplan」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【阿提哈德貴賓計劃】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 420 點(含)可兌換 1,000 哩，轉換的點數需以420點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入阿提哈德常客會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.etihadguest.com/en/join/\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.etihadguest.com/en/join/\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">阿提哈德航空保留隨時終止或變更「阿提哈德貴賓計劃」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【亞航獎勵】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 250點(含)可兌換 1,000 積分，轉換的點數需以 250點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入亞航獎勵會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.airasia.com/en/gb\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.airasia.com/en/gb\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">亞洲航空保留隨時終止或變更「亞航獎勵」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【英國航空 Club】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 450 點(含)可兌換 1,000 積分，轉換的點數需以 450 點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入英國航空 Club會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"http://l.kaligo.com/BA-Cathay\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.britishairways.com/travel/register-now/public/zh_tw\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">英國航空保留隨時終止或變更「英國航空 Club」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【卡達航空貴賓俱樂部】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 480 點(含)可兌換 1,000 積分，轉換的點數需以 480為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入卡達航空貴賓俱樂部會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"http://l.kaligo.com/QA-Cathay\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.qatarairways.com/en/Privilege-Club/join-now.html?portalUpgrade=false\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">卡塔爾航空常旅客保留隨時終止或變更「卡達航空貴賓俱樂部」的權利。</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【JAL哩程儲蓄專案/Japan Airlines Mileage Bank】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 480 點(含)可兌換 1,000 哩，轉換的點數需以 480 點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入JAL哩程儲蓄專案會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://l.ascendaloyalty.com/CUB-JAL\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.jal.co.jp/twl/zhtw/jmb/\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">日本航空保留隨時終止或變更「JAL哩程儲蓄專案」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【萬豪旅享家/Marriott Bonvoy】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 340 點(含)可兌換 1,000 積分，轉換的點數需以 340 點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入萬豪旅享家會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://l.ascendaloyalty.com/CUB-Marriott\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://joinmarriottbonvoy.com/transfer/s/EN-GB/ch/CHAS05\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">萬豪旅享家保留隨時終止或變更「萬豪旅享家」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【ALL - 雅高心悅界忠誠度計劃】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 600 點(含)可兌換 1,000 積分，轉換的點數需以 600 點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入ALL - 雅高心悅界忠誠度計劃會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"http://secure.accorhotels.com/gb/profil/registration.shtml\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://all.accor.com/gb/profil/registration.shtml\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">ALL - 雅高心悅界忠誠度計劃保留隨時終止或變更「ALL - 雅高心悅界忠誠度計劃」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【洲際優悅會】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 250 點(含)可兌換 1,000 積分，轉換的點數需以 250 點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入洲際優悅會會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.ihg.com/rewardsclub/gb/en/login/sign-in?fwdest=%2Frewardsclub%2Fgb%2Fen%2Fenrollment%2Fjoin\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.ihg.com/rewardsclub/gb/en/login/sign-in?fwdest=%2Frewardsclub%2Fgb%2Fen%2Fenrollment%2Fjoin\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">洲際優悅會保留隨時終止或變更「洲際優悅會」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【泰國國際航空】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 450 點(含)可兌換 1,000 ROP哩程，轉換的點數需以 450 點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入泰國國際航空會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.thaiairways.com/en_TH/rop/index.page\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.thaiairways.com/en_TH/rop/index.page\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">泰國國際航空保留隨時終止或變更「泰國國際航空」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【新加坡航空KrisFlyer】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 620 點(含)可兌換 1,000 哩程，轉換的點數需以 620 點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入新加坡航空KrisFlyer會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.singaporeair.com/en_UK/ppsclub-krisflyer/registration-form/\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.singaporeair.com/en_UK/ppsclub-krisflyer/registration-form/\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">新加坡航空KrisFlyer保留隨時終止或變更「新加坡航空KrisFlyer」的權利</li>\r\n</ol>\r\n<b class=\"text-cathay-green\">【香格里拉會】</b><ol class=\"ps-[29px] list-disc my-4\">\r\n<li class=\"mb-2.5 ps-[5px]\">每次兌換至少需小樹點(信用卡) 550 點(含)可兌換 250 香格里拉會積分，轉換的點數需以 550 點為單位</li>\r\n<li class=\"mb-2.5 ps-[5px]\">參加本活動需先加入香格里拉會會員，若您尚未成為會員請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.shangri-la.com/corporate/shangrilacircle/joingc/P-ASCENDA/\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">相關特別條款及詳細說明、限制等請洽<a class=\"text-cathay-green cursor-pointer underline hover:text-cathay-greenDark\" href=\"https://www.shangri-la.com/corporate/shangrilacircle/joingc/P-ASCENDA/\">官網</a></li>\r\n<li class=\"mb-2.5 ps-[5px]\">香格里拉會保留隨時終止或變更「香格里拉會」的權利</li>\r\n</ol>\r\n</li>\r\n<li class=\"mb-2.5 ps-[5px]\">如您尚未成為上述航空公司或飯店會員，請電洽航空公司或飯店會員部索取入會申請表。</li>\r\n<li class=\"mb-2.5 ps-[5px]\">優惠提供期間倘因不可歸責於本行之事由，本行得變更或終止活動內容，並於本行網站上公告。</li>\r\n</ol>\r\n",
+                  "topSpace": "topspace100",
+                  ":type": "cub-aem-cs/components/cub-content/cub-notice/v1/cub-notice"
+                }
+              },
+              ":itemsOrder": [
+                "cub_campaignkvbanner",
+                "cub_breadcrumb",
+                "cub_texta",
+                "cub_textb",
+                "cub_textb_852647863",
+                "cub_textb_1689191647",
+                "cub_table",
+                "cub_textb_1689191647_902799590",
+                "cub_table_copy",
+                "cub_textb_1689191647_1588313232",
+                "cub_table_copy_1228234190",
+                "cub_textb_1689191647_285940472",
+                "cub_table_copy_880802732",
+                "cub_textb_1689191647_1009779774",
+                "cub_table_copy_88080",
+                "cub_textb_1689191647_1632867128",
+                "cub_table_copy_88080_1052926208",
+                "cub_textb_1689191647_1109573608",
+                "cub_table_copy_88080_1759202042",
+                "cub_textb_1689191647_1883047478",
+                "cub_table_copy_88080_1116208638",
+                "cub_textb_1689191647_1224807118",
+                "cub_table_copy_88080_209265608",
+                "cub_textb_1689191647_1444262482",
+                "cub_table_copy_88080_1189083551",
+                "cub_textb_1689191647_1845546974",
+                "cub_table_copy_88080_1017673497",
+                "cub_textb_1689191647_511280720",
+                "cub_table_copy_88080_140374806",
+                "cub_textb_1689191647_724962890",
+                "cub_table_copy_88080_1115101351",
+                "cub_textb_1689191647_750488702",
+                "cub_table_copy_88080_1079992471",
+                "cub_textb_1689191647_1630898223",
+                "cub_table_copy_88080_48901270",
+                "cub_textb_1798203575",
+                "cub_table_copy_copy_",
+                "cub_textb_1316780548",
+                "cub_table_1018107662",
+                "cub_textb_1979759410",
+                "cub_table_2080687805",
+                "cub_notice"
+              ],
+              ":type": "cub-aem-cs/components/cub-content/cub-main/v1/cub-main"
+            }
+          },
+          ":itemsOrder": [
+            "cub_main"
+          ],
+          ":type": "wcm/foundation/components/responsivegrid"
+        }
+      },
+      ":itemsOrder": [
+        "responsivegrid"
+      ],
+      ":type": "cub-aem-cs/components/cub-content/cub-main/v1/cub-main"
+    }
+  }
+}

@@ -1,0 +1,233 @@
+{
+  "updatedAt": "2026-08-23T03:56:20.654Z",
+  "period": "2026年7月1日至2026年9月30日",
+  "sourceUrl": "https://shop.hsbc.com.tw/installments/creditcard/rewards/fly.html",
+  "categories": [
+    {
+      "id": "travel",
+      "name": "滙豐旅人無限卡、旅人御璽卡、旅人輕旅卡",
+      "pointType": "旅遊積分",
+      "rates": [
+        {
+          "airline": "華夏哩程酬賓計劃",
+          "carriers": "中華航空\n 華信航空",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "長榮無限萬哩遊",
+          "carriers": "長榮航空\n 立榮航空",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "亞洲萬里通",
+          "carriers": "國泰航空",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "新航KrisFlyer獎勵計劃",
+          "carriers": "新加坡航空\n 勝安航空\n 酷航(廉價航空)",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "日航哩程儲蓄專案",
+          "carriers": "日航哩程儲蓄專案",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "亞航獎勵",
+          "carriers": "亞航獎勵",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "阿聯酋航空 Skywards",
+          "carriers": "阿聯酋航空 \n Skywards",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "加航Aeroplan",
+          "carriers": "加航Aeroplan",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "哥倫比亞航空LifeMiles",
+          "carriers": "哥倫比亞航空LifeMiles",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "藍天飛行",
+          "carriers": "法航與荷航\n 藍天飛行",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "海南航空金鵬俱樂部",
+          "carriers": "海南航空\n 金鵬俱樂部\n (*註一)",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "吉祥航空如意俱樂部",
+          "carriers": "吉祥航空\n 如意俱樂部\n (*註二)(*註三)",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "漢莎航空飛常哩程匯",
+          "carriers": "漢莎航空\n 飛常哩程匯",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "澳航飛行常客",
+          "carriers": "澳航飛行常客",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "卡達航空貴賓俱樂部",
+          "carriers": "卡達航空\n 貴賓俱樂部",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "聯合航空前程萬里",
+          "carriers": "聯合航空\n 前程萬里飛行計劃",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "越南航空微笑蓮花",
+          "carriers": "越南航空\n 微笑蓮花",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        },
+        {
+          "airline": "土耳其航空 Miles&Smiles",
+          "carriers": "土耳其航空\n Miles&Smiles\n (*註二)",
+          "pointsPerMile": 1,
+          "milesEarned": 1,
+          "plan": "1旅遊積分=1哩"
+        }
+      ]
+    },
+    {
+      "id": "premier",
+      "name": "卓越理財信用卡",
+      "pointType": "紅利好點",
+      "rates": [
+        {
+          "airline": "長榮無限萬哩遊",
+          "pointsPerMile": 3,
+          "milesEarned": 1,
+          "plan": "3點=1哩"
+        },
+        {
+          "airline": "華夏哩程酬賓計劃",
+          "pointsPerMile": 3,
+          "milesEarned": 1,
+          "plan": "3點=1哩"
+        },
+        {
+          "airline": "亞洲萬里通",
+          "pointsPerMile": 3,
+          "milesEarned": 2,
+          "plan": "3點=2哩"
+        },
+        {
+          "airline": "新航KrisFlyer獎勵計劃",
+          "pointsPerMile": 3,
+          "milesEarned": 2,
+          "plan": "3點=2哩"
+        }
+      ]
+    },
+    {
+      "id": "advance_points",
+      "name": "運籌理財信用卡/白金卡/紅利好點御璽卡",
+      "pointType": "紅利好點",
+      "rates": [
+        {
+          "airline": "長榮無限萬哩遊",
+          "pointsPerMile": 3,
+          "milesEarned": 1,
+          "plan": "3點=1哩"
+        },
+        {
+          "airline": "華夏哩程酬賓計劃",
+          "pointsPerMile": 3,
+          "milesEarned": 1,
+          "plan": "3點=1哩"
+        },
+        {
+          "airline": "亞洲萬里通",
+          "pointsPerMile": 3,
+          "milesEarned": 1,
+          "plan": "3點=1哩"
+        },
+        {
+          "airline": "新航KrisFlyer獎勵計劃",
+          "pointsPerMile": 2.5,
+          "milesEarned": 1,
+          "plan": "2.5點=1哩"
+        }
+      ]
+    },
+    {
+      "id": "cash_cards",
+      "name": "滙豐匯鑽卡/現金回饋御璽卡/Live+現金回饋卡",
+      "pointType": "現金積點",
+      "rates": [
+        {
+          "airline": "長榮無限萬哩遊",
+          "pointsPerMile": 1,
+          "milesEarned": 2,
+          "plan": "1點=2哩"
+        },
+        {
+          "airline": "華夏哩程酬賓計劃",
+          "pointsPerMile": 1,
+          "milesEarned": 2,
+          "plan": "1點=2哩"
+        },
+        {
+          "airline": "亞洲萬里通",
+          "pointsPerMile": 1,
+          "milesEarned": 2,
+          "plan": "1點=2哩"
+        },
+        {
+          "airline": "新航KrisFlyer獎勵計劃",
+          "pointsPerMile": 1,
+          "milesEarned": 2,
+          "plan": "1點=2哩"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "cardswitch-crawler",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test crawler-parse.test.mjs",
+    "crawl": "node run.mjs",
+    "crawl:preview": "node preview-run.mjs"
+  }
+}

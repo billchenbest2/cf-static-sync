@@ -1,0 +1,3 @@
+# Keep crawled JSON in git (like data/pay). Ignore only junk.
+*.log
+.DS_Store

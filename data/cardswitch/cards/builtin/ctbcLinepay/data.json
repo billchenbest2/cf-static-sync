@@ -1,0 +1,2289 @@
+{
+  "updatedAt": "2026-08-23T03:56:18.896Z",
+  "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
+  "merchants": [
+    {
+      "name": "精選飯店/餐廳",
+      "keywords": [
+        "精選飯店/餐廳"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "LINE POINTS 5%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/abe1dd00-34be-4bb4-800a-68daff4207f5"
+        }
+      ]
+    },
+    {
+      "name": "foodpanda",
+      "keywords": [
+        "foodpanda"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "於foodpanda app登入會員，並輸入指定代碼訂餐，可享下列優惠：\n \n \n \n 【指定新用戶首購】首購綁定中國信託LINE Pay卡消費輸入代碼【psctbclp26】享優惠二擇一(限10,000組)\n\n 優惠1：美食外送單筆消費滿99元享3折，最高可折抵200元\n\n 優惠2：生鮮雜貨單筆消費滿300元享3折，最高可折抵 250元\n \n \n 【每月優惠】單筆消費滿NT260元享現折20元優惠 (每月限量1,400組)\n \n \n 【早餐優惠】早餐時段(5:30-11:00am)，單筆消費滿NT200元享現折15元優惠 (每月限量800組)",
+          "noticeText": "折扣碼優惠均不包含服務費、小費、包材費及平台費(即單筆訂單商品金額不加服務費消費滿指定金額，始享優惠)",
+          "limitText": null,
+          "limitPeriod": "每筆",
+          "ratePercent": null,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_foodpanda"
+        }
+      ]
+    },
+    {
+      "name": "Uber Eats",
+      "keywords": [
+        "Uber Eats"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "Visa卡\n 需登錄，活動期間每季每戶最高回饋100點，每月限量登錄8,000名",
+          "limitText": "最高回饋100點",
+          "limitPeriod": "每季",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_ubereats"
+        }
+      ]
+    },
+    {
+      "name": "星巴克",
+      "keywords": [
+        "星巴克"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "Visa卡\n 需登錄，活動期間每季每戶最高回饋100點，每月限量登錄8,000名",
+          "limitText": "最高回饋100點",
+          "limitPeriod": "每季",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_starbucks"
+        }
+      ]
+    },
+    {
+      "name": "LOPIA",
+      "keywords": [
+        "LOPIA"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "JCB卡\n 需登錄，活動期間每季每戶最高回饋200點，每月限量登錄5,000名",
+          "limitText": "最高回饋200點",
+          "limitPeriod": "每季",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_lopia"
+        },
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "LINE POINTS 6%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 6,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/da317d2b-073b-4166-8245-67773afb65cb"
+        }
+      ]
+    },
+    {
+      "name": "壽司郎",
+      "keywords": [
+        "壽司郎"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "JCB卡\n 需登錄，活動期間每季每戶最高回饋200點，每月限量登錄5,000名",
+          "limitText": "最高回饋200點",
+          "limitPeriod": "每季",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_sushiro"
+        }
+      ]
+    },
+    {
+      "name": "客美多咖啡",
+      "keywords": [
+        "客美多咖啡"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "JCB卡\n 需登錄，活動期間每季每戶最高回饋200點，每月限量登錄5,000名",
+          "limitText": "最高回饋200點",
+          "limitPeriod": "每季",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_komedascoffee"
+        }
+      ]
+    },
+    {
+      "name": "摩斯漢堡",
+      "keywords": [
+        "摩斯漢堡"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "JCB卡\n 需登錄，活動期間每季每戶最高回饋200點，每月限量登錄5,000名",
+          "limitText": "最高回饋200點",
+          "limitPeriod": "每季",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_mosburger"
+        }
+      ]
+    },
+    {
+      "name": "藏壽司",
+      "keywords": [
+        "藏壽司"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "JCB卡\n 需登錄，活動期間每季每戶最高回饋200點，每月限量登錄5,000名",
+          "limitText": "最高回饋200點",
+          "limitPeriod": "每季",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_kurasushi"
+        }
+      ]
+    },
+    {
+      "name": "Pizza Hut",
+      "keywords": [
+        "Pizza Hut"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "4%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 4,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "肯德基KFC",
+      "keywords": [
+        "肯德基KFC"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "4%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 4,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "早餐咖啡",
+      "keywords": [
+        "早餐咖啡"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "週週領10元優惠券",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/687a3b3b-fc36-49b2-b66a-9e6545cd6534"
+        }
+      ]
+    },
+    {
+      "name": "品牌餐廳",
+      "keywords": [
+        "品牌餐廳"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "週週領20元優惠券",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/c5a8e7a1-657e-411c-887a-f988ce1093df"
+        }
+      ]
+    },
+    {
+      "name": "淘寶",
+      "keywords": [
+        "淘寶"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "Visa卡\n 需登錄，活動期間每季每戶最高回饋100點，每月限量登錄8,000名",
+          "limitText": "最高回饋100點",
+          "limitPeriod": "每季",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_taobao"
+        },
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "12%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 12,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "購精彩",
+      "keywords": [
+        "購精彩"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "每人每月回饋上限400點",
+          "limitText": "上限400點",
+          "limitPeriod": "每月",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_goamazing"
+        }
+      ]
+    },
+    {
+      "name": "Coupang酷澎(台灣)",
+      "keywords": [
+        "Coupang酷澎(台灣)"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "活動① 火箭速配最高享8%\n 活動② LINE POINTS 5%(每月5號10:00開放登錄)",
+          "noticeText": "Visa卡",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 8,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_coupang"
+        }
+      ]
+    },
+    {
+      "name": "Popchill",
+      "keywords": [
+        "Popchill"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "3.5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 3.5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "Mercari",
+      "keywords": [
+        "Mercari"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "3.5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 3.5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "三星商城",
+      "keywords": [
+        "三星商城"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/30~2026/12/31",
+          "offerText": "LINE POINTS 1,000點",
+          "noticeText": "LINE Pay 支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_samsung"
+        }
+      ]
+    },
+    {
+      "name": "蝦皮購物",
+      "keywords": [
+        "蝦皮購物"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "Visa卡\n 需登錄，活動期間每季每戶最高回饋100點，每月限量登錄8,000名",
+          "limitText": "最高回饋100點",
+          "limitPeriod": "每季",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopee"
+        }
+      ]
+    },
+    {
+      "name": "SKM Online",
+      "keywords": [
+        "SKM Online"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "3.5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 3.5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "PChome 24h購物",
+      "keywords": [
+        "PChome 24h購物"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "3%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 3,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "yahoo!奇摩購物中心",
+      "keywords": [
+        "yahoo!奇摩購物中心"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "2.9%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 2.9,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "遠傳friDay購物",
+      "keywords": [
+        "遠傳friDay購物"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "3.5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 3.5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "樂天市場",
+      "keywords": [
+        "樂天市場"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "4%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 4,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "營養師輕食",
+      "keywords": [
+        "營養師輕食"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/13~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_dietician"
+        }
+      ]
+    },
+    {
+      "name": "pinkoi",
+      "keywords": [
+        "pinkoi"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "每週二/每月20號最高5%",
+          "noticeText": "單筆滿NT2,000元享回饋\n 每人每月上限150點",
+          "limitText": "上限150點",
+          "limitPeriod": "每月",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_pinkoi"
+        }
+      ]
+    },
+    {
+      "name": "誠品線上",
+      "keywords": [
+        "誠品線上"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "3.8%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 3.8,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "iQueen愛女人購物網",
+      "keywords": [
+        "iQueen愛女人購物網"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "UNIQLO",
+      "keywords": [
+        "UNIQLO"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "JCB卡\n 需登錄，活動期間每季每戶最高回饋200點，每月限量登錄5,000名",
+          "limitText": "最高回饋200點",
+          "limitPeriod": "每季",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_uniqlo"
+        }
+      ]
+    },
+    {
+      "name": "GU",
+      "keywords": [
+        "GU"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "JCB卡\n 需登錄，活動期間每季每戶最高回饋200點，每月限量登錄5,000名",
+          "limitText": "最高回饋200點",
+          "limitPeriod": "每季",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_gu"
+        }
+      ]
+    },
+    {
+      "name": "iHerb",
+      "keywords": [
+        "iHerb"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "4%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 4,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "BODY GOALS",
+      "keywords": [
+        "BODY GOALS"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "7%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 7,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "Myprotein",
+      "keywords": [
+        "Myprotein"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "6.5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 6.5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "鮮拾購物網",
+      "keywords": [
+        "鮮拾購物網"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "生活市集",
+      "keywords": [
+        "生活市集"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "3.5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 3.5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "博客來",
+      "keywords": [
+        "博客來"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "3%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 3,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "ETMall 東森購物官網",
+      "keywords": [
+        "ETMall 東森購物官網"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "3%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 3,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "環球 Online (Global Mall)",
+      "keywords": [
+        "環球 Online (Global Mall)"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "4%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 4,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "風格選品",
+      "keywords": [
+        "風格選品"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "週週領80元優惠券",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/47e4a749-4051-458a-9f21-78a2cce0b615"
+        }
+      ]
+    },
+    {
+      "name": "購好券精選商店",
+      "keywords": [
+        "購好券精選商店"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "消費享100元優惠券",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/fd7db77b-eed8-4a38-ad16-bebed5192881"
+        }
+      ]
+    },
+    {
+      "name": "屈臣氏",
+      "keywords": [
+        "屈臣氏"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1～2026/12/31",
+          "offerText": "週五：屈臣氏寵i點3萬點(等同100元)\n 週日：享屈臣氏寵i點7倍，滿額再享LINE POINTS 7%",
+          "noticeText": "單筆滿NT888元享回饋",
+          "limitText": null,
+          "limitPeriod": "每筆",
+          "ratePercent": 7,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_watsons"
+        }
+      ]
+    },
+    {
+      "name": "Sisley",
+      "keywords": [
+        "Sisley"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/12～2026/12/31",
+          "offerText": "6%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高1,000點",
+          "limitText": "最高1,000點",
+          "limitPeriod": "每筆",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_sisley"
+        }
+      ]
+    },
+    {
+      "name": "DOKODEMO",
+      "keywords": [
+        "DOKODEMO"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "3.5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 3.5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "雅詩蘭黛",
+      "keywords": [
+        "雅詩蘭黛"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高200點",
+          "limitText": "最高200點",
+          "limitPeriod": "每筆",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_esteelauder"
+        }
+      ]
+    },
+    {
+      "name": "Jo Malone",
+      "keywords": [
+        "Jo Malone"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高150點",
+          "limitText": "最高150點",
+          "limitPeriod": "每筆",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_esteelauder"
+        }
+      ]
+    },
+    {
+      "name": "LA MER",
+      "keywords": [
+        "LA MER"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高300點",
+          "limitText": "最高300點",
+          "limitPeriod": "每筆",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_esteelauder"
+        }
+      ]
+    },
+    {
+      "name": "M‧A‧C",
+      "keywords": [
+        "M‧A‧C"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高150點",
+          "limitText": "最高150點",
+          "limitPeriod": "每筆",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_esteelauder"
+        }
+      ]
+    },
+    {
+      "name": "BOBBI BROWN",
+      "keywords": [
+        "BOBBI BROWN"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高150點",
+          "limitText": "最高150點",
+          "limitPeriod": "每筆",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_esteelauder"
+        }
+      ]
+    },
+    {
+      "name": "ORIGINS",
+      "keywords": [
+        "ORIGINS"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高150點",
+          "limitText": "最高150點",
+          "limitPeriod": "每筆",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_esteelauder"
+        }
+      ]
+    },
+    {
+      "name": "CLINIQUE",
+      "keywords": [
+        "CLINIQUE"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高150點",
+          "limitText": "最高150點",
+          "limitPeriod": "每筆",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_esteelauder"
+        }
+      ]
+    },
+    {
+      "name": "資生堂國際櫃",
+      "keywords": [
+        "資生堂國際櫃"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高150點",
+          "limitText": "最高150點",
+          "limitPeriod": "每筆",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_shiseido"
+        }
+      ]
+    },
+    {
+      "name": "肌膚之鑰",
+      "keywords": [
+        "肌膚之鑰"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高400點",
+          "limitText": "最高400點",
+          "limitPeriod": "每筆",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_shiseido"
+        }
+      ]
+    },
+    {
+      "name": "IPSA",
+      "keywords": [
+        "IPSA"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高100點",
+          "limitText": "最高100點",
+          "limitPeriod": "每筆",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_shiseido"
+        }
+      ]
+    },
+    {
+      "name": "NARS",
+      "keywords": [
+        "NARS"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高100點",
+          "limitText": "最高100點",
+          "limitPeriod": "每筆",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_shiseido"
+        }
+      ]
+    },
+    {
+      "name": "watashi+",
+      "keywords": [
+        "watashi+"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高100點",
+          "limitText": "最高100點",
+          "limitPeriod": "每筆",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_shiseido"
+        }
+      ]
+    },
+    {
+      "name": "KAFEN",
+      "keywords": [
+        "KAFEN"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "8%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高200點",
+          "limitText": "最高200點",
+          "limitPeriod": "每筆",
+          "ratePercent": 8,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_kafen"
+        }
+      ]
+    },
+    {
+      "name": "Sabon",
+      "keywords": [
+        "Sabon"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高150點",
+          "limitText": "最高150點",
+          "limitPeriod": "每筆",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_sabon"
+        }
+      ]
+    },
+    {
+      "name": "hearth",
+      "keywords": [
+        "hearth"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/15~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高300點",
+          "limitText": "最高300點",
+          "limitPeriod": "每筆",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_hearth"
+        }
+      ]
+    },
+    {
+      "name": "雪花秀",
+      "keywords": [
+        "雪花秀"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "LINE Pay支付，限官方網站\n 每筆上限250點",
+          "limitText": "上限250點",
+          "limitPeriod": "每筆",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_sulwhasoo"
+        }
+      ]
+    },
+    {
+      "name": "蘭芝",
+      "keywords": [
+        "蘭芝"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "LINE Pay支付，限官方網站\n 每筆上限150點",
+          "limitText": "上限150點",
+          "limitPeriod": "每筆",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_laneige"
+        }
+      ]
+    },
+    {
+      "name": "MIRAE未來美",
+      "keywords": [
+        "MIRAE未來美"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "M2美度",
+      "keywords": [
+        "M2美度"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "DV麗彤生醫",
+      "keywords": [
+        "DV麗彤生醫"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "8%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 8,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_fashion.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "寶雅",
+      "keywords": [
+        "寶雅"
+      ],
+      "offers": [
+        {
+          "categoryId": "fashion",
+          "categoryName": "脆時尚",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/451fff1d-5eea-4c1f-aac5-335499d35f3b"
+        }
+      ]
+    },
+    {
+      "name": "魚中魚",
+      "keywords": [
+        "魚中魚"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "4%",
+          "noticeText": "單筆滿NT1,500元享回饋\n 每人每月上限150點",
+          "limitText": "上限150點",
+          "limitPeriod": "每月",
+          "ratePercent": 4,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_pet.html#lightbox_petsmall"
+        }
+      ]
+    },
+    {
+      "name": "好狗命",
+      "keywords": [
+        "好狗命"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "單筆滿NT1,800元享回饋\n 每人每月上限180點",
+          "limitText": "上限180點",
+          "limitPeriod": "每月",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_pet.html#lightbox_gooddoglife"
+        }
+      ]
+    },
+    {
+      "name": "好狗運",
+      "keywords": [
+        "好狗運"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "週一～週五享LINE POINTS30點",
+          "noticeText": "單筆滿NT1,300元享回饋\n 每人每月限回饋一次",
+          "limitText": null,
+          "limitPeriod": "每月",
+          "ratePercent": null,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_pet.html#lightbox_gdd888"
+        }
+      ]
+    },
+    {
+      "name": "撥撥貓砂",
+      "keywords": [
+        "撥撥貓砂"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/4/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "每人每月上限300點",
+          "limitText": "上限300點",
+          "limitPeriod": "每月",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_pet.html#lightbox_popocat"
+        }
+      ]
+    },
+    {
+      "name": "寵物公園",
+      "keywords": [
+        "寵物公園"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/6/1~2026/12/31",
+          "offerText": "最高8%",
+          "noticeText": "LINE Pay支付\n 每人每帳號最高140點",
+          "limitText": "最高140點",
+          "limitPeriod": null,
+          "ratePercent": 8,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_pet.html#lightbox_petpark"
+        }
+      ]
+    },
+    {
+      "name": "毛孩時代",
+      "keywords": [
+        "毛孩時代"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/6/1~2026/12/31",
+          "offerText": "最高8%",
+          "noticeText": "LINE Pay支付\n 單筆最高360點",
+          "limitText": "最高360點",
+          "limitPeriod": "每筆",
+          "ratePercent": 8,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_pet.html#lightbox_petstimes"
+        }
+      ]
+    },
+    {
+      "name": "超凝小姐",
+      "keywords": [
+        "超凝小姐"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付\n 單筆最高30點",
+          "limitText": "最高30點",
+          "limitPeriod": "每筆",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_pet.html#lightbox_ladynpet"
+        }
+      ]
+    },
+    {
+      "name": "汪喵星球",
+      "keywords": [
+        "汪喵星球"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付\n 單筆最高40點",
+          "limitText": "最高40點",
+          "limitPeriod": "每筆",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_pet.html#lightbox_dogcatstar"
+        }
+      ]
+    },
+    {
+      "name": "怪獸部落",
+      "keywords": [
+        "怪獸部落"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付\n 單筆最高30點",
+          "limitText": "最高30點",
+          "limitPeriod": "每筆",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_pet.html#lightbox_litomon"
+        }
+      ]
+    },
+    {
+      "name": "HeroMama",
+      "keywords": [
+        "HeroMama"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "LINE Pay支付\n 單筆最高30點",
+          "limitText": "最高30點",
+          "limitPeriod": "每筆",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_pet.html#lightbox_heromamapet"
+        }
+      ]
+    },
+    {
+      "name": "毛好多",
+      "keywords": [
+        "毛好多"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_pet.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "寵物生活",
+      "keywords": [
+        "寵物生活"
+      ],
+      "offers": [
+        {
+          "categoryId": "pet",
+          "categoryName": "脆萌寵",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "週週領80元優惠券",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/35215abd-40e3-4b50-a175-39a1389d52ff"
+        }
+      ]
+    },
+    {
+      "name": "大樹藥局",
+      "keywords": [
+        "大樹藥局"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/4/1~2026/8/31",
+          "offerText": "8%\n \n \n LINE POINTS 5.5% + $50大樹金鑽券約當2.5%",
+          "noticeText": "每人每月上限120點",
+          "limitText": "上限120點",
+          "limitPeriod": "每月",
+          "ratePercent": 8,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_greattree"
+        }
+      ]
+    },
+    {
+      "name": "CASETiFY",
+      "keywords": [
+        "CASETiFY"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "4%",
+          "noticeText": "限官方網站/APP\n 每人每月上限200點",
+          "limitText": "上限200點",
+          "limitPeriod": "每月",
+          "ratePercent": 4,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_casetify"
+        }
+      ]
+    },
+    {
+      "name": "Xiaomi",
+      "keywords": [
+        "Xiaomi"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "3%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 3,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "Emma Sleep",
+      "keywords": [
+        "Emma Sleep"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5.5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5.5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "KKBOX",
+      "keywords": [
+        "KKBOX"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/1/2~2026/12/31",
+          "offerText": "限訂閱「中信LINE Pay卡友優惠」方案最高享432元回饋\n \n \n 訂購立即享8折優惠，立享360元回饋\n 結帳再享最高LINE POINTS 5%回饋(約當72元)",
+          "noticeText": "每個 KKBOX 帳號只能享有此優惠一次",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_kkbox"
+        }
+      ]
+    },
+    {
+      "name": "Netflix",
+      "keywords": [
+        "Netflix"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "Visa卡\n 需登錄，活動期間每季每戶最高回饋100點，每月限量登錄8,000名",
+          "limitText": "最高回饋100點",
+          "limitPeriod": "每季",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_netflix"
+        }
+      ]
+    },
+    {
+      "name": "Under Armour",
+      "keywords": [
+        "Under Armour"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "7%",
+          "noticeText": "LINE Pay支付，限官方網站\n 單筆最高200點",
+          "limitText": "最高200點",
+          "limitPeriod": "每筆",
+          "ratePercent": 7,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_underarmour"
+        }
+      ]
+    },
+    {
+      "name": "STUDIO A",
+      "keywords": [
+        "STUDIO A"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "2%",
+          "noticeText": "限全臺指定門市/官網\n 單筆滿NT12,000元享回饋 每人每月上限1,000點",
+          "limitText": "上限1,000點",
+          "limitPeriod": "每月",
+          "ratePercent": 2,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_studioa"
+        }
+      ]
+    },
+    {
+      "name": "dyson",
+      "keywords": [
+        "dyson"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "官方線上商城\n 單筆滿NT10,000元享回饋\n 每人每月上限700點",
+          "limitText": "上限700點",
+          "limitPeriod": "每月",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_dyson"
+        }
+      ]
+    },
+    {
+      "name": "小北百貨",
+      "keywords": [
+        "小北百貨"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "每週四最高5%",
+          "noticeText": "單筆滿NT399元享回饋\n 每人每月上限40點",
+          "limitText": "上限40點",
+          "limitPeriod": "每月",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_showba"
+        }
+      ]
+    },
+    {
+      "name": "萬家福/樂家康",
+      "keywords": [
+        "萬家福/樂家康"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "Visa卡\n 需登錄，活動期間每季每戶最高回饋100點，每月限量登錄8,000名",
+          "limitText": "最高回饋100點",
+          "limitPeriod": "每季",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_uniprosperity"
+        }
+      ]
+    },
+    {
+      "name": "DON DON DONKI \n唐吉訶德",
+      "keywords": [
+        "DON DON DONKI \n唐吉訶德"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "JCB卡\n 需登錄，活動期間每季每戶最高回饋200點，每月限量登錄5,000名",
+          "limitText": "最高回饋200點",
+          "limitPeriod": "每季",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_dondondonki"
+        }
+      ]
+    },
+    {
+      "name": "IKEA",
+      "keywords": [
+        "IKEA"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "Visa卡\n 需登錄，活動期間每季每戶最高回饋100點，每月限量登錄8,000名",
+          "limitText": "最高回饋100點",
+          "limitPeriod": "每季",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_ikea"
+        }
+      ]
+    },
+    {
+      "name": "宜得利家居",
+      "keywords": [
+        "宜得利家居"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "JCB卡\n 需登錄，活動期間每季每戶最高回饋200點，每月限量登錄5,000名",
+          "limitText": "最高回饋200點",
+          "limitPeriod": "每季",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_nitori"
+        }
+      ]
+    },
+    {
+      "name": "Nike",
+      "keywords": [
+        "Nike"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "7%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 7,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "Adidas",
+      "keywords": [
+        "Adidas"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "摩曼頓",
+      "keywords": [
+        "摩曼頓"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "ISPO",
+      "keywords": [
+        "ISPO"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "人氣Outlet",
+      "keywords": [
+        "人氣Outlet"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/4~2026/9/27",
+          "offerText": "週週領120元優惠券",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/56114176-a154-4c4e-ab9f-328b4e979f0b"
+        }
+      ]
+    },
+    {
+      "name": "百貨購物",
+      "keywords": [
+        "百貨購物"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/4~2026/9/27",
+          "offerText": "週週領100元優惠券",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/ff939841-e4b5-4a4d-81bb-899fbbdf88c6"
+        }
+      ]
+    },
+    {
+      "name": "迪卡儂",
+      "keywords": [
+        "迪卡儂"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/2~2026/9/25",
+          "offerText": "6%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 6,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/0b9b8987-2a97-4161-9917-e0b74812689b"
+        }
+      ]
+    },
+    {
+      "name": "休閒娛樂",
+      "keywords": [
+        "休閒娛樂"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "週週領50元優惠券",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/2eed64ab-5844-4231-92ad-5f91aee976d2"
+        }
+      ]
+    },
+    {
+      "name": "生活日用",
+      "keywords": [
+        "生活日用"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "週週領40元優惠券",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/453a76d8-783e-4a48-ab97-5e0c9289765b"
+        }
+      ]
+    },
+    {
+      "name": "全國特急電",
+      "keywords": [
+        "全國特急電"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "單筆滿NT100元享回饋，每人每月上限500點",
+          "limitText": "上限500點",
+          "limitPeriod": "每月",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_npcPowerExpress"
+        }
+      ]
+    },
+    {
+      "name": "不限國別國外實體商店",
+      "keywords": [
+        "不限國別國外實體商店"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "5% 限信用卡且限量需登錄",
+          "noticeText": "含國外實體商店消費2.8%+加碼回饋2.2%，每歸戶上限450點",
+          "limitText": "上限450點",
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_overseas"
+        }
+      ]
+    },
+    {
+      "name": "格上租車",
+      "keywords": [
+        "格上租車"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "最高折抵NT650元+LINE POINTS 8%",
+          "noticeText": "Visa卡\n 每人每月上限250點",
+          "limitText": "上限250點",
+          "limitPeriod": "每月",
+          "ratePercent": 8,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_carplus"
+        }
+      ]
+    },
+    {
+      "name": "韓國指定商店",
+      "keywords": [
+        "韓國指定商店"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "最高25%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 25,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/6fc14204-e714-42a0-a884-0bdafce73e9f"
+        }
+      ]
+    },
+    {
+      "name": "完美行購物",
+      "keywords": [
+        "完美行購物"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "最高22% OFF+8%回饋",
+          "noticeText": "單筆滿額享回饋",
+          "limitText": null,
+          "limitPeriod": "每筆",
+          "ratePercent": 22,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_wamazing"
+        }
+      ]
+    },
+    {
+      "name": "KKday",
+      "keywords": [
+        "KKday"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "最高10%",
+          "noticeText": "限指定網頁且輸入優惠代碼",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_kkday"
+        }
+      ]
+    },
+    {
+      "name": "Hotels.com",
+      "keywords": [
+        "Hotels.com"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "優惠一: 請輸入代碼「CTBCLP16」享LINE\n POINTS\n 16%回饋，每筆回饋上限1,800點，每月限額400組。\n 優惠二: 免輸入代碼，享LINE POINTS 8%回饋。",
+          "noticeText": "限指定網頁且輸入優惠代碼，每月限名額",
+          "limitText": "上限1,800點",
+          "limitPeriod": "每筆",
+          "ratePercent": 16,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_hotelscom"
+        }
+      ]
+    },
+    {
+      "name": "Trip.com",
+      "keywords": [
+        "Trip.com"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "Visa卡\n 需登錄，活動期間每季每戶最高回饋100點，每月限量登錄8,000名",
+          "limitText": "最高回饋100點",
+          "limitPeriod": "每季",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_tripcom"
+        }
+      ]
+    },
+    {
+      "name": "Airbnb",
+      "keywords": [
+        "Airbnb"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "Visa卡\n 需登錄，活動期間每季每戶最高回饋100點，每月限量登錄8,000名",
+          "limitText": "最高回饋100點",
+          "limitPeriod": "每季",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_airbnb"
+        }
+      ]
+    },
+    {
+      "name": "台灣虎航",
+      "keywords": [
+        "台灣虎航"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "JCB卡\n 需登錄，活動期間每季每戶最高回饋200點，每月限量登錄5,000名",
+          "limitText": "最高回饋200點",
+          "limitPeriod": "每季",
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_tigerairtw"
+        }
+      ]
+    },
+    {
+      "name": "易遊網",
+      "keywords": [
+        "易遊網"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "最高享6%",
+          "noticeText": "限機加酒商品適用",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_eztravel"
+        }
+      ]
+    },
+    {
+      "name": "Saily eSim",
+      "keywords": [
+        "Saily eSim"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "7%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 7,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "東南旅遊",
+      "keywords": [
+        "東南旅遊"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "4.5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 4.5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "NPC全國加油站",
+      "keywords": [
+        "NPC全國加油站"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "限自助加油",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_npcgas"
+        }
+      ]
+    },
+    {
+      "name": "Klook",
+      "keywords": [
+        "Klook"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "優惠一：最高10%\n 優惠二：國定假日台．港．澳最高享 20%",
+          "noticeText": "限指定網頁且輸入優惠代碼，每月限名額\n \n \n 國定假日優惠限Visa卡",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 20,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_klook"
+        }
+      ]
+    },
+    {
+      "name": "FunNow",
+      "keywords": [
+        "FunNow"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "10%",
+          "noticeText": "限指定網頁且輸入優惠代碼",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 10,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_funnow"
+        }
+      ]
+    },
+    {
+      "name": "Expedia",
+      "keywords": [
+        "Expedia"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/1/1~2026/12/31",
+          "offerText": "8%",
+          "noticeText": "限指定網頁",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 8,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_expedia"
+        }
+      ]
+    },
+    {
+      "name": "gogoout",
+      "keywords": [
+        "gogoout"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
+      "name": "找體驗",
+      "keywords": [
+        "找體驗"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "最高14%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 14,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/d7636123-6581-46fd-b5b1-d955d119ac92"
+        }
+      ]
+    }
+  ]
+}

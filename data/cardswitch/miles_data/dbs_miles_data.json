@@ -1,0 +1,109 @@
+{
+  "updatedAt": "2026-08-23T03:56:20.651Z",
+  "categories": [
+    {
+      "id": "bonus",
+      "name": "活利積分",
+      "period": "即日起~2026/12/31",
+      "sourceUrl": "https://www.dbs.com.tw/personal-zh/cards/rewards/bonus_redeem_mileage",
+      "rates": [
+        {
+          "airline": "華夏哩程酬賓計劃",
+          "cost_points": 27000,
+          "redeemed_miles": 3000,
+          "plan": "每27,000點活利積分兌換3,000哩"
+        },
+        {
+          "airline": "長榮無限萬哩遊",
+          "cost_points": 15000,
+          "redeemed_miles": 3000,
+          "plan": "每15,000點活利積分兌換3,000哩"
+        },
+        {
+          "airline": "亞洲萬里通",
+          "cost_points": 15000,
+          "redeemed_miles": 3000,
+          "plan": "每15,000點活利積分兌換3,000哩"
+        }
+      ]
+    },
+    {
+      "id": "cash",
+      "name": "現金積點/現金紅利",
+      "period": "即日起~2026/12/31",
+      "sourceUrl": "https://www.dbs.com.tw/personal-zh/cards/rewards/cash-redeem-mileage",
+      "rates": [
+        {
+          "airline": "華夏哩程酬賓計劃",
+          "cost_points": 90,
+          "redeemed_miles": 100,
+          "plan": "每90點現金積點/現金紅利兌換100哩"
+        },
+        {
+          "airline": "長榮無限萬哩遊",
+          "cost_points": 50,
+          "redeemed_miles": 100,
+          "plan": "每50點現金積點/現金紅利兌換100哩"
+        },
+        {
+          "airline": "亞洲萬里通",
+          "cost_points": 50,
+          "redeemed_miles": 100,
+          "plan": "每50點現金積點/現金紅利兌換100哩"
+        }
+      ]
+    },
+    {
+      "id": "fly",
+      "name": "飛行積金",
+      "period": "即日起~2026/12/31",
+      "sourceUrl": "https://www.dbs.com.tw/personal-zh/cards/rewards/fly_redeem_mileage",
+      "rates": [
+        {
+          "airline": "華夏哩程酬賓計劃",
+          "cost_points": 12000,
+          "redeemed_miles": 6000,
+          "plan": "中華航空｜每12,000點換6,000哩"
+        },
+        {
+          "airline": "長榮無限萬哩遊",
+          "cost_points": 6000,
+          "redeemed_miles": 6000,
+          "plan": "長榮航空｜每6,000點換6,000哩"
+        },
+        {
+          "airline": "亞洲萬里通",
+          "cost_points": 6000,
+          "redeemed_miles": 6000,
+          "plan": "亞洲萬里通｜每6,000點換6,000哩"
+        },
+        {
+          "airline": "新航獎勵計劃KrisFlyer",
+          "cost_points": 6000,
+          "redeemed_miles": 6000,
+          "plan": "新加坡航空｜每6,000點換6,000哩"
+        }
+      ]
+    },
+    {
+      "id": "pchome",
+      "name": "PChome聯名紅利點數",
+      "period": "即日起~2026/12/31",
+      "sourceUrl": "https://www.dbs.com.tw/personal-zh/cards/rewards/pchome-redeem-mileage",
+      "rates": [
+        {
+          "airline": "長榮無限萬哩遊",
+          "cost_points": 1500,
+          "redeemed_miles": 3000,
+          "plan": "每1,500點PChome聯名紅利點數兌換3,000哩"
+        },
+        {
+          "airline": "亞洲萬里通",
+          "cost_points": 3000,
+          "redeemed_miles": 3000,
+          "plan": "每3,000點PChome聯名紅利點數兌換3,000哩"
+        }
+      ]
+    }
+  ]
+}

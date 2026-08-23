@@ -1,0 +1,165 @@
+{
+  "earnType": "miles",
+  "displayName": "中華航空",
+  "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/CTBCCI/index.html",
+  "updatedAt": "2026-08-23T03:56:20.134Z",
+  "overseasPhysicalKeywords": [
+    "國外實體商店",
+    "海外實體商店",
+    "國外實體",
+    "海外實體",
+    "國外實體通路",
+    "海外實體通路"
+  ],
+  "bonusStores": [
+    "國外實體商店",
+    "中華航空官網購買機票",
+    "華信航空官網購買機票",
+    "華航 eMall",
+    "華航eMall",
+    "SkyBoutique 免稅品預訂網站",
+    "華航Sky Boutique",
+    "機上免稅品消費"
+  ],
+  "travelBookingStores": [
+    "Agoda",
+    "Hotels.com",
+    "Expedia",
+    "Trip.com",
+    "Booking.com",
+    "Airbnb"
+  ],
+  "bonusStoresWithTravel": [
+    "國外實體商店",
+    "中華航空官網購買機票",
+    "華信航空官網購買機票",
+    "華航 eMall",
+    "華航eMall",
+    "SkyBoutique 免稅品預訂網站",
+    "華航Sky Boutique",
+    "機上免稅品消費",
+    "Agoda",
+    "Hotels.com",
+    "Expedia",
+    "Trip.com",
+    "Booking.com",
+    "Airbnb"
+  ],
+  "storeCategories": {
+    "華航指定通路": [
+      "中華航空官網購買機票",
+      "華信航空官網購買機票",
+      "華航 eMall",
+      "華航eMall",
+      "SkyBoutique 免稅品預訂網站",
+      "華航Sky Boutique",
+      "機上免稅品消費"
+    ],
+    "旅遊訂房平台": [
+      "Agoda",
+      "Hotels.com",
+      "Expedia",
+      "Trip.com",
+      "Booking.com",
+      "Airbnb"
+    ]
+  },
+  "tiers": [
+    {
+      "id": "dingzun",
+      "name": "鼎尊無限卡",
+      "bonusCap": {
+        "primary": 80000,
+        "supplementary": 20000
+      },
+      "options": [
+        {
+          "id": "domestic",
+          "name": "國內(基本哩)",
+          "amount": 18,
+          "reward": 1,
+          "stores": []
+        },
+        {
+          "id": "bonus",
+          "name": "加碼哩",
+          "amount": 18,
+          "reward": 2,
+          "storesRef": "bonusStoresWithTravel"
+        },
+        {
+          "id": "birthday",
+          "name": "生日加碼哩",
+          "amount": 18,
+          "reward": 3,
+          "requiresBirthMonth": true,
+          "storesRef": "overseasPhysicalKeywords"
+        }
+      ]
+    },
+    {
+      "id": "cuican",
+      "name": "璀璨無限卡",
+      "bonusCap": {
+        "primary": 60000,
+        "supplementary": 20000
+      },
+      "options": [
+        {
+          "id": "domestic",
+          "name": "國內(基本哩)",
+          "amount": 20,
+          "reward": 1,
+          "stores": []
+        },
+        {
+          "id": "bonus",
+          "name": "加碼哩",
+          "amount": 20,
+          "reward": 2,
+          "storesRef": "bonusStoresWithTravel"
+        },
+        {
+          "id": "birthday",
+          "name": "生日加碼哩",
+          "amount": 20,
+          "reward": 3,
+          "requiresBirthMonth": true,
+          "storesRef": "overseasPhysicalKeywords"
+        }
+      ]
+    },
+    {
+      "id": "business",
+      "name": "商務御璽卡",
+      "bonusCap": {
+        "primary": 20000,
+        "supplementary": 20000
+      },
+      "options": [
+        {
+          "id": "domestic",
+          "name": "國內(基本哩)",
+          "amount": 30,
+          "reward": 1,
+          "stores": []
+        },
+        {
+          "id": "bonus",
+          "name": "加碼哩",
+          "amount": 30,
+          "reward": 2,
+          "storesRef": "bonusStores"
+        },
+        {
+          "id": "birthday",
+          "name": "生日加碼哩",
+          "amount": 30,
+          "reward": 3,
+          "requiresBirthMonth": true,
+          "storesRef": "overseasPhysicalKeywords"
+        }
+      ]
+    }
+  ]
+}

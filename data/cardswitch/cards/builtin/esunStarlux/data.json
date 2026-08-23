@@ -1,0 +1,189 @@
+{
+  "earnType": "miles",
+  "displayName": "星宇航空 COSMILE",
+  "sourceUrl": "https://www.esunbank.com/zh-tw/personal/credit-card/intro/co-branded-card/starlux-card",
+  "updatedAt": "2026-08-23T03:56:19.778Z",
+  "overseasKeywords": [
+    "海外",
+    "國外",
+    "overseas",
+    "abroad",
+    "日本",
+    "美國",
+    "韓國",
+    "泰國",
+    "新加坡",
+    "香港",
+    "歐洲"
+  ],
+  "overseasPhysicalKeywords": [
+    "國外實體",
+    "海外實體",
+    "國外實體通路",
+    "海外實體通路",
+    "國外實體店",
+    "海外實體店"
+  ],
+  "storeCategories": {
+    "星宇指定通路": [
+      "星宇航空官方網站/App購票",
+      "星宇航空官方網站",
+      "星宇航空App",
+      "星宇航空",
+      "Starlux",
+      "星宇",
+      "星宇航空形象門市",
+      "béshopping",
+      "beshopping",
+      "星宇航空國際航線機上免稅品",
+      "星宇航空機上免稅品"
+    ]
+  },
+  "designatedStores": [
+    "星宇航空官方網站/App購票",
+    "星宇航空官方網站",
+    "星宇航空App",
+    "星宇航空",
+    "Starlux",
+    "星宇",
+    "星宇航空形象門市",
+    "béshopping",
+    "beshopping",
+    "星宇航空國際航線機上免稅品",
+    "星宇航空機上免稅品"
+  ],
+  "tiers": [
+    {
+      "id": "world_elite",
+      "name": "世界之極卡",
+      "options": [
+        {
+          "id": "domestic",
+          "name": "國內消費",
+          "amount": 15,
+          "reward": 1,
+          "stores": []
+        },
+        {
+          "id": "overseas",
+          "name": "國外消費",
+          "amount": 10,
+          "reward": 1,
+          "storesRef": "overseasKeywords"
+        },
+        {
+          "id": "designated",
+          "name": "星宇指定通路 2倍",
+          "amount": 7.5,
+          "reward": 1,
+          "storesRef": "designatedStores"
+        },
+        {
+          "id": "birthday",
+          "name": "生日禮 (需登錄)",
+          "amount": 5,
+          "reward": 1,
+          "requiresBirthMonth": true,
+          "storesRef": "overseasPhysicalKeywords"
+        }
+      ]
+    },
+    {
+      "id": "world",
+      "name": "世界卡",
+      "options": [
+        {
+          "id": "domestic",
+          "name": "國內消費",
+          "amount": 20,
+          "reward": 1,
+          "stores": []
+        },
+        {
+          "id": "overseas",
+          "name": "國外消費",
+          "amount": 10,
+          "reward": 1,
+          "storesRef": "overseasKeywords"
+        },
+        {
+          "id": "designated",
+          "name": "星宇指定通路 2倍",
+          "amount": 10,
+          "reward": 1,
+          "storesRef": "designatedStores"
+        },
+        {
+          "id": "birthday",
+          "name": "生日禮 (需登錄)",
+          "amount": 5,
+          "reward": 1,
+          "requiresBirthMonth": true,
+          "storesRef": "overseasPhysicalKeywords"
+        }
+      ]
+    },
+    {
+      "id": "business_titanium",
+      "name": "商務鈦金卡",
+      "options": [
+        {
+          "id": "domestic",
+          "name": "國內消費",
+          "amount": 25,
+          "reward": 1,
+          "stores": []
+        },
+        {
+          "id": "overseas",
+          "name": "國外消費",
+          "amount": 15,
+          "reward": 1,
+          "storesRef": "overseasKeywords"
+        },
+        {
+          "id": "designated",
+          "name": "星宇指定通路 2倍",
+          "amount": 12.5,
+          "reward": 1,
+          "storesRef": "designatedStores"
+        },
+        {
+          "id": "birthday",
+          "name": "生日禮 (需登錄)",
+          "amount": 7.5,
+          "reward": 1,
+          "requiresBirthMonth": true,
+          "storesRef": "overseasPhysicalKeywords"
+        }
+      ]
+    },
+    {
+      "id": "titanium",
+      "name": "鈦金卡",
+      "options": [
+        {
+          "id": "domestic",
+          "name": "國內消費",
+          "amount": 28,
+          "reward": 1,
+          "stores": []
+        },
+        {
+          "id": "overseas",
+          "name": "國外消費",
+          "amount": 20,
+          "reward": 1,
+          "storesRef": "overseasKeywords"
+        },
+        {
+          "id": "designated",
+          "name": "星宇指定通路 2倍",
+          "amount": 14,
+          "reward": 1,
+          "storesRef": "designatedStores"
+        }
+      ]
+    }
+  ]
+}

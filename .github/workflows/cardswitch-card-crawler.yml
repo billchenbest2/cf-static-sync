@@ -1,0 +1,154 @@
+name: CardSwitch card data crawler
+
+# Crawl CardSwitch cards/ + miles_data/ into cf-static-sync cache, then publish
+# to CardSwitch (reuses CARDSWITCH_REPO + PAYMENTMAPTW_APP_TOKEN from pay pipeline).
+
+on:
+  workflow_dispatch:
+    inputs:
+      skip_publish_cardswitch:
+        description: "Only update cf-static-sync data/cardswitch cache"
+        type: boolean
+        default: false
+  schedule:
+    # 02:20 Asia/Taipei (UTC+8)
+    - cron: "20 18 * * *"
+
+concurrency:
+  group: cardswitch-card-crawler
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout cf-static-sync
+        uses: actions/checkout@v4
+
+      - name: Require CardSwitch secrets
+        run: |
+          if [ -z "${{ secrets.CARDSWITCH_REPO }}" ]; then
+            echo "Missing secret CARDSWITCH_REPO"
+            exit 1
+          fi
+          if [ -z "${{ secrets.PAYMENTMAPTW_APP_TOKEN }}" ]; then
+            echo "Missing secret PAYMENTMAPTW_APP_TOKEN"
+            exit 1
+          fi
+
+      - name: Checkout CardSwitch
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.CARDSWITCH_REPO }}
+          token: ${{ secrets.PAYMENTMAPTW_APP_TOKEN }}
+          path: cardswitch
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Ensure crawl cache dir
+        run: |
+          mkdir -p data/cardswitch/cards data/cardswitch/miles_data
+          if [ ! -f data/cardswitch/cards/builtin/taishin/data.json ] && [ -f cardswitch/cards/builtin/taishin/data.json ]; then
+            echo "Seeding data/cardswitch from CardSwitch checkout"
+            cp -a cardswitch/cards/. data/cardswitch/cards/
+            cp -a cardswitch/miles_data/. data/cardswitch/miles_data/
+          fi
+
+      - name: Test crawler parsers
+        working-directory: tools/cardswitch-crawler
+        env:
+          CARDSWITCH_REPO_ROOT: ${{ github.workspace }}/cardswitch
+        run: node --test crawler-parse.test.mjs
+
+      - name: Run crawler
+        working-directory: tools/cardswitch-crawler
+        env:
+          CRAWLER_OUTPUT_DIR: ${{ github.workspace }}/data/cardswitch
+          CRAWLER_LEGACY_ROOT: ${{ github.workspace }}/cardswitch
+          CRAWLER_SUMMARY_PATH: ${{ runner.temp }}/crawler-summary.json
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node run.mjs
+
+      - name: Upload crawl artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cardswitch-crawl-cache
+          path: data/cardswitch
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Commit data/cardswitch cache on cf-static-sync
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/cardswitch
+          if git diff --cached --quiet; then
+            echo "No cf-static-sync data/cardswitch changes"
+          else
+            git commit -m "chore(cardswitch): refresh card/miles crawl cache"
+            git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
+            git push origin HEAD
+          fi
+
+      - name: Publish cards/miles to CardSwitch
+        if: ${{ github.event_name == 'schedule' || inputs.skip_publish_cardswitch != true }}
+        env:
+          CARDSWITCH_CRAWL_DIR: ${{ github.workspace }}/data/cardswitch
+          CARDSWITCH_DIR: ${{ github.workspace }}/cardswitch
+        run: node tools/cardswitch-crawler/publish-to-cardswitch.mjs
+
+      - name: Commit cards/miles to CardSwitch
+        if: ${{ github.event_name == 'schedule' || inputs.skip_publish_cardswitch != true }}
+        working-directory: cardswitch
+        env:
+          CRAWLER_SUMMARY_PATH: ${{ runner.temp }}/crawler-summary.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cards/builtin/*/data.json miles_data/*.json
+          if git diff --cached --quiet; then
+            echo "No CardSwitch cards/miles changes"
+            exit 0
+          fi
+          COMMIT_MSG="chore: auto update card data"
+          if [ -f "$CRAWLER_SUMMARY_PATH" ]; then
+            FILE_LIST=$(node -e "const s=require(process.env.CRAWLER_SUMMARY_PATH); console.log((s.updated||[]).map(f=>'- '+f).join('\n'))")
+            if [ -n "$FILE_LIST" ]; then
+              COMMIT_MSG="$(printf 'chore: auto update card data\n\nUpdated:\n%s' "$FILE_LIST")"
+            fi
+          fi
+          git commit -m "$COMMIT_MSG"
+          BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+          for attempt in 1 2 3; do
+            git pull --rebase origin "$BRANCH" || true
+            if git push origin "$BRANCH"; then
+              echo "Pushed CardSwitch cards/miles"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::Failed to push CardSwitch"
+          exit 1
+
+      - name: Notify Telegram on failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            exit 0
+          fi
+          MSG="CardSwitch card crawler failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          curl -sS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d "{\"chat_id\":\"${TELEGRAM_CHAT_ID}\",\"text\":\"${MSG}\"}" >/dev/null

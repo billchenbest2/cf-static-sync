@@ -1,0 +1,208 @@
+{
+  "earnType": "miles",
+  "displayName": "亞洲萬里通",
+  "sourceUrl": "https://www.cathay-cube.com.tw/cathaybk/personal/product/credit-card/cards/asia-miles",
+  "updatedAt": "2026-08-23T03:56:19.601Z",
+  "storeCategories": {
+    "海外": [
+      "交易地點非台灣之一般交易",
+      "海外實體店",
+      "海外交通 (例Uber)",
+      "海外網購 (例Amazon)",
+      "海外訂房網 (例Agoda)",
+      "線上影音 (例Netflix)"
+    ],
+    "旅遊": [
+      "雄獅旅遊",
+      "雄獅",
+      "東南旅遊",
+      "東南",
+      "可樂旅遊",
+      "可樂",
+      "易遊網",
+      "KKday",
+      "Klook",
+      "國泰航空",
+      "虎航",
+      "星宇航空",
+      "昇恆昌",
+      "采盟"
+    ],
+    "生活": [
+      "屈臣氏",
+      "蝦皮購物",
+      "寶雅",
+      "台灣高鐵",
+      "中油",
+      "台亞加油站",
+      "星巴克"
+    ],
+    "娛樂": [
+      "World Gym",
+      "健身工廠",
+      "威秀影城",
+      "秀泰影城",
+      "國賓影城",
+      "拓元售票",
+      "寬宏售票",
+      "年代售票",
+      "牛耳藝術售票"
+    ]
+  },
+  "acceleratorStores": [
+    "交易地點非台灣之一般交易",
+    "海外實體店",
+    "海外交通 (例Uber)",
+    "海外網購 (例Amazon)",
+    "海外訂房網 (例Agoda)",
+    "線上影音 (例Netflix)",
+    "雄獅旅遊",
+    "雄獅",
+    "東南旅遊",
+    "東南",
+    "可樂旅遊",
+    "可樂",
+    "易遊網",
+    "KKday",
+    "Klook",
+    "國泰航空",
+    "虎航",
+    "星宇航空",
+    "昇恆昌",
+    "采盟",
+    "屈臣氏",
+    "蝦皮購物",
+    "寶雅",
+    "台灣高鐵",
+    "中油",
+    "台亞加油站",
+    "星巴克",
+    "World Gym",
+    "健身工廠",
+    "威秀影城",
+    "秀泰影城",
+    "國賓影城",
+    "拓元售票",
+    "寬宏售票",
+    "年代售票",
+    "牛耳藝術售票"
+  ],
+  "tiers": [
+    {
+      "id": "world",
+      "name": "世界卡",
+      "billCapTwd": 150000,
+      "options": [
+        {
+          "id": "general",
+          "name": "一般消費",
+          "amount": 22,
+          "reward": 1,
+          "stores": []
+        },
+        {
+          "id": "accelerator",
+          "name": "哩程加速器",
+          "amount": 10,
+          "reward": 1,
+          "storesRef": "acceleratorStores"
+        },
+        {
+          "id": "birthday",
+          "name": "生日哩程加速器",
+          "amount": 5,
+          "reward": 1,
+          "requiresBirthMonth": true,
+          "storesRef": "acceleratorStores"
+        }
+      ]
+    },
+    {
+      "id": "titanium",
+      "name": "鈦金商務卡",
+      "billCapTwd": 100000,
+      "options": [
+        {
+          "id": "general",
+          "name": "一般消費",
+          "amount": 25,
+          "reward": 1,
+          "stores": []
+        },
+        {
+          "id": "accelerator",
+          "name": "哩程加速器",
+          "amount": 10,
+          "reward": 1,
+          "storesRef": "acceleratorStores"
+        },
+        {
+          "id": "birthday",
+          "name": "生日哩程加速器",
+          "amount": 5,
+          "reward": 1,
+          "requiresBirthMonth": true,
+          "storesRef": "acceleratorStores"
+        }
+      ]
+    },
+    {
+      "id": "platinum",
+      "name": "白金卡",
+      "billCapTwd": 50000,
+      "options": [
+        {
+          "id": "general",
+          "name": "一般消費",
+          "amount": 30,
+          "reward": 1,
+          "stores": []
+        },
+        {
+          "id": "accelerator",
+          "name": "哩程加速器",
+          "amount": 15,
+          "reward": 1,
+          "storesRef": "acceleratorStores"
+        },
+        {
+          "id": "birthday",
+          "name": "生日哩程加速器",
+          "amount": 7.5,
+          "reward": 1,
+          "requiresBirthMonth": true,
+          "storesRef": "acceleratorStores"
+        }
+      ]
+    },
+    {
+      "id": "enjoy",
+      "name": "里享卡",
+      "billCapTwd": null,
+      "options": [
+        {
+          "id": "general",
+          "name": "一般消費",
+          "amount": 30,
+          "reward": 1,
+          "stores": []
+        },
+        {
+          "id": "accelerator",
+          "name": "哩程加速器",
+          "amount": 30,
+          "reward": 1,
+          "storesRef": "acceleratorStores"
+        },
+        {
+          "id": "birthday",
+          "name": "生日哩程加速器",
+          "amount": 15,
+          "reward": 1,
+          "requiresBirthMonth": true,
+          "storesRef": "acceleratorStores"
+        }
+      ]
+    }
+  ]
+}

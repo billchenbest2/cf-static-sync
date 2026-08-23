@@ -1,0 +1,128 @@
+[
+  {
+    "airline": "長榮航空",
+    "plan": "世界卡",
+    "cost_points": 300,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "長榮航空",
+    "plan": "其他卡",
+    "cost_points": 360,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "中華航空",
+    "plan": "世界卡",
+    "cost_points": 720,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "中華航空",
+    "plan": "其他卡",
+    "cost_points": 840,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "國泰航空",
+    "plan": "世界卡",
+    "cost_points": 300,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "國泰航空",
+    "plan": "其他卡",
+    "cost_points": 360,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "阿聯酋航空Skywards",
+    "plan": "全卡別",
+    "cost_points": 550,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "聯航前程萬里飛行計劃",
+    "plan": "全卡別",
+    "cost_points": 510,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "法航荷航藍天飛行",
+    "plan": "全卡別",
+    "cost_points": 340,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "加航Aeroplan",
+    "plan": "全卡別",
+    "cost_points": 510,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "阿提哈德貴賓計劃",
+    "plan": "全卡別",
+    "cost_points": 420,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "亞航獎勵",
+    "plan": "全卡別",
+    "cost_points": 250,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "英國航空 Club",
+    "plan": "全卡別",
+    "cost_points": 450,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "卡達航空貴賓俱樂部",
+    "plan": "全卡別",
+    "cost_points": 480,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "JAL哩程儲蓄專案",
+    "plan": "全卡別",
+    "cost_points": 480,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "萬豪旅享家",
+    "plan": "全卡別",
+    "cost_points": 340,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "ALL - 雅高心悅界忠誠度計劃",
+    "plan": "全卡別",
+    "cost_points": 600,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "洲際優悅會",
+    "plan": "全卡別",
+    "cost_points": 250,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "泰國國際航空",
+    "plan": "全卡別",
+    "cost_points": 450,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "新加坡航空KrisFlyer",
+    "plan": "全卡別",
+    "cost_points": 620,
+    "redeemed_miles": 1000
+  },
+  {
+    "airline": "香格里拉會",
+    "plan": "全卡別",
+    "cost_points": 550,
+    "redeemed_miles": 250
+  }
+]
