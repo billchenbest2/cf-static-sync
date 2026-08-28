@@ -1,7 +1,26 @@
 {
-  "updatedAt": "2026-08-23T03:56:18.896Z",
+  "updatedAt": "2026-08-28T02:11:16.055Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
+    {
+      "name": "板橋凱薩大飯店",
+      "keywords": [
+        "板橋凱薩大飯店"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/9/1~2026/12/31",
+          "offerText": "平日享7折、假日享75折",
+          "noticeText": "限以刷卡支付(行動支付不適用)",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_caesarpark"
+        }
+      ]
+    },
     {
       "name": "精選飯店/餐廳",
       "keywords": [
@@ -382,6 +401,25 @@
           "limitPeriod": null,
           "ratePercent": null,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_samsung"
+        }
+      ]
+    },
+    {
+      "name": "LG官方線上商城",
+      "keywords": [
+        "LG官方線上商城"
+      ],
+      "offers": [
+        {
+          "categoryId": "shopping",
+          "categoryName": "脆好購",
+          "period": "2026/9/1~2026/12/31",
+          "offerText": "LINE POINTS 500點",
+          "noticeText": "LINE Pay 支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": null,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_lgonline"
         }
       ]
     },
@@ -1496,12 +1534,12 @@
         {
           "categoryId": "life",
           "categoryName": "脆慢活",
-          "period": "2026/4/1~2026/8/31",
-          "offerText": "8%\n \n \n LINE POINTS 5.5% + $50大樹金鑽券約當2.5%",
-          "noticeText": "每人每月上限120點",
-          "limitText": "上限120點",
-          "limitPeriod": "每月",
-          "ratePercent": 8,
+          "period": "2026/9/1~2026/12/31",
+          "offerText": "最高6%\n \n \n 含LINE POINTS最高130點+大樹金鑽券$50",
+          "noticeText": "Visa卡",
+          "limitText": "最高130點",
+          "limitPeriod": null,
+          "ratePercent": 6,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_greattree"
         }
       ]
@@ -1978,6 +2016,82 @@
           "limitPeriod": "每月",
           "ratePercent": 8,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_carplus"
+        }
+      ]
+    },
+    {
+      "name": "台灣代駕",
+      "keywords": [
+        "台灣代駕"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/9/1~2026/12/31",
+          "offerText": "最高折抵NT800元+LINE POINTS 6%",
+          "noticeText": "每人限50點/月",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_twdd"
+        }
+      ]
+    },
+    {
+      "name": "韓國OLIVE YOUNG\n釜山指定門市",
+      "keywords": [
+        "韓國OLIVE YOUNG\n釜山指定門市"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/8/28~2026/8/29",
+          "offerText": "最高20%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 20,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/cadcf65c-579e-4ab4-825c-1469bc68a7a4"
+        }
+      ]
+    },
+    {
+      "name": "韓國OLIVE YOUNG\n全門市",
+      "keywords": [
+        "韓國OLIVE YOUNG\n全門市"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/8/30~2026/9/5",
+          "offerText": "最高20%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 20,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/adcf10d8-047e-4d29-a3a1-ac18087ebc04"
+        }
+      ]
+    },
+    {
+      "name": "OLIVE YOUNG Global\n線上購物",
+      "keywords": [
+        "OLIVE YOUNG Global\n線上購物"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/8/30~2026/9/5",
+          "offerText": "最高20%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 20,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/42aaa812-fb0c-40c1-912c-e02c07cac723"
         }
       ]
     },
