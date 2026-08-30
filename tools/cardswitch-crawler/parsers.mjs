@@ -1788,6 +1788,38 @@ export function stableJsonStringify(data) {
   return `${JSON.stringify(stripVolatileFields(data), null, 2)}\n`;
 }
 
+/** Stamp ISO updatedAt. Arrays become `{ updatedAt, items }` so every crawl JSON is an object. */
+export function stampUpdatedAt(data, now = new Date()) {
+  const iso = now instanceof Date ? now.toISOString() : String(now);
+  if (Array.isArray(data)) {
+    return { updatedAt: iso, items: data };
+  }
+  if (!data || typeof data !== 'object') return data;
+  const rest = { ...data };
+  delete rest.updatedAt;
+  delete rest.updated_at;
+  delete rest.lastUpdated;
+  return { updatedAt: iso, ...rest };
+}
+
+export function missingUpdatedAtStamp(prevData) {
+  if (prevData == null) return true;
+  if (Array.isArray(prevData)) return true;
+  if (typeof prevData !== 'object') return true;
+  return !prevData.updatedAt;
+}
+
+/** Rewrite when content changed, first stamp, or wrapping a root array. */
+export function shouldRewriteManagedJson(prevData, nextStamped) {
+  if (missingUpdatedAtStamp(prevData)) return true;
+  return stableJsonStringify(prevData) !== stableJsonStringify(nextStamped);
+}
+
+export function readUpdatedAt(data) {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return '';
+  return String(data.updatedAt || data.updated_at || data.lastUpdated || '').trim();
+}
+
 export function mergeCubeWithLegacy(parsed, legacy = {}) {
   const out = {
     ...legacy,

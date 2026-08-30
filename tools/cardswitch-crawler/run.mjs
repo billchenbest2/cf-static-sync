@@ -24,7 +24,9 @@ import {
   validateParsedOutput,
   mergeCubeWithLegacy,
   mergeCathayAsiaMilesWithLegacy,
-  stableJsonStringify,
+  stampUpdatedAt,
+  shouldRewriteManagedJson,
+  readUpdatedAt,
   parseCathayAsiaMilesHtml,
   parseCathayAsiaMilesModel,
   isCtbcBotChallengeHtml,
@@ -195,6 +197,8 @@ async function runCrawler() {
     changeLog.skipped.push(relPath);
     console.log(`skipped (crawl failed): ${relPath}`);
   }
+
+  await writeDataVersionsIndex();
 }
 
 const DEFAULT_FETCH_HEADERS = {
@@ -341,22 +345,74 @@ async function readJsonFile(relPath) {
 
 async function writeJson(relPath, data) {
   const filePath = path.join(OUTPUT_ROOT, relPath);
-  const next = `${JSON.stringify(data, null, 2)}\n`;
-  let prev = '';
+  const stamped = stampUpdatedAt(data);
+  const next = `${JSON.stringify(stamped, null, 2)}\n`;
   let prevData = null;
   try {
-    prev = await fs.readFile(filePath, 'utf8');
-    prevData = JSON.parse(prev);
+    prevData = JSON.parse(await fs.readFile(filePath, 'utf8'));
   } catch {
-    prev = '';
     prevData = null;
   }
-  const contentSame = prev && stableJsonStringify(prevData) === stableJsonStringify(data);
-  if (contentSame) {
+  if (!shouldRewriteManagedJson(prevData, stamped)) {
     changeLog.unchanged.push(relPath);
     console.log(`unchanged: ${relPath}`);
     return;
   }
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
+  await fs.writeFile(filePath, next, 'utf8');
+  changeLog.updated.push(relPath);
+  console.log(`updated: ${relPath}`);
+}
+
+async function listManagedJsonRelPaths() {
+  const out = [];
+  const builtinDir = path.join(OUTPUT_ROOT, 'cards', 'builtin');
+  try {
+    const dirs = await fs.readdir(builtinDir, { withFileTypes: true });
+    for (const entry of dirs) {
+      if (!entry.isDirectory()) continue;
+      const rel = `cards/builtin/${entry.name}/data.json`;
+      try {
+        await fs.access(path.join(OUTPUT_ROOT, rel));
+        out.push(rel);
+      } catch {
+        /* skip */
+      }
+    }
+  } catch {
+    /* no builtin dir */
+  }
+  const milesDir = path.join(OUTPUT_ROOT, 'miles_data');
+  try {
+    const files = await fs.readdir(milesDir);
+    for (const name of files) {
+      if (!name.endsWith('.json')) continue;
+      out.push(`miles_data/${name}`);
+    }
+  } catch {
+    /* no miles dir */
+  }
+  return out.sort();
+}
+
+async function writeDataVersionsIndex() {
+  const files = {};
+  for (const rel of await listManagedJsonRelPaths()) {
+    try {
+      const parsed = JSON.parse(await fs.readFile(path.join(OUTPUT_ROOT, rel), 'utf8'));
+      const stamp = readUpdatedAt(parsed);
+      if (stamp) files[rel] = stamp;
+    } catch {
+      /* skip unreadable */
+    }
+  }
+  const payload = {
+    updatedAt: new Date().toISOString(),
+    files,
+  };
+  const relPath = 'data-versions.json';
+  const filePath = path.join(OUTPUT_ROOT, relPath);
+  const next = `${JSON.stringify(payload, null, 2)}\n`;
   await fs.mkdir(path.dirname(filePath), { recursive: true });
   await fs.writeFile(filePath, next, 'utf8');
   changeLog.updated.push(relPath);

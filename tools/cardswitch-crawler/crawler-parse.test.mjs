@@ -34,6 +34,8 @@ import {
   parseDbsAovMerchants,
   mergeDbsAovCrawledData,
   parseRichartHtml,
+  stampUpdatedAt,
+  shouldRewriteManagedJson,
 } from './parsers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -657,5 +659,33 @@ describe('crawler parsers — live fetch (optional)', () => {
     assert.ok(names.includes('蝦皮'), `names=${names.join(',')}`);
     assert.ok(!names.some((n) => /class=|br>|span>/i.test(n)), `bad names=${names.join(',')}`);
     assert.ok(!names.some((n) => n.includes('肯德基') && n.includes('摩斯漢堡')), `merged=${names.join(',')}`);
+  });
+});
+
+describe('updatedAt stamps', () => {
+  it('wraps root arrays and stamps objects', () => {
+    const now = new Date('2026-08-30T07:00:00.000Z');
+    assert.deepEqual(stampUpdatedAt([{ airline: 'x' }], now), {
+      updatedAt: '2026-08-30T07:00:00.000Z',
+      items: [{ airline: 'x' }],
+    });
+    assert.equal(stampUpdatedAt({ digital: [] }, now).updatedAt, '2026-08-30T07:00:00.000Z');
+    assert.deepEqual(stampUpdatedAt({ updatedAt: 'old', digital: [] }, now), {
+      updatedAt: '2026-08-30T07:00:00.000Z',
+      digital: [],
+    });
+  });
+
+  it('does not rewrite when only updatedAt changed', () => {
+    const prev = { updatedAt: '2026-01-01T00:00:00.000Z', digital: [['ChatGPT']] };
+    const next = stampUpdatedAt({ digital: [['ChatGPT']] }, new Date('2026-08-30T07:00:00.000Z'));
+    assert.equal(shouldRewriteManagedJson(prev, next), false);
+  });
+
+  it('rewrites when first adding updatedAt or wrapping an array', () => {
+    const nextObj = stampUpdatedAt({ digital: [['ChatGPT']] }, new Date('2026-08-30T07:00:00.000Z'));
+    assert.equal(shouldRewriteManagedJson({ digital: [['ChatGPT']] }, nextObj), true);
+    const nextArr = stampUpdatedAt([['LINE Pay']], new Date('2026-08-30T07:00:00.000Z'));
+    assert.equal(shouldRewriteManagedJson([['LINE Pay']], nextArr), true);
   });
 });

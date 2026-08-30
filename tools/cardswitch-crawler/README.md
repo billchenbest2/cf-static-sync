@@ -32,3 +32,4 @@ Workflow: `.github/workflows/cardswitch-card-crawler.yml`
   - `PAYMENTMAPTW_APP_TOKEN`
   - optional `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID`
 - Writes cache to `data/cardswitch/` on this repo, then copies into CardSwitch `cards/` + `miles_data/`
+- Every crawled JSON is stamped with `updatedAt` (root arrays become `{ "updatedAt", "items" }`). Content-only diffs ignore the timestamp. `data-versions.json` lists all file stamps for CardSwitch cache checks.

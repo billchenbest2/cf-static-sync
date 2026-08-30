@@ -114,7 +114,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add cards/builtin/*/data.json miles_data/*.json
+          git add cards/builtin/*/data.json miles_data/*.json data/cardswitch-versions.json
           if git diff --cached --quiet; then
             echo "No CardSwitch cards/miles changes"
             exit 0

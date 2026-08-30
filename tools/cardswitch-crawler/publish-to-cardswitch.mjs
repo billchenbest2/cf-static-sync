@@ -66,5 +66,14 @@ let n = 0;
 for (const rel of files) {
   if (copyFile(rel)) n += 1;
 }
+
+const versionsFrom = path.join(srcRoot, 'data-versions.json');
+if (fs.existsSync(versionsFrom)) {
+  const destVersions = path.join(destRoot, 'data', 'cardswitch-versions.json');
+  fs.mkdirSync(path.dirname(destVersions), { recursive: true });
+  fs.copyFileSync(versionsFrom, destVersions);
+  console.log('publish data/cardswitch-versions.json');
+  n += 1;
+}
 console.log(`Published ${n} files\n  from: ${srcRoot}\n  to:   ${destRoot}`);
 if (n === 0) process.exit(1);
