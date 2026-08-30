@@ -1,0 +1,86 @@
+name: CardSwitch community D1 encrypt publish
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [cardswitch-community-publish]
+  schedule:
+    - cron: "40 18 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout cf-static-sync
+        uses: actions/checkout@v4
+
+      - name: Require secrets
+        run: |
+          if [ -z "${{ secrets.CARDSWITCH_REPO }}" ] || [ -z "${{ secrets.PAYMENTMAPTW_APP_TOKEN }}" ]; then
+            echo "Need CARDSWITCH_REPO and PAYMENTMAPTW_APP_TOKEN"
+            exit 1
+          fi
+          if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ] || [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ]; then
+            echo "Need CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID"
+            exit 1
+          fi
+          if [ -z "${{ secrets.CARDSWITCH_COMMUNITY_D1_NAME }}" ]; then
+            echo "Need CARDSWITCH_COMMUNITY_D1_NAME (wrangler D1 database name)"
+            exit 1
+          fi
+
+      - name: Checkout CardSwitch
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.CARDSWITCH_REPO }}
+          token: ${{ secrets.PAYMENTMAPTW_APP_TOKEN }}
+          path: cardswitch
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Export approved rows from D1
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          npm install -g wrangler
+          wrangler d1 execute "${{ secrets.CARDSWITCH_COMMUNITY_D1_NAME }}" --remote --json \
+            --command "SELECT merchant, card, category, note, created_at FROM reports WHERE status = 'approved' ORDER BY created_at ASC" \
+            > /tmp/d1-raw.json
+          node -e "
+            const fs=require('fs');
+            const raw=JSON.parse(fs.readFileSync('/tmp/d1-raw.json','utf8'));
+            const block=Array.isArray(raw)? raw.find(x=>x.results): raw;
+            const rows=(block && block.results) || [];
+            fs.writeFileSync('/tmp/d1-approved.json', JSON.stringify(rows));
+            console.log('approved rows', rows.length);
+          "
+
+      - name: Encrypt ui_compat_lib.js
+        env:
+          D1_APPROVED_JSON: /tmp/d1-approved.json
+        run: node cardswitch/tools/build-community-bundle.mjs
+        working-directory: cardswitch
+
+      - name: Commit encrypted bundle to CardSwitch
+        working-directory: cardswitch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add js/ui_compat_lib.js
+          if git diff --cached --quiet; then
+            echo "No ui_compat_lib.js changes"
+            exit 0
+          fi
+          git commit -m "chore: refresh encrypted community bundle from D1"
+          BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+          git pull --rebase origin "$BRANCH" || true
+          git push origin "$BRANCH"
