@@ -67,7 +67,7 @@ jobs:
       - name: Encrypt ui_compat_lib.js
         env:
           D1_APPROVED_JSON: /tmp/d1-approved.json
-        run: node cardswitch/tools/build-community-bundle.mjs
+        run: node tools/build-community-bundle.mjs
         working-directory: cardswitch
 
       - name: Commit encrypted bundle to CardSwitch
@@ -75,12 +75,12 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add js/ui_compat_lib.js
+          git add js/ui_compat_lib.js data/community.json
           if git diff --cached --quiet; then
-            echo "No ui_compat_lib.js changes"
+            echo "No community bundle or community.json changes"
             exit 0
           fi
-          git commit -m "chore: refresh encrypted community bundle from D1"
+          git commit -m "chore: refresh encrypted community bundle and community.json from D1"
           BRANCH="$(git rev-parse --abbrev-ref HEAD)"
           git pull --rebase origin "$BRANCH" || true
           git push origin "$BRANCH"
