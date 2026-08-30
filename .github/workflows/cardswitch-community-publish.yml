@@ -81,7 +81,7 @@ jobs:
             git fetch origin "$BRANCH"
             git reset --hard "origin/$BRANCH"
             node tools/build-community-bundle.mjs
-            git add js/ui_compat_lib.js data/community.json
+            git add js/ui_compat_lib.js data/community.json data/cardswitch-versions.json
             if git diff --cached --quiet; then
               echo "No community bundle or community.json changes"
               exit 0

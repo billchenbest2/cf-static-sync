@@ -71,7 +71,25 @@ const versionsFrom = path.join(srcRoot, 'data-versions.json');
 if (fs.existsSync(versionsFrom)) {
   const destVersions = path.join(destRoot, 'data', 'cardswitch-versions.json');
   fs.mkdirSync(path.dirname(destVersions), { recursive: true });
-  fs.copyFileSync(versionsFrom, destVersions);
+  const incoming = JSON.parse(fs.readFileSync(versionsFrom, 'utf8'));
+  let existing = {};
+  if (fs.existsSync(destVersions)) {
+    try {
+      existing = JSON.parse(fs.readFileSync(destVersions, 'utf8'));
+    } catch (_) { /* ignore */ }
+  }
+  const oldFiles = existing.files && typeof existing.files === 'object' ? existing.files : {};
+  const newFiles = incoming.files && typeof incoming.files === 'object' ? incoming.files : {};
+  const kept = {};
+  for (const [key, value] of Object.entries(oldFiles)) {
+    if (!(key in newFiles)) kept[key] = value;
+  }
+  const merged = {
+    ...incoming,
+    files: { ...newFiles, ...kept },
+  };
+  if (!merged.updatedAt) merged.updatedAt = existing.updatedAt || new Date().toISOString();
+  fs.writeFileSync(destVersions, `${JSON.stringify(merged, null, 2)}\n`);
   console.log('publish data/cardswitch-versions.json');
   n += 1;
 }
