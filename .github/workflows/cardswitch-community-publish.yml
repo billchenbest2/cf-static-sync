@@ -10,6 +10,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: cardswitch-community-publish
+  cancel-in-progress: true
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -64,23 +68,30 @@ jobs:
             console.log('approved rows', rows.length);
           "
 
-      - name: Encrypt ui_compat_lib.js
+      - name: Encrypt ui_compat_lib.js and push CardSwitch
+        working-directory: cardswitch
         env:
           D1_APPROVED_JSON: /tmp/d1-approved.json
-        run: node tools/build-community-bundle.mjs
-        working-directory: cardswitch
-
-      - name: Commit encrypted bundle to CardSwitch
-        working-directory: cardswitch
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add js/ui_compat_lib.js data/community.json
-          if git diff --cached --quiet; then
-            echo "No community bundle or community.json changes"
-            exit 0
-          fi
-          git commit -m "chore: refresh encrypted community bundle and community.json from D1"
           BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-          git pull --rebase origin "$BRANCH" || true
-          git push origin "$BRANCH"
+          for i in 1 2 3 4 5; do
+            git fetch origin "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+            node tools/build-community-bundle.mjs
+            git add js/ui_compat_lib.js data/community.json
+            if git diff --cached --quiet; then
+              echo "No community bundle or community.json changes"
+              exit 0
+            fi
+            git commit -m "chore: refresh encrypted community bundle and community.json from D1"
+            if git push origin "$BRANCH"; then
+              exit 0
+            fi
+            echo "push raced with another commit, retry $i"
+            sleep 4
+          done
+          echo "Failed to push after retries"
+          exit 1
