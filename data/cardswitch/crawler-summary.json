@@ -1,26 +1,28 @@
 {
   "mode": "preview",
   "outputRoot": "/home/runner/work/cf-static-sync/cf-static-sync/data/cardswitch",
-  "updated": [],
-  "unchanged": [
+  "updated": [
     "cards/builtin/cathay/data.json",
     "cards/builtin/taishin/data.json",
     "cards/builtin/esun/data.json",
-    "cards/builtin/ctbcLinepay/data.json",
     "cards/builtin/hsbc/data.json",
     "cards/builtin/ubot/data.json",
-    "cards/builtin/cathayAsiaMiles/data.json",
-    "cards/builtin/esunStarlux/data.json",
-    "cards/builtin/hsbcTravel/data.json",
-    "cards/builtin/ctbcCal/data.json",
     "cards/builtin/dbsAov/data.json",
     "miles_data/taishin_miles_data.json",
     "miles_data/esun_miles_data.json",
     "miles_data/cathay_miles_data.json",
     "miles_data/openpoint_miles_data.json",
+    "data-versions.json"
+  ],
+  "unchanged": [
+    "cards/builtin/ctbcLinepay/data.json",
+    "cards/builtin/cathayAsiaMiles/data.json",
+    "cards/builtin/esunStarlux/data.json",
+    "cards/builtin/hsbcTravel/data.json",
+    "cards/builtin/ctbcCal/data.json",
     "miles_data/dbs_miles_data.json",
     "miles_data/hsbc_miles_data.json"
   ],
   "skipped": [],
-  "finishedAt": "2026-08-29T20:56:10.545Z"
+  "finishedAt": "2026-08-30T07:33:16.296Z"
 }

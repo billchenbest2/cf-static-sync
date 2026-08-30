@@ -1,29 +1,32 @@
-[
-  {
-    "airline": "中華航空哩程",
-    "plan": "每200 點→ 180 哩",
-    "cost_points": 200,
-    "redeemed_miles": 180,
-    "is_limited": false,
-    "available": true,
-    "sold_out": false
-  },
-  {
-    "airline": "長榮航空哩程",
-    "plan": "每200 點→ 300 哩",
-    "cost_points": 200,
-    "redeemed_miles": 300,
-    "is_limited": false,
-    "available": true,
-    "sold_out": false
-  },
-  {
-    "airline": "亞洲萬里通里數",
-    "plan": "每200 點→ 300 哩",
-    "cost_points": 200,
-    "redeemed_miles": 300,
-    "is_limited": false,
-    "available": true,
-    "sold_out": false
-  }
-]
+{
+  "updatedAt": "2026-08-30T07:33:16.289Z",
+  "items": [
+    {
+      "airline": "中華航空哩程",
+      "plan": "每200 點→ 180 哩",
+      "cost_points": 200,
+      "redeemed_miles": 180,
+      "is_limited": false,
+      "available": true,
+      "sold_out": false
+    },
+    {
+      "airline": "長榮航空哩程",
+      "plan": "每200 點→ 300 哩",
+      "cost_points": 200,
+      "redeemed_miles": 300,
+      "is_limited": false,
+      "available": true,
+      "sold_out": false
+    },
+    {
+      "airline": "亞洲萬里通里數",
+      "plan": "每200 點→ 300 哩",
+      "cost_points": 200,
+      "redeemed_miles": 300,
+      "is_limited": false,
+      "available": true,
+      "sold_out": false
+    }
+  ]
+}

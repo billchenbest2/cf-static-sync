@@ -1,0 +1,22 @@
+{
+  "updatedAt": "2026-08-30T07:33:16.296Z",
+  "files": {
+    "cards/builtin/cathay/data.json": "2026-08-30T07:32:58.927Z",
+    "cards/builtin/cathayAsiaMiles/data.json": "2026-08-23T03:56:19.601Z",
+    "cards/builtin/ctbcCal/data.json": "2026-08-23T03:56:20.134Z",
+    "cards/builtin/ctbcLinepay/data.json": "2026-08-28T02:11:16.055Z",
+    "cards/builtin/dbsAov/data.json": "2026-08-30T07:33:14.133Z",
+    "cards/builtin/esun/data.json": "2026-08-30T07:33:02.787Z",
+    "cards/builtin/esunStarlux/data.json": "2026-08-23T03:56:19.778Z",
+    "cards/builtin/hsbc/data.json": "2026-08-30T07:33:07.139Z",
+    "cards/builtin/hsbcTravel/data.json": "2026-08-23T03:56:20.086Z",
+    "cards/builtin/taishin/data.json": "2026-08-30T07:33:01.200Z",
+    "cards/builtin/ubot/data.json": "2026-08-30T07:33:08.168Z",
+    "miles_data/cathay_miles_data.json": "2026-08-30T07:33:16.289Z",
+    "miles_data/dbs_miles_data.json": "2026-08-23T03:56:20.651Z",
+    "miles_data/esun_miles_data.json": "2026-08-30T07:33:16.289Z",
+    "miles_data/hsbc_miles_data.json": "2026-08-23T03:56:20.654Z",
+    "miles_data/openpoint_miles_data.json": "2026-08-30T07:33:16.290Z",
+    "miles_data/taishin_miles_data.json": "2026-08-30T07:33:16.288Z"
+  }
+}

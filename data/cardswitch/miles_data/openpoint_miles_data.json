@@ -1,20 +1,23 @@
-[
-  {
-    "airline": "長榮航空",
-    "plan": "一般會員",
-    "cost_points": 135,
-    "redeemed_miles": 200
-  },
-  {
-    "airline": "亞洲萬里通",
-    "plan": "一般會員",
-    "cost_points": 68,
-    "redeemed_miles": 100
-  },
-  {
-    "airline": "ANA哩程俱樂部",
-    "plan": "一般會員",
-    "cost_points": 188,
-    "redeemed_miles": 200
-  }
-]
+{
+  "updatedAt": "2026-08-30T07:33:16.290Z",
+  "items": [
+    {
+      "airline": "長榮航空",
+      "plan": "一般會員",
+      "cost_points": 135,
+      "redeemed_miles": 200
+    },
+    {
+      "airline": "亞洲萬里通",
+      "plan": "一般會員",
+      "cost_points": 68,
+      "redeemed_miles": 100
+    },
+    {
+      "airline": "ANA哩程俱樂部",
+      "plan": "一般會員",
+      "cost_points": 188,
+      "redeemed_miles": 200
+    }
+  ]
+}
