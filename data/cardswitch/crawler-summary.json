@@ -2,12 +2,12 @@
   "mode": "preview",
   "outputRoot": "/home/runner/work/cf-static-sync/cf-static-sync/data/cardswitch",
   "updated": [
+    "cards/builtin/esun/data.json",
     "data-versions.json"
   ],
   "unchanged": [
     "cards/builtin/cathay/data.json",
     "cards/builtin/taishin/data.json",
-    "cards/builtin/esun/data.json",
     "cards/builtin/ctbcLinepay/data.json",
     "cards/builtin/hsbc/data.json",
     "cards/builtin/ubot/data.json",
@@ -24,5 +24,5 @@
     "miles_data/hsbc_miles_data.json"
   ],
   "skipped": [],
-  "finishedAt": "2026-08-31T01:00:11.623Z"
+  "finishedAt": "2026-08-31T22:51:50.093Z"
 }
