@@ -1788,6 +1788,13 @@ export function stableJsonStringify(data) {
   return `${JSON.stringify(stripVolatileFields(data), null, 2)}\n`;
 }
 
+/** Unwrap crawler JSON that was stamped from a root array. */
+export function unwrapStampedArrayPayload(data) {
+  if (Array.isArray(data)) return data;
+  if (data && typeof data === 'object' && Array.isArray(data.items)) return data.items;
+  return [];
+}
+
 /** Stamp ISO updatedAt. Arrays become `{ updatedAt, items }` so every crawl JSON is an object. */
 export function stampUpdatedAt(data, now = new Date()) {
   const iso = now instanceof Date ? now.toISOString() : String(now);
@@ -2488,7 +2495,11 @@ export function validateParsedOutput(kind, data) {
   }
 
   if (kind === 'miles-row') {
-    for (const row of data || []) {
+    const rows = unwrapStampedArrayPayload(data);
+    if (!rows.length && !Array.isArray(data) && !Array.isArray(data?.items)) {
+      errors.push('miles-row data must be array or { updatedAt, items: [] }');
+    }
+    for (const row of rows) {
       if (!row.airline || !row.cost_points || !row.redeemed_miles) {
         errors.push(`miles row invalid: ${JSON.stringify(row)}`);
       }

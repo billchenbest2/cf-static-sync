@@ -353,7 +353,8 @@ describe('crawler parsers — repo data invariants', () => {
     const data = readRepoJson('miles_data/cathay_miles_data.json');
     const errors = validateParsedOutput('miles-row', data);
     assert.deepEqual(errors, [], errors.join('; '));
-    assert.ok(data.length >= 10);
+    const rows = Array.isArray(data) ? data : data.items;
+    assert.ok(Array.isArray(rows) && rows.length >= 10);
   });
 
   it('dbs miles_data passes categorized validation', () => {
