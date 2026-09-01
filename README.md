@@ -68,6 +68,25 @@ FPCC HTML snapshots are also kept in this repo under `fpcc-cache/` as a fallback
 
 **PAT setup (one-time):** GitHub → Settings → Developer settings → Fine-grained token → Repository access: PaymentMapTW app repo only → Permissions: Contents **Read and write**. Add both secrets under **cf-static-sync** repo → Settings → Secrets.
 
+## Chunk sync modes
+
+| Mode | Command | D1 usage |
+|------|---------|----------|
+| **patch** (default) | `node sync-chunks.mjs` | Pull Pages bundle; optional 1 config read + key-only row fetch for adds |
+| **full** | `SYNC_MODE=full node sync-chunks.mjs` | Full D1 export via `build-chunks.mjs` |
+
+Manual patch examples:
+
+```bash
+cd tools
+node patch-chunks.mjs --pull --delete pk_a,pk_b --deploy
+node patch-chunks.mjs --add-from-d1 pk_new   # reads only listed keys from D1
+SYNC_MODE=patch PATCH_DELETE_KEYS=pk_a node sync-chunks.mjs
+FORCE_FULL_REBUILD=1 node sync-chunks.mjs    # legacy full export
+```
+
+Worker debounced publish sends `client_payload.deleted_place_keys` / `added_place_keys` from meta config `static_publish_delta`. CI pulls the live Pages bundle and patches only affected chunks.
+
 ## Local dry run
 
 ```bash

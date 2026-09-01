@@ -43,8 +43,8 @@ jobs:
           mkdir -p site/dist
           cp site/_headers site/dist/
 
-      - name: Build encrypted chunks from D1
-        run: node build-chunks.mjs
+      - name: Sync store chunks (patch default, full when requested)
+        run: node sync-chunks.mjs
         working-directory: tools
         env:
           CHUNK_XOR_SEED: ${{ secrets.CHUNK_XOR_SEED }}
@@ -56,6 +56,11 @@ jobs:
           D1_STORES_PREFIX: ${{ secrets.D1_STORES_PREFIX }}
           WRANGLER_CWD: ${{ github.workspace }}/wrangler
           OUTPUT_DIR: ${{ github.workspace }}/site/dist
+          PAGES_BASE: https://${{ secrets.PAGES_PROJECT_NAME }}.pages.dev
+          SYNC_MODE: ${{ github.event.client_payload.sync_mode || 'patch' }}
+          PATCH_DELETE_KEYS: ${{ github.event.client_payload.deleted_place_keys || '' }}
+          PATCH_ADD_KEYS: ${{ github.event.client_payload.added_place_keys || '' }}
+          READ_DELTA_FROM_D1: ${{ github.event.client_payload.read_delta_from_d1 || '1' }}
 
       - name: Build gas community prices from D1
         run: node build-gas-community-prices.mjs
