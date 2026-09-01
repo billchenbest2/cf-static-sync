@@ -68,6 +68,19 @@ FPCC HTML snapshots are also kept in this repo under `fpcc-cache/` as a fallback
 
 **PAT setup (one-time):** GitHub → Settings → Developer settings → Fine-grained token → Repository access: PaymentMapTW app repo only → Permissions: Contents **Read and write**. Add both secrets under **cf-static-sync** repo → Settings → Secrets.
 
+## Chunk layout (geo grid)
+
+Map chunks are grouped by **lat/lng grid bands** (`CHUNK_LAYOUT=geo`, default), not by county or `source_slug`. Each manifest entry includes `bbox` and `gridKeys`. Patch adds route new stores to the correct grid cell.
+
+| Tool | Purpose |
+|------|---------|
+| `build-chunks.mjs` | Full D1 export → geo grid chunks |
+| `sync-chunks.mjs` / `patch-chunks.mjs` | Incremental patch (geo-aware when manifest has `chunkLayout: geo`) |
+| `regrid-chunks-from-pages.mjs` | Re-slice existing Pages bundle without D1 |
+| `build-search-index.mjs` | Encrypted search shards from map chunks |
+
+Grid defaults: origin `(21.5°, 118.0°)`, step `0.48° × 0.52°`. Override via `GRID_LAT_*` / `GRID_LNG_*` env vars.
+
 ## Chunk sync modes
 
 | Mode | Command | D1 usage |
@@ -94,7 +107,7 @@ cd tools && npm ci
 node ../scripts/gen-wrangler-config.mjs   # needs D1_* env vars
 mkdir -p ../site/dist && cp ../site/_headers ../site/dist/
 CHUNK_XOR_SEED=... D1_META_DB=... D1_STORES_PREFIX=... \
-  WRANGLER_CWD=../wrangler OUTPUT_DIR=../site/dist CHUNK_PATH_OBFUSCATE=1 \
+  WRANGLER_CWD=../wrangler OUTPUT_DIR=../site/dist CHUNK_LAYOUT=geo CHUNK_PATH_OBFUSCATE=1 \
   node build-chunks.mjs
 ```
 

@@ -3,12 +3,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildEncryptedChunkFile, decodeXorB64Utf8 } from './chunk-crypto.mjs';
 import { computeBbox } from './lib/chunk-patch.mjs';
+import { writeChunksGeoGrid } from './lib/geo-grid-chunks.mjs';
 import { hashString, runWranglerD1Query, getMetaDbName, getStoresDbName } from './lib/d1-cli.mjs';
 import { shouldExportStore, storeToExportShape } from './lib/store-schema.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const CHUNK_SIZE = parseInt(process.env.EXPORT_CHUNK_SIZE || '2500', 10) || 2500;
 const REMOTE = !process.argv.includes('--local');
+const CHUNK_LAYOUT = String(process.env.CHUNK_LAYOUT || 'geo').toLowerCase();
 const CHUNK_PATH_OBFUSCATE =
   process.env.CHUNK_PATH_OBFUSCATE === '1' || String(process.env.CHUNK_PATH_OBFUSCATE || '').toLowerCase() === 'true';
 const QUERY_PAGE = parseInt(process.env.EXPORT_QUERY_PAGE || '1000', 10) || 1000;
@@ -139,19 +141,30 @@ async function main() {
   const dicts = queryDicts();
   console.log(`Exporting ${stores.length} rows...`);
 
-  const chunks = writeChunksGrouped(stores, outDir);
+  let chunks;
+  let gridMeta = null;
+  if (CHUNK_LAYOUT === 'geo') {
+    const res = writeChunksGeoGrid(stores, outDir, { obfuscate: CHUNK_PATH_OBFUSCATE });
+    chunks = res.chunks;
+    gridMeta = res.grid;
+  } else {
+    chunks = writeChunksGrouped(stores, outDir);
+  }
   smokeTestDecrypt(outDir, chunks);
 
   const manifest = {
     schemaVersion: 1,
     generatedAt: new Date().toISOString(),
     chunkEncoding: 'xor-b64-v1',
+    chunkLayout: CHUNK_LAYOUT === 'geo' ? 'geo' : 'legacy',
     chunkCount: chunks.length,
     storeCount: stores.length,
     chunks,
     categories: dicts.categories,
-    paymentMethods: dicts.paymentMethods
+    paymentMethods: dicts.paymentMethods,
+    searchManifest: 'search-manifest.json'
   };
+  if (gridMeta) manifest.grid = gridMeta;
 
   fs.writeFileSync(path.join(outDir, 'manifest.json'), JSON.stringify(manifest), 'utf8');
   console.log(`Wrote ${chunks.length} chunks to ${outDir}`);

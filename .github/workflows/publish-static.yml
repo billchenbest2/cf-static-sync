@@ -49,6 +49,7 @@ jobs:
         env:
           CHUNK_XOR_SEED: ${{ secrets.CHUNK_XOR_SEED }}
           CHUNK_PATH_OBFUSCATE: '1'
+          CHUNK_LAYOUT: 'geo'
           EXPORT_QUERY_PAGE: '2000'
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

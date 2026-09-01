@@ -1,3 +1,11 @@
+/**
+ * Patch existing Pages chunk bundle without full D1 export.
+ *
+ * Examples:
+ *   node patch-chunks.mjs --pull --delete pk_a,pk_b
+ *   node patch-chunks.mjs --delete pk_a --deploy
+ *   node patch-chunks.mjs --add-from-d1 pk_new   # reads only listed keys from D1
+ */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -8,6 +16,7 @@ import {
   patchAddToManifest,
   patchDeleteInManifest,
   pullDeployData,
+  recomputeManifestBboxes,
   saveManifest
 } from './lib/chunk-patch.mjs';
 import { getStoresDbName, runWranglerD1Query } from './lib/d1-cli.mjs';
@@ -47,10 +56,10 @@ function queryStoresByPlaceKeys(placeKeys) {
 }
 
 function deployPages() {
-  const wranglerCwd = process.env.WRANGLER_CWD || path.resolve(__dirname, '../wrangler');
-  const cmd = `npx wrangler pages deploy "${OUT_DIR}" --project-name=${PAGES_PROJECT} --branch=main`;
+  const workerDir = process.env.WRANGLER_CWD || path.resolve(__dirname, '../wrangler');
+  const cmd = `npx wrangler pages deploy "${OUT_DIR}" --project-name=${PAGES_PROJECT} --branch=main --commit-dirty=true`;
   const res = spawnSync(cmd, {
-    cwd: wranglerCwd,
+    cwd: workerDir,
     encoding: 'utf8',
     shell: true,
     windowsHide: true,
@@ -66,44 +75,61 @@ async function main() {
   const dryRun = hasFlag('--dry-run');
 
   if (hasFlag('--pull') || !fs.existsSync(path.join(OUT_DIR, 'manifest.json'))) {
-    console.log(`Pulling bundle from ${PAGES_BASE} ...`);
+    console.log(`Pulling deploy-data from ${PAGES_BASE} ...`);
     fs.mkdirSync(OUT_DIR, { recursive: true });
     await pullDeployData(PAGES_BASE, OUT_DIR);
   }
 
   let manifest = loadManifest(OUT_DIR);
   const beforeCount = manifest.storeCount ?? null;
+  let changedChunks = [];
 
   if (deleteKeys.length) {
+    console.log(`Deleting ${deleteKeys.length} placeKey(s)...`);
     const result = patchDeleteInManifest(manifest, OUT_DIR, deleteKeys);
     manifest = result.manifest;
-    console.log(`Delete patch: removed=${result.removed}, changedChunks=${result.changedChunks.length}`);
+    changedChunks = changedChunks.concat(result.changedChunks);
+    console.log(`  removed=${result.removed}, notFound=${result.notFound.length}, changedChunks=${result.changedChunks.length}`);
     if (result.notFound.length) console.warn('  not found:', result.notFound.join(', '));
   }
 
   if (addKeys.length) {
+    console.log(`Adding ${addKeys.length} placeKey(s) from D1 (key-only query)...`);
     const stores = queryStoresByPlaceKeys(addKeys);
+    if (stores.length !== addKeys.length) {
+      console.warn(`  D1 returned ${stores.length}/${addKeys.length} exportable rows`);
+    }
     const result = patchAddToManifest(manifest, OUT_DIR, stores);
     manifest = result.manifest;
-    console.log(`Add patch: added=${result.added}, changedChunks=${result.changedChunks.length}`);
+    changedChunks = changedChunks.concat(result.changedChunks);
+    console.log(`  added=${result.added}, changedChunks=${result.changedChunks.length}`);
   }
 
-  if (!deleteKeys.length && !addKeys.length) {
-    throw new Error('Specify --delete and/or --add-from-d1');
+  if (hasFlag('--recompute-bbox')) {
+    console.log('Recomputing bbox for all chunks (manifest-only, no D1)...');
+    const result = recomputeManifestBboxes(manifest, OUT_DIR);
+    manifest = result.manifest;
+    console.log(`  bbox updated on ${result.updated} chunks, storeCount=${manifest.storeCount}`);
+  }
+
+  if (!deleteKeys.length && !addKeys.length && !hasFlag('--recompute-bbox')) {
+    throw new Error('Specify --delete, --add-from-d1, and/or --recompute-bbox');
   }
 
   console.log(`Store count: ${beforeCount ?? '?'} -> ${manifest.storeCount}`);
 
   if (dryRun) {
-    console.log('Dry run — no writes.');
+    console.log('Dry run — manifest/chunks not saved, no deploy.');
     return;
   }
 
   saveManifest(OUT_DIR, manifest);
+  console.log(`Updated manifest at ${path.join(OUT_DIR, 'manifest.json')}`);
 
   if (hasFlag('--deploy')) {
-    console.log(`Deploying to ${PAGES_PROJECT} ...`);
+    console.log(`Deploying to Pages project ${PAGES_PROJECT} ...`);
     deployPages();
+    console.log('Deploy complete.');
   }
 }
 

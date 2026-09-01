@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { buildEncryptedChunkFile, decodeXorB64Utf8 } from '../chunk-crypto.mjs';
+import { findChunksForGridKey, getGridKey } from './geo-grid-chunks.mjs';
 import { hashString } from './d1-cli.mjs';
 
 export function decryptChunkRaw(raw) {
@@ -102,6 +103,22 @@ export function countAllStores(manifest, outDir) {
   return total;
 }
 
+/** Load every store from on-disk map chunks (dedupe by placeKey). */
+export function collectAllStoresFromDeployData(outDir, manifest) {
+  const stores = [];
+  const seen = new Set();
+  for (const chunk of manifest.chunks || []) {
+    const { stores: part } = readChunkFile(path.join(outDir, chunk.file));
+    for (const s of part) {
+      const pk = String(s.placeKey || '').trim();
+      if (!pk || seen.has(pk)) continue;
+      seen.add(pk);
+      stores.push(s);
+    }
+  }
+  return stores;
+}
+
 function leftPad(n, width) {
   return String(n).padStart(width, '0');
 }
@@ -172,6 +189,89 @@ export function patchDeleteInManifest(manifest, outDir, placeKeys, options = {})
 }
 
 export function patchAddToManifest(manifest, outDir, newStores, options = {}) {
+  if (manifest.chunkLayout === 'geo' || manifest.grid) {
+    return patchAddGeoToManifest(manifest, outDir, newStores, options);
+  }
+  return patchAddLegacyToManifest(manifest, outDir, newStores, options);
+}
+
+function patchAddGeoToManifest(manifest, outDir, newStores, options = {}) {
+  const CHUNK_SIZE = Math.max(1, Number(options.chunkSize) || 2500);
+  const exportStores = newStores.map(stripSourceSlug);
+  if (!exportStores.length) {
+    return { added: 0, changedChunks: [], manifest, overflow: [] };
+  }
+
+  const grid = {
+    latOrigin: Number(manifest.grid?.latOrigin ?? 21.5),
+    lngOrigin: Number(manifest.grid?.lngOrigin ?? 118.0),
+    latStep: Number(manifest.grid?.latStep ?? 0.48),
+    lngStep: Number(manifest.grid?.lngStep ?? 0.52)
+  };
+  const obfuscate = !!options.obfuscate;
+  let added = 0;
+  const changedChunks = [];
+  const changedSet = new Set();
+  let globalSeq = Number(options.globalSeqStart ?? manifest.chunks?.length ?? 0);
+
+  function markChanged(chunk) {
+    if (!changedSet.has(chunk.id)) {
+      changedSet.add(chunk.id);
+      changedChunks.push(chunk);
+    }
+  }
+
+  function touchChunk(chunk, stores, chunkIndex) {
+    const filePath = path.join(outDir, chunk.file);
+    const { hash } = writeChunkFile(filePath, stores, chunkIndex);
+    chunk.hash = hash;
+    if (options.includeBbox !== false) chunk.bbox = computeBbox(stores);
+    if (!Array.isArray(chunk.gridKeys)) chunk.gridKeys = [];
+    markChanged(chunk);
+  }
+
+  for (const store of exportStores) {
+    const gridKey = getGridKey(store.lat, store.lng, grid);
+    let gridChunks = findChunksForGridKey(manifest, gridKey).sort((a, b) => Number(a.id) - Number(b.id));
+
+    let placed = false;
+    if (gridChunks.length) {
+      const lastChunk = gridChunks[gridChunks.length - 1];
+      const { stores, inner } = readChunkFile(path.join(outDir, lastChunk.file));
+      if (stores.length < CHUNK_SIZE) {
+        stores.push(store);
+        touchChunk(lastChunk, stores, inner.chunkIndex ?? lastChunk.id ?? 0);
+        if (!lastChunk.gridKeys.includes(gridKey)) lastChunk.gridKeys.push(gridKey);
+        added += 1;
+        placed = true;
+      }
+    }
+
+    if (placed) continue;
+
+    const dirName = obfuscate
+      ? `b${String((manifest.chunks || []).length).padStart(3, '0')}`
+      : `g/${gridKey}`;
+    const slugDir = path.join(outDir, dirName);
+    fs.mkdirSync(slugDir, { recursive: true });
+    const partIndex = gridChunks.length;
+    const fileName = `chunk_${String(partIndex).padStart(5, '0')}.json`;
+    const rel = `${dirName}/${fileName}`;
+    const nextId = (manifest.chunks || []).reduce((max, c) => Math.max(max, Number(c.id) || 0), -1) + 1;
+    const chunk = { id: nextId, file: rel, hash: '', gridKeys: [gridKey] };
+    manifest.chunks = manifest.chunks || [];
+    manifest.chunks.push(chunk);
+    touchChunk(chunk, [store], globalSeq++);
+    added += 1;
+  }
+
+  manifest.generatedAt = new Date().toISOString();
+  manifest.chunkCount = (manifest.chunks || []).length;
+  manifest.storeCount = countAllStores(manifest, outDir);
+  return { added, changedChunks, manifest, overflow: [] };
+}
+
+function patchAddLegacyToManifest(manifest, outDir, newStores, options = {}) {
   const CHUNK_SIZE = Math.max(1, Number(options.chunkSize) || 2500);
   const slug = String(options.sourceSlug || newStores[0]?.source_slug || 'ugc');
   const exportStores = newStores.map(stripSourceSlug);
