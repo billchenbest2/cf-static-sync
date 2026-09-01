@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildEncryptedChunkFile, decodeXorB64Utf8 } from './chunk-crypto.mjs';
+import { computeBbox } from './lib/chunk-patch.mjs';
 import { hashString, runWranglerD1Query, getMetaDbName, getStoresDbName } from './lib/d1-cli.mjs';
 import { shouldExportStore, storeToExportShape } from './lib/store-schema.mjs';
 
@@ -106,7 +107,7 @@ function writeChunksGrouped(stores, outDir) {
       const bodyObj = buildEncryptedChunkFile(part, globalSeq++);
       const body = JSON.stringify(bodyObj);
       fs.writeFileSync(path.join(slugDir, fileName), body, 'utf8');
-      chunks.push({ id: globalId++, file: rel, hash: hashString(body) });
+      chunks.push({ id: globalId++, file: rel, hash: hashString(body), bbox: computeBbox(part) });
     }
   }
 
@@ -146,6 +147,7 @@ async function main() {
     generatedAt: new Date().toISOString(),
     chunkEncoding: 'xor-b64-v1',
     chunkCount: chunks.length,
+    storeCount: stores.length,
     chunks,
     categories: dicts.categories,
     paymentMethods: dicts.paymentMethods

@@ -236,3 +236,21 @@ export function parseKeyList(raw) {
     .map((s) => s.trim())
     .filter(Boolean);
 }
+
+/** Scan chunk files and attach min/max lat/lng to each manifest entry (no re-encrypt). */
+export function recomputeManifestBboxes(manifest, outDir) {
+  let updated = 0;
+  for (const chunk of manifest.chunks || []) {
+    const { stores } = readChunkFile(path.join(outDir, chunk.file));
+    const bbox = computeBbox(stores);
+    if (bbox) {
+      chunk.bbox = bbox;
+      updated += 1;
+    } else {
+      delete chunk.bbox;
+    }
+  }
+  manifest.generatedAt = new Date().toISOString();
+  if (manifest.storeCount == null) manifest.storeCount = countAllStores(manifest, outDir);
+  return { updated, manifest };
+}

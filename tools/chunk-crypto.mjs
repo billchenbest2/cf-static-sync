@@ -47,3 +47,18 @@ export function buildEncryptedChunkFile(stores, chunkIndex = 0) {
     payload: encodeXorB64Utf8(inner)
   };
 }
+
+export function buildEncryptedSearchShardFile(entries, shardIndex = 0) {
+  const inner = {
+    schemaVersion: 1,
+    generatedAt: new Date().toISOString(),
+    shardIndex,
+    entries
+  };
+  return {
+    schemaVersion: 1,
+    encrypted: true,
+    encAlg: 'xor-b64-v1',
+    payload: encodeXorB64Utf8(inner)
+  };
+}
