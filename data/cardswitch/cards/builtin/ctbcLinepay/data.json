@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-28T02:11:16.055Z",
+  "updatedAt": "2026-09-02T21:04:31.456Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -2035,25 +2035,6 @@
           "limitPeriod": null,
           "ratePercent": 6,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_twdd"
-        }
-      ]
-    },
-    {
-      "name": "韓國OLIVE YOUNG\n釜山指定門市",
-      "keywords": [
-        "韓國OLIVE YOUNG\n釜山指定門市"
-      ],
-      "offers": [
-        {
-          "categoryId": "travel",
-          "categoryName": "脆自遊",
-          "period": "2026/8/28~2026/8/29",
-          "offerText": "最高20%",
-          "noticeText": "LINE Pay支付",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 20,
-          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/cadcf65c-579e-4ab4-825c-1469bc68a7a4"
         }
       ]
     },

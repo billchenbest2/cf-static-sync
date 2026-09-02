@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-08-23T03:56:20.651Z",
+  "updatedAt": "2026-09-02T21:04:39.836Z",
   "categories": [
     {
       "id": "bonus",
       "name": "活利積分",
-      "period": "即日起~2026/12/31",
+      "period": "即日起~2027/6/30",
       "sourceUrl": "https://www.dbs.com.tw/personal-zh/cards/rewards/bonus_redeem_mileage",
       "rates": [
         {
@@ -30,7 +30,7 @@
     {
       "id": "cash",
       "name": "現金積點/現金紅利",
-      "period": "即日起~2026/12/31",
+      "period": "即日起~2027/6/30",
       "sourceUrl": "https://www.dbs.com.tw/personal-zh/cards/rewards/cash-redeem-mileage",
       "rates": [
         {
@@ -56,7 +56,7 @@
     {
       "id": "fly",
       "name": "飛行積金",
-      "period": "即日起~2026/12/31",
+      "period": "即日起~2027/6/30",
       "sourceUrl": "https://www.dbs.com.tw/personal-zh/cards/rewards/fly_redeem_mileage",
       "rates": [
         {
@@ -78,7 +78,7 @@
           "plan": "亞洲萬里通｜每6,000點換6,000哩"
         },
         {
-          "airline": "新航獎勵計劃KrisFlyer",
+          "airline": "KrisFlyer 新航集團獎勵計劃",
           "cost_points": 6000,
           "redeemed_miles": 6000,
           "plan": "新加坡航空｜每6,000點換6,000哩"
@@ -88,7 +88,7 @@
     {
       "id": "pchome",
       "name": "PChome聯名紅利點數",
-      "period": "即日起~2026/12/31",
+      "period": "即日起~2027/6/30",
       "sourceUrl": "https://www.dbs.com.tw/personal-zh/cards/rewards/pchome-redeem-mileage",
       "rates": [
         {
