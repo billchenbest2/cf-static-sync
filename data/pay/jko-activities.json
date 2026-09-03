@@ -2,12 +2,12 @@
   "meta": {
     "source": "https://mkt.jkopay.com/zh-TW/campaign/newevent",
     "hubPath": "newevent2026-9",
-    "fetchedAt": "2026-09-03T02:05:00.384Z",
+    "fetchedAt": "2026-09-03T06:08:38.212Z",
     "count": 32,
     "cache": {
-      "cachedEndedTotal": 5,
-      "skippedFetch": 17,
-      "freshlyFetched": 12,
+      "cachedEndedTotal": 3,
+      "skippedFetch": 29,
+      "freshlyFetched": 0,
       "keptEndedNotInList": 3,
       "keptProtectedActive": 0,
       "total": 32

@@ -1,12 +1,12 @@
 {
   "meta": {
     "source": "https://web-tw-pay.line.me/cms/event",
-    "fetchedAt": "2026-09-03T02:05:52.172Z",
+    "fetchedAt": "2026-09-03T06:09:26.093Z",
     "count": 3035,
     "cache": {
-      "cachedEndedTotal": 2941,
-      "skippedFetch": 3012,
-      "freshlyFetched": 23,
+      "cachedEndedTotal": 2949,
+      "skippedFetch": 3035,
+      "freshlyFetched": 0,
       "keptEndedNotInList": 0,
       "keptProtectedActive": 0,
       "total": 3035
@@ -1532,82 +1532,6 @@
       "aiNeedsReview": false
     },
     {
-      "id": "linepay-be0c0a67-38ff-4646-a88f-454ab5501eac",
-      "platform": "linepay",
-      "source": "linepay",
-      "slug": "be0c0a67-38ff-4646-a88f-454ab5501eac",
-      "url": "https://web-tw-pay.line.me/cms/event/template1.3/be0c0a67-38ff-4646-a88f-454ab5501eac",
-      "title": "【iQueen愛女人購物網】用LINE Pay付款享LINE POINTS 8%回饋！",
-      "period": {
-        "start": "2026/09/08",
-        "end": "2026/09/22",
-        "status": "upcoming",
-        "periodSource": "api"
-      },
-      "merchants": [
-        "iQueen愛女人購物網"
-      ],
-      "rewards": [
-        {
-          "label": "iQueen愛女人購物網LINE Pay回饋",
-          "detail": "於iQueen愛女人購物網使用LINE Pay付款享8%回饋",
-          "pct": 8,
-          "role": "base"
-        }
-      ],
-      "scopeHints": [
-        "信用卡／金融卡",
-        "LINE POINTS",
-        "點數回饋",
-        "任一付款方法"
-      ],
-      "searchText": "【iqueen愛女人購物網】用line pay付款享line points 8%回饋！ 【iqueen愛女人購物網】用line pay付款享line points 8%回饋！ iqueen愛女人購物網 line pay 基本回饋 【iqueen愛女人購物網】用line pay付款享line points 8%回饋！ 信用卡／金融卡 line points 點數回饋 任一付款方法",
-      "quotaFull": null,
-      "official": true,
-      "fetchedAt": "2026-09-03T02:05:48.347Z",
-      "raw": {
-        "text": "【iQueen愛女人購物網】用LINE Pay付款享LINE POINTS 8%回饋！ 【iQueen愛女人購物網】用LINE Pay付款享LINE POINTS 8%回饋！ iQueen愛女人購物網 前往iQueen愛女人購物網 活動期間內已註冊LINE Pay的用戶於iQueen愛女人購物網消費，結帳時透過LINE Pay使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money帳戶付款，享LINE POINTS 8%回饋！ - 不接受取消部份訂單商品，如欲取消請「全品項退款」。 - 每LINE Pay帳號單筆交易最高限得100點。 - 回饋點數將自付款成功24小時起陸續發放。 ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。 ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。 1. 參加活動資格： (1) 使用的智慧型手機必須符合[可使用LINE Pay的手機環境](https://help2.line.me/linepay_tw/sp?contentId=50010712)，未符合或因手機經系統判斷安全性不足而無法開啟LINE Pay時，無法參加活動，亦不得要求賠償。 (2) 僅限台灣LINE帳號(即LINE帳號設定台灣手機門號)且已註冊LINE Pay及綁定信用卡/簽帳金融卡或註冊LINE Pay MONEY帳戶的用戶參加。當於LINE應用程式點擊「錢包」＞「LINE Pay」後可直接進入顯示LINE Pay各功能的主頁，代表已註冊LINE Pay；若於LINE應用程式點擊「錢包」＞「LINE Pay」後出現引導註冊的「開始」頁面，則代表尚未註冊LINE Pay，結帳前未完成註冊LINE Pay不符參加活動資格。 (3) 為配合「[第三方支付服務業防制洗錢及打擊資恐辦法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0080060)」，於網路商店透過LINE Pay單筆交易金額達新台幣20萬元前，必須先完成[身分驗證](https://line.me/R/pay/kyc/tw/register)(請用手機開啟連結)，才可繼續交易；未完成身分驗證或未能在活動期間內/額滿前完成身分驗證，無法參加活動，亦不得要求賠償。 (4) 若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。 2. 結帳\"前\"請務必先進入LINE Pay主頁，依序點選「設定」(頁面右上方齒輪圖示)＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意；未在結帳前同意將無法獲得LINE POINTS，亦無法補發。 3. 本活動條件說明： (1) 活動期間內於iQueen愛女人購物網消費結帳時[透過LINE Pay付款](https://help2.line.me/linepay_tw/sp?contentId=50010759)。 (2) 需在2026/9/9 00:00\"後\"再進入LINE Pay選擇付款方式頁面操作結帳，若00:00\"前\"就進入LINE Pay選擇付款方式頁面，即使等到00:00\"後\"才完成付款，仍會因系統辨識失敗而無法獲得點數，亦無法補發。 (3) 活動資格以「LINE Pay」＞「交易紀錄」＞「付款詳細資訊」內「付款日期」的時間認定(經查證為提前進入LINE Pay選擇付款方式頁面的交易除外)，如有誤差以LINE Pay系統為準，非訂單成立或發卡銀行核准交易的時間。 (4) 欲參加活動請務必評估供貨狀況、確認所需樣式及發票格式(二聯/三聯)並儘早結帳，如因時間差、消費者手機或操作問題、LINE Pay帳號或LINE Pay MONEY帳戶處於停用/無法登入狀態而需額外時間重新啟用或解除鎖定、遇銀行或iQueen愛女人購物網系統維護/異常、缺貨/斷貨/換貨、換開發票等非LINE Pay因素導致未能在活動期間內完成付款，或遇退換貨流程不符期待、未按時取貨、iQueen愛女人購物網主動取消訂單導致已獲得的點數遭到回收，恕不得要求賠償。 4. iQueen愛女人購物網如另透過其他官方管道公告活動，其內容或文字誤植、售價調整、客服說明錯誤等問題概與LINE Pay無關，遇爭議時依iQueen愛女人購物網規定辦理，若有疑問請洽iQueen愛女人購物網詢問。 5. 使用者可自行評估是否搭配iQueen愛女人購物網其他活動以獲得更多優惠，惟當遇客服不清楚內容、網路壅塞、臨時變更規則等糾紛時，LINE Pay不承擔共同責任，若因此導致喪失本活動回饋資格，恕不得要求賠償。 6. LINE Pay注意事項： (1) 操作方式請見[LINE Pay新手教學](https://web-tw-pay.line.me/cms/event/display/7e3c57d5-3fdc-40f2-bce3-da12fbc3f4db)。 (2) 無提供分期付款功能。 (3) 取消透過LINE Pay付款的交易，信用卡額度無法立即釋出，簽帳金融卡帳戶餘額也無法立即歸還，消費前請務必考量自身需求；若因取消交易無法立即釋出額度/歸還帳戶餘額，導致該筆額度/帳戶餘額無法移至其他用途，或導致未能在活動期間內/額滿前重新付款、參加其他活動，恕無法個案賠償。 7. LINE POINTS回饋注意事項： (1) LINE POINTS回饋以LINE Pay綁定信用卡/簽帳金融卡或LINE Pay MONEY帳戶實際支付的新台幣金額採四捨五入計算至整數，使用LINE POINTS及優惠券折抵的金額不計算回饋。 (2) LINE POINTS將回饋至消費當下使用付款的LINE Pay所屬LINE帳號，回饋紀錄請透過手機版LINE應用程式，依序點選「錢包」＞「LINE POINTS」＞「歷史紀錄」查看，可供查詢的期間為自交易日起算24個月內，超過此期間即使未正常獲得點數仍視同放棄資格。若因透過不同的LINE Pay參加活動導致點數回饋至非預期的帳號，恕不得要求補發或其他處理方式。 (3) LINE POINTS有效期限為最後一次獲得點數當日起算180日止，不另行提醒，一旦超過有效期限，將會立即失效且無法復原。LINE POINTS效期請透過LINE應用程式，依序點選「錢包」＞「LINE POINTS」＞「歷史紀錄」查看。 (4) LINE POINTS以所屬的LINE帳號為移動至其他手機的依據，非綁定的信用卡/簽帳金融卡或LINE Pay MONEY帳戶， 使用方式及規定請以LINE POINTS[服務條款](https://terms2.line.me/pointclub_point_terms?lang=zh-Hant)及[常見問題](https://help2.line.me/linepoints)公告為準。 (5) LINE POINTS在使用兌換或折抵消費前，非用戶的資產，不得要求轉讓、折換現金或更換為其他回饋。 (6) 任何情形下取消交易，LINE POINT將會扣回或停止發放。 (7) 請維持LINE Pay為正常使用狀態，參加活動後解約LINE Pay、變更LINE Pay國家設定或LINE Pay處於暫停使用狀態，將喪失活動回饋資格；即使事後重新註冊LINE Pay、變更回原本LINE Pay國家設定或解除LINE Pay暫停使用狀態，LINE Pay仍保有判斷是否可依照原活動條件補發的權利。 (8) LINE POINTS與LINE Pay將會蒐集並存取用戶參與LINE POINTS活動紀錄及行動裝置識別碼。 (9) 請務必同意以上事項後再參加本活動。 8. 本活動相關問題請洽LINE Pay客服中心詢問： (1) 使用綁定的信用卡/簽帳金融卡付款：客服專線(02)6631-5166或線上填寫[問題反映表單](https://contact-cc.line.me/serviceId/11399)。 (2) 客服中心有權拒絕與LINE Pay無關的錯誤情況而要求的賠償，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。 9. 為保障使用者權益，遇無法交易的狀況時，請務必24小時內與LINE Pay客服中心聯繫，並提供(1)消費日期及時間(2)詳細遭遇以利確認；若未在24小時內聯繫及提供必要資訊，則視為對iQueen當下處理方式或異常情形無任何異議。 10. 參加本活動即代表已詳細閱讀、了解並同意遵守LINE Pay及LINE Pay MONEY服務條款、所有活動內容及注意事項，如有違反服務條款或以不正當方式試圖為自己或他人獲取利益(提前進入LINE Pay選擇付款方式頁面等待、註冊多個LINE Pay帳號、拆分交易、店家負責人及其配偶/親戚/員工自店交易或遊說其他店家/使用者配合虛假交易、販售不符規定商品等行為)，LINE Pay有權取消其活動資格及回收已發放的回饋，並除永久停止LINE Pay付款功能外，將對任何破壞活動公平原則的當事人追究法律責任及請求賠償。服務條款請至LINE Pay主頁＞「設定」(頁面右上方齒輪圖示)＞「服務條款」查看。 11. LINE Pay及iQueen愛女人購物網保留隨時修改、變更、暫停及終止本活動的權利，並得僅以本活動頁面更新調整後內容，不另行通知。 12. 如有未盡事宜請以本活動頁面公告為準，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。 13. [謹慎理財 信用至上]信用卡循環信用利率、預借現金手續費用及其他費用資訊，請參閱各發卡銀行官網。 活動注意事項",
-        "list": {
-          "name": "iQueen愛女人購物網(9/9-9/22)",
-          "target": "iQueen愛女人購物網",
-          "ogDesc": "【iQueen愛女人購物網】用LINE Pay付款享LINE POINTS 8%回饋！",
-          "startDate": "2026-09-08T16:00:00Z",
-          "endDate": "2026-09-22T15:59:59Z",
-          "updateDate": "2026-09-02T07:47:51Z",
-          "tags": [
-            {
-              "id": 13,
-              "key": "點數回饋",
-              "type": "CATEGORY",
-              "text": "點數回饋",
-              "projectCode": "CMS"
-            },
-            {
-              "id": 3,
-              "key": "任一付款方法",
-              "type": "PAYMENT",
-              "text": "任一付款方法",
-              "value": "anyPayment",
-              "projectCode": "CMS"
-            }
-          ],
-          "externalUrl": "https://web-tw-pay.line.me/cms/event/template1.3/be0c0a67-38ff-4646-a88f-454ab5501eac",
-          "visibility": "PUBLIC",
-          "discoverSources": [
-            "list"
-          ]
-        }
-      },
-      "aiRiskScore": 0,
-      "aiRiskReasons": [
-        "aggregation_page",
-        "title_pct_match"
-      ],
-      "aiModel": "gemini-3.1-flash-lite",
-      "aiNeedsReview": false,
-      "aiVerifiedAt": "2026-09-03T02:11:11.570Z"
-    },
-    {
       "id": "linepay-99368cd4-ed55-43f1-82dd-df878401d6e6",
       "platform": "linepay",
       "source": "linepay",
@@ -1697,6 +1621,82 @@
       "aiModel": "gemini-3.1-flash-lite",
       "aiNeedsReview": false,
       "aiVerifiedAt": "2026-08-20T12:00:34.813Z"
+    },
+    {
+      "id": "linepay-be0c0a67-38ff-4646-a88f-454ab5501eac",
+      "platform": "linepay",
+      "source": "linepay",
+      "slug": "be0c0a67-38ff-4646-a88f-454ab5501eac",
+      "url": "https://web-tw-pay.line.me/cms/event/template1.3/be0c0a67-38ff-4646-a88f-454ab5501eac",
+      "title": "【iQueen愛女人購物網】用LINE Pay付款享LINE POINTS 8%回饋！",
+      "period": {
+        "start": "2026/09/08",
+        "end": "2026/09/22",
+        "status": "upcoming",
+        "periodSource": "api"
+      },
+      "merchants": [
+        "iQueen愛女人購物網"
+      ],
+      "rewards": [
+        {
+          "label": "iQueen愛女人購物網LINE Pay回饋",
+          "detail": "於iQueen愛女人購物網使用LINE Pay付款享8%回饋",
+          "pct": 8,
+          "role": "base"
+        }
+      ],
+      "scopeHints": [
+        "信用卡／金融卡",
+        "LINE POINTS",
+        "點數回饋",
+        "任一付款方法"
+      ],
+      "searchText": "【iqueen愛女人購物網】用line pay付款享line points 8%回饋！ 【iqueen愛女人購物網】用line pay付款享line points 8%回饋！ iqueen愛女人購物網 line pay 基本回饋 【iqueen愛女人購物網】用line pay付款享line points 8%回饋！ 信用卡／金融卡 line points 點數回饋 任一付款方法",
+      "quotaFull": null,
+      "official": true,
+      "fetchedAt": "2026-09-03T02:05:48.347Z",
+      "raw": {
+        "text": "【iQueen愛女人購物網】用LINE Pay付款享LINE POINTS 8%回饋！ 【iQueen愛女人購物網】用LINE Pay付款享LINE POINTS 8%回饋！ iQueen愛女人購物網 前往iQueen愛女人購物網 活動期間內已註冊LINE Pay的用戶於iQueen愛女人購物網消費，結帳時透過LINE Pay使用已綁定的任一發卡銀行信用卡/簽帳金融卡或LINE Pay Money帳戶付款，享LINE POINTS 8%回饋！ - 不接受取消部份訂單商品，如欲取消請「全品項退款」。 - 每LINE Pay帳號單筆交易最高限得100點。 - 回饋點數將自付款成功24小時起陸續發放。 ※自行了解LINE Pay付款操作方式及活動內容為活動參加者的義務，參加活動視同同意本活動規則，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。 ※若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。 1. 參加活動資格： (1) 使用的智慧型手機必須符合[可使用LINE Pay的手機環境](https://help2.line.me/linepay_tw/sp?contentId=50010712)，未符合或因手機經系統判斷安全性不足而無法開啟LINE Pay時，無法參加活動，亦不得要求賠償。 (2) 僅限台灣LINE帳號(即LINE帳號設定台灣手機門號)且已註冊LINE Pay及綁定信用卡/簽帳金融卡或註冊LINE Pay MONEY帳戶的用戶參加。當於LINE應用程式點擊「錢包」＞「LINE Pay」後可直接進入顯示LINE Pay各功能的主頁，代表已註冊LINE Pay；若於LINE應用程式點擊「錢包」＞「LINE Pay」後出現引導註冊的「開始」頁面，則代表尚未註冊LINE Pay，結帳前未完成註冊LINE Pay不符參加活動資格。 (3) 為配合「[第三方支付服務業防制洗錢及打擊資恐辦法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=J0080060)」，於網路商店透過LINE Pay單筆交易金額達新台幣20萬元前，必須先完成[身分驗證](https://line.me/R/pay/kyc/tw/register)(請用手機開啟連結)，才可繼續交易；未完成身分驗證或未能在活動期間內/額滿前完成身分驗證，無法參加活動，亦不得要求賠償。 (4) 若商店及活動參加者皆已開通LINE Pay Money，則選用LINE Pay Money帳戶付款同享回饋。 2. 結帳\"前\"請務必先進入LINE Pay主頁，依序點選「設定」(頁面右上方齒輪圖示)＞「服務條款」＞「行銷資訊提供政策」，確認頁面上方是否已勾選同意；未在結帳前同意將無法獲得LINE POINTS，亦無法補發。 3. 本活動條件說明： (1) 活動期間內於iQueen愛女人購物網消費結帳時[透過LINE Pay付款](https://help2.line.me/linepay_tw/sp?contentId=50010759)。 (2) 需在2026/9/9 00:00\"後\"再進入LINE Pay選擇付款方式頁面操作結帳，若00:00\"前\"就進入LINE Pay選擇付款方式頁面，即使等到00:00\"後\"才完成付款，仍會因系統辨識失敗而無法獲得點數，亦無法補發。 (3) 活動資格以「LINE Pay」＞「交易紀錄」＞「付款詳細資訊」內「付款日期」的時間認定(經查證為提前進入LINE Pay選擇付款方式頁面的交易除外)，如有誤差以LINE Pay系統為準，非訂單成立或發卡銀行核准交易的時間。 (4) 欲參加活動請務必評估供貨狀況、確認所需樣式及發票格式(二聯/三聯)並儘早結帳，如因時間差、消費者手機或操作問題、LINE Pay帳號或LINE Pay MONEY帳戶處於停用/無法登入狀態而需額外時間重新啟用或解除鎖定、遇銀行或iQueen愛女人購物網系統維護/異常、缺貨/斷貨/換貨、換開發票等非LINE Pay因素導致未能在活動期間內完成付款，或遇退換貨流程不符期待、未按時取貨、iQueen愛女人購物網主動取消訂單導致已獲得的點數遭到回收，恕不得要求賠償。 4. iQueen愛女人購物網如另透過其他官方管道公告活動，其內容或文字誤植、售價調整、客服說明錯誤等問題概與LINE Pay無關，遇爭議時依iQueen愛女人購物網規定辦理，若有疑問請洽iQueen愛女人購物網詢問。 5. 使用者可自行評估是否搭配iQueen愛女人購物網其他活動以獲得更多優惠，惟當遇客服不清楚內容、網路壅塞、臨時變更規則等糾紛時，LINE Pay不承擔共同責任，若因此導致喪失本活動回饋資格，恕不得要求賠償。 6. LINE Pay注意事項： (1) 操作方式請見[LINE Pay新手教學](https://web-tw-pay.line.me/cms/event/display/7e3c57d5-3fdc-40f2-bce3-da12fbc3f4db)。 (2) 無提供分期付款功能。 (3) 取消透過LINE Pay付款的交易，信用卡額度無法立即釋出，簽帳金融卡帳戶餘額也無法立即歸還，消費前請務必考量自身需求；若因取消交易無法立即釋出額度/歸還帳戶餘額，導致該筆額度/帳戶餘額無法移至其他用途，或導致未能在活動期間內/額滿前重新付款、參加其他活動，恕無法個案賠償。 7. LINE POINTS回饋注意事項： (1) LINE POINTS回饋以LINE Pay綁定信用卡/簽帳金融卡或LINE Pay MONEY帳戶實際支付的新台幣金額採四捨五入計算至整數，使用LINE POINTS及優惠券折抵的金額不計算回饋。 (2) LINE POINTS將回饋至消費當下使用付款的LINE Pay所屬LINE帳號，回饋紀錄請透過手機版LINE應用程式，依序點選「錢包」＞「LINE POINTS」＞「歷史紀錄」查看，可供查詢的期間為自交易日起算24個月內，超過此期間即使未正常獲得點數仍視同放棄資格。若因透過不同的LINE Pay參加活動導致點數回饋至非預期的帳號，恕不得要求補發或其他處理方式。 (3) LINE POINTS有效期限為最後一次獲得點數當日起算180日止，不另行提醒，一旦超過有效期限，將會立即失效且無法復原。LINE POINTS效期請透過LINE應用程式，依序點選「錢包」＞「LINE POINTS」＞「歷史紀錄」查看。 (4) LINE POINTS以所屬的LINE帳號為移動至其他手機的依據，非綁定的信用卡/簽帳金融卡或LINE Pay MONEY帳戶， 使用方式及規定請以LINE POINTS[服務條款](https://terms2.line.me/pointclub_point_terms?lang=zh-Hant)及[常見問題](https://help2.line.me/linepoints)公告為準。 (5) LINE POINTS在使用兌換或折抵消費前，非用戶的資產，不得要求轉讓、折換現金或更換為其他回饋。 (6) 任何情形下取消交易，LINE POINT將會扣回或停止發放。 (7) 請維持LINE Pay為正常使用狀態，參加活動後解約LINE Pay、變更LINE Pay國家設定或LINE Pay處於暫停使用狀態，將喪失活動回饋資格；即使事後重新註冊LINE Pay、變更回原本LINE Pay國家設定或解除LINE Pay暫停使用狀態，LINE Pay仍保有判斷是否可依照原活動條件補發的權利。 (8) LINE POINTS與LINE Pay將會蒐集並存取用戶參與LINE POINTS活動紀錄及行動裝置識別碼。 (9) 請務必同意以上事項後再參加本活動。 8. 本活動相關問題請洽LINE Pay客服中心詢問： (1) 使用綁定的信用卡/簽帳金融卡付款：客服專線(02)6631-5166或線上填寫[問題反映表單](https://contact-cc.line.me/serviceId/11399)。 (2) 客服中心有權拒絕與LINE Pay無關的錯誤情況而要求的賠償，不因個人認知、星座生肖、宗教信仰、身分地位、疾病、威脅等而有特例，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。 9. 為保障使用者權益，遇無法交易的狀況時，請務必24小時內與LINE Pay客服中心聯繫，並提供(1)消費日期及時間(2)詳細遭遇以利確認；若未在24小時內聯繫及提供必要資訊，則視為對iQueen當下處理方式或異常情形無任何異議。 10. 參加本活動即代表已詳細閱讀、了解並同意遵守LINE Pay及LINE Pay MONEY服務條款、所有活動內容及注意事項，如有違反服務條款或以不正當方式試圖為自己或他人獲取利益(提前進入LINE Pay選擇付款方式頁面等待、註冊多個LINE Pay帳號、拆分交易、店家負責人及其配偶/親戚/員工自店交易或遊說其他店家/使用者配合虛假交易、販售不符規定商品等行為)，LINE Pay有權取消其活動資格及回收已發放的回饋，並除永久停止LINE Pay付款功能外，將對任何破壞活動公平原則的當事人追究法律責任及請求賠償。服務條款請至LINE Pay主頁＞「設定」(頁面右上方齒輪圖示)＞「服務條款」查看。 11. LINE Pay及iQueen愛女人購物網保留隨時修改、變更、暫停及終止本活動的權利，並得僅以本活動頁面更新調整後內容，不另行通知。 12. 如有未盡事宜請以本活動頁面公告為準，LINE Pay保有對本活動所有事宜做出最終解釋及決定的權利。 13. [謹慎理財 信用至上]信用卡循環信用利率、預借現金手續費用及其他費用資訊，請參閱各發卡銀行官網。 活動注意事項",
+        "list": {
+          "name": "iQueen愛女人購物網(9/9-9/22)",
+          "target": "iQueen愛女人購物網",
+          "ogDesc": "【iQueen愛女人購物網】用LINE Pay付款享LINE POINTS 8%回饋！",
+          "startDate": "2026-09-08T16:00:00Z",
+          "endDate": "2026-09-22T15:59:59Z",
+          "updateDate": "2026-09-02T07:47:51Z",
+          "tags": [
+            {
+              "id": 13,
+              "key": "點數回饋",
+              "type": "CATEGORY",
+              "text": "點數回饋",
+              "projectCode": "CMS"
+            },
+            {
+              "id": 3,
+              "key": "任一付款方法",
+              "type": "PAYMENT",
+              "text": "任一付款方法",
+              "value": "anyPayment",
+              "projectCode": "CMS"
+            }
+          ],
+          "externalUrl": "https://web-tw-pay.line.me/cms/event/template1.3/be0c0a67-38ff-4646-a88f-454ab5501eac",
+          "visibility": "PUBLIC",
+          "discoverSources": [
+            "list"
+          ]
+        }
+      },
+      "aiRiskScore": 0,
+      "aiRiskReasons": [
+        "aggregation_page",
+        "title_pct_match"
+      ],
+      "aiModel": "gemini-3.1-flash-lite",
+      "aiNeedsReview": false,
+      "aiVerifiedAt": "2026-09-03T02:11:11.570Z"
     },
     {
       "id": "linepay-11597bf7-236a-4ead-a582-e858488dffaf",
@@ -13430,6 +13430,75 @@
       }
     },
     {
+      "id": "linepay-49f2ad7a-e351-4cfb-9ef8-23b3ada039b7",
+      "platform": "linepay",
+      "source": "linepay",
+      "slug": "49f2ad7a-e351-4cfb-9ef8-23b3ada039b7",
+      "url": "https://web-tw-pay.line.me/cms/event/template1.3/49f2ad7a-e351-4cfb-9ef8-23b3ada039b7",
+      "title": "【LOTTE MART指定釜山門市】用LINE Pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽LINE POINTS 888點！",
+      "period": {
+        "start": "2026/05/31",
+        "end": "2026/06/15",
+        "status": "ended",
+        "periodSource": "api"
+      },
+      "merchants": [
+        "LOTTE MART指定釜山門市",
+        "LOTTE MART"
+      ],
+      "rewards": [
+        {
+          "label": "主活動",
+          "detail": "【LOTTE MART指定釜山門市】用LINE Pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽LINE POINTS 888點！",
+          "role": "base"
+        }
+      ],
+      "scopeHints": [
+        "LINE POINTS",
+        "幸運轉轉樂",
+        "遊韓用LINE Pay",
+        "指定付款方法"
+      ],
+      "searchText": "【lotte mart指定釜山門市】用line pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽line points 888點！ 【lotte mart指定釜山門市】用line pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽line points 888點！ lotte mart指定釜山門市 lotte mart 主活動 【lotte mart指定釜山門市】用line pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽line points 888點！ line points 幸運轉轉樂 遊韓用line pay 指定付款方法",
+      "quotaFull": null,
+      "official": true,
+      "fetchedAt": "2026-08-19T06:20:23.365Z",
+      "raw": {
+        "text": "【LOTTE MART指定釜山門市】用LINE Pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽LINE POINTS 888點！\n【LOTTE MART指定釜山門市】用LINE Pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽LINE POINTS 888點！\nLOTTE MART指定釜山門市(LOTTE MART釜山店/東釜山店/金海店/光復店)",
+        "list": {
+          "name": "202606 LOTTE MART釜山活動",
+          "target": "LOTTE MART指定釜山門市(LOTTE MART釜山店/東釜山店/金海店/光復店)",
+          "ogDesc": "【LOTTE MART指定釜山門市】用LINE Pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽LINE POINTS 888點！",
+          "startDate": "2026-05-31T15:00:00Z",
+          "endDate": "2026-06-15T14:59:59Z",
+          "tags": [
+            {
+              "id": 545,
+              "key": "幸運轉轉樂",
+              "type": "CATEGORY",
+              "text": "幸運轉轉樂",
+              "projectCode": "CMS"
+            },
+            {
+              "id": 549,
+              "key": "遊韓用LINE Pay",
+              "type": "OTHER",
+              "text": "遊韓用LINE Pay",
+              "projectCode": "CMS"
+            },
+            {
+              "id": 8,
+              "key": "指定付款方法",
+              "type": "PAYMENT",
+              "text": "指定付款方法",
+              "value": "iPASS MONEY",
+              "projectCode": "CMS"
+            }
+          ]
+        }
+      }
+    },
+    {
       "id": "linepay-c4bbf5e5-e45b-4d07-bc03-6f12f596adf3",
       "platform": "linepay",
       "source": "linepay",
@@ -13486,75 +13555,6 @@
               "key": "優惠券",
               "type": "CATEGORY",
               "text": "優惠券",
-              "projectCode": "CMS"
-            },
-            {
-              "id": 8,
-              "key": "指定付款方法",
-              "type": "PAYMENT",
-              "text": "指定付款方法",
-              "value": "iPASS MONEY",
-              "projectCode": "CMS"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "linepay-49f2ad7a-e351-4cfb-9ef8-23b3ada039b7",
-      "platform": "linepay",
-      "source": "linepay",
-      "slug": "49f2ad7a-e351-4cfb-9ef8-23b3ada039b7",
-      "url": "https://web-tw-pay.line.me/cms/event/template1.3/49f2ad7a-e351-4cfb-9ef8-23b3ada039b7",
-      "title": "【LOTTE MART指定釜山門市】用LINE Pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽LINE POINTS 888點！",
-      "period": {
-        "start": "2026/05/31",
-        "end": "2026/06/15",
-        "status": "ended",
-        "periodSource": "api"
-      },
-      "merchants": [
-        "LOTTE MART指定釜山門市",
-        "LOTTE MART"
-      ],
-      "rewards": [
-        {
-          "label": "主活動",
-          "detail": "【LOTTE MART指定釜山門市】用LINE Pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽LINE POINTS 888點！",
-          "role": "base"
-        }
-      ],
-      "scopeHints": [
-        "LINE POINTS",
-        "幸運轉轉樂",
-        "遊韓用LINE Pay",
-        "指定付款方法"
-      ],
-      "searchText": "【lotte mart指定釜山門市】用line pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽line points 888點！ 【lotte mart指定釜山門市】用line pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽line points 888點！ lotte mart指定釜山門市 lotte mart 主活動 【lotte mart指定釜山門市】用line pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽line points 888點！ line points 幸運轉轉樂 遊韓用line pay 指定付款方法",
-      "quotaFull": null,
-      "official": true,
-      "fetchedAt": "2026-08-19T06:20:23.365Z",
-      "raw": {
-        "text": "【LOTTE MART指定釜山門市】用LINE Pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽LINE POINTS 888點！\n【LOTTE MART指定釜山門市】用LINE Pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽LINE POINTS 888點！\nLOTTE MART指定釜山門市(LOTTE MART釜山店/東釜山店/金海店/光復店)",
-        "list": {
-          "name": "202606 LOTTE MART釜山活動",
-          "target": "LOTTE MART指定釜山門市(LOTTE MART釜山店/東釜山店/金海店/光復店)",
-          "ogDesc": "【LOTTE MART指定釜山門市】用LINE Pay付款，單筆滿15,000韓元享幸運轉轉樂機會，最高抽LINE POINTS 888點！",
-          "startDate": "2026-05-31T15:00:00Z",
-          "endDate": "2026-06-15T14:59:59Z",
-          "tags": [
-            {
-              "id": 545,
-              "key": "幸運轉轉樂",
-              "type": "CATEGORY",
-              "text": "幸運轉轉樂",
-              "projectCode": "CMS"
-            },
-            {
-              "id": 549,
-              "key": "遊韓用LINE Pay",
-              "type": "OTHER",
-              "text": "遊韓用LINE Pay",
               "projectCode": "CMS"
             },
             {
@@ -15358,6 +15358,75 @@
       }
     },
     {
+      "id": "linepay-af3ea130-7e1b-4382-b33c-2d69b5a924e5",
+      "platform": "linepay",
+      "source": "linepay",
+      "slug": "af3ea130-7e1b-4382-b33c-2d69b5a924e5",
+      "url": "https://web-tw-pay.line.me/cms/event/template1.3/af3ea130-7e1b-4382-b33c-2d69b5a924e5",
+      "title": "【樂天百貨】用LINE Pay付款，單筆滿200,000韓元享LINE POINTS 10%回饋！",
+      "period": {
+        "start": "2026/04/23",
+        "end": "2026/05/10",
+        "status": "ended",
+        "periodSource": "api"
+      },
+      "merchants": [
+        "樂天百貨"
+      ],
+      "rewards": [
+        {
+          "label": "主活動",
+          "detail": "【樂天百貨】用LINE Pay付款，單筆滿200,000韓元享LINE POINTS 10%回饋！",
+          "pct": 10,
+          "role": "base"
+        }
+      ],
+      "scopeHints": [
+        "LINE POINTS",
+        "遊韓用LINE Pay",
+        "點數回饋",
+        "指定付款方法"
+      ],
+      "searchText": "【樂天百貨】用line pay付款，單筆滿200,000韓元享line points 10%回饋！ 【樂天百貨】用line pay付款，單筆滿200,000韓元享line points 10%回饋！ 樂天百貨 主活動 【樂天百貨】用line pay付款，單筆滿200,000韓元享line points 10%回饋！ line points 遊韓用line pay 點數回饋 指定付款方法",
+      "quotaFull": null,
+      "official": true,
+      "fetchedAt": "2026-08-19T06:20:23.368Z",
+      "raw": {
+        "text": "【樂天百貨】用LINE Pay付款，單筆滿200,000韓元享LINE POINTS 10%回饋！\n【樂天百貨】用LINE Pay付款，單筆滿200,000韓元享LINE POINTS 10%回饋！\n韓國樂天百貨(LOTTE Department Store)指定門市",
+        "list": {
+          "name": "202604 樂天百貨勞動節活動",
+          "target": "韓國樂天百貨(LOTTE Department Store)指定門市",
+          "ogDesc": "【樂天百貨】用LINE Pay付款，單筆滿200,000韓元享LINE POINTS 10%回饋！",
+          "startDate": "2026-04-23T15:00:00Z",
+          "endDate": "2026-05-10T14:59:59Z",
+          "tags": [
+            {
+              "id": 549,
+              "key": "遊韓用LINE Pay",
+              "type": "OTHER",
+              "text": "遊韓用LINE Pay",
+              "projectCode": "CMS"
+            },
+            {
+              "id": 13,
+              "key": "點數回饋",
+              "type": "CATEGORY",
+              "text": "點數回饋",
+              "projectCode": "CMS"
+            },
+            {
+              "id": 8,
+              "key": "指定付款方法",
+              "type": "PAYMENT",
+              "text": "指定付款方法",
+              "value": "iPASS MONEY",
+              "projectCode": "CMS"
+            }
+          ]
+        }
+      }
+    },
+    {
       "id": "linepay-386e46e8-69a0-40c0-8713-237ce086662c",
       "platform": "linepay",
       "source": "linepay",
@@ -15414,75 +15483,6 @@
               "key": "優惠券",
               "type": "CATEGORY",
               "text": "優惠券",
-              "projectCode": "CMS"
-            },
-            {
-              "id": 8,
-              "key": "指定付款方法",
-              "type": "PAYMENT",
-              "text": "指定付款方法",
-              "value": "iPASS MONEY",
-              "projectCode": "CMS"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "linepay-af3ea130-7e1b-4382-b33c-2d69b5a924e5",
-      "platform": "linepay",
-      "source": "linepay",
-      "slug": "af3ea130-7e1b-4382-b33c-2d69b5a924e5",
-      "url": "https://web-tw-pay.line.me/cms/event/template1.3/af3ea130-7e1b-4382-b33c-2d69b5a924e5",
-      "title": "【樂天百貨】用LINE Pay付款，單筆滿200,000韓元享LINE POINTS 10%回饋！",
-      "period": {
-        "start": "2026/04/23",
-        "end": "2026/05/10",
-        "status": "ended",
-        "periodSource": "api"
-      },
-      "merchants": [
-        "樂天百貨"
-      ],
-      "rewards": [
-        {
-          "label": "主活動",
-          "detail": "【樂天百貨】用LINE Pay付款，單筆滿200,000韓元享LINE POINTS 10%回饋！",
-          "pct": 10,
-          "role": "base"
-        }
-      ],
-      "scopeHints": [
-        "LINE POINTS",
-        "遊韓用LINE Pay",
-        "點數回饋",
-        "指定付款方法"
-      ],
-      "searchText": "【樂天百貨】用line pay付款，單筆滿200,000韓元享line points 10%回饋！ 【樂天百貨】用line pay付款，單筆滿200,000韓元享line points 10%回饋！ 樂天百貨 主活動 【樂天百貨】用line pay付款，單筆滿200,000韓元享line points 10%回饋！ line points 遊韓用line pay 點數回饋 指定付款方法",
-      "quotaFull": null,
-      "official": true,
-      "fetchedAt": "2026-08-19T06:20:23.368Z",
-      "raw": {
-        "text": "【樂天百貨】用LINE Pay付款，單筆滿200,000韓元享LINE POINTS 10%回饋！\n【樂天百貨】用LINE Pay付款，單筆滿200,000韓元享LINE POINTS 10%回饋！\n韓國樂天百貨(LOTTE Department Store)指定門市",
-        "list": {
-          "name": "202604 樂天百貨勞動節活動",
-          "target": "韓國樂天百貨(LOTTE Department Store)指定門市",
-          "ogDesc": "【樂天百貨】用LINE Pay付款，單筆滿200,000韓元享LINE POINTS 10%回饋！",
-          "startDate": "2026-04-23T15:00:00Z",
-          "endDate": "2026-05-10T14:59:59Z",
-          "tags": [
-            {
-              "id": 549,
-              "key": "遊韓用LINE Pay",
-              "type": "OTHER",
-              "text": "遊韓用LINE Pay",
-              "projectCode": "CMS"
-            },
-            {
-              "id": 13,
-              "key": "點數回饋",
-              "type": "CATEGORY",
-              "text": "點數回饋",
               "projectCode": "CMS"
             },
             {
@@ -122316,6 +122316,71 @@
       }
     },
     {
+      "id": "linepay-ded87174-65af-496c-8004-4b1558f830c3",
+      "platform": "linepay",
+      "source": "linepay",
+      "slug": "ded87174-65af-496c-8004-4b1558f830c3",
+      "url": "https://web-tw-pay.line.me/cms/event/template1.3/ded87174-65af-496c-8004-4b1558f830c3",
+      "title": "LINE Pay 專屬 emart24 優惠券限時登場",
+      "period": {
+        "start": "2026/04/30",
+        "end": "2026/06/30",
+        "status": "ended",
+        "periodSource": "api"
+      },
+      "merchants": [],
+      "rewards": [
+        {
+          "label": "優惠",
+          "detail": "LINE Pay 專屬 emart24 優惠券限時登場",
+          "role": "base"
+        }
+      ],
+      "scopeHints": [
+        "遊韓用LINE Pay",
+        "優惠券",
+        "指定付款方法"
+      ],
+      "searchText": "line pay 專屬 emart24 優惠券限時登場 emart24上線特別優惠開跑 優惠 line pay 專屬 emart24 優惠券限時登場 遊韓用line pay 優惠券 指定付款方法",
+      "quotaFull": null,
+      "official": true,
+      "fetchedAt": "2026-08-19T06:20:25.921Z",
+      "raw": {
+        "text": "LINE Pay 專屬 emart24 優惠券限時登場\nemart24上線特別優惠開跑\nLINE Pay 專屬 emart24 優惠券限時登場\n※請更新LINE App及LINE Pay App至最新版本，並請以付款當下本頁面提供的活動店家為準※",
+        "list": {
+          "name": "emart24 coupon Event(2605)",
+          "target": "LINE Pay 專屬 emart24 優惠券限時登場",
+          "ogDesc": "emart24上線特別優惠開跑",
+          "startDate": "2026-04-30T15:00:00Z",
+          "endDate": "2026-06-30T14:59:00Z",
+          "tags": [
+            {
+              "id": 549,
+              "key": "遊韓用LINE Pay",
+              "type": "OTHER",
+              "text": "遊韓用LINE Pay",
+              "projectCode": "CMS"
+            },
+            {
+              "id": 14,
+              "key": "優惠券",
+              "type": "CATEGORY",
+              "text": "優惠券",
+              "projectCode": "CMS"
+            },
+            {
+              "id": 8,
+              "key": "指定付款方法",
+              "type": "PAYMENT",
+              "text": "指定付款方法",
+              "value": "iPASS MONEY",
+              "projectCode": "CMS"
+            }
+          ]
+        }
+      }
+    },
+    {
       "id": "linepay-03c8b87e-90e9-4324-955e-6e51ccd16cc9",
       "platform": "linepay",
       "source": "linepay",
@@ -122382,23 +122447,25 @@
       }
     },
     {
-      "id": "linepay-ded87174-65af-496c-8004-4b1558f830c3",
+      "id": "linepay-046740b7-6585-49c9-94d5-3fa042348fa1",
       "platform": "linepay",
       "source": "linepay",
-      "slug": "ded87174-65af-496c-8004-4b1558f830c3",
-      "url": "https://web-tw-pay.line.me/cms/event/template1.3/ded87174-65af-496c-8004-4b1558f830c3",
-      "title": "LINE Pay 專屬 emart24 優惠券限時登場",
+      "slug": "046740b7-6585-49c9-94d5-3fa042348fa1",
+      "url": "https://web-tw-pay.line.me/cms/event/template1.3/046740b7-6585-49c9-94d5-3fa042348fa1",
+      "title": "新世界免稅店上線特別優惠開跑",
       "period": {
-        "start": "2026/04/30",
-        "end": "2026/06/30",
+        "start": "2026/04/23",
+        "end": "2026/05/23",
         "status": "ended",
         "periodSource": "api"
       },
-      "merchants": [],
+      "merchants": [
+        "新世界免稅店上線特別優惠開跑"
+      ],
       "rewards": [
         {
           "label": "優惠",
-          "detail": "LINE Pay 專屬 emart24 優惠券限時登場",
+          "detail": "新世界免稅店上線特別優惠開跑",
           "role": "base"
         }
       ],
@@ -122407,18 +122474,18 @@
         "優惠券",
         "指定付款方法"
       ],
-      "searchText": "line pay 專屬 emart24 優惠券限時登場 emart24上線特別優惠開跑 優惠 line pay 專屬 emart24 優惠券限時登場 遊韓用line pay 優惠券 指定付款方法",
+      "searchText": "新世界免稅店上線特別優惠開跑 新世界免稅店上線特別優惠開跑 新世界免稅店上線特別優惠開跑 優惠 新世界免稅店上線特別優惠開跑 遊韓用line pay 優惠券 指定付款方法",
       "quotaFull": null,
       "official": true,
       "fetchedAt": "2026-08-19T06:20:25.921Z",
       "raw": {
-        "text": "LINE Pay 專屬 emart24 優惠券限時登場\nemart24上線特別優惠開跑\nLINE Pay 專屬 emart24 優惠券限時登場\n※請更新LINE App及LINE Pay App至最新版本，並請以付款當下本頁面提供的活動店家為準※",
+        "text": "新世界免稅店上線特別優惠開跑\n新世界免稅店上線特別優惠開跑\n新世界免稅店上線特別優惠開跑\n※請更新LINE App及LINE Pay App至最新版本，並請以付款當下本頁面提供的活動店家為準※",
         "list": {
-          "name": "emart24 coupon Event(2605)",
-          "target": "LINE Pay 專屬 emart24 優惠券限時登場",
-          "ogDesc": "emart24上線特別優惠開跑",
-          "startDate": "2026-04-30T15:00:00Z",
-          "endDate": "2026-06-30T14:59:00Z",
+          "name": "Shinsegae Duty Free Event(2604)",
+          "target": "新世界免稅店上線特別優惠開跑",
+          "ogDesc": "新世界免稅店上線特別優惠開跑",
+          "startDate": "2026-04-23T15:00:00Z",
+          "endDate": "2026-05-23T15:00:00Z",
           "tags": [
             {
               "id": 549,
@@ -122516,79 +122583,12 @@
       }
     },
     {
-      "id": "linepay-046740b7-6585-49c9-94d5-3fa042348fa1",
+      "id": "linepay-286b6007-3c7c-4043-9f54-9c539dfff776",
       "platform": "linepay",
       "source": "linepay",
-      "slug": "046740b7-6585-49c9-94d5-3fa042348fa1",
-      "url": "https://web-tw-pay.line.me/cms/event/template1.3/046740b7-6585-49c9-94d5-3fa042348fa1",
-      "title": "新世界免稅店上線特別優惠開跑",
-      "period": {
-        "start": "2026/04/23",
-        "end": "2026/05/23",
-        "status": "ended",
-        "periodSource": "api"
-      },
-      "merchants": [
-        "新世界免稅店上線特別優惠開跑"
-      ],
-      "rewards": [
-        {
-          "label": "優惠",
-          "detail": "新世界免稅店上線特別優惠開跑",
-          "role": "base"
-        }
-      ],
-      "scopeHints": [
-        "遊韓用LINE Pay",
-        "優惠券",
-        "指定付款方法"
-      ],
-      "searchText": "新世界免稅店上線特別優惠開跑 新世界免稅店上線特別優惠開跑 新世界免稅店上線特別優惠開跑 優惠 新世界免稅店上線特別優惠開跑 遊韓用line pay 優惠券 指定付款方法",
-      "quotaFull": null,
-      "official": true,
-      "fetchedAt": "2026-08-19T06:20:25.921Z",
-      "raw": {
-        "text": "新世界免稅店上線特別優惠開跑\n新世界免稅店上線特別優惠開跑\n新世界免稅店上線特別優惠開跑\n※請更新LINE App及LINE Pay App至最新版本，並請以付款當下本頁面提供的活動店家為準※",
-        "list": {
-          "name": "Shinsegae Duty Free Event(2604)",
-          "target": "新世界免稅店上線特別優惠開跑",
-          "ogDesc": "新世界免稅店上線特別優惠開跑",
-          "startDate": "2026-04-23T15:00:00Z",
-          "endDate": "2026-05-23T15:00:00Z",
-          "tags": [
-            {
-              "id": 549,
-              "key": "遊韓用LINE Pay",
-              "type": "OTHER",
-              "text": "遊韓用LINE Pay",
-              "projectCode": "CMS"
-            },
-            {
-              "id": 14,
-              "key": "優惠券",
-              "type": "CATEGORY",
-              "text": "優惠券",
-              "projectCode": "CMS"
-            },
-            {
-              "id": 8,
-              "key": "指定付款方法",
-              "type": "PAYMENT",
-              "text": "指定付款方法",
-              "value": "iPASS MONEY",
-              "projectCode": "CMS"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "linepay-5370d209-49fc-4873-94a6-1db7d365c466",
-      "platform": "linepay",
-      "source": "linepay",
-      "slug": "5370d209-49fc-4873-94a6-1db7d365c466",
-      "url": "https://web-tw-pay.line.me/cms/event/template1.3/5370d209-49fc-4873-94a6-1db7d365c466",
-      "title": "韓國CU 優惠券大放送",
+      "slug": "286b6007-3c7c-4043-9f54-9c539dfff776",
+      "url": "https://web-tw-pay.line.me/cms/event/template1.3/286b6007-3c7c-4043-9f54-9c539dfff776",
+      "title": "樂天百貨&三星物產 LINE Pay 專屬 10% 折扣優惠！",
       "period": {
         "start": "2026/03/18",
         "end": "2026/03/31",
@@ -122596,13 +122596,15 @@
         "periodSource": "api"
       },
       "merchants": [
-        "韓國CU超商 指定實體門市"
+        "樂天百貨明洞總店／蠶室店／樂天世界購物中心",
+        "樂天百貨"
       ],
       "rewards": [
         {
           "label": "優惠",
-          "detail": "韓國CU 優惠券大放送",
-          "role": "base"
+          "detail": "樂天百貨&三星物產 LINE Pay 專屬 10% 折扣優惠！",
+          "role": "base",
+          "pct": 10
         }
       ],
       "scopeHints": [
@@ -122610,16 +122612,16 @@
         "優惠券",
         "指定付款方法"
       ],
-      "searchText": "韓國cu 優惠券大放送 韓國cu 優惠券大放送 韓國cu超商 指定實體門市 優惠 韓國cu 優惠券大放送 遊韓用line pay 優惠券 指定付款方法",
+      "searchText": "樂天百貨&三星物產 line pay 專屬 10% 折扣優惠！ 【韓國樂天百貨】line pay付款專樂天百貨 & samsung c&t discount event！ 樂天百貨明洞總店／蠶室店／樂天世界購物中心 樂天百貨 優惠 樂天百貨&三星物產 line pay 專屬 10% 折扣優惠！ 遊韓用line pay 優惠券 指定付款方法",
       "quotaFull": null,
       "official": true,
       "fetchedAt": "2026-08-19T06:20:25.921Z",
       "raw": {
-        "text": "韓國CU 優惠券大放送\n韓國CU 優惠券大放送\n韓國CU超商 指定實體門市\n※請更新LINE App及LINE Pay App至最新版本，並請以付款當下本頁面提供的活動店家為準※",
+        "text": "樂天百貨&三星物產 LINE Pay 專屬 10% 折扣優惠！\n【韓國樂天百貨】LINE Pay付款專樂天百貨 & Samsung C&T Discount Event！\n樂天百貨明洞總店／蠶室店／樂天世界購物中心\n※請更新LINE App及LINE Pay App至最新版本，並請以付款當下本頁面提供的活動店家為準※",
         "list": {
-          "name": "[UPay] CU Discount Event(2603)",
-          "target": "韓國CU超商 指定實體門市",
-          "ogDesc": "韓國CU 優惠券大放送",
+          "name": "LINE Pay付款專 LOTTE DS & Samsung C&T Discount Event(2603)",
+          "target": "樂天百貨明洞總店／蠶室店／樂天世界購物中心",
+          "ogDesc": "【韓國樂天百貨】LINE Pay付款專樂天百貨 & Samsung C&T Discount Event！",
           "startDate": "2026-03-18T15:00:00Z",
           "endDate": "2026-03-31T14:59:59Z",
           "tags": [
@@ -122687,75 +122689,6 @@
           "name": "CU Discount Event(2603)",
           "target": "韓國CU超商 指定實體門市",
           "ogDesc": "韓國CU 優惠券大放送",
-          "startDate": "2026-03-18T15:00:00Z",
-          "endDate": "2026-03-31T14:59:59Z",
-          "tags": [
-            {
-              "id": 549,
-              "key": "遊韓用LINE Pay",
-              "type": "OTHER",
-              "text": "遊韓用LINE Pay",
-              "projectCode": "CMS"
-            },
-            {
-              "id": 14,
-              "key": "優惠券",
-              "type": "CATEGORY",
-              "text": "優惠券",
-              "projectCode": "CMS"
-            },
-            {
-              "id": 8,
-              "key": "指定付款方法",
-              "type": "PAYMENT",
-              "text": "指定付款方法",
-              "value": "iPASS MONEY",
-              "projectCode": "CMS"
-            }
-          ]
-        }
-      }
-    },
-    {
-      "id": "linepay-041f04a8-02b8-4786-9933-396296d33e63",
-      "platform": "linepay",
-      "source": "linepay",
-      "slug": "041f04a8-02b8-4786-9933-396296d33e63",
-      "url": "https://web-tw-pay.line.me/cms/event/template1.3/041f04a8-02b8-4786-9933-396296d33e63",
-      "title": "樂天百貨&三星物產 LINE Pay 專屬 10% 折扣優惠！",
-      "period": {
-        "start": "2026/03/18",
-        "end": "2026/03/31",
-        "status": "ended",
-        "periodSource": "api"
-      },
-      "merchants": [
-        "樂天百貨明洞總店／蠶室店／樂天世界購物中心",
-        "樂天百貨"
-      ],
-      "rewards": [
-        {
-          "label": "優惠",
-          "detail": "樂天百貨&三星物產 LINE Pay 專屬 10% 折扣優惠！",
-          "role": "base",
-          "pct": 10
-        }
-      ],
-      "scopeHints": [
-        "遊韓用LINE Pay",
-        "優惠券",
-        "指定付款方法"
-      ],
-      "searchText": "樂天百貨&三星物產 line pay 專屬 10% 折扣優惠！ 【韓國樂天百貨】line pay付款專樂天百貨 & samsung c&t discount event！ 樂天百貨明洞總店／蠶室店／樂天世界購物中心 樂天百貨 優惠 樂天百貨&三星物產 line pay 專屬 10% 折扣優惠！ 遊韓用line pay 優惠券 指定付款方法",
-      "quotaFull": null,
-      "official": true,
-      "fetchedAt": "2026-08-19T06:20:25.921Z",
-      "raw": {
-        "text": "樂天百貨&三星物產 LINE Pay 專屬 10% 折扣優惠！\n【韓國樂天百貨】LINE Pay付款專樂天百貨 & Samsung C&T Discount Event！\n樂天百貨明洞總店／蠶室店／樂天世界購物中心\n※請更新LINE App及LINE Pay App至最新版本，並請以付款當下本頁面提供的活動店家為準※",
-        "list": {
-          "name": "[UPay] LINE Pay付款專 LOTTE DS & Samsung C&T Discount Event(2603)",
-          "target": "樂天百貨明洞總店／蠶室店／樂天世界購物中心",
-          "ogDesc": "【韓國樂天百貨】LINE Pay付款專樂天百貨 & Samsung C&T Discount Event！",
           "startDate": "2026-03-18T15:00:00Z",
           "endDate": "2026-03-31T14:59:59Z",
           "tags": [
@@ -122854,11 +122787,78 @@
       }
     },
     {
-      "id": "linepay-286b6007-3c7c-4043-9f54-9c539dfff776",
+      "id": "linepay-5370d209-49fc-4873-94a6-1db7d365c466",
       "platform": "linepay",
       "source": "linepay",
-      "slug": "286b6007-3c7c-4043-9f54-9c539dfff776",
-      "url": "https://web-tw-pay.line.me/cms/event/template1.3/286b6007-3c7c-4043-9f54-9c539dfff776",
+      "slug": "5370d209-49fc-4873-94a6-1db7d365c466",
+      "url": "https://web-tw-pay.line.me/cms/event/template1.3/5370d209-49fc-4873-94a6-1db7d365c466",
+      "title": "韓國CU 優惠券大放送",
+      "period": {
+        "start": "2026/03/18",
+        "end": "2026/03/31",
+        "status": "ended",
+        "periodSource": "api"
+      },
+      "merchants": [
+        "韓國CU超商 指定實體門市"
+      ],
+      "rewards": [
+        {
+          "label": "優惠",
+          "detail": "韓國CU 優惠券大放送",
+          "role": "base"
+        }
+      ],
+      "scopeHints": [
+        "遊韓用LINE Pay",
+        "優惠券",
+        "指定付款方法"
+      ],
+      "searchText": "韓國cu 優惠券大放送 韓國cu 優惠券大放送 韓國cu超商 指定實體門市 優惠 韓國cu 優惠券大放送 遊韓用line pay 優惠券 指定付款方法",
+      "quotaFull": null,
+      "official": true,
+      "fetchedAt": "2026-08-19T06:20:25.921Z",
+      "raw": {
+        "text": "韓國CU 優惠券大放送\n韓國CU 優惠券大放送\n韓國CU超商 指定實體門市\n※請更新LINE App及LINE Pay App至最新版本，並請以付款當下本頁面提供的活動店家為準※",
+        "list": {
+          "name": "[UPay] CU Discount Event(2603)",
+          "target": "韓國CU超商 指定實體門市",
+          "ogDesc": "韓國CU 優惠券大放送",
+          "startDate": "2026-03-18T15:00:00Z",
+          "endDate": "2026-03-31T14:59:59Z",
+          "tags": [
+            {
+              "id": 549,
+              "key": "遊韓用LINE Pay",
+              "type": "OTHER",
+              "text": "遊韓用LINE Pay",
+              "projectCode": "CMS"
+            },
+            {
+              "id": 14,
+              "key": "優惠券",
+              "type": "CATEGORY",
+              "text": "優惠券",
+              "projectCode": "CMS"
+            },
+            {
+              "id": 8,
+              "key": "指定付款方法",
+              "type": "PAYMENT",
+              "text": "指定付款方法",
+              "value": "iPASS MONEY",
+              "projectCode": "CMS"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "linepay-041f04a8-02b8-4786-9933-396296d33e63",
+      "platform": "linepay",
+      "source": "linepay",
+      "slug": "041f04a8-02b8-4786-9933-396296d33e63",
+      "url": "https://web-tw-pay.line.me/cms/event/template1.3/041f04a8-02b8-4786-9933-396296d33e63",
       "title": "樂天百貨&三星物產 LINE Pay 專屬 10% 折扣優惠！",
       "period": {
         "start": "2026/03/18",
@@ -122890,7 +122890,7 @@
       "raw": {
         "text": "樂天百貨&三星物產 LINE Pay 專屬 10% 折扣優惠！\n【韓國樂天百貨】LINE Pay付款專樂天百貨 & Samsung C&T Discount Event！\n樂天百貨明洞總店／蠶室店／樂天世界購物中心\n※請更新LINE App及LINE Pay App至最新版本，並請以付款當下本頁面提供的活動店家為準※",
         "list": {
-          "name": "LINE Pay付款專 LOTTE DS & Samsung C&T Discount Event(2603)",
+          "name": "[UPay] LINE Pay付款專 LOTTE DS & Samsung C&T Discount Event(2603)",
           "target": "樂天百貨明洞總店／蠶室店／樂天世界購物中心",
           "ogDesc": "【韓國樂天百貨】LINE Pay付款專樂天百貨 & Samsung C&T Discount Event！",
           "startDate": "2026-03-18T15:00:00Z",

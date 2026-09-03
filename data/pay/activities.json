@@ -9,17 +9,17 @@
       "advertiseApi": "https://service.pxpayplus.com/px-advertise/web/activity/detail",
       "marketingBase": "https://marketing.pxpayplus.com/pxplus_marketing_page"
     },
-    "fetchedAt": "2026-09-03T02:04:19.287Z",
+    "fetchedAt": "2026-09-03T06:08:21.381Z",
     "count": 130,
     "cache": {
       "cachedEndedTotal": 80,
-      "skippedFetch": 115,
-      "freshlyFetched": 4,
+      "skippedFetch": 119,
+      "freshlyFetched": 0,
       "keptEndedNotInList": 11,
       "keptProtectedActive": 0,
       "total": 130
     },
-    "lastOcrAt": "2026-09-03T02:05:56.625Z",
+    "lastOcrAt": "2026-09-03T06:09:30.886Z",
     "ocrUpdated": 0
   },
   "activities": [
