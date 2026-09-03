@@ -117,6 +117,6 @@ MIT
 
 ## Pay activities → CardSwitch
 
-Monthly crawl/OCR/AI; commits `data/pay/` on CardSwitch.
+Every 5 days: crawl/OCR/AI; commits `data/pay/` on CardSwitch.
 
 See `tools/pay-pipeline/README.md`. Secrets: `GEMINI_API_KEY`, `CARDSWITCH_REPO`, `PAYMENTMAPTW_APP_TOKEN`.

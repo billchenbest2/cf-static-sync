@@ -16,7 +16,6 @@ import {
   loadEndedCache,
   loadActivityIndex,
   useCachedIfEnded,
-  useCachedIfUnchanged,
   finalizeAndSave,
   logCacheSummary,
 } from './activity-cache.mjs';
@@ -876,14 +875,13 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('[2/2] Fetching campaign pages (skip unchanged)...');
+  console.log('[2/2] Fetching campaign pages (always fetch active; body-hash compare)...');
   const endedCache = loadEndedCache(OUT_PATH);
   const prevIndex = loadActivityIndex(OUT_PATH);
   console.log(`  prev activities: ${prevIndex.size}, ended cache: ${endedCache.size}\n`);
 
   const activities = [];
   let skippedFetch = 0;
-  let skippedUnchanged = 0;
   for (let i = 0; i < listItems.length; i++) {
     const item = listItems[i];
     const slug = item.parsed?.slug || `ext-${i}`;
@@ -918,30 +916,6 @@ async function main() {
       externalUrl: item.parsed?.url || item.parsed?.fetchUrl || '',
       updateDate: '',
     };
-    const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod);
-    if (unchangedHit.skip) {
-      const cached = unchangedHit.cached;
-      const repaired =
-        cached?.period?.start || cached?.period?.end
-          ? cached
-          : {
-              ...cached,
-              period: enrichPeriodFromTexts(cached?.period, [
-                cached?.title,
-                cached?.raw?.subtitle,
-                cached?.raw?.listTitle,
-                cached?.raw?.text,
-                item.subtitle,
-                item.listTitle,
-                item.head,
-              ]),
-            };
-      activities.push(repaired);
-      skippedFetch++;
-      skippedUnchanged++;
-      process.stdout.write(`\r  ${i + 1}/${listItems.length}: [unchanged] ${item.listTitle.slice(0, 28)}   `);
-      continue;
-    }
 
     const label = item.listTitle.slice(0, 36);
     process.stdout.write(`\r  ${i + 1}/${listItems.length}: ${label}   `);
@@ -1031,7 +1005,6 @@ async function main() {
     });
   }
   console.log('');
-  if (skippedUnchanged) console.log(`  unchanged active/upcoming reused: ${skippedUnchanged}`);
 
   const { payload, stats } = finalizeAndSave(OUT_PATH, {
     meta: {

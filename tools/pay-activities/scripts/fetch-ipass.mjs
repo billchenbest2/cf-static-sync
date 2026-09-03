@@ -19,8 +19,6 @@ import {
   loadEndedCache,
   loadActivityIndex,
   useCachedIfEnded,
-  useCachedIfUnchanged,
-  mergeListFacingFields,
   finalizeAndSave,
   logCacheSummary,
 } from './activity-cache.mjs';
@@ -388,14 +386,13 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('[2/2] Fetching detail pages (skip unchanged)...');
+  console.log('[2/2] Fetching detail pages (always fetch active; body-hash compare)...');
   const endedCache = loadEndedCache(OUT_PATH);
   const prevIndex = loadActivityIndex(OUT_PATH);
   console.log(`  prev activities: ${prevIndex.size}, ended cache: ${endedCache.size}\n`);
 
   const activities = [];
   let skippedFetch = 0;
-  let skippedUnchanged = 0;
   for (let i = 0; i < listItems.length; i++) {
     const item = listItems[i];
     const slug = item.url.split('/').pop();
@@ -417,24 +414,6 @@ async function main() {
       externalUrl: item.url,
       updateDate: '',
     };
-    const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod);
-    if (unchangedHit.skip) {
-      // List title may only gain/lose a quota-full prefix — refresh title/quota,
-      // keep cached detail body + AI fields (no re-fetch).
-      const quotaFull = parseQuotaFull(item.title);
-      activities.push(
-        mergeListFacingFields(unchangedHit.cached, {
-          title: item.title,
-          listMeta,
-          listPeriod,
-          quotaFull,
-        })
-      );
-      skippedFetch++;
-      skippedUnchanged++;
-      process.stdout.write(`\r  ${i + 1}/${listItems.length}: [unchanged] ${item.title.slice(0, 28)}   `);
-      continue;
-    }
 
     process.stdout.write(`\r  ${i + 1}/${listItems.length}: ${item.title.slice(0, 40)}   `);
 
@@ -472,7 +451,6 @@ async function main() {
     activities.push(row);
   }
   console.log('');
-  if (skippedUnchanged) console.log(`  unchanged active/upcoming reused: ${skippedUnchanged}`);
 
   const { payload, stats } = finalizeAndSave(OUT_PATH, {
     meta: {

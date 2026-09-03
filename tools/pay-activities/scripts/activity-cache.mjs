@@ -1,9 +1,11 @@
 /**
  * Activity cache helpers:
- * - Skip re-fetch for ended (and unchanged active) rows
- * - Preserve AI verification fields when content fingerprint is unchanged
+ * - Skip re-fetch for ended rows only
+ * - Active/upcoming: always re-fetch detail, compare body hash
+ * - Preserve AI verification fields when body hash is unchanged
  */
 import fs from 'fs';
+import { createHash } from 'crypto';
 
 const AI_FIELDS = [
   'aiVerifiedAt',
@@ -168,8 +170,10 @@ export function refreshPeriodStatus(period) {
 }
 
 /**
- * Reuse a previously crawled activity when list metadata is unchanged
- * (same title/dates/url/updateDate) and we already have detail text.
+ * @deprecated Prefer always fetching active/upcoming details and comparing
+ * body hash. List title/dates often stay fixed while quota-full notices
+ * update only the detail body (e.g. icash Pay). Kept for rare callers that
+ * still opt into list-meta short-circuit.
  *
  * listMeta.softReuse: when the platform has no list fingerprint (e.g. PX
  * advertise id probe), skip re-fetch if prior body exists and period is
@@ -254,6 +258,44 @@ export function useCachedIfUnchanged(prevIndex, id, listMeta, listPeriod = null)
   return { skip: false, cached: null };
 }
 
+/** Normalize detail body for hashing / fingerprint compare. */
+export function normalizeBodyText(text) {
+  return String(text || '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/** SHA-256 of normalized detail body (empty string if no body). */
+export function hashBodyText(text) {
+  const n = normalizeBodyText(text);
+  if (!n) return '';
+  return createHash('sha256').update(n, 'utf8').digest('hex');
+}
+
+export function activityBodyHash(act) {
+  if (act?.contentHash && typeof act.contentHash === 'string' && act.contentHash.length >= 16) {
+    // Prefer recomputing from text when present so stale hashes cannot stick.
+    const fromText = hashBodyText(act?.raw?.text || '');
+    return fromText || act.contentHash;
+  }
+  return hashBodyText(act?.raw?.text || '');
+}
+
+export function bodiesMatch(a, b) {
+  const ha = activityBodyHash(a);
+  const hb = activityBodyHash(b);
+  if (ha && hb) return ha === hb;
+  const fa = bodyFingerprint(a);
+  const fb = bodyFingerprint(b);
+  return fa.length > 20 && fa === fb;
+}
+
+export function withContentHash(act) {
+  if (!act) return act;
+  const contentHash = hashBodyText(act?.raw?.text || '');
+  return contentHash ? { ...act, contentHash } : act;
+}
+
 export function contentFingerprint(act) {
   const title = String(act?.title || '');
   const start = act?.period?.start || '';
@@ -265,10 +307,7 @@ export function contentFingerprint(act) {
 
 /** Body-only fingerprint (ignore title/date drift from list cards). */
 export function bodyFingerprint(act) {
-  return String(act?.raw?.text || '')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .slice(0, 8000);
+  return normalizeBodyText(act?.raw?.text || '').slice(0, 8000);
 }
 
 /**
@@ -277,6 +316,7 @@ export function bodyFingerprint(act) {
  *
  * Important: AI may intentionally set rewards=[] (no %). Restore that too —
  * do not keep heuristic extracts over a verified empty list.
+ * quotaFull is intentionally NOT restored — always keep the freshly parsed value.
  */
 export function preserveAiFields(fresh, prev) {
   if (!fresh) return fresh;
@@ -291,8 +331,7 @@ export function preserveAiFields(fresh, prev) {
   if (!prev.aiVerifiedAt) return out;
 
   const sameFull = contentFingerprint(fresh) === contentFingerprint(prev);
-  const prevBody = bodyFingerprint(prev);
-  const sameBody = prevBody.length > 20 && prevBody === bodyFingerprint(fresh);
+  const sameBody = bodiesMatch(fresh, prev);
 
   if (sameFull || sameBody) {
     for (const key of AI_FIELDS) {
@@ -354,17 +393,26 @@ export function mergeWithEndedCache(freshActivities, endedCache, prevIndex = nul
 
 export function finalizeAndSave(outPath, { meta, activities, endedCache, skippedFetch = 0 }) {
   const prevIndex = loadActivityIndex(outPath);
+  let bodyHashMatch = 0;
+  let bodyHashChanged = 0;
   const preserved = activities.map((row) => {
     const fromCache = row._fromCache;
     const { _fromCache, _cacheReason, ...act } = row;
-    if (fromCache) return { ...act, _fromCache: true };
-    return preserveAiFields(act, prevIndex.get(act.id));
+    if (fromCache) return { ...withContentHash(act), _fromCache: true };
+    const prev = prevIndex.get(act.id);
+    const hashed = withContentHash(act);
+    const out = preserveAiFields(hashed, prev);
+    if (prev && bodiesMatch(out, prev)) bodyHashMatch++;
+    else if (hashBodyText(out?.raw?.text || '')) bodyHashChanged++;
+    return out;
   });
 
   const { activities: merged, stats } = mergeWithEndedCache(preserved, endedCache, prevIndex);
   const cache = {
     ...stats,
     skippedFetch: skippedFetch || stats.skippedFetch,
+    bodyHashMatch,
+    bodyHashChanged,
   };
   const payload = {
     meta: {
@@ -384,6 +432,8 @@ export function logCacheSummary(stats) {
   if (stats.cachedEndedTotal) console.log(`  ended cache loaded: ${stats.cachedEndedTotal}`);
   if (stats.skippedFetch) console.log(`  skipped re-fetch (cached): ${stats.skippedFetch}`);
   if (stats.freshlyFetched != null) console.log(`  freshly crawled: ${stats.freshlyFetched}`);
+  if (stats.bodyHashMatch) console.log(`  body hash match (AI kept): ${stats.bodyHashMatch}`);
+  if (stats.bodyHashChanged) console.log(`  body hash changed: ${stats.bodyHashChanged}`);
   if (stats.keptEndedNotInList) {
     console.log(`  kept ended (no longer on site): ${stats.keptEndedNotInList}`);
   }

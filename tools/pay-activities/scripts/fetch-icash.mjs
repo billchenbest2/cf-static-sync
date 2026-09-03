@@ -16,7 +16,6 @@ import {
   loadEndedCache,
   loadActivityIndex,
   useCachedIfEnded,
-  useCachedIfUnchanged,
   finalizeAndSave,
   logCacheSummary,
 } from './activity-cache.mjs';
@@ -369,14 +368,13 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('[2/2] Fetching detail pages (skip unchanged)...');
+  console.log('[2/2] Fetching detail pages (always fetch active; body-hash compare)...');
   const endedCache = loadEndedCache(OUT_PATH);
   const prevIndex = loadActivityIndex(OUT_PATH);
   console.log(`  prev activities: ${prevIndex.size}, ended cache: ${endedCache.size}\n`);
 
   const activities = [];
   let skippedFetch = 0;
-  let skippedUnchanged = 0;
   for (let i = 0; i < listItems.length; i++) {
     const item = listItems[i];
     const id = `icash-${item.id}`;
@@ -396,16 +394,6 @@ async function main() {
       externalUrl: item.url,
       updateDate: '',
     };
-    const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, null);
-    if (unchangedHit.skip) {
-      activities.push(unchangedHit.cached);
-      skippedFetch++;
-      skippedUnchanged++;
-      process.stdout.write(
-        `\r  ${i + 1}/${listItems.length}: [unchanged] ${(item.title || item.id).slice(0, 28)}   `
-      );
-      continue;
-    }
 
     process.stdout.write(`\r  ${i + 1}/${listItems.length}: ${(item.title || item.id).slice(0, 40)}   `);
 
@@ -443,7 +431,6 @@ async function main() {
     });
   }
   console.log('');
-  if (skippedUnchanged) console.log(`  unchanged active/upcoming reused: ${skippedUnchanged}`);
 
   const { payload, stats } = finalizeAndSave(OUT_PATH, {
     meta: {

@@ -1,6 +1,6 @@
 # Pay Activities Pipeline (cf-static-sync)
 
-每月爬取行動支付活動 → AI 判讀 → 推送到 **CardSwitch** 的 `data/pay/`。
+每 5 天爬取行動支付活動 → AI 判讀 → 推送到 **CardSwitch** 的 `data/pay/`。
 
 引擎在 `tools/pay-activities/`，排程：`.github/workflows/pay-activities-monthly.yml`。
 
@@ -8,9 +8,7 @@
 
 | 時間 |
 |------|
-| 每月 1 日 00:30 |
-| 每月 1 日 12:30 |
-| 每月 2 日 00:30 |
+| 每 5 天（1 / 6 / 11 / 16 / 21 / 26 日） 00:30 |
 
 ## 本機
 

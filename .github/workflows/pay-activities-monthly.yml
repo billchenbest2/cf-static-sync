@@ -1,7 +1,7 @@
-name: Pay activities pipeline (monthly → CardSwitch)
+name: Pay activities pipeline (every 5 days → CardSwitch)
 
 # Crawl + OCR + AI into cf-static-sync/data/pay (cached), then publish to CardSwitch.
-# Taipei windows (gated): 1st 00:30, 1st 12:30, 2nd 00:30
+# Taipei window (gated): every 5 days (1/6/11/16/21/26) at 00:30
 
 on:
   workflow_dispatch:
@@ -27,9 +27,9 @@ on:
         type: boolean
         default: false
   schedule:
-    - cron: "30 16 28-31 * *"
-    - cron: "30 4 1 * *"
-    - cron: "30 16 1 * *"
+    # Daily 16:30 UTC (= 00:30 Taipei next calendar day). Gate keeps only
+    # Taipei days 1/6/11/16/21/26 so the cadence is every ~5 days.
+    - cron: "30 16 * * *"
 
 concurrency:
   group: pay-activities-pipeline
@@ -54,7 +54,7 @@ jobs:
       - name: Skip outside window
         if: steps.gate.outcome == 'failure' && github.event_name == 'schedule'
         run: |
-          echo "Outside monthly Taipei windows — exiting successfully."
+          echo "Outside every-5-days Taipei window — exiting successfully."
           exit 0
 
       - name: Require secrets
@@ -183,7 +183,7 @@ jobs:
             echo "No CardSwitch data/pay changes"
             exit 0
           fi
-          git commit -m "chore: monthly pay activities pipeline update"
+          git commit -m "chore: pay activities pipeline update (every 5 days)"
           git reset --hard HEAD
           git clean -fd
           BRANCH="$(git rev-parse --abbrev-ref HEAD)"

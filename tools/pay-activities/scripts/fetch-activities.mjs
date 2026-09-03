@@ -17,8 +17,6 @@ import {
   loadEndedCache,
   loadActivityIndex,
   useCachedIfEnded,
-  useCachedIfUnchanged,
-  refreshPeriodStatus,
   finalizeAndSave,
   logCacheSummary,
 } from './activity-cache.mjs';
@@ -365,7 +363,6 @@ async function fetchJson(url, opts = {}) {
 async function fetchAdvertiseActivities(endedCache, prevIndex) {
   const items = [];
   let skippedFetch = 0;
-  let skippedUnchanged = 0;
   let missStreak = 0;
   const MAX_ID = 200;
   const MAX_MISS = 5;
@@ -381,23 +378,17 @@ async function fetchAdvertiseActivities(endedCache, prevIndex) {
     }
 
     const prev = prevIndex.get(actId);
-    const softPeriod = refreshPeriodStatus(prev?.period);
-    const unchangedHit = useCachedIfUnchanged(
-      prevIndex,
-      actId,
-      { softReuse: true },
-      softPeriod
-    );
-    if (unchangedHit.skip) {
-      items.push(unchangedHit.cached);
-      skippedFetch++;
-      skippedUnchanged++;
-      process.stdout.write(`\r  activity_content_page: ${items.length} (id=${id} unchanged)   `);
-      continue;
-    }
+    // Always re-fetch active/upcoming advertise payloads so body hash can detect
+    // in-place copy updates (quota-full notices etc). softReuse list-meta skip removed.
 
     const raw = await fetchJson(`${ADV_BASE}/${id}`);
     if (!raw || raw.code !== '0000' || !raw.data) {
+      // Keep prior active row if probe miss (API gap) rather than dropping it.
+      if (prev && (prev.period?.status === 'active' || prev.period?.status === 'upcoming')) {
+        items.push({ ...prev, _fromCache: true, _cacheReason: 'probe-miss' });
+        skippedFetch++;
+        process.stdout.write(`\r  activity_content_page: ${items.length} (id=${id} keep)   `);
+      }
       missStreak++;
       await sleep(80);
       continue;
@@ -465,7 +456,6 @@ async function fetchAdvertiseActivities(endedCache, prevIndex) {
           endDate: d.activity_end_time || '',
           externalUrl: `${MARKETING_BASE}/activity_content_page?EventId=${id}`,
           updateDate: d.update_date || d.updateDate || '',
-          softReuse: true,
         },
       },
     });
@@ -474,7 +464,6 @@ async function fetchAdvertiseActivities(endedCache, prevIndex) {
     await sleep(60);
   }
   console.log('');
-  if (skippedUnchanged) console.log(`  advertise unchanged reused: ${skippedUnchanged}`);
   return { items, skippedFetch };
 }
 
@@ -540,7 +529,6 @@ async function fetchFixedRoutes(endedCache, prevIndex) {
 
   const items = [];
   let skippedFetch = 0;
-  let skippedUnchanged = 0;
   for (const route of routes) {
     const actId = `fixed-${route.slug}`;
     const cachedHit = useCachedIfEnded(endedCache, actId);
@@ -548,29 +536,6 @@ async function fetchFixedRoutes(endedCache, prevIndex) {
       items.push({ ...cachedHit.cached, _fromCache: true });
       skippedFetch++;
       process.stdout.write(`\r  fixed routes: ${items.length}/${routes.length} (${route.slug} cached)   `);
-      continue;
-    }
-
-    const listMeta = {
-      title: route.title || route.ogDescription || route.slug,
-      name: route.name || route.slug,
-      startDate: '',
-      endDate: '',
-      externalUrl: route.url,
-      updateDate: '',
-    };
-    const prev = prevIndex.get(actId);
-    const unchangedHit = useCachedIfUnchanged(
-      prevIndex,
-      actId,
-      listMeta,
-      refreshPeriodStatus(prev?.period)
-    );
-    if (unchangedHit.skip) {
-      items.push(unchangedHit.cached);
-      skippedFetch++;
-      skippedUnchanged++;
-      process.stdout.write(`\r  fixed routes: ${items.length}/${routes.length} (${route.slug} unchanged)   `);
       continue;
     }
 
@@ -630,7 +595,6 @@ async function fetchFixedRoutes(endedCache, prevIndex) {
     await sleep(100);
   }
   console.log('');
-  if (skippedUnchanged) console.log(`  fixed unchanged reused: ${skippedUnchanged}`);
   return { items, skippedFetch };
 }
 

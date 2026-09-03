@@ -13,6 +13,43 @@ function pad2(n) {
   return String(n).padStart(2, '0');
 }
 
+function isCurrentMonthNotice(n, currentMonth) {
+  if (n.month === currentMonth) return true;
+  if (!n.month && n.at) {
+    const mm = String(n.at).match(/\/(\d{2})\//);
+    return mm ? Number(mm[1]) === currentMonth : false;
+  }
+  return !n.month && !n.at;
+}
+
+/** Build / refresh quotaFull fields from parsed notices using wall-clock "now". */
+export function labelQuotaNotices(notices, now = new Date()) {
+  if (!Array.isArray(notices) || !notices.length) return null;
+  const currentMonth = now.getMonth() + 1;
+  const currentMonthFull = notices.some((n) => isCurrentMonthNotice(n, currentMonth));
+  const primary = notices.find((n) => isCurrentMonthNotice(n, currentMonth)) || notices[0];
+  let label = '已額滿';
+  if (currentMonthFull) {
+    label = primary.month ? `本月已額滿（${primary.month}月）` : '本月已額滿';
+  } else if (primary.portion) {
+    label = `${primary.portion}已額滿`;
+  } else if (primary.month) {
+    label = `${primary.month}月已額滿`;
+  } else {
+    label = '已額滿';
+  }
+  return {
+    full: true,
+    currentMonthFull,
+    month: primary.month,
+    at: primary.at,
+    portion: primary.portion,
+    label,
+    note: notices.map((n) => n.note).filter(Boolean).join('；'),
+    notices,
+  };
+}
+
 export function parseQuotaFull(...parts) {
   const blob = parts
     .map((p) => (typeof p === 'string' ? p : ''))
@@ -39,48 +76,31 @@ export function parseQuotaFull(...parts) {
   }
 
   if (!notices.length) return null;
-
-  const now = new Date();
-  const currentMonth = now.getMonth() + 1;
-  const isCurrent = (n) => {
-    if (n.month === currentMonth) return true;
-    if (!n.month && n.at) {
-      const mm = n.at.match(/\/(\d{2})\//);
-      return mm ? Number(mm[1]) === currentMonth : false;
-    }
-    return !n.month && !n.at;
-  };
-  const currentMonthFull = notices.some(isCurrent);
-  const primary = notices.find(isCurrent) || notices[0];
-  let label = '已額滿';
-  if (currentMonthFull) {
-    label = primary.month ? `本月已額滿（${primary.month}月）` : '本月已額滿';
-  } else if (primary.portion) {
-    label = `${primary.portion}已額滿`;
-  } else if (primary.month) {
-    label = `${primary.month}月已額滿`;
-  } else {
-    label = '已額滿';
-  }
-
-  return {
-    full: true,
-    currentMonthFull,
-    month: primary.month,
-    at: primary.at,
-    portion: primary.portion,
-    label,
-    note: notices.map((n) => n.note).join('；'),
-    notices,
-  };
+  return labelQuotaNotices(notices);
 }
 
 export function quotaFromActivity(activity) {
-  if (activity?.quotaFull?.full) return activity.quotaFull;
-  return parseQuotaFull(
+  const parsed = parseQuotaFull(
     activity?.title,
     activity?.searchText,
     activity?.raw?.text,
+    activity?.quotaFull?.note,
     ...(activity?.rewards || []).map((r) => `${r.label || ''} ${r.detail || ''}`)
   );
+  if (parsed) {
+    if (activity?.quotaFull?.source) parsed.source = activity.quotaFull.source;
+    return parsed;
+  }
+
+  // Coupon / API quota (e.g. JKO remaining=0) — not calendar-month notices.
+  if (activity?.quotaFull?.full && activity.quotaFull.source) {
+    return activity.quotaFull;
+  }
+
+  // Fallback: re-label from stored notices — never trust a frozen currentMonthFull.
+  if (activity?.quotaFull?.notices?.length) {
+    return labelQuotaNotices(activity.quotaFull.notices);
+  }
+
+  return null;
 }

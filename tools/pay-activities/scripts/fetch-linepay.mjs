@@ -20,7 +20,6 @@ import {
   loadEndedCache,
   loadActivityIndex,
   useCachedIfEnded,
-  useCachedIfUnchanged,
   finalizeAndSave,
   logCacheSummary,
 } from './activity-cache.mjs';
@@ -571,14 +570,13 @@ async function main() {
   const nestedAdded = await discoverLandpressNested(listItems, scrapedLandpress);
   console.log(`  nested added: ${nestedAdded.length} (list now ${listItems.length})\n`);
 
-  console.log('[3/4] Fetching details for active / upcoming (skip unchanged)...');
+  console.log('[3/4] Fetching details for active / upcoming (always fetch; body-hash compare)...');
   const endedCache = loadEndedCache(OUT_PATH);
   const prevIndex = loadActivityIndex(OUT_PATH);
   console.log(`  prev activities: ${prevIndex.size}, ended cache: ${endedCache.size}\n`);
 
   const activities = [];
   let skippedFetch = 0;
-  let skippedUnchanged = 0;
   for (let i = 0; i < listItems.length; i++) {
     const item = listItems[i];
     const id = `linepay-${item.key}`;
@@ -598,13 +596,6 @@ async function main() {
       updateDate: item.updateDate,
       externalUrl: item.externalUrl || null,
     };
-    const unchangedHit = useCachedIfUnchanged(prevIndex, id, listMeta, period);
-    if (unchangedHit.skip) {
-      activities.push(unchangedHit.cached);
-      skippedFetch++;
-      skippedUnchanged++;
-      continue;
-    }
 
     const needDetail = period.status === 'active' || period.status === 'upcoming';
 
@@ -660,7 +651,6 @@ async function main() {
     activities.push(buildActivityRecord(item, detail));
   }
   console.log('');
-  if (skippedUnchanged) console.log(`  unchanged active/upcoming reused: ${skippedUnchanged}`);
 
   console.log('[4/4] Saving...');
   const { payload, stats } = finalizeAndSave(OUT_PATH, {

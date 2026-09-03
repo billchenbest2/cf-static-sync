@@ -14,7 +14,6 @@ import {
   loadEndedCache,
   loadActivityIndex,
   useCachedIfEnded,
-  useCachedIfUnchanged,
   finalizeAndSave,
   logCacheSummary,
   preserveAiFields,
@@ -594,7 +593,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log('[2/3] Building activities (skip unchanged)...');
+  console.log('[2/3] Building activities (always rebuild active; body-hash compare)...');
   const endedCache = loadEndedCache(OUT_PATH);
   const prevIndex = loadActivityIndex(OUT_PATH);
   console.log(`  prev activities: ${prevIndex.size}, ended cache: ${endedCache.size}\n`);
@@ -602,7 +601,6 @@ async function main() {
   const activities = [];
   const seen = new Set();
   let skippedFetch = 0;
-  let skippedUnchanged = 0;
 
   for (const entry of [...homeCards, ...standalonePages]) {
     const dedupeKey = entry.pageId
@@ -630,23 +628,6 @@ async function main() {
       continue;
     }
 
-    const url = activityUrl(entry, pageMap);
-    const listMeta = {
-      title: entry.title,
-      name: entry.title,
-      startDate: listPeriod?.start || '',
-      endDate: listPeriod?.end || '',
-      externalUrl: url,
-      updateDate: '',
-    };
-    const unchangedHit = useCachedIfUnchanged(prevIndex, prevLookupId, listMeta, listPeriod);
-    if (unchangedHit.skip) {
-      activities.push({ ...unchangedHit.cached, id });
-      skippedFetch++;
-      skippedUnchanged++;
-      continue;
-    }
-
     const act = buildActivity(entry, pageMap);
     if (prevLookupId !== id && prevIndex.has(prevLookupId)) {
       activities.push(preserveAiFields({ ...act, id }, prevIndex.get(prevLookupId)));
@@ -656,7 +637,6 @@ async function main() {
   }
 
   console.log('[3/3] Saving...');
-  if (skippedUnchanged) console.log(`  unchanged reused: ${skippedUnchanged}`);
 
   const { payload, stats } = finalizeAndSave(OUT_PATH, {
     meta: {
