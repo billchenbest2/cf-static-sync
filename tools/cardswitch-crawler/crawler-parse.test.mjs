@@ -300,6 +300,39 @@ describe('crawler parsers — fixture tests', () => {
     assert.ok(!out.big.some((row) => row[0] === 'SKM'));
     assert.ok(!out.big.some((row) => row[0] === 'Park Outlets'));
   });
+
+  it('richart: captures title-only overseas merchant under 玩旅刷', () => {
+    const html = `
+      <div class="search-area">
+        <div class="seven-plan">
+          <div class="tab-table active" id="tab-b">
+            <div class="plan-item">
+              <div class="plan-tag">玩旅刷<span>3.3</span><small>%</small></div>
+              <div class="item-row">
+                <div class="item-col-full">
+                  <div class="item-col-title">海外消費(含實體及線上、歐洲國家交易)<a href="javascript:;" class="info" data-id="item-6-1-1"></a></div>
+                </div>
+                <div class="item-col">
+                  <div class="item-col-title">航空公司</div>
+                  <div class="item-col-text">中華航空｜長榮航空</div>
+                </div>
+                <div class="item-col">
+                  <div class="item-col-title">海外交通/網路</div>
+                  <div class="item-col-text">Uber｜Grab</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>`;
+    const out = parseRichartHtml(html);
+    assert.ok(out.travel.some((row) => row[0] === '海外消費(含實體及線上、歐洲國家交易)'));
+    assert.ok(out.travel.some((row) => row[0] === '中華航空'));
+    assert.ok(out.travel.some((row) => row[0] === 'Uber'));
+    assert.ok(!out.travel.some((row) => row[0] === '航空公司'));
+    assert.ok(!out.travel.some((row) => row[0] === '海外交通/網路'));
+  });
 });
 
 describe('crawler parsers — repo data invariants', () => {

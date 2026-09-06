@@ -397,6 +397,21 @@ function parseRichartClassicMerchantLine(line) {
   return parts;
 }
 
+function parseRichartClassicTitleOnlyMerchants(section, seen, items) {
+  // Standalone full-width titles (e.g. 海外消費(...)) are searchable merchants,
+  // not category headers — those live in item-col-title with sibling item-col-text.
+  const fullCols =
+    section.match(/<div[^>]*class="[^"]*\bitem-col-full\b[^"]*"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/gi) || [];
+  for (const col of fullCols) {
+    if (/\bitem-col-text\b/i.test(col)) continue;
+    const titleRaw = (col.match(/<div[^>]*class="[^"]*\bitem-col-title\b[^"]*"[^>]*>([\s\S]*?)<\/div>/i) || [])[1];
+    const merchant = normalizeRichartItem(normalizeText(titleRaw));
+    if (!merchant || seen.has(merchant)) continue;
+    seen.add(merchant);
+    items.push([merchant]);
+  }
+}
+
 function parseRichartClassicSection(sectionHtml, planMap, out, usedKeys = new Set()) {
   const starts = [];
   const re = /<div[^>]*class="[^"]*plan-item[^"]*"[^>]*>/gi;
@@ -413,6 +428,7 @@ function parseRichartClassicSection(sectionHtml, planMap, out, usedKeys = new Se
     if (!key) continue;
     const items = out[key] || (out[key] = []);
     const seen = new Set(items.map((entry) => String(entry[0] || '').trim()));
+    parseRichartClassicTitleOnlyMerchants(section, seen, items);
     const cols = section.match(/<div[^>]*class="[^"]*\bitem-col-text\b[^"]*"[^>]*>([\s\S]*?)<\/div>/gi) || [];
     for (const col of cols) {
       const lines = normalizeRichartSoftWraps(normalizeText(col))
