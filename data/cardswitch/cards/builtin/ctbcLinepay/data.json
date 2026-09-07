@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-02T21:04:31.456Z",
+  "updatedAt": "2026-09-07T21:31:38.590Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -94,36 +94,6 @@
           "limitPeriod": "每季",
           "ratePercent": 5,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_starbucks"
-        }
-      ]
-    },
-    {
-      "name": "LOPIA",
-      "keywords": [
-        "LOPIA"
-      ],
-      "offers": [
-        {
-          "categoryId": "food",
-          "categoryName": "脆饗食",
-          "period": "2026/7/1~2026/12/31",
-          "offerText": "10%",
-          "noticeText": "JCB卡\n 需登錄，活動期間每季每戶最高回饋200點，每月限量登錄5,000名",
-          "limitText": "最高回饋200點",
-          "limitPeriod": "每季",
-          "ratePercent": 10,
-          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_lopia"
-        },
-        {
-          "categoryId": "food",
-          "categoryName": "脆饗食",
-          "period": "2026/7/1~2026/9/30",
-          "offerText": "LINE POINTS 6%",
-          "noticeText": "LINE Pay支付",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 6,
-          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/da317d2b-073b-4166-8245-67773afb65cb"
         }
       ]
     },
@@ -276,6 +246,25 @@
           "limitPeriod": null,
           "ratePercent": null,
           "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/c5a8e7a1-657e-411c-887a-f988ce1093df"
+        }
+      ]
+    },
+    {
+      "name": "LOPIA",
+      "keywords": [
+        "LOPIA"
+      ],
+      "offers": [
+        {
+          "categoryId": "food",
+          "categoryName": "脆饗食",
+          "period": "2026/7/1~2026/9/30",
+          "offerText": "LINE POINTS 6%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 6,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/da317d2b-073b-4166-8245-67773afb65cb"
         }
       ]
     },
