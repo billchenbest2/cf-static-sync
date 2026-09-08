@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-07T21:31:38.590Z",
+  "updatedAt": "2026-09-08T21:10:24.146Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -2024,44 +2024,6 @@
           "limitPeriod": null,
           "ratePercent": 6,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_twdd"
-        }
-      ]
-    },
-    {
-      "name": "韓國OLIVE YOUNG\n全門市",
-      "keywords": [
-        "韓國OLIVE YOUNG\n全門市"
-      ],
-      "offers": [
-        {
-          "categoryId": "travel",
-          "categoryName": "脆自遊",
-          "period": "2026/8/30~2026/9/5",
-          "offerText": "最高20%",
-          "noticeText": "LINE Pay支付",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 20,
-          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/adcf10d8-047e-4d29-a3a1-ac18087ebc04"
-        }
-      ]
-    },
-    {
-      "name": "OLIVE YOUNG Global\n線上購物",
-      "keywords": [
-        "OLIVE YOUNG Global\n線上購物"
-      ],
-      "offers": [
-        {
-          "categoryId": "travel",
-          "categoryName": "脆自遊",
-          "period": "2026/8/30~2026/9/5",
-          "offerText": "最高20%",
-          "noticeText": "LINE Pay支付",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 20,
-          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/42aaa812-fb0c-40c1-912c-e02c07cac723"
         }
       ]
     },
