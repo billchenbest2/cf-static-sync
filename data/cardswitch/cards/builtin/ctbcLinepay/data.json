@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-08T21:10:24.146Z",
+  "updatedAt": "2026-09-11T20:58:36.092Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -327,11 +327,11 @@
           "categoryId": "shopping",
           "categoryName": "脆好購",
           "period": "2026/7/1~2026/12/31",
-          "offerText": "活動① 火箭速配最高享8%\n 活動② LINE POINTS 5%(每月5號10:00開放登錄)",
+          "offerText": "活動① 火箭速配最高享9%\n 活動② LINE POINTS 5%(每月5號10:00開放登錄)",
           "noticeText": "Visa卡",
           "limitText": null,
           "limitPeriod": null,
-          "ratePercent": 8,
+          "ratePercent": 9,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_coupang"
         }
       ]
@@ -584,25 +584,6 @@
       ]
     },
     {
-      "name": "iQueen愛女人購物網",
-      "keywords": [
-        "iQueen愛女人購物網"
-      ],
-      "offers": [
-        {
-          "categoryId": "shopping",
-          "categoryName": "脆好購",
-          "period": "2026/7/1~2026/12/31",
-          "offerText": "5%",
-          "noticeText": "限信用卡且透過SHOPBACK專區",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 5,
-          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
-        }
-      ]
-    },
-    {
       "name": "UNIQLO",
       "keywords": [
         "UNIQLO"
@@ -660,25 +641,6 @@
       ]
     },
     {
-      "name": "BODY GOALS",
-      "keywords": [
-        "BODY GOALS"
-      ],
-      "offers": [
-        {
-          "categoryId": "shopping",
-          "categoryName": "脆好購",
-          "period": "2026/7/1~2026/12/31",
-          "offerText": "7%",
-          "noticeText": "限信用卡且透過SHOPBACK專區",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 7,
-          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
-        }
-      ]
-    },
-    {
       "name": "Myprotein",
       "keywords": [
         "Myprotein"
@@ -693,25 +655,6 @@
           "limitText": null,
           "limitPeriod": null,
           "ratePercent": 6.5,
-          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
-        }
-      ]
-    },
-    {
-      "name": "鮮拾購物網",
-      "keywords": [
-        "鮮拾購物網"
-      ],
-      "offers": [
-        {
-          "categoryId": "shopping",
-          "categoryName": "脆好購",
-          "period": "2026/7/1~2026/12/31",
-          "offerText": "6%",
-          "noticeText": "限信用卡且透過SHOPBACK專區",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 6,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
         }
       ]
