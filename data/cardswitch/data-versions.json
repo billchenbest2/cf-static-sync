@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-13T20:50:57.156Z",
+  "updatedAt": "2026-09-14T21:50:24.318Z",
   "files": {
     "cards/builtin/cathay/data.json": "2026-09-09T20:56:33.088Z",
     "cards/builtin/cathayAsiaMiles/data.json": "2026-08-23T03:56:19.601Z",
@@ -11,7 +11,7 @@
     "cards/builtin/hsbc/data.json": "2026-08-30T07:33:07.139Z",
     "cards/builtin/hsbcTravel/data.json": "2026-08-23T03:56:20.086Z",
     "cards/builtin/taishin/data.json": "2026-09-06T01:13:27.045Z",
-    "cards/builtin/ubot/data.json": "2026-08-30T07:33:08.168Z",
+    "cards/builtin/ubot/data.json": "2026-09-14T21:50:16.617Z",
     "miles_data/cathay_miles_data.json": "2026-08-30T07:33:16.289Z",
     "miles_data/dbs_miles_data.json": "2026-09-02T21:04:39.836Z",
     "miles_data/esun_miles_data.json": "2026-08-30T07:33:16.289Z",
