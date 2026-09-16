@@ -16,13 +16,14 @@
     "cards/builtin/hsbcTravel/data.json",
     "cards/builtin/ctbcCal/data.json",
     "cards/builtin/dbsAov/data.json",
-    "miles_data/taishin_miles_data.json",
     "miles_data/esun_miles_data.json",
     "miles_data/cathay_miles_data.json",
     "miles_data/openpoint_miles_data.json",
     "miles_data/dbs_miles_data.json",
     "miles_data/hsbc_miles_data.json"
   ],
-  "skipped": [],
-  "finishedAt": "2026-09-15T21:21:59.333Z"
+  "skipped": [
+    "miles_data/taishin_miles_data.json"
+  ],
+  "finishedAt": "2026-09-16T21:19:07.828Z"
 }
