@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11T20:58:36.092Z",
+  "updatedAt": "2026-09-19T03:41:36.646Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -289,11 +289,11 @@
           "categoryId": "shopping",
           "categoryName": "脆好購",
           "period": "2026/7/1~2026/12/31",
-          "offerText": "12%",
+          "offerText": "11%",
           "noticeText": "限信用卡且透過SHOPBACK專區",
           "limitText": null,
           "limitPeriod": null,
-          "ratePercent": 12,
+          "ratePercent": 11,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
         }
       ]
