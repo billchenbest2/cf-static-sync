@@ -109,6 +109,43 @@ describe('crawler parsers — fixture tests', () => {
     assert.equal(eva.redeemed_miles, 1000);
   });
 
+  it('taishin miles: parses google sheet rows without fixed height:20px', () => {
+    const html = readFixture('taishin-miles-snippet.html');
+    const rows = parseTableMiles(html, 'taishin');
+    assert.equal(rows.length, 6);
+    assert.deepEqual(rows[0], {
+      airline: '長榮航空',
+      plan: '環球/亞洲無限卡',
+      cost_points: 2000,
+      redeemed_miles: 4000,
+    });
+    assert.deepEqual(rows[1], {
+      airline: '長榮航空',
+      plan: '其他卡',
+      cost_points: 11,
+      redeemed_miles: 13,
+    });
+    assert.deepEqual(rows[3], {
+      airline: '中華航空',
+      plan: '其他卡(舊制)',
+      cost_points: 13,
+      redeemed_miles: 12,
+    });
+    assert.deepEqual(rows[4], {
+      airline: '中華航空',
+      plan: '其他卡(新制)',
+      cost_points: 11,
+      redeemed_miles: 14,
+    });
+    assert.deepEqual(rows[5], {
+      airline: '國泰航空',
+      plan: '一般兌換',
+      cost_points: 10,
+      redeemed_miles: 18,
+    });
+    assert.deepEqual(validateParsedOutput('miles-row', rows), []);
+  });
+
   it('esun miles: formats plan text like legacy (點→)', () => {
     const plan = formatEsunPlanText(
       '每1,200 點e point兌換 1,500 哩\n每月限量1,000份，兌換完為止',

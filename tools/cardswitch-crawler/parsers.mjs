@@ -1677,16 +1677,23 @@ function parseCathayAirlineInfo(text) {
 
 export function parseTableMiles(html, type) {
   const rows = [];
-  const rowRegex = /<tr[^>]*style="height:\s*20px"[^>]*>([\s\S]*?)<\/tr>/gi;
+  // Older Google Sheets pubhtml used fixed height:20px rows; newer exports omit it.
+  const rowRegexStrict = /<tr[^>]*style="height:\s*20px"[^>]*>([\s\S]*?)<\/tr>/gi;
+  const rowRegexLoose = /<tr\b[^>]*>([\s\S]*?)<\/tr>/gi;
   let m;
-  while ((m = rowRegex.exec(html)) !== null) rows.push(m[1]);
+  while ((m = rowRegexStrict.exec(html)) !== null) rows.push(m[1]);
+  if (!rows.length) {
+    while ((m = rowRegexLoose.exec(html)) !== null) rows.push(m[1]);
+  }
   const out = [];
-  for (let i = 1; i < rows.length; i++) {
+  for (let i = 0; i < rows.length; i++) {
     const cells = [];
     const cellRegex = /<td[^>]*class="s[0-9]+"[^>]*>([\s\S]*?)<\/td>/gi;
     let c;
     while ((c = cellRegex.exec(rows[i])) !== null) cells.push(normalizeText(c[1]));
     if (cells.length < 3 || !cells[0]) continue;
+    // Skip sheet header rows (e.g. 航空公司別 / 台新Point / 可兌哩程).
+    if (/航空公司|台新Point|小樹點|可兌哩程|^哩程$/.test(cells[0])) continue;
     const info = type === 'taishin' ? parseTaishinAirlineInfo(cells[0]) : parseCathayAirlineInfo(cells[0]);
     if (!info) continue;
     const cost_points = parseIntSafe(cells[1]);
