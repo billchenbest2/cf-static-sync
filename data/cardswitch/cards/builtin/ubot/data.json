@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-14T21:50:16.617Z",
+  "updatedAt": "2026-10-06T22:39:52.039Z",
   "designated_channels": [
     "王品集團",
     "三商集團",
@@ -41,17 +41,7 @@
     "鞋全家福",
     "摩曼頓"
   ],
-  "ip_bonus_channels": [
-    "CHIIKAWA SHOP inTAIPEI台北常設店",
-    "CHIIKAWA DAYS台北特展商店",
-    "OPENTIX兩廳院",
-    "tixCraft拓元",
-    "寬宏售票",
-    "年代線上售票",
-    "KKTIX",
-    "威秀",
-    "秀泰"
-  ],
+  "ip_bonus_channels": [],
   "rewards": [
     {
       "item": "國內基本回饋",
@@ -77,21 +67,41 @@
       "rate": 5,
       "cap": 150,
       "full_notice": "9月回饋於115/9/12 20:30額滿",
-      "full_month": 9
-    },
-    {
-      "item": "指定加碼",
-      "min_spend": 0,
-      "rate": 5,
-      "cap": 200,
+      "full_month": 9,
       "period_start": "2026-07-01",
-      "period_end": "2026-09-30"
+      "period_end": "2026-12-31"
     },
     {
       "item": "新戶LINE Pay加碼",
       "min_spend": 100,
       "rate": 4,
-      "cap": 300
+      "cap": 300,
+      "period_start": "2026-07-01",
+      "period_end": "2026-12-31"
+    },
+    {
+      "item": "萊爾富超商現折",
+      "kind": "instant_discount",
+      "min_spend": 0,
+      "rate": 5,
+      "cap": null,
+      "period_start": "2026-07-01",
+      "period_end": "2026-12-31",
+      "channels": [
+        "萊爾富"
+      ]
+    },
+    {
+      "item": "新戶保費加碼",
+      "kind": "insurance_bonus",
+      "min_spend": 0,
+      "rate": 1,
+      "cap": 1000,
+      "headline_rate": 2,
+      "period_start": "2026-07-01",
+      "period_end": "2026-12-31",
+      "requires_new_customer": true,
+      "requires_login": true
     }
   ]
 }

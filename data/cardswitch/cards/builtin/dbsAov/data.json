@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T07:33:14.133Z",
+  "updatedAt": "2026-10-06T22:39:57.860Z",
   "card_name": "星展傳說對決聯名卡",
   "sourceUrl": "https://www.dbs.com.tw/personal-zh/cards/dbs-aov/index.html",
   "activity_period": "2026/07/01～2026/12/31",
@@ -700,5 +700,687 @@
   },
   "milesProgramId": "dbs_points",
   "milesCategoryId": "cash",
-  "pointUnitLabel": "現金積點"
+  "pointUnitLabel": "現金積點",
+  "cashback": {
+    "kind": "dbs-aov",
+    "basic": {
+      "ratePct": 1,
+      "basicDomestic": 0.2,
+      "basicOverseas": 1
+    },
+    "slots": [
+      {
+        "id": "general",
+        "type": "general",
+        "name": "一般消費",
+        "keywords": [
+          "一般消費",
+          "其他一般消費"
+        ],
+        "totalPct": 1,
+        "bonusPct": 0,
+        "capKey": null,
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "三創生活園區",
+        "keywords": [
+          "三創生活園區"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": 500
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "巴哈姆特",
+        "keywords": [
+          "巴哈姆特",
+          "BAHAMUT"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "年代售票",
+        "keywords": [
+          "年代售票",
+          "ERACOM"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "拓元售票",
+        "keywords": [
+          "拓元售票",
+          "TIXCRAFT",
+          "拓元"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "東海模型",
+        "keywords": [
+          "東海模型"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "肯德基",
+        "keywords": [
+          "肯德基",
+          "KFC"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "拿坡里",
+        "keywords": [
+          "拿坡里",
+          "NAPOLI"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "淘寶",
+        "keywords": [
+          "淘寶",
+          "TAOBAO",
+          "Taobao"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "野獸國",
+        "keywords": [
+          "野獸國",
+          "BEASTKINGDOM"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "麥當勞",
+        "keywords": [
+          "麥當勞",
+          "McDonald",
+          "MCDONALD"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "愛奇藝",
+        "keywords": [
+          "愛奇藝",
+          "IQIYI",
+          "iQIYI"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "鼎美玩具",
+        "keywords": [
+          "鼎美玩具",
+          "鼎美股份有限公司"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "寬宏售票",
+        "keywords": [
+          "寬宏售票"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "摩斯漢堡",
+        "keywords": [
+          "摩斯漢堡",
+          "MOS",
+          "安心食品"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "蝦皮",
+        "keywords": [
+          "蝦皮",
+          "SHOPEE",
+          "Shopee"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Animate",
+        "keywords": [
+          "Animate",
+          "ANIMATE",
+          "安利美特"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "App Store",
+        "keywords": [
+          "App Store",
+          "APPLE.COM"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Catchplay",
+        "keywords": [
+          "Catchplay",
+          "CATCHPLAY"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Disney+",
+        "keywords": [
+          "Disney+",
+          "DISNEY PLUS",
+          "DISNEYPLUS"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "foodpanda",
+        "keywords": [
+          "foodpanda",
+          "Foodpanda",
+          "ＦＰ－",
+          "FP-"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Garena",
+        "keywords": [
+          "Garena",
+          "競舞娛樂"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "GASH",
+        "keywords": [
+          "GASH",
+          "樂點股有限公司"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Google Play",
+        "keywords": [
+          "Google Play",
+          "Google"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "KHTOY",
+        "keywords": [
+          "KHTOY"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "KKBOX",
+        "keywords": [
+          "KKBOX"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "KKTIX",
+        "keywords": [
+          "KKTIX"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "KKTV",
+        "keywords": [
+          "KKTV"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "LiTV",
+        "keywords": [
+          "LiTV"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Logitech",
+        "keywords": [
+          "Logitech"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "MyCard",
+        "keywords": [
+          "MyCard",
+          "智冠科技"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Netflix",
+        "keywords": [
+          "Netflix",
+          "NETFLIX"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Nintendo",
+        "keywords": [
+          "Nintendo"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "NOVA",
+        "keywords": [
+          "NOVA"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Pizzahut",
+        "keywords": [
+          "Pizzahut",
+          "必勝客",
+          "PIZZAHUT",
+          "PIZZA HUT"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Play Station",
+        "keywords": [
+          "Play Station",
+          "PlayStation",
+          "PLAYSTATION"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "POPMART",
+        "keywords": [
+          "POPMART"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Spotify",
+        "keywords": [
+          "Spotify",
+          "SPOTIFY"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Steam",
+        "keywords": [
+          "Steam"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "TiktokNEW",
+        "keywords": [
+          "TiktokNEW"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "TOYSNAP",
+        "keywords": [
+          "TOYSNAP"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Twitch",
+        "keywords": [
+          "Twitch",
+          "TWITCH"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Uber Eats",
+        "keywords": [
+          "Uber Eats",
+          "UberEats",
+          "優食",
+          "UBER EATS"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "lifestyle",
+        "type": "lifestyle",
+        "name": "Youtube Premium",
+        "keywords": [
+          "Youtube Premium",
+          "YOUTUBE",
+          "GOOGLE YOUTUBE"
+        ],
+        "totalPct": 10,
+        "bonusPct": 9,
+        "capKey": "lifestyle_bonus",
+        "cap": null
+      },
+      {
+        "id": "overseas_region",
+        "type": "overseas_region",
+        "name": "日本實體消費",
+        "keywords": [
+          "日本",
+          "Japan",
+          "國外實體：日本",
+          "日本實體消費"
+        ],
+        "totalPct": 5,
+        "bonusPct": 4,
+        "capKey": "overseas_bonus",
+        "cap": 500
+      },
+      {
+        "id": "overseas_region",
+        "type": "overseas_region",
+        "name": "韓國實體消費",
+        "keywords": [
+          "韓國",
+          "Korea",
+          "國外實體：韓國",
+          "韓國實體消費"
+        ],
+        "totalPct": 5,
+        "bonusPct": 4,
+        "capKey": "overseas_bonus",
+        "cap": null
+      },
+      {
+        "id": "overseas_region",
+        "type": "overseas_region",
+        "name": "泰國實體消費",
+        "keywords": [
+          "泰國",
+          "Thailand",
+          "國外實體：泰國",
+          "泰國實體消費"
+        ],
+        "totalPct": 5,
+        "bonusPct": 4,
+        "capKey": "overseas_bonus",
+        "cap": null
+      },
+      {
+        "id": "overseas_region",
+        "type": "overseas_region",
+        "name": "新加坡實體消費",
+        "keywords": [
+          "新加坡",
+          "Singapore",
+          "國外實體：新加坡",
+          "新加坡實體消費"
+        ],
+        "totalPct": 5,
+        "bonusPct": 4,
+        "capKey": "overseas_bonus",
+        "cap": null
+      },
+      {
+        "id": "overseas_region",
+        "type": "overseas_region",
+        "name": "美洲實體消費",
+        "keywords": [
+          "美洲",
+          "America",
+          "美國",
+          "USA",
+          "加拿大",
+          "Canada",
+          "墨西哥",
+          "Mexico",
+          "美洲實體消費"
+        ],
+        "totalPct": 5,
+        "bonusPct": 4,
+        "capKey": "overseas_bonus",
+        "cap": null
+      },
+      {
+        "id": "overseas_region",
+        "type": "overseas_region",
+        "name": "歐洲實體消費",
+        "keywords": [
+          "歐洲",
+          "Europe",
+          "歐洲實體消費",
+          "英國",
+          "法國",
+          "德國",
+          "義大利",
+          "西班牙"
+        ],
+        "totalPct": 5,
+        "bonusPct": 4,
+        "capKey": "overseas_bonus",
+        "cap": null
+      }
+    ]
+  }
 }
