@@ -1,0 +1,30 @@
+{
+  "activityKey": "uniopen_icash_pay_4pct",
+  "sourceUrl": "https://www.icashpay.com.tw/advertMessage/view/id/2371",
+  "updatedAt": "2026-10-06T13:51:07.134Z",
+  "lastCheckedAt": "2026-10-06T13:51:07.134Z",
+  "fullMonths": {
+    "7": {
+      "year": 2026,
+      "at": "2026/7/8 17:00"
+    },
+    "8": {
+      "year": 2026,
+      "at": "2026/8/6 11:00"
+    },
+    "9": {
+      "year": 2026,
+      "at": "2026/9/6 11:00"
+    },
+    "10": {
+      "year": 2026,
+      "at": "2026/10/6 15:00"
+    }
+  },
+  "current": {
+    "year": 2026,
+    "month": 10,
+    "full": true,
+    "at": "2026/10/6 15:00"
+  }
+}

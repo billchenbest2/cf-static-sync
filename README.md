@@ -120,3 +120,13 @@ MIT
 Every 5 days: crawl/OCR/AI; commits `data/pay/` on CardSwitch.
 
 See `tools/pay-pipeline/README.md`. Secrets: `GEMINI_API_KEY`, `CARDSWITCH_REPO`, `PAYMENTMAPTW_APP_TOKEN`.
+
+## icash uniopen quota → CardSwitch
+
+Cron every 3h; Asia/Taipei gate crawls only day **1–15** (1–3: 12h, 4–8: 3h, 9–15: 6h). Stops for the rest of the month once the current month is marked full.
+
+- Config (change URL here): `tools/icash-uniopen-quota/config.json`
+- Cache: `data/cardswitch/icash-uniopen-quota.json`
+- Publishes: CardSwitch `data/icash-uniopen-quota.json` + `data/cardswitch-versions.json`
+
+Workflow: **icash uniopen quota status (CardSwitch)** (`icash-uniopen-quota.yml`).

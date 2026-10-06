@@ -1448,6 +1448,7 @@ export function resolveUbotHtmlUrl(canonicalUrl = UBOT_CARD_URL) {
   return canonicalUrl;
 }
 
+/** Legacy seed — only used when page still contains an explicit「指定加碼」section. */
 export const UBOT_IP_BONUS_CHANNELS = [
   'CHIIKAWA SHOP inTAIPEI台北常設店',
   'CHIIKAWA DAYS台北特展商店',
@@ -1476,13 +1477,154 @@ export const UBOT_NEW_CUSTOMER_REWARD = {
   cap: 300,
 };
 
-export function parseUbotHtml(html) {
-  const section = html.match(/<h3>(偶數日LINE Pay指定通路.*?)<\/h3>[\s\S]*?<div>([\s\S]*?)<\/div>/i);
-  if (!section) throw new Error('ubot parse failed: section not found');
-  const title = section[1];
-  const content = section[2];
+/** ROC「115/7/1」or「115/7/1-115/9/30」→ ISO date(s). */
+export function parseUbotRocDateRange(text) {
+  const m = String(text || '').match(
+    /(\d{2,3})\/(\d{1,2})\/(\d{1,2})\s*[-~～至到]+\s*(\d{2,3})\/(\d{1,2})\/(\d{1,2})/,
+  );
+  if (!m) return null;
+  const toIso = (rocY, mo, d) => {
+    const y = Number(rocY) + 1911;
+    const mm = String(Number(mo)).padStart(2, '0');
+    const dd = String(Number(d)).padStart(2, '0');
+    return `${y}-${mm}-${dd}`;
+  };
+  return {
+    period_start: toIso(m[1], m[2], m[3]),
+    period_end: toIso(m[4], m[5], m[6]),
+  };
+}
+
+/** First matching `<h3>…</h3>` + following `<div>…</div>` (title may contain nested tags). */
+export function extractUbotH3Section(html, titleIncludes) {
+  const needle = String(titleIncludes || '');
+  if (!needle) return null;
+  const re = /<h3>([\s\S]*?)<\/h3>\s*<div>([\s\S]*?)<\/div>/gi;
+  let m;
+  while ((m = re.exec(String(html || '')))) {
+    const title = normalizeText(m[1].replace(/<[^>]+>/g, ''));
+    if (!title.includes(needle)) continue;
+    return { title, content: m[2] || '' };
+  }
+  return null;
+}
+
+function extractUbotPeriodFromBlock(title, content) {
+  const periodText = `${title} ${content}`.match(/活動期間[:：]?\s*([0-9/\-~\s至到～]+)/);
+  return parseUbotRocDateRange(periodText?.[1] || `${title} ${content}`);
+}
+
+/** Parse「國內基本1%+LINE Pay1%+新戶4%+偶數日5%」composition line. */
+export function extractUbotRateStackFromHtml(html) {
+  const section = extractUbotH3Section(html, '國內LINE Pay');
+  const text = normalizeText((section?.content || String(html || '')).replace(/<[^>]+>/g, ''));
+  const pick = (re, fallback) => {
+    const m = text.match(re);
+    return m ? Number.parseFloat(m[1]) : fallback;
+  };
+  return {
+    domesticBase: pick(/國內基本回饋\s*(\d+(?:\.\d+)?)%/, 1),
+    linepay: pick(/國內LINE\s*Pay最高\s*(\d+(?:\.\d+)?)%/, 1),
+    newCustomer: pick(/新戶LINE\s*Pay最高\s*(\d+(?:\.\d+)?)%/, UBOT_NEW_CUSTOMER_REWARD.rate),
+    designated: pick(/偶數日LINE\s*Pay指定通路最高\s*(\d+(?:\.\d+)?)%/, 5),
+  };
+}
+
+/**
+ * Detect optional「指定加碼」block on UBot card page.
+ * Current official page (2026-10) no longer lists this promo — return null.
+ */
+export function extractUbotIpBonusFromHtml(html) {
+  const section = extractUbotH3Section(html, '指定加碼');
+  if (!section) return null;
+  const { title, content } = section;
   const rateMatch = title.match(/(\d+(?:\.\d+)?)%/) || content.match(/(\d+(?:\.\d+)?)%\s*回饋/);
-  const rate = rateMatch ? Number.parseFloat(rateMatch[1]) : 0;
+  const rate = rateMatch ? Number.parseFloat(rateMatch[1]) : (UBOT_IP_BONUS_REWARD.rate || 5);
+  const minMatch = content.match(/滿(\d+)(?:元)?/);
+  const capMatch = content.match(/上限(\d+)點/);
+  const range = extractUbotPeriodFromBlock(title, content);
+  const channelMatch = content.match(/指定通路：([\s\S]*?)(?:<br|&lt;br|<span|&lt;span|<\/div|$)/i);
+  const channels = channelMatch
+    ? normalizeText(
+        channelMatch[1]
+          .trim()
+          .replace(/<[^>]+>|&lt;[^&]+&gt;/g, ''),
+      )
+        .split(/[、，,]/)
+        .map((x) => normalizeText(x))
+        .filter(Boolean)
+    : [...UBOT_IP_BONUS_CHANNELS];
+  if (!channels.length) return null;
+  return {
+    channels,
+    reward: {
+      item: '指定加碼',
+      min_spend: minMatch ? Number.parseInt(minMatch[1], 10) : 0,
+      rate,
+      cap: capMatch ? Number.parseInt(capMatch[1], 10) : (UBOT_IP_BONUS_REWARD.cap || 200),
+      period_start: range?.period_start || UBOT_IP_BONUS_REWARD.period_start,
+      period_end: range?.period_end || UBOT_IP_BONUS_REWARD.period_end,
+    },
+  };
+}
+
+/** Optional「萊爾富…現折」instant-discount promo. */
+export function extractUbotHilifeFromHtml(html) {
+  const section = extractUbotH3Section(html, '萊爾富');
+  if (!section) return null;
+  const { title, content } = section;
+  if (!/現折/.test(title) && !/現折/.test(content)) return null;
+  const rateMatch = title.match(/(\d+(?:\.\d+)?)%/) || content.match(/現折\s*(\d+(?:\.\d+)?)%/);
+  const rate = rateMatch ? Number.parseFloat(rateMatch[1]) : 5;
+  const range = extractUbotPeriodFromBlock(title, content);
+  return {
+    item: '萊爾富超商現折',
+    kind: 'instant_discount',
+    min_spend: 0,
+    rate,
+    cap: null,
+    period_start: range?.period_start || null,
+    period_end: range?.period_end || null,
+    channels: ['萊爾富'],
+  };
+}
+
+/**
+ * Optional「新戶保費」— headline max% = base + login bonus; we store the bonus layer.
+ * Example: 最高2% = 基本1% + 登錄加碼1%（每戶上限1,000元）.
+ */
+export function extractUbotInsuranceFromHtml(html) {
+  const section = extractUbotH3Section(html, '新戶保費');
+  if (!section) return null;
+  const { title, content } = section;
+  const plain = normalizeText(content.replace(/<[^>]+>/g, ''));
+  const bonusMatch = plain.match(/最高\s*(\d+(?:\.\d+)?)%\s*回饋/) || plain.match(/加碼[^0-9]*(\d+(?:\.\d+)?)%/);
+  const bonusRate = bonusMatch ? Number.parseFloat(bonusMatch[1]) : 1;
+  const capMatch = plain.match(/上限\s*([\d,]+)\s*元/);
+  const cap = capMatch ? Number.parseInt(capMatch[1].replace(/,/g, ''), 10) : 1000;
+  const range = extractUbotPeriodFromBlock(title, content);
+  const headline = title.match(/(\d+(?:\.\d+)?)%/);
+  return {
+    item: '新戶保費加碼',
+    kind: 'insurance_bonus',
+    min_spend: 0,
+    rate: bonusRate,
+    cap: Number.isFinite(cap) ? cap : 1000,
+    headline_rate: headline ? Number.parseFloat(headline[1]) : (1 + bonusRate),
+    period_start: range?.period_start || null,
+    period_end: range?.period_end || null,
+    requires_new_customer: true,
+    requires_login: /登錄/.test(plain),
+  };
+}
+
+export function parseUbotHtml(html) {
+  const section = extractUbotH3Section(html, '偶數日LINE Pay指定通路');
+  if (!section) throw new Error('ubot parse failed: section not found');
+  const { title, content } = section;
+  const stack = extractUbotRateStackFromHtml(html);
+  const rateMatch = title.match(/(\d+(?:\.\d+)?)%/) || content.match(/(\d+(?:\.\d+)?)%\s*回饋/);
+  const rate = rateMatch ? Number.parseFloat(rateMatch[1]) : (stack.designated || 0);
   const minMatch = content.match(/滿(\d+)(?:元)?/);
   const capMatch = content.match(/上限(\d+)點/);
   const reward = {
@@ -1497,7 +1639,12 @@ export function parseUbotHtml(html) {
     const monthMatch = reward.full_notice.match(/(\d{1,2})月回饋/);
     if (monthMatch) reward.full_month = Number.parseInt(monthMatch[1], 10);
   }
-  const channelMatch = content.match(/指定通路：([\s\S]*?)(?:<br|&lt;br|<span|&lt;span|<\/div)/i);
+  const designatedPeriod = extractUbotPeriodFromBlock(title, content);
+  if (designatedPeriod) {
+    reward.period_start = designatedPeriod.period_start;
+    reward.period_end = designatedPeriod.period_end;
+  }
+  const channelMatch = content.match(/指定通路：([\s\S]*?)(?:<br|&lt;br|<span|&lt;span|<\/div|$)/i);
   const channels = channelMatch
     ? normalizeText(
         channelMatch[1]
@@ -1508,18 +1655,46 @@ export function parseUbotHtml(html) {
         .map((x) => normalizeText(x))
         .filter(Boolean)
     : [];
+
+  const overseasSection = extractUbotH3Section(html, '國外消費');
+  let overseasRate = 3;
+  if (overseasSection) {
+    const oMatch = overseasSection.title.match(/(\d+(?:\.\d+)?)%/)
+      || overseasSection.content.match(/國外基本回饋\s*(\d+(?:\.\d+)?)%/);
+    if (oMatch) overseasRate = Number.parseFloat(oMatch[1]);
+  }
+
+  const pagePeriod = parseUbotRocDateRange(String(html || '').match(/活動期間[:：]?\s*([0-9/\-~\s至到～]+)/)?.[1] || '');
+  const ipBonus = extractUbotIpBonusFromHtml(html);
+  const hilife = extractUbotHilifeFromHtml(html);
+  const insurance = extractUbotInsuranceFromHtml(html);
+
+  const newCustomerReward = {
+    ...UBOT_NEW_CUSTOMER_REWARD,
+    rate: stack.newCustomer || UBOT_NEW_CUSTOMER_REWARD.rate,
+  };
+  if (pagePeriod || designatedPeriod) {
+    const p = designatedPeriod || pagePeriod;
+    newCustomerReward.period_start = p.period_start;
+    newCustomerReward.period_end = p.period_end;
+  }
+
+  const rewards = [
+    { item: '國內基本回饋', min_spend: 0, rate: stack.domesticBase || 1, cap: null },
+    { item: '國外基本回饋', min_spend: 0, rate: overseasRate, cap: null },
+    { item: '國內LINE Pay最高', min_spend: 100, rate: stack.linepay || 1, cap: 200 },
+    reward,
+    newCustomerReward,
+  ];
+  if (ipBonus?.reward) rewards.splice(4, 0, ipBonus.reward);
+  if (hilife) rewards.push(hilife);
+  if (insurance) rewards.push(insurance);
+
   return {
     updated_at: new Date().toISOString(),
     designated_channels: channels,
-    ip_bonus_channels: [...UBOT_IP_BONUS_CHANNELS],
-    rewards: [
-      { item: '國內基本回饋', min_spend: 0, rate: 1, cap: null },
-      { item: '國外基本回饋', min_spend: 0, rate: 3, cap: null },
-      { item: '國內LINE Pay最高', min_spend: 100, rate: 1, cap: 200 },
-      reward,
-      { ...UBOT_IP_BONUS_REWARD },
-      { ...UBOT_NEW_CUSTOMER_REWARD },
-    ],
+    ip_bonus_channels: ipBonus?.channels ? [...ipBonus.channels] : [],
+    rewards,
   };
 }
 
@@ -2477,13 +2652,15 @@ export function validateParsedOutput(kind, data) {
 
   if (kind === 'ubot') {
     if (!(data?.designated_channels || []).length) errors.push('ubot channels empty');
-    if (!(data?.ip_bonus_channels || []).length) errors.push('ubot ip bonus channels empty');
     const designated = (data?.rewards || []).find((r) => r.item === '偶數日LINE Pay指定通路');
     if (!designated?.rate) errors.push('ubot designated rate missing');
-    const ipBonus = (data?.rewards || []).find((r) => r.item === '指定加碼');
-    if (!ipBonus?.rate) errors.push('ubot ip bonus rate missing');
     const newCustomer = (data?.rewards || []).find((r) => r.item === '新戶LINE Pay加碼');
     if (!newCustomer?.rate) errors.push('ubot new customer rate missing');
+    // 「指定加碼」optional — omit when official page no longer lists the promo
+    const ipBonus = (data?.rewards || []).find((r) => r.item === '指定加碼');
+    const ipChannels = data?.ip_bonus_channels || [];
+    if (ipBonus && !ipChannels.length) errors.push('ubot ip bonus reward without channels');
+    if (!ipBonus && ipChannels.length) errors.push('ubot ip bonus channels without reward');
   }
 
   if (kind === 'ctbcLinepay') {
@@ -3029,6 +3206,74 @@ export function parseDbsAovMerchants(html) {
   return [...map.values()].sort((a, b) => a.name.localeCompare(b.name, 'zh-Hant'));
 }
 
+/**
+ * Ensure fubon-like data.json carries dual-write cashback contract.
+ * Mutates and returns the same object.
+ */
+export function normalizeFubonLikeCashbackContract(data) {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return data;
+  if (data.base_pct == null) data.base_pct = 1;
+  if (!Array.isArray(data.items)) data.items = [];
+  const basePct = Number(data.base_pct) || 1;
+  const slots = data.items.map((item, idx) => ({
+    id: String(item?.type || item?.name || idx),
+    type: String(item?.type || 'general'),
+    name: String(item?.name || ''),
+    keywords: Array.isArray(item?.keywords) ? item.keywords.slice() : [String(item?.name || '')],
+    totalPct: Number(item?.total_pct) || basePct,
+    bonusPct: Number(item?.bonus_pct) || 0,
+    capKey: item?.cap_key || null,
+    cap: typeof item?.cap === 'number' ? item.cap : null,
+  }));
+  data.cashback = {
+    kind: 'fubon-like',
+    basic: { ratePct: basePct },
+    slots,
+  };
+  return data;
+}
+
+/**
+ * Ensure dbsAov data.json carries the dual-write cashback contract
+ * (basic + slots) consumed by CashbackEngine / card plugins.
+ * Mutates and returns the same object.
+ */
+export function normalizeDbsAovCashbackContract(data) {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return data;
+  if (data.base_pct_upgraded == null) data.base_pct_upgraded = 1;
+  if (!data.base_pct_basic || typeof data.base_pct_basic !== 'object') {
+    data.base_pct_basic = { domestic: 0.2, overseas: 1 };
+  } else {
+    if (data.base_pct_basic.domestic == null) data.base_pct_basic.domestic = 0.2;
+    if (data.base_pct_basic.overseas == null) data.base_pct_basic.overseas = 1;
+  }
+  if (!Array.isArray(data.items)) data.items = [];
+
+  const baseUpgraded = Number(data.base_pct_upgraded) || 1;
+  const basic = data.base_pct_basic;
+  const slots = data.items.map((item, idx) => ({
+    id: String(item?.type || item?.name || idx),
+    type: String(item?.type || 'general'),
+    name: String(item?.name || ''),
+    keywords: Array.isArray(item?.keywords) ? item.keywords.slice() : [String(item?.name || '')],
+    totalPct: Number(item?.total_pct) || baseUpgraded,
+    bonusPct: Number(item?.bonus_pct) || 0,
+    capKey: item?.cap_key || null,
+    cap: typeof item?.cap === 'number' ? item.cap : null,
+  }));
+
+  data.cashback = {
+    kind: 'dbs-aov',
+    basic: {
+      ratePct: baseUpgraded,
+      basicDomestic: Number(basic.domestic) || 0.2,
+      basicOverseas: Number(basic.overseas) || 1,
+    },
+    slots,
+  };
+  return data;
+}
+
 export function mergeDbsAovCrawledData(existing, parsedMerchants, sourceUrl) {
   const base = existing && typeof existing === 'object' ? { ...existing } : {};
   const staticItems = (Array.isArray(base.items) ? base.items : []).filter(
@@ -3064,7 +3309,7 @@ export function mergeDbsAovCrawledData(existing, parsedMerchants, sourceUrl) {
 
   const overseasItems = staticItems.filter((i) => i.type === 'overseas_region');
 
-  return {
+  return normalizeDbsAovCashbackContract({
     ...base,
     card_name: base.card_name || '星展傳說對決聯名卡',
     updated_at: new Date().toISOString().slice(0, 10),
@@ -3077,5 +3322,5 @@ export function mergeDbsAovCrawledData(existing, parsedMerchants, sourceUrl) {
       lifestyle_bonus: { cap: 500, period: 'month', description: '生活玩家加碼 9%，每人每月上限 500 點' },
       overseas_bonus: { cap: 500, period: 'month', description: '海外指定地區加碼 4%，每人每月上限 500 點' },
     },
-  };
+  });
 }

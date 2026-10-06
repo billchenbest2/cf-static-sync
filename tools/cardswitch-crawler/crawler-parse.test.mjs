@@ -7,6 +7,8 @@ import {
   parseHsbcMerchants,
   parseHsbcHtml,
   parseUbotHtml,
+  extractUbotIpBonusFromHtml,
+  parseUbotRocDateRange,
   parseTableMiles,
   parseCathayAirmilesModel,
   parseCubeModel,
@@ -33,6 +35,8 @@ import {
   parseCtbcCalHtml,
   parseDbsAovMerchants,
   mergeDbsAovCrawledData,
+  normalizeDbsAovCashbackContract,
+  normalizeFubonLikeCashbackContract,
   parseRichartHtml,
   stampUpdatedAt,
   shouldRewriteManagedJson,
@@ -383,6 +387,40 @@ describe('crawler parsers — repo data invariants', () => {
     const data = readRepoJson('cards/builtin/ubot/data.json');
     const errors = validateParsedOutput('ubot', data);
     assert.deepEqual(errors, [], errors.join('; '));
+    assert.equal((data.ip_bonus_channels || []).length, 0);
+    assert.ok(!(data.rewards || []).some((r) => r.item === '指定加碼'));
+  });
+
+  it('ubot: omits 指定加碼 when official HTML has no such h3 section', () => {
+    const html = `
+      <h3>偶數日LINE Pay指定通路最高5%(9月回饋於115/9/12 20:30額滿)</h3>
+      <div>活動期間：115/7/1-115/12/31 指定通路：王品集團、星巴克</div>
+      <h3>萊爾富超商天天現折5%</h3><div>活動期間：115/7/1-115/12/31</div>`;
+    assert.equal(extractUbotIpBonusFromHtml(html), null);
+    const out = parseUbotHtml(html);
+    assert.deepEqual(out.ip_bonus_channels, []);
+    assert.ok(!(out.rewards || []).some((r) => r.item === '指定加碼'));
+    assert.ok(out.designated_channels.includes('王品集團'));
+    assert.equal(out.rewards.find((r) => r.item === '偶數日LINE Pay指定通路')?.period_end, '2026-12-31');
+    assert.deepEqual(validateParsedOutput('ubot', out), []);
+  });
+
+  it('ubot: parses 指定加碼 section when present', () => {
+    const html = `
+      <h3>偶數日LINE Pay指定通路最高5%</h3>
+      <div>指定通路：王品集團</div>
+      <h3>指定加碼最高5%</h3>
+      <div>活動期間：115/7/1-115/9/30 指定通路：威秀、秀泰 上限200點</div>`;
+    const ip = extractUbotIpBonusFromHtml(html);
+    assert.ok(ip);
+    assert.ok(ip.channels.includes('威秀'));
+    assert.equal(ip.reward.period_end, '2026-09-30');
+    const out = parseUbotHtml(html);
+    assert.ok(out.rewards.some((r) => r.item === '指定加碼'));
+    assert.deepEqual(parseUbotRocDateRange('115/7/1-115/12/31'), {
+      period_start: '2026-07-01',
+      period_end: '2026-12-31',
+    });
   });
 
   it('ctbcLinepay data.json passes structural validation', () => {
@@ -706,6 +744,32 @@ describe('crawler parsers — live fetch (optional)', () => {
     const merged = mergeDbsAovCrawledData(readRepoJson('cards/builtin/dbsAov/data.json'), merchants, 'https://example.test/aov');
     assert.ok(merged.items.some((i) => i.type === 'overseas_region'));
     assert.ok(merged.items.filter((i) => i.type === 'lifestyle').length >= 10);
+    assert.equal(merged.cashback?.kind, 'dbs-aov');
+    assert.ok(Array.isArray(merged.cashback?.slots));
+    assert.ok(merged.cashback.slots.some((s) => s.type === 'lifestyle'));
+    assert.equal(merged.cashback.basic?.ratePct, merged.base_pct_upgraded);
+  });
+
+  it('dbs aov: normalizeDbsAovCashbackContract fills defaults and cashback slots', () => {
+    const normalized = normalizeDbsAovCashbackContract({
+      items: [{ name: 'Netflix', type: 'lifestyle', total_pct: 10, bonus_pct: 9, cap_key: 'lifestyle_bonus' }],
+    });
+    assert.equal(normalized.base_pct_upgraded, 1);
+    assert.deepEqual(normalized.base_pct_basic, { domestic: 0.2, overseas: 1 });
+    assert.equal(normalized.cashback.kind, 'dbs-aov');
+    assert.equal(normalized.cashback.slots.length, 1);
+    assert.equal(normalized.cashback.slots[0].name, 'Netflix');
+    assert.equal(normalized.cashback.slots[0].bonusPct, 9);
+  });
+
+  it('fubon-like: normalizeFubonLikeCashbackContract writes cashback slots', () => {
+    const normalized = normalizeFubonLikeCashbackContract({
+      base_pct: 1,
+      items: [{ name: 'Costco', type: 'costco_store', total_pct: 2, bonus_pct: 1 }],
+    });
+    assert.equal(normalized.cashback.kind, 'fubon-like');
+    assert.equal(normalized.cashback.basic.ratePct, 1);
+    assert.equal(normalized.cashback.slots[0].type, 'costco_store');
   });
 
   it('dbs aov: parses d-block HTML without tag artifacts or merged merchants', () => {

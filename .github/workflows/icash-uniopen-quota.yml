@@ -1,0 +1,149 @@
+name: icash uniopen quota status (CardSwitch)
+
+# Crawl icash Pay uniopen +4% quota-full page into a static JSON for CardSwitch.
+# Schedule: every 3h UTC; Asia/Taipei gate limits real fetches to day 1–15
+# with banded cadence, and skips once current month is already marked full.
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_url:
+        description: "Optional override for activity page URL (empty = config.json)"
+        required: false
+        default: ""
+      skip_publish_cardswitch:
+        description: "Only update cf-static-sync cache"
+        type: boolean
+        default: false
+      force:
+        description: "Ignore day/cadence/already-full gate"
+        type: boolean
+        default: true
+  schedule:
+    - cron: "0 */3 * * *"
+
+concurrency:
+  group: icash-uniopen-quota
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout cf-static-sync
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Schedule gate (Asia/Taipei)
+        id: gate
+        continue-on-error: true
+        env:
+          ICASH_QUOTA_FORCE: ${{ github.event_name == 'workflow_dispatch' && inputs.force && '1' || '' }}
+          ICASH_QUOTA_STATUS_PATH: ${{ github.workspace }}/data/cardswitch/icash-uniopen-quota.json
+        run: node tools/icash-uniopen-quota/should-run.mjs
+
+      - name: Skip outside window
+        if: steps.gate.outcome == 'failure' && github.event_name == 'schedule'
+        run: |
+          echo "Outside icash quota crawl window — exiting successfully."
+          exit 0
+
+      - name: Unit tests
+        if: steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch'
+        working-directory: tools/icash-uniopen-quota
+        run: node --test parse.test.mjs
+
+      - name: Crawl quota page
+        if: steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch'
+        env:
+          ICASH_QUOTA_SOURCE_URL: ${{ inputs.source_url }}
+          ICASH_QUOTA_OUT: ${{ github.workspace }}/data/cardswitch/icash-uniopen-quota.json
+        run: node tools/icash-uniopen-quota/run.mjs
+
+      - name: Commit cache on cf-static-sync
+        if: steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/cardswitch/icash-uniopen-quota.json
+          if git diff --cached --quiet; then
+            echo "No icash quota cache changes"
+          else
+            git commit -m "chore(cardswitch): refresh icash uniopen quota status"
+            git pull --rebase origin "$(git rev-parse --abbrev-ref HEAD)" || true
+            git push origin HEAD
+          fi
+
+      - name: Require CardSwitch secrets
+        if: (steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch') && (github.event_name == 'schedule' || inputs.skip_publish_cardswitch != true)
+        run: |
+          if [ -z "${{ secrets.CARDSWITCH_REPO }}" ]; then
+            echo "Missing secret CARDSWITCH_REPO"
+            exit 1
+          fi
+          if [ -z "${{ secrets.PAYMENTMAPTW_APP_TOKEN }}" ]; then
+            echo "Missing secret PAYMENTMAPTW_APP_TOKEN"
+            exit 1
+          fi
+
+      - name: Checkout CardSwitch
+        if: (steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch') && (github.event_name == 'schedule' || inputs.skip_publish_cardswitch != true)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ secrets.CARDSWITCH_REPO }}
+          token: ${{ secrets.PAYMENTMAPTW_APP_TOKEN }}
+          path: cardswitch
+          fetch-depth: 0
+
+      - name: Publish quota JSON to CardSwitch
+        if: (steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch') && (github.event_name == 'schedule' || inputs.skip_publish_cardswitch != true)
+        env:
+          CARDSWITCH_DIR: ${{ github.workspace }}/cardswitch
+          ICASH_QUOTA_OUT: ${{ github.workspace }}/data/cardswitch/icash-uniopen-quota.json
+        run: node tools/icash-uniopen-quota/publish-to-cardswitch.mjs
+
+      - name: Commit CardSwitch data
+        if: (steps.gate.outcome == 'success' || github.event_name == 'workflow_dispatch') && (github.event_name == 'schedule' || inputs.skip_publish_cardswitch != true)
+        working-directory: cardswitch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/icash-uniopen-quota.json data/cardswitch-versions.json
+          if git diff --cached --quiet; then
+            echo "No CardSwitch icash quota changes"
+            exit 0
+          fi
+          git commit -m "chore: update icash uniopen quota status"
+          BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+          for attempt in 1 2 3; do
+            git pull --rebase origin "$BRANCH" || true
+            if git push origin "$BRANCH"; then
+              echo "Pushed CardSwitch icash quota"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::Failed to push CardSwitch"
+          exit 1
+
+      - name: Notify Telegram on failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            exit 0
+          fi
+          MSG="icash uniopen quota crawl failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          curl -sS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d "{\"chat_id\":\"${TELEGRAM_CHAT_ID}\",\"text\":\"${MSG}\"}" >/dev/null
