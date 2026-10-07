@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-30T22:17:27.813Z",
+  "updatedAt": "2026-10-07T23:06:09.672Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -265,25 +265,6 @@
           "limitPeriod": null,
           "ratePercent": 6,
           "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/4d2df854-31ea-4240-8d7c-11d607d7f719"
-        }
-      ]
-    },
-    {
-      "name": "購精彩",
-      "keywords": [
-        "購精彩"
-      ],
-      "offers": [
-        {
-          "categoryId": "shopping",
-          "categoryName": "脆好購",
-          "period": "2026/7/1~2026/12/31",
-          "offerText": "6%",
-          "noticeText": "每人每月回饋上限400點",
-          "limitText": "上限400點",
-          "limitPeriod": "每月",
-          "ratePercent": 6,
-          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_goamazing"
         }
       ]
     },
@@ -663,25 +644,6 @@
           "limitText": null,
           "limitPeriod": null,
           "ratePercent": 3,
-          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
-        }
-      ]
-    },
-    {
-      "name": "淘寶",
-      "keywords": [
-        "淘寶"
-      ],
-      "offers": [
-        {
-          "categoryId": "shopping",
-          "categoryName": "脆好購",
-          "period": "2026/7/1~2026/12/31",
-          "offerText": "12%",
-          "noticeText": "限信用卡且透過SHOPBACK專區",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 12,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_shopping.html#lightbox_shopback"
         }
       ]
@@ -1500,6 +1462,25 @@
           "limitPeriod": "每月",
           "ratePercent": 4,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_casetify"
+        }
+      ]
+    },
+    {
+      "name": "購精彩",
+      "keywords": [
+        "購精彩"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "6%",
+          "noticeText": "每人每月回饋上限400點",
+          "limitText": "上限400點",
+          "limitPeriod": "每月",
+          "ratePercent": 6,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_goamazing"
         }
       ]
     },
