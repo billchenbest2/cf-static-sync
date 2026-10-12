@@ -457,6 +457,43 @@ describe('crawler parsers — repo data invariants', () => {
       'https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_demo');
   });
 
+  it('ctbcLinepay: parses 4-column table with role=row and role=cell', () => {
+    const html = `
+      <div class="tab-content__item active" id="food">
+        <h2 class="store-title">脆饗食</h2>
+        <div class="store-table__data" role="row">
+          <div class="store-table__col" role="cell">
+            <p class="store-table__category">脆響食</p>
+          </div>
+          <div class="store-table__col" role="cell">
+            <a href="page_food.html#lightbox_caesarpark">
+              <h3 class="store-table__name">板橋凱薩大飯店</h3>
+            </a>
+            <p class="store-table__date">2026/9/1~2026/12/31</p>
+          </div>
+          <div class="store-table__col" role="cell">
+            <p class="store-table__txt">
+              <span class="store-table__text">平日享7折、假日享75折</span>
+            </p>
+          </div>
+          <div class="store-table__col" role="cell">
+            <p class="store-table__noticeTxt">
+              <span>限以刷卡支付(行動支付不適用)</span>
+            </p>
+          </div>
+        </div>
+      </div>`;
+    const sourceUrl = 'https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html';
+    const out = parseCtbcLinepayHtml(html, sourceUrl);
+    assert.equal(out.merchants.length, 1);
+    assert.equal(out.merchants[0].name, '板橋凱薩大飯店');
+    assert.equal(out.merchants[0].offers[0].period, '2026/9/1~2026/12/31');
+    assert.equal(out.merchants[0].offers[0].offerText, '平日享7折、假日享75折');
+    assert.equal(out.merchants[0].offers[0].noticeText, '限以刷卡支付(行動支付不適用)');
+    assert.equal(out.merchants[0].offers[0].detailUrl,
+      'https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_food.html#lightbox_caesarpark');
+  });
+
   it('cathay miles_data passes row validation', () => {
     const data = readRepoJson('miles_data/cathay_miles_data.json');
     const errors = validateParsedOutput('miles-row', data);

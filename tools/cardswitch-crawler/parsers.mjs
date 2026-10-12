@@ -751,35 +751,49 @@ export function resolveCtbcLinepayDetailUrl(href, sourceUrl = '') {
 
 export function parseCtbcLinepayHtml(html, sourceUrl = '') {
   const sections = [];
-  const parts = String(html).split('<div class="tab-content__item');
+  const parts = String(html).split(/<div[^>]*class=["'][^"']*tab-content__item[^"']*["']/i);
   for (let i = 1; i < parts.length; i++) {
-    const raw = `<div class="tab-content__item${parts[i]}`;
-    const id = (raw.match(/id="([^"]+)"/i) || [])[1];
+    const raw = parts[i];
+    const id = (raw.match(/id=["']([^"']+)["']/i) || [])[1];
     if (!id) continue;
-    const title = normalizeText((raw.match(/<h2 class="store-title">([\s\S]*?)<\/h2>/i) || [])[1]);
+    const title = normalizeText((raw.match(/<h2[^>]*class=["']store-title["']>([\s\S]*?)<\/h2>/i) || [])[1]);
     sections.push({ id, title, content: raw });
   }
+
+  const rowRegex = /<div[^>]*class=["'][^"']*store-table__data[^"']*["'][^>]*>/i;
+  const colRegex = /<div[^>]*class=["'][^"']*store-table__col[^"']*["'][^>]*>/i;
+
   const merchantMap = new Map();
   for (const section of sections) {
-    const rows = section.content.split('<div class="store-table__data">').slice(1);
+    const rows = section.content.split(rowRegex).slice(1);
     for (const block of rows) {
-      const cols = block
-        .split('<div class="store-table__col">')
-        .slice(1)
-        .map((part) => {
-          const end = part.indexOf('</div>');
-          return end >= 0 ? part.slice(0, end) : part;
-        });
+      const cols = block.split(colRegex).slice(1);
       if (cols.length < 3) continue;
-      const name = normalizeText((cols[0].match(/<h3 class="store-table__name">([\s\S]*?)<\/h3>/i) || [])[1]);
+
+      let storeCol = cols[0];
+      let offerCol = cols[1];
+      let noticeCol = cols[2];
+
+      // Support both 4 columns (Category / Store / Offer / Notice) and legacy 3 columns (Store / Offer / Notice)
+      if (cols.length >= 4 && /store-table__category/i.test(cols[0])) {
+        storeCol = cols[1];
+        offerCol = cols[2];
+        noticeCol = cols[3];
+      } else if (!/store-table__name/i.test(cols[0]) && /store-table__name/i.test(cols[1])) {
+        storeCol = cols[1];
+        offerCol = cols[2];
+        noticeCol = cols[3] || '';
+      }
+
+      const name = normalizeText((storeCol.match(/<h3[^>]*class=["']store-table__name["']>([\s\S]*?)<\/h3>/i) || [])[1]);
       if (!name) continue;
       const period = normalizeCtbcOfferPeriod(
-        normalizeText((cols[0].match(/<p class="store-table__date">([\s\S]*?)<\/p>/i) || [])[1]),
+        normalizeText((storeCol.match(/<p[^>]*class=["']store-table__date["']>([\s\S]*?)<\/p>/i) || [])[1]),
       );
-      const offerText = normalizeText(cols[1]);
-      const noticeText = normalizeText(cols[2]);
+      const offerText = normalizeText(offerCol);
+      const noticeText = normalizeText(noticeCol);
       const ratePercent = extractMaxPercent(offerText);
-      const hrefRaw = (cols[0].match(/<a[^>]*href=["']([^"']+)["']/i) || [])[1];
+      const hrefRaw = (storeCol.match(/<a[^>]*href=["']([^"']+)["']/i) || [])[1];
       const detailUrl = resolveCtbcLinepayDetailUrl(hrefRaw, sourceUrl);
       const entry = merchantMap.get(name) || { name, keywords: [name], offers: [] };
       const offer = {

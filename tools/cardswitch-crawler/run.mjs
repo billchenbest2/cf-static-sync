@@ -139,8 +139,13 @@ async function runCrawler() {
     }
   }
 
-  const ctbc = await crawlCtbcLinepay();
-  await writeJson('cards/builtin/ctbcLinepay/data.json', ctbc);
+  try {
+    const ctbc = await crawlCtbcLinepay();
+    await writeJson('cards/builtin/ctbcLinepay/data.json', ctbc);
+  } catch (error) {
+    changeLog.skipped.push('cards/builtin/ctbcLinepay/data.json');
+    console.log(`skipped (crawl failed): cards/builtin/ctbcLinepay/data.json — ${error?.message || error}`);
+  }
 
   const hsbc = await crawlHsbc();
   await writeJson('cards/builtin/hsbc/data.json', hsbc);
@@ -512,11 +517,20 @@ async function crawlUnicard() {
 }
 
 async function crawlCtbcLinepay() {
-  const html = await fetchText(SOURCES.ctbcLinepay);
-  const out = parseCtbcLinepayHtml(html, SOURCES.ctbcLinepay);
-  const errors = validateParsedOutput('ctbcLinepay', out);
-  if (errors.length) throw new Error(`ctbc validation failed: ${errors.join('; ')}`);
-  return out;
+  const existing = await readJsonFile('cards/builtin/ctbcLinepay/data.json');
+  try {
+    const html = await fetchText(SOURCES.ctbcLinepay);
+    const out = parseCtbcLinepayHtml(html, SOURCES.ctbcLinepay);
+    const errors = validateParsedOutput('ctbcLinepay', out);
+    if (errors.length) throw new Error(`ctbc validation failed: ${errors.join('; ')}`);
+    return out;
+  } catch (error) {
+    if (existing) {
+      console.log(`ctbc linepay: kept existing data.json — ${error?.message || error}`);
+      return existing;
+    }
+    throw error;
+  }
 }
 
 async function crawlHsbc() {

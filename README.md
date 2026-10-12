@@ -130,3 +130,5 @@ Cron every 3h; Asia/Taipei gate crawls only day **1–15** (1–3: 12h, 4–8: 3
 - Publishes: CardSwitch `data/icash-uniopen-quota.json` + `data/cardswitch-versions.json`
 
 Workflow: **icash uniopen quota status (CardSwitch)** (`icash-uniopen-quota.yml`).
+
+**Mirror in CardSwitch-main** (schedule off): `automation/icash-uniopen-quota/` + `.github/workflows/icash-uniopen-quota.yml` — keep in sync if you move the active cron back to the app repo.
