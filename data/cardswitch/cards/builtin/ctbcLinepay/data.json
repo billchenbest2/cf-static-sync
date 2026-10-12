@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-07T23:06:09.672Z",
+  "updatedAt": "2026-10-12T02:27:52.704Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -1474,7 +1474,7 @@
         {
           "categoryId": "life",
           "categoryName": "脆慢活",
-          "period": "2026/7/1~2026/12/31",
+          "period": "2026/5/1~2026/12/31",
           "offerText": "6%",
           "noticeText": "每人每月回饋上限400點",
           "limitText": "上限400點",
@@ -2372,9 +2372,9 @@
           "categoryName": "脆自遊",
           "period": "2026/10/1~2026/12/31",
           "offerText": "最高18%",
-          "noticeText": "LINE Pay支付",
+          "noticeText": "LINE Pay支付\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n \n 國際組織尊享禮遇\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n Visa無限卡/商務御璽卡/御璽卡\n \n 機場接送475元起\n 精選米其林餐廳75折起\n 健身房預約199元起\n 海外行李托運優惠\n \n \n 更多優惠\n \n \n \n \n \n \n \n \n \n \n \n \n \n JCB晶緻卡/極緻卡\n \n 免費機場接送\n 星巴克咖啡指定飲品半價\n 免費機場貴賓室\n 食在日系餐廳現折50元\n \n \n 更多優惠\n \n \n \n \n \n \n 本活動優惠由(Visa/JCB)信用卡國際組織提供，中國信託僅代為轉知相關優惠訊息，持卡人對於相關活動內容如有任何疑問，請洽相關信用卡國際組織\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n\n \n \n \n \n \n 謹慎理財 信用至上\n \n \n \n 信用卡循環年利率：本行ARMs指數＋加碼利率(5.97%~13.47%)；上限為15%，預借現金手續費為每筆預借金額X3.5%+150元，循環利率基準日為104年9月1日，其他費用請上\n www.ctbcbank.com查詢\n \n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n 脆饗食\n \n \n \n \n \n \n \n \n \n \n 脆好購\n \n \n \n \n \n \n \n \n \n \n 脆時尚\n \n \n \n \n \n \n \n \n \n \n 脆萌寵\n \n \n \n \n \n \n \n \n \n \n 脆慢活\n \n \n \n \n \n \n \n \n \n \n 脆自遊\n \n \n \n\n \n \n \n \n\n \n \n \n \n \n \n \n \n \n \n \n \n var bigdata_infos = {\n prodname: '更多優惠',\n prodid: 'cc_offer_others',\n prodcateid: 'CCO',\n };\n \n \n \n \n \n \n try{\n var target_url = window.parent.location.search;\n var target_a = document.querySelectorAll('a');\n var ct_utmObj = {};\n var ct_utm = ['utm_source' , 'utm_medium' , 'utm_campaign' , 'utm_content' , 'ctsource' , 'ctchannel' , 'ctid' , 'Unit' , 'Seed' , 'Chnl'];\n if( target_url.split('?').length > 1 ){\n var target_url_querystring = target_url.split('?')[1];\n for(var i=0; i 1 ){\n var href_url = attr_href.split('?')[0];\n var href_querystring = attr_href.split('?')[1];\n var urlParam = new URLSearchParams( href_querystring );\n for(var key in ct_utmObj) {\n var value = ct_utmObj[key];\n urlParam.set(key , value);\n }\n urlParam.forEach(function ( value , key ) {\n if(key == ''){\n new_params.push( value );\n }else if(value == ''){\n new_params.push( key );\n }else{\n new_params.push( key + '=' + value );\n }\n });\n target_a[i].setAttribute('href' , encodeURI( href_url + '?' + new_params.join('&') ) );\n }else{\n var href_url = attr_href.split('?')[0];\n for(var key in ct_utmObj) {\n var value = ct_utmObj[key];\n new_params.push( key + '=' + value );\n }\n if (new_params.length > 0){\n target_a[i].setAttribute('href' , encodeURI( href_url + '?' + new_params.join('&') ) );\n }\n }\n }\n }\n }\n }\n catch(e){\n console.log(e);\n }",
           "limitText": null,
-          "limitPeriod": null,
+          "limitPeriod": "每筆",
           "ratePercent": 18,
           "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/e1f669bf-4f6b-42b1-87f9-1e3c60dd38cc"
         }
