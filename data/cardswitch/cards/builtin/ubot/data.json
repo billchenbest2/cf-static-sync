@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-06T22:39:52.039Z",
+  "updatedAt": "2026-10-14T21:42:05.228Z",
   "designated_channels": [
     "王品集團",
     "三商集團",
@@ -66,8 +66,8 @@
       "min_spend": 100,
       "rate": 5,
       "cap": 150,
-      "full_notice": "9月回饋於115/9/12 20:30額滿",
-      "full_month": 9,
+      "full_notice": "10月回饋於115/10/14 06:30額滿",
+      "full_month": 10,
       "period_start": "2026-07-01",
       "period_end": "2026-12-31"
     },
