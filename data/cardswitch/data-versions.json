@@ -1,14 +1,14 @@
 {
-  "updatedAt": "2026-10-14T21:42:11.029Z",
+  "updatedAt": "2026-10-15T21:23:47.774Z",
   "files": {
     "cards/builtin/cathay/data.json": "2026-09-30T22:17:21.630Z",
     "cards/builtin/cathayAsiaMiles/data.json": "2026-08-23T03:56:19.601Z",
     "cards/builtin/ctbcCal/data.json": "2026-08-23T03:56:20.134Z",
-    "cards/builtin/ctbcLinepay/data.json": "2026-10-12T02:27:52.704Z",
+    "cards/builtin/ctbcLinepay/data.json": "2026-10-15T21:23:39.313Z",
     "cards/builtin/dbsAov/data.json": "2026-10-06T22:39:57.860Z",
     "cards/builtin/esun/data.json": "2026-08-31T22:51:41.074Z",
     "cards/builtin/esunStarlux/data.json": "2026-08-23T03:56:19.778Z",
-    "cards/builtin/hsbc/data.json": "2026-08-30T07:33:07.139Z",
+    "cards/builtin/hsbc/data.json": "2026-10-15T21:23:40.897Z",
     "cards/builtin/hsbcTravel/data.json": "2026-08-23T03:56:20.086Z",
     "cards/builtin/taishin/data.json": "2026-09-24T21:31:45.166Z",
     "cards/builtin/ubot/data.json": "2026-10-14T21:42:05.228Z",

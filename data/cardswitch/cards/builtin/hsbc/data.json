@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-30T07:33:07.139Z",
+  "updatedAt": "2026-10-15T21:23:40.897Z",
   "merchants": [
     {
       "name": "王品集團",
@@ -242,16 +242,6 @@
       "note": "官方通路"
     },
     {
-      "name": "微風三總",
-      "category": "餐飲",
-      "note": "官方通路"
-    },
-    {
-      "name": "微風北車",
-      "category": "餐飲",
-      "note": "官方通路"
-    },
-    {
       "name": "遠東SOGO百貨",
       "category": "餐飲",
       "note": "官方通路"
@@ -272,7 +262,7 @@
       "note": "官方通路"
     },
     {
-      "name": "SKM Park Outlet",
+      "name": "SKM Park Outlets 高雄草衙",
       "category": "餐飲",
       "note": "官方通路"
     },
@@ -318,6 +308,11 @@
     },
     {
       "name": "LaLaport台中",
+      "category": "餐飲",
+      "note": "官方通路"
+    },
+    {
+      "name": "LaLaport南港",
       "category": "餐飲",
       "note": "官方通路"
     },
@@ -452,16 +447,6 @@
       "note": "官方通路"
     },
     {
-      "name": "微風三總",
-      "category": "購物",
-      "note": "官方通路"
-    },
-    {
-      "name": "微風北車",
-      "category": "購物",
-      "note": "官方通路"
-    },
-    {
       "name": "遠東SOGO百貨",
       "category": "購物",
       "note": "官方通路"
@@ -482,7 +467,7 @@
       "note": "官方通路"
     },
     {
-      "name": "SKM Park Outlet",
+      "name": "KM Park Outlets 高雄草衙",
       "category": "購物",
       "note": "官方通路"
     },
@@ -528,6 +513,11 @@
     },
     {
       "name": "LaLaport台中",
+      "category": "購物",
+      "note": "官方通路"
+    },
+    {
+      "name": "LaLaport南港",
       "category": "購物",
       "note": "官方通路"
     },
@@ -622,12 +612,12 @@
       "note": "官方通路"
     },
     {
-      "name": "大魯閣湳雅廣場",
+      "name": "明曜百貨",
       "category": "購物",
       "note": "官方通路"
     },
     {
-      "name": "明曜百貨",
+      "name": "漢神洲際購物廣場",
       "category": "購物",
       "note": "官方通路"
     },

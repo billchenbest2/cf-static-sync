@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-12T02:27:52.704Z",
+  "updatedAt": "2026-10-15T21:23:39.313Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -1940,6 +1940,25 @@
           "limitPeriod": "每筆",
           "ratePercent": 16,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_hotelscom"
+        }
+      ]
+    },
+    {
+      "name": "完美行滑雪",
+      "keywords": [
+        "完美行滑雪"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/10/1~2026/12/31 22:59",
+          "offerText": "滿額最高享現折800日圓+LINE POINTS 5%",
+          "noticeText": "限信用卡",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_travel.html#lightbox_wamazing"
         }
       ]
     },
