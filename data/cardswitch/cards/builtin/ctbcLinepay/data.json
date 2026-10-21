@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15T21:23:39.313Z",
+  "updatedAt": "2026-10-21T21:43:28.451Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -1952,7 +1952,7 @@
         {
           "categoryId": "travel",
           "categoryName": "脆自遊",
-          "period": "2026/10/1~2026/12/31 22:59",
+          "period": "2026/10/15~2026/12/31 22:59",
           "offerText": "滿額最高享現折800日圓+LINE POINTS 5%",
           "noticeText": "限信用卡",
           "limitText": null,
@@ -2092,25 +2092,6 @@
           "limitPeriod": null,
           "ratePercent": 25,
           "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/d51d21d6-a185-4b3e-90b5-c22310f98f33"
-        }
-      ]
-    },
-    {
-      "name": "OLIVE YOUNG Global\n線上購物",
-      "keywords": [
-        "OLIVE YOUNG Global\n線上購物"
-      ],
-      "offers": [
-        {
-          "categoryId": "travel",
-          "categoryName": "脆自遊",
-          "period": "2026/10/1~2026/10/11",
-          "offerText": "最高8%",
-          "noticeText": "LINE Pay支付",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 8,
-          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/b943d156-55c6-46a0-b162-2074c75d5d87"
         }
       ]
     },
