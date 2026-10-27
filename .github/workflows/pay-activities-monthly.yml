@@ -1,7 +1,8 @@
 name: Pay activities pipeline (every 5 days → CardSwitch)
 
 # Crawl + OCR + AI into cf-static-sync/data/pay (cached), then publish to CardSwitch.
-# Taipei window (gated): every 5 days (1/6/11/16/21/26) at 00:30
+# Taipei cadence (gated by calendar day only): 1/6/11/16/21/26.
+# Cron aims at ~00:30 Taipei; gate ignores hour because Actions schedules often delay hours.
 
 on:
   workflow_dispatch:
@@ -27,8 +28,8 @@ on:
         type: boolean
         default: false
   schedule:
-    # Daily 16:30 UTC (= 00:30 Taipei next calendar day). Gate keeps only
-    # Taipei days 1/6/11/16/21/26 so the cadence is every ~5 days.
+    # Daily 16:30 UTC (~00:30 Taipei next calendar day). Gate keeps only
+    # Taipei days 1/6/11/16/21/26 (day-of-month; hour not checked).
     - cron: "30 16 * * *"
 
 concurrency:
@@ -51,10 +52,10 @@ jobs:
         continue-on-error: true
         run: node tools/pay-pipeline/should-run.mjs
 
-      - name: Skip outside window
+      - name: Skip outside cadence days
         if: steps.gate.outcome == 'failure' && github.event_name == 'schedule'
         run: |
-          echo "Outside every-5-days Taipei window — exiting successfully."
+          echo "Outside every-5-days Taipei cadence days (1/6/11/16/21/26) — exiting successfully."
           exit 0
 
       - name: Require secrets

@@ -1,11 +1,12 @@
 /**
  * Decide whether a scheduled pay-pipeline run should proceed (Asia/Taipei).
  *
- * Allowed window: every 5 calendar days (day-of-month 1,6,11,16,21,26)
- * at ~00:30 Taipei.
+ * Allowed days: every 5 calendar days (day-of-month 1, 6, 11, 16, 21, 26).
  *
- * Cron in the workflow fires on those UTC slots; this gate double-checks
- * Taipei local time so delayed runners still pass within +/- 20 minutes.
+ * Cron fires daily at 16:30 UTC (~00:30 Taipei next day). This gate only
+ * checks the Taipei calendar day — not hour/minute — because GitHub Actions
+ * schedules are often delayed by several hours; a tight 00:30+/-20 window
+ * caused every scheduled run to soft-skip for weeks.
  *
  * Usage: node tools/pay-pipeline/should-run.mjs
  * Exit 0 = run, 78 = skip (soft), 1 = error
@@ -36,11 +37,7 @@ function taipeiNow() {
   };
 }
 
-function inWindow(t) {
-  // Allow +/- 20 minutes around :30 so delayed runners still pass.
-  const near30 = Math.abs(t.minute - 30) <= 20;
-  if (!near30) return false;
-  if (t.hour !== 0) return false;
+function onCadenceDay(t) {
   return CADENCE_DAYS.has(t.day);
 }
 
@@ -57,10 +54,10 @@ if (process.env.GITHUB_EVENT_NAME === 'workflow_dispatch') {
   process.exit(0);
 }
 
-if (inWindow(t)) {
-  console.log(`[should-run] every-5-days window hit — proceed (${stamp})`);
+if (onCadenceDay(t)) {
+  console.log(`[should-run] every-5-days cadence day — proceed (${stamp})`);
   process.exit(0);
 }
 
-console.log(`[should-run] outside every-5-days 00:30 window — skip (${stamp})`);
+console.log(`[should-run] outside every-5-days cadence days — skip (${stamp})`);
 process.exit(78);
