@@ -2,6 +2,7 @@
   "mode": "preview",
   "outputRoot": "/home/runner/work/cf-static-sync/cf-static-sync/data/cardswitch",
   "updated": [
+    "miles_data/hsbc_miles_data.json",
     "data-versions.json"
   ],
   "unchanged": [
@@ -20,9 +21,8 @@
     "miles_data/esun_miles_data.json",
     "miles_data/cathay_miles_data.json",
     "miles_data/openpoint_miles_data.json",
-    "miles_data/dbs_miles_data.json",
-    "miles_data/hsbc_miles_data.json"
+    "miles_data/dbs_miles_data.json"
   ],
   "skipped": [],
-  "finishedAt": "2026-10-29T22:45:49.554Z"
+  "finishedAt": "2026-10-30T22:21:13.682Z"
 }
