@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-03T00:58:44.916Z",
+  "updatedAt": "2026-11-03T23:25:29.466Z",
   "items": [
     {
       "airline": "中華航空哩程",
@@ -9,16 +9,6 @@
       "is_limited": false,
       "available": true,
       "sold_out": false
-    },
-    {
-      "airline": "長榮航空哩程",
-      "plan": "每8,000 點→ 17,500 哩。\n活動期間限量1,600份\n本活動僅開放線上兌換。",
-      "cost_points": 8000,
-      "redeemed_miles": 17500,
-      "is_limited": true,
-      "available": false,
-      "sold_out": true,
-      "stock": 0
     },
     {
       "airline": "長榮航空哩程",
