@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-21T21:43:28.451Z",
+  "updatedAt": "2026-11-03T00:58:31.932Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -1428,6 +1428,36 @@
       ]
     },
     {
+      "name": "Adidas",
+      "keywords": [
+        "Adidas"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/11/1~2026/11/12",
+          "offerText": "16%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 16,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/9ca2772f-41b7-42d4-973d-f6ff4ce18021"
+        },
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
       "name": "大樹藥局",
       "keywords": [
         "大樹藥局"
@@ -1462,6 +1492,63 @@
           "limitPeriod": "每月",
           "ratePercent": 4,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_casetify"
+        }
+      ]
+    },
+    {
+      "name": "Verve",
+      "keywords": [
+        "Verve"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/11/1～2026/11/30",
+          "offerText": "最高85折+LINE POINTS 5%",
+          "noticeText": "Visa卡\n 每人每月上限300點",
+          "limitText": "上限300點",
+          "limitPeriod": "每月",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_verve"
+        }
+      ]
+    },
+    {
+      "name": "FUNTE",
+      "keywords": [
+        "FUNTE"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/11/1～2026/11/12",
+          "offerText": "最高88折+LINE POINTS 5%",
+          "noticeText": "Visa卡\n 每人每月上限600點",
+          "limitText": "上限600點",
+          "limitPeriod": "每月",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_funte"
+        }
+      ]
+    },
+    {
+      "name": "綠綠好日",
+      "keywords": [
+        "綠綠好日"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/11/1～2026/11/30",
+          "offerText": "現折NT500元+ LINE POINTS 5%",
+          "noticeText": "Visa卡\n 每人每月上限600點",
+          "limitText": "上限600點",
+          "limitPeriod": "每月",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_havegreendays"
         }
       ]
     },
@@ -1749,25 +1836,6 @@
           "limitText": null,
           "limitPeriod": null,
           "ratePercent": 7,
-          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
-        }
-      ]
-    },
-    {
-      "name": "Adidas",
-      "keywords": [
-        "Adidas"
-      ],
-      "offers": [
-        {
-          "categoryId": "life",
-          "categoryName": "脆慢活",
-          "period": "2026/7/1~2026/12/31",
-          "offerText": "5%",
-          "noticeText": "限信用卡且透過SHOPBACK專區",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 5,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
         }
       ]
@@ -2092,6 +2160,63 @@
           "limitPeriod": null,
           "ratePercent": 25,
           "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/d51d21d6-a185-4b3e-90b5-c22310f98f33"
+        }
+      ]
+    },
+    {
+      "name": "韓國OLIVE YOUNG",
+      "keywords": [
+        "韓國OLIVE YOUNG"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/11/1~2026/11/7",
+          "offerText": "最高10%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 10,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/cfba46d0-6a3a-4c32-991a-f32480a29298"
+        }
+      ]
+    },
+    {
+      "name": "OLIVE YOUNG Global\n線上購物",
+      "keywords": [
+        "OLIVE YOUNG Global\n線上購物"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/11/1~2026/11/12",
+          "offerText": "最高10%",
+          "noticeText": "LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 10,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/35aa59b6-e249-4a04-b95c-49f64d23c8e5"
+        }
+      ]
+    },
+    {
+      "name": "韓國Weverse\n全球粉絲平台",
+      "keywords": [
+        "韓國Weverse\n全球粉絲平台"
+      ],
+      "offers": [
+        {
+          "categoryId": "travel",
+          "categoryName": "脆自遊",
+          "period": "2026/11/1~2026/11/30",
+          "offerText": "最高20%",
+          "noticeText": "Visa卡\n LINE Pay支付",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 20,
+          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/d258584c-5eb1-4b4e-b431-3e1106269d96"
         }
       ]
     },

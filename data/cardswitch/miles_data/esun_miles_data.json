@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-31T21:35:55.044Z",
+  "updatedAt": "2026-11-03T00:58:44.916Z",
   "items": [
     {
       "airline": "中華航空哩程",
@@ -16,9 +16,9 @@
       "cost_points": 8000,
       "redeemed_miles": 17500,
       "is_limited": true,
-      "available": true,
-      "sold_out": false,
-      "stock": 1600
+      "available": false,
+      "sold_out": true,
+      "stock": 0
     },
     {
       "airline": "長榮航空哩程",
