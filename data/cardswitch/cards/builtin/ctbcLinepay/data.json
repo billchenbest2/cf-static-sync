@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-04T23:40:04.481Z",
+  "updatedAt": "2026-11-10T23:23:17.167Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -1993,25 +1993,6 @@
       ]
     },
     {
-      "name": "ITF台灣國際旅展",
-      "keywords": [
-        "ITF台灣國際旅展"
-      ],
-      "offers": [
-        {
-          "categoryId": "travel",
-          "categoryName": "脆自遊",
-          "period": "2026/11/6~2026/11/9",
-          "offerText": "6%",
-          "noticeText": "LINE Pay支付",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 6,
-          "detailUrl": "https://web-tw-pay.line.me/svc/event/display2/5df8b961-43f7-4806-994f-51f7932714ef"
-        }
-      ]
-    },
-    {
       "name": "Hotels.com",
       "keywords": [
         "Hotels.com"
@@ -2179,25 +2160,6 @@
           "limitPeriod": null,
           "ratePercent": 25,
           "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/d51d21d6-a185-4b3e-90b5-c22310f98f33"
-        }
-      ]
-    },
-    {
-      "name": "韓國OLIVE YOUNG",
-      "keywords": [
-        "韓國OLIVE YOUNG"
-      ],
-      "offers": [
-        {
-          "categoryId": "travel",
-          "categoryName": "脆自遊",
-          "period": "2026/11/1~2026/11/7",
-          "offerText": "最高10%",
-          "noticeText": "LINE Pay支付",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 10,
-          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/cfba46d0-6a3a-4c32-991a-f32480a29298"
         }
       ]
     },

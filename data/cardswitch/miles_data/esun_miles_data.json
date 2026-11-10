@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-03T23:25:29.466Z",
+  "updatedAt": "2026-11-10T23:23:26.008Z",
   "items": [
+    {
+      "airline": "中華航空哩程",
+      "plan": "每玉山e point 11點兌換 11 哩\n雙11期間限定，限時不限量，活動期間為2026/11/11-2026/11/18",
+      "cost_points": 11,
+      "redeemed_miles": 11,
+      "is_limited": false,
+      "available": true,
+      "sold_out": false
+    },
     {
       "airline": "中華航空哩程",
       "plan": "每200 點→ 180 哩",
@@ -12,9 +21,27 @@
     },
     {
       "airline": "長榮航空哩程",
+      "plan": "每玉山e point 11點兌換 20 哩\n雙11期間限定，限時不限量，活動期間為2026/11/11-2026/11/18",
+      "cost_points": 11,
+      "redeemed_miles": 20,
+      "is_limited": false,
+      "available": true,
+      "sold_out": false
+    },
+    {
+      "airline": "長榮航空哩程",
       "plan": "每200 點→ 300 哩",
       "cost_points": 200,
       "redeemed_miles": 300,
+      "is_limited": false,
+      "available": true,
+      "sold_out": false
+    },
+    {
+      "airline": "亞洲萬里通里數",
+      "plan": "每玉山e point 11點兌換 20 里數\n雙11期間限定，限時不限量，活動期間為2026/11/11-2026/11/18",
+      "cost_points": 11,
+      "redeemed_miles": 20,
       "is_limited": false,
       "available": true,
       "sold_out": false
