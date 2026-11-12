@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-10T23:23:17.167Z",
+  "updatedAt": "2026-11-12T23:39:12.691Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -1428,36 +1428,6 @@
       ]
     },
     {
-      "name": "Adidas",
-      "keywords": [
-        "Adidas"
-      ],
-      "offers": [
-        {
-          "categoryId": "life",
-          "categoryName": "脆慢活",
-          "period": "2026/11/1~2026/11/12",
-          "offerText": "16%",
-          "noticeText": "LINE Pay支付",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 16,
-          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/9ca2772f-41b7-42d4-973d-f6ff4ce18021"
-        },
-        {
-          "categoryId": "life",
-          "categoryName": "脆慢活",
-          "period": "2026/7/1~2026/12/31",
-          "offerText": "5%",
-          "noticeText": "限信用卡且透過SHOPBACK專區",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 5,
-          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
-        }
-      ]
-    },
-    {
       "name": "大樹藥局",
       "keywords": [
         "大樹藥局"
@@ -1511,25 +1481,6 @@
           "limitPeriod": "每月",
           "ratePercent": 5,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_verve"
-        }
-      ]
-    },
-    {
-      "name": "FUNTE",
-      "keywords": [
-        "FUNTE"
-      ],
-      "offers": [
-        {
-          "categoryId": "life",
-          "categoryName": "脆慢活",
-          "period": "2026/11/1～2026/11/12",
-          "offerText": "最高88折+LINE POINTS 5%",
-          "noticeText": "Visa卡\n 每人每月上限600點",
-          "limitText": "上限600點",
-          "limitPeriod": "每月",
-          "ratePercent": 5,
-          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_funte"
         }
       ]
     },
@@ -1841,6 +1792,25 @@
       ]
     },
     {
+      "name": "Adidas",
+      "keywords": [
+        "Adidas"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/7/1~2026/12/31",
+          "offerText": "5%",
+          "noticeText": "限信用卡且透過SHOPBACK專區",
+          "limitText": null,
+          "limitPeriod": null,
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
+        }
+      ]
+    },
+    {
       "name": "摩曼頓",
       "keywords": [
         "摩曼頓"
@@ -1875,25 +1845,6 @@
           "limitPeriod": null,
           "ratePercent": 5,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_shopback"
-        }
-      ]
-    },
-    {
-      "name": "新光三越",
-      "keywords": [
-        "新光三越"
-      ],
-      "offers": [
-        {
-          "categoryId": "life",
-          "categoryName": "脆慢活",
-          "period": "2026/10/1~2026/10/25",
-          "offerText": "滿額贈200元優惠券",
-          "noticeText": "LINE Pay支付",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": null,
-          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/6dd7290c-7827-4859-a158-89f6b521e83e"
         }
       ]
     },
@@ -2160,25 +2111,6 @@
           "limitPeriod": null,
           "ratePercent": 25,
           "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/d51d21d6-a185-4b3e-90b5-c22310f98f33"
-        }
-      ]
-    },
-    {
-      "name": "OLIVE YOUNG Global\n線上購物",
-      "keywords": [
-        "OLIVE YOUNG Global\n線上購物"
-      ],
-      "offers": [
-        {
-          "categoryId": "travel",
-          "categoryName": "脆自遊",
-          "period": "2026/11/1~2026/11/12",
-          "offerText": "最高10%",
-          "noticeText": "LINE Pay支付",
-          "limitText": null,
-          "limitPeriod": null,
-          "ratePercent": 10,
-          "detailUrl": "https://web-tw-pay.line.me/cms/event/template1.3/35aa59b6-e249-4a04-b95c-49f64d23c8e5"
         }
       ]
     },
