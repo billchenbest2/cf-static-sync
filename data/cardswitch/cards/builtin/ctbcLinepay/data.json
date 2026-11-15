@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-12T23:39:12.691Z",
+  "updatedAt": "2026-11-15T22:49:00.065Z",
   "sourceUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/store.html",
   "merchants": [
     {
@@ -1481,6 +1481,25 @@
           "limitPeriod": "每月",
           "ratePercent": 5,
           "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_verve"
+        }
+      ]
+    },
+    {
+      "name": "FUNTE",
+      "keywords": [
+        "FUNTE"
+      ],
+      "offers": [
+        {
+          "categoryId": "life",
+          "categoryName": "脆慢活",
+          "period": "2026/11/1～2026/11/30",
+          "offerText": "LINE POINTS 5%",
+          "noticeText": "Visa卡\n 每人每月上限600點",
+          "limitText": "上限600點",
+          "limitPeriod": "每月",
+          "ratePercent": 5,
+          "detailUrl": "https://www.ctbcbank.com/content/dam/minisite/long/creditcard/LINEPay/page_life.html#lightbox_funte"
         }
       ]
     },
